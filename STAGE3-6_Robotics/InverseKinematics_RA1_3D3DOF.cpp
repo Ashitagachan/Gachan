@@ -155,17 +155,6 @@ namespace InverseKinematics_RA1_3D3DOF
         gachan->pSangle     = ikret.pSangle;
         gachan->pEangle     = ikret.pEangle;
         gachan->pHpos       = ikret.position3D;
-#if 1
-        GachanGame::Log("determinant %.3f pos %.2f %.2f %.2f pEangle %.1f pSangle %.1f pSxangle %.1f\n",
-            ikret.determinant,
-            gachan->pHpos.x,
-            gachan->pHpos.y,
-            gachan->pHpos.z,
-            DEGREE(gachan->pEangle),
-            DEGREE(gachan->pSangle),
-            DEGREE(gachan->pSxangle)
-        );
-#endif
     }
     
     void Render()
