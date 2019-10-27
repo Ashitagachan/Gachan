@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GachanWIN10">
+      <UniqueIdentifier>{7370f6e0-e30c-44d4-848f-ebb48c24dce2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GachanWIN10\リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Gachan">
+      <UniqueIdentifier>{05947e7b-af5e-41a7-b1c2-8448651f4ce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="User">
+      <UniqueIdentifier>{a0523b9b-2cbb-4c66-b93d-3de81249488c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sample">
+      <UniqueIdentifier>{9662a62f-b04e-4ecf-866f-10bae685e873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\Gachan3D">
+      <UniqueIdentifier>{3b7c4993-2e12-435b-b349-86d15bb39d3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanGame">
+      <UniqueIdentifier>{278e663b-9ddb-45a0-b3cb-7b1983f3935c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanMath">
+      <UniqueIdentifier>{d1143633-bcf5-410d-aa3f-f5d58958bc32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\Gachan3D\GachanD3D12">
+      <UniqueIdentifier>{cad6defd-11c4-4118-a9c6-fe7e7898fb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader">
+      <UniqueIdentifier>{13e236b7-3604-4da4-b223-4a0b815a02cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanGame\GachanGameObject">
+      <UniqueIdentifier>{c9439502-f2b0-4e3f-92aa-312a045363e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\Gachan3D\Gachan3DTextData">
+      <UniqueIdentifier>{0b68f801-650a-4f2d-b184-adc855ab6327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanAudio">
+      <UniqueIdentifier>{d2381850-8844-4011-96ab-bd575e255f61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanGame\GachanGameAudio">
+      <UniqueIdentifier>{6e76bc45-99e7-4960-bd6d-443443135260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanController">
+      <UniqueIdentifier>{b69c7b48-e650-4ce1-8f21-7956c6631349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE3-2_GameProgramming">
+      <UniqueIdentifier>{d073bc88-978a-433c-abcf-521afa104148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-3_Beginners3DProgramming">
+      <UniqueIdentifier>{73da0b27-1af9-43c3-a4b1-ef89bfdf8ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gachan\GachanRobotics">
+      <UniqueIdentifier>{ac2549e6-9f44-410c-9c7a-be8a8e1a7d6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE3-6_Robotics">
+      <UniqueIdentifier>{fbab2d8f-b2a7-46cd-9edb-8104c795ae13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GachanWIN10.h">
+      <Filter>GachanWIN10</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>GachanWIN10</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>GachanWIN10</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>GachanWIN10</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DVertexTypes.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3D.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DCamera.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObject.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObjectDefine.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShader.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Base.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Pass.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderTypes.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameObject.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGame.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameCamera.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameLight.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathVector.h">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMath.h">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_ps_default.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_default.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GachanNameSpace.h" />
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathMatrix.h">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameKeyboard.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan.h">
+      <Filter>Gachan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DText.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.h">
+      <Filter>Gachan\GachanAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudio.h">
+      <Filter>Gachan\GachanAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameAudio.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanController\GachanController.h">
+      <Filter>Gachan\GachanController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanController\GachanControllerMap.h">
+      <Filter>Gachan\GachanController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameController.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.h">
+      <Filter>Gachan\GachanRobotics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GachanWIN10.cpp">
+      <Filter>GachanWIN10</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>GachanWIN10</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DCamera.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DObject.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DShader.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3D.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Base.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Pass.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12VertexIndex.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGame.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameCamera.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameLight.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameObject.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathVector.cpp">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMath.cpp">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathMatrix.cpp">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\MyGame.cpp">
+      <Filter>User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\Sample000.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\Sample001.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\Sample002.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\Sample003.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameKeyboard.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameWIN10.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextDataKanji2nd.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DText.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextData.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextDataKanji1st.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10.cpp">
+      <Filter>Gachan\GachanAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.cpp">
+      <Filter>Gachan\GachanAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameAudio.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanController\GachanControllerWIN10DIMap.cpp">
+      <Filter>Gachan\GachanController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanController\GachanController.cpp">
+      <Filter>Gachan\GachanController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanController\GachanControllerWIN10.cpp">
+      <Filter>Gachan\GachanController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanController\GachanControllerWIN10DI.cpp">
+      <Filter>Gachan\GachanController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameController.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovement.cpp">
+      <Filter>STAGE3-2_GameProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovementForCamera.cpp">
+      <Filter>STAGE3-2_GameProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform3D.cpp">
+      <Filter>STAGE2-3_Beginners3DProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform2D.cpp">
+      <Filter>STAGE2-3_Beginners3DProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\SampleText.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\SampleAudio.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sample\SampleController.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.cpp">
+      <Filter>Gachan\GachanRobotics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_3D3DOF.cpp">
+      <Filter>STAGE3-6_Robotics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_2D2DOF.cpp">
+      <Filter>STAGE3-6_Robotics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GachanWIN10.rc">
+      <Filter>GachanWIN10\リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>GachanWIN10\リソース ファイル</Filter>
+    </Image>
+    <Image Include="GachanWIN10.ico">
+      <Filter>GachanWIN10\リソース ファイル</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderVertex.hlsl">
+      <Filter>Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderPixel.hlsl">
+      <Filter>Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectShape00.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBasic00.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBlock00.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectFace00.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectGrid.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKIGOU2Mplus1p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextASCIIMplus1m.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextEISUUMplus1p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextHankakuKanaMplus1p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextHiraganaMplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st1Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st2Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st3Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st4Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st5Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st6Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd1Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd2Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd3Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd4Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd5Mplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKatakanaMplus2p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKIGOU1Mplus1p.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DTextData</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectArm.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Sound3DMove.wav">
+      <Filter>Gachan\GachanGame\GachanGameAudio</Filter>
+    </Media>
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Music00.wav">
+      <Filter>Gachan\GachanGame\GachanGameAudio</Filter>
+    </Media>
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Music01.wav">
+      <Filter>Gachan\GachanGame\GachanGameAudio</Filter>
+    </Media>
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Sound3DBomb.wav">
+      <Filter>Gachan\GachanGame\GachanGameAudio</Filter>
+    </Media>
+  </ItemGroup>
+</Project>

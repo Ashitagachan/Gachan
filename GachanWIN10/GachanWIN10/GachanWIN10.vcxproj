@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{BE8001B6-B577-47D0-A8E6-EA624580C3B1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GachanWIN10</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);WINDOWS;D3D12</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4068;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../;../../Gachan;../../Gachan/GachanRobotics;../../Gachan/GachanAudio;../../Gachan/GachanController;../../Gachan/Gachan3D;../../Gachan/Gachan3D/Gachan3DTextData;../../Gachan/GachanGame;../../Gachan/GachanMath;../../Gachan/Gachan3D/GachanD3D12;../../Gachan/Gachan3D/GachanD3D12/GachanD3D12Shader</AdditionalIncludeDirectories>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions);WINDOWS;D3D12</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4068;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../;../../Gachan;../../Gachan/GachanRobotics;../../Gachan/GachanAudio;../../Gachan/GachanController;../../Gachan/Gachan3D;../../Gachan/Gachan3D/Gachan3DTextData;../../Gachan/GachanGame;../../Gachan/GachanMath;../../Gachan/Gachan3D/GachanD3D12;../../Gachan/Gachan3D/GachanD3D12/GachanD3D12Shader</AdditionalIncludeDirectories>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);WINDOWS;D3D12</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4068;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../;../../Gachan;../../Gachan/GachanRobotics;../../Gachan/GachanAudio;../../Gachan/GachanController;../../Gachan/Gachan3D;../../Gachan/Gachan3D/Gachan3DTextData;../../Gachan/GachanGame;../../Gachan/GachanMath;../../Gachan/Gachan3D/GachanD3D12;../../Gachan/Gachan3D/GachanD3D12/GachanD3D12Shader</AdditionalIncludeDirectories>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions);WINDOWS;D3D12</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4068;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../;../../Gachan;../../Gachan/GachanRobotics;../../Gachan/GachanAudio;../../Gachan/GachanController;../../Gachan/Gachan3D;../../Gachan/Gachan3D/Gachan3DTextData;../../Gachan/GachanGame;../../Gachan/GachanMath;../../Gachan/Gachan3D/GachanD3D12;../../Gachan/Gachan3D/GachanD3D12/GachanD3D12Shader</AdditionalIncludeDirectories>
+      <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\GachanNameSpace.h" />
+    <ClInclude Include="..\..\Gachan\Gachan.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3D.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DCamera.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObject.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObjectDefine.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShader.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DText.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DVertexTypes.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Base.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Pass.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderTypes.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_ps_default.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_default.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.h" />
+    <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudio.h" />
+    <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.h" />
+    <ClInclude Include="..\..\Gachan\GachanController\GachanController.h" />
+    <ClInclude Include="..\..\Gachan\GachanController\GachanControllerMap.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGame.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameAudio.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameCamera.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameController.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameKeyboard.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameLight.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameObject.h" />
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMath.h" />
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathMatrix.h" />
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathVector.h" />
+    <ClInclude Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.h" />
+    <ClInclude Include="GachanWIN10.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3D.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DCamera.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DObject.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DShader.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DText.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextData.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextDataKanji1st.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextDataKanji2nd.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Base.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Pass.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12VertexIndex.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanController\GachanController.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanController\GachanControllerWIN10.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanController\GachanControllerWIN10DI.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanController\GachanControllerWIN10DIMap.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGame.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameAudio.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameCamera.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameController.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameKeyboard.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameLight.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameObject.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameWIN10.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMath.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathMatrix.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathVector.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.cpp" />
+    <ClCompile Include="..\..\Sample\Sample000.cpp" />
+    <ClCompile Include="..\..\Sample\Sample001.cpp" />
+    <ClCompile Include="..\..\Sample\Sample002.cpp" />
+    <ClCompile Include="..\..\Sample\Sample003.cpp" />
+    <ClCompile Include="..\..\Sample\SampleAudio.cpp" />
+    <ClCompile Include="..\..\Sample\SampleController.cpp" />
+    <ClCompile Include="..\..\Sample\SampleText.cpp" />
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform2D.cpp" />
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform3D.cpp" />
+    <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovement.cpp" />
+    <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovementForCamera.cpp" />
+    <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_2D2DOF.cpp" />
+    <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_3D3DOF.cpp" />
+    <ClCompile Include="..\..\User\MyGame.cpp" />
+    <ClCompile Include="GachanWIN10.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GachanWIN10.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="GachanWIN10.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextASCIIMplus1m.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextEISUUMplus1p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextHankakuKanaMplus1p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextHiraganaMplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st1Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st2Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st3Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st4Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st5Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji1st6Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd1Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd2Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd3Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd4Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKanji2nd5Mplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKatakanaMplus2p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKIGOU1Mplus1p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextKIGOU2Mplus1p.tst" />
+    <None Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderPixel.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderVertex.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectArm.tst" />
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBasic00.tst" />
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBlock00.tst" />
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectFace00.tst" />
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectGrid.tst" />
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectShape00.tst" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Music00.wav" />
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Music01.wav" />
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Sound3DBomb.wav" />
+    <Media Include="..\..\Gachan\GachanGame\GachanGameAudio\Sound3DMove.wav" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,826 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9923E552221FCDCC00066F16 /* Gachan3DObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E549221FCDCB00066F16 /* Gachan3DObject.cpp */; };
+		9923E553221FCDCC00066F16 /* Gachan3DShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E54C221FCDCB00066F16 /* Gachan3DShader.cpp */; };
+		9923E554221FCDCC00066F16 /* Gachan3DCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E54D221FCDCB00066F16 /* Gachan3DCamera.cpp */; };
+		9923E555221FCDCC00066F16 /* Gachan3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E550221FCDCB00066F16 /* Gachan3D.cpp */; };
+		9923E55E221FCDDC00066F16 /* GachanMETALVertexIndex.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9923E556221FCDDC00066F16 /* GachanMETALVertexIndex.mm */; };
+		9923E55F221FCDDC00066F16 /* GachanMETALPass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9923E558221FCDDC00066F16 /* GachanMETALPass.mm */; };
+		9923E561221FCDDC00066F16 /* GachanMETALShader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9923E55C221FCDDC00066F16 /* GachanMETALShader.mm */; };
+		9923E562221FCDDC00066F16 /* GachanMETALBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9923E55D221FCDDC00066F16 /* GachanMETALBase.mm */; };
+		9923E566221FCDE500066F16 /* GachanMETALShaderVertex.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9923E563221FCDE500066F16 /* GachanMETALShaderVertex.metal */; };
+		9923E567221FCDE500066F16 /* GachanMETALShaderPixel.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9923E564221FCDE500066F16 /* GachanMETALShaderPixel.metal */; };
+		9923E56A221FCDFA00066F16 /* GachanGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E568221FCDFA00066F16 /* GachanGameObject.cpp */; };
+		9923E574221FD70D00066F16 /* GachanMathVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E571221FD70D00066F16 /* GachanMathVector.cpp */; };
+		9923E575221FD70D00066F16 /* GachanMathMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9923E573221FD70D00066F16 /* GachanMathMatrix.cpp */; };
+		9936316822C4ABAE00C7672E /* GachanControllerMACIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9936316622C4ABAE00C7672E /* GachanControllerMACIOS.mm */; };
+		9936316B22C4ABB900C7672E /* GachanGameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9936316922C4ABB900C7672E /* GachanGameController.cpp */; };
+		9937B07422D5B65C00CBC677 /* SuperSimpleSmoothMovement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9937B07322D5B65C00CBC677 /* SuperSimpleSmoothMovement.cpp */; };
+		993A031922CC750200DC67FF /* GachanControllerMACHID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 993A031722CC750200DC67FF /* GachanControllerMACHID.mm */; };
+		993A031A22CC750200DC67FF /* GachanControllerMACHIDMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 993A031822CC750200DC67FF /* GachanControllerMACHIDMap.mm */; };
+		993A031C22CC750C00DC67FF /* GachanController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 993A031B22CC750C00DC67FF /* GachanController.cpp */; };
+		993A031F22CC7D3500DC67FF /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993A031E22CC7D3400DC67FF /* GameController.framework */; };
+		993A032122CC7E3300DC67FF /* SampleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 993A032022CC7E3200DC67FF /* SampleController.cpp */; };
+		9942E6DA22291A9900BE83BC /* GachanGameCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9942E6D822291A9900BE83BC /* GachanGameCamera.cpp */; };
+		9942E6DC2229224200BE83BC /* Sample000.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9942E6DB2229224200BE83BC /* Sample000.cpp */; };
+		9942E6E0222A78EE00BE83BC /* GachanGameLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9942E6DE222A78EE00BE83BC /* GachanGameLight.cpp */; };
+		9942E6E6222AA34800BE83BC /* GachanGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9942E6E5222AA34800BE83BC /* GachanGame.cpp */; };
+		9948691C22C443AA00607AA1 /* GachanAudioMACIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9948691622C443AA00607AA1 /* GachanAudioMACIOS.mm */; };
+		9948691D22C443AA00607AA1 /* GachanAudioMACIOSEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9948691922C443AA00607AA1 /* GachanAudioMACIOSEngine.mm */; };
+		9948692122C443CA00607AA1 /* GachanGameAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9948691F22C443CA00607AA1 /* GachanGameAudio.cpp */; };
+		9948692822C443DA00607AA1 /* Music00.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9948692422C443DA00607AA1 /* Music00.wav */; };
+		9948692922C443DA00607AA1 /* Music01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9948692522C443DA00607AA1 /* Music01.wav */; };
+		9948692B22C444DB00607AA1 /* SampleAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9948692A22C444DB00607AA1 /* SampleAudio.cpp */; };
+		9948692E22C4453800607AA1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9948692D22C4453800607AA1 /* AVFoundation.framework */; };
+		9948C065221D42DA009485B9 /* MyGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9948C064221D42DA009485B9 /* MyGame.cpp */; };
+		996A81F92243659900176B0B /* Sample001.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 996A81F82243659900176B0B /* Sample001.cpp */; };
+		996A81FB2243707600176B0B /* GachanMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 996A81FA2243707600176B0B /* GachanMath.cpp */; };
+		996A82012244B61D00176B0B /* Sample002.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 996A82002244B61D00176B0B /* Sample002.cpp */; };
+		996A82052246056400176B0B /* GachanGameMACIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 996A82042246056400176B0B /* GachanGameMACIOS.mm */; };
+		996A820922460A2500176B0B /* Sample003.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 996A820822460A2500176B0B /* Sample003.cpp */; };
+		99897EAE222BA574003844B5 /* GachanGameKeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99897EAC222BA574003844B5 /* GachanGameKeyboard.cpp */; };
+		9997C6732330F51000A51488 /* GachanGameObjectArm.tst in Resources */ = {isa = PBXBuildFile; fileRef = 9997C6722330F51000A51488 /* GachanGameObjectArm.tst */; };
+		999CAE64235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999CAE63235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp */; };
+		999CAE74235D7E3A00258461 /* GachanGameInverseKinematics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999CAE72235D7E3900258461 /* GachanGameInverseKinematics.cpp */; };
+		999CAE7A235E83B500258461 /* GachanRoboticsInverseKinematics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999CAE79235E83B500258461 /* GachanRoboticsInverseKinematics.cpp */; };
+		999CAE7C235EECFD00258461 /* InverseKinematics_RA1_3D3DOF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999CAE7B235EECFD00258461 /* InverseKinematics_RA1_3D3DOF.cpp */; };
+		99A15FAD22B3A3D0005BAEA6 /* Gachan3DMatrixStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A15FAB22B3A3D0005BAEA6 /* Gachan3DMatrixStack.cpp */; };
+		99A243A922B4BD9F00A410C6 /* Gachan3DText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A243A722B4BD9F00A410C6 /* Gachan3DText.cpp */; };
+		99A243DA22B4C97700A410C6 /* Gachan3DTextData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A243D722B4C97600A410C6 /* Gachan3DTextData.cpp */; };
+		99A243DB22B4C97700A410C6 /* Gachan3DTextDataKanji1st.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A243D822B4C97600A410C6 /* Gachan3DTextDataKanji1st.cpp */; };
+		99A243DC22B4C97700A410C6 /* Gachan3DTextDataKanji2nd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A243D922B4C97600A410C6 /* Gachan3DTextDataKanji2nd.cpp */; };
+		99A2440A22B4D9A600A410C6 /* SampleText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A2440922B4D9A600A410C6 /* SampleText.cpp */; };
+		99A7D7BB221BCEE9001BE0CA /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 99A7D7BA221BCEE9001BE0CA /* AppDelegate.mm */; };
+		99A7D7BE221BCEE9001BE0CA /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 99A7D7BD221BCEE9001BE0CA /* ViewController.mm */; };
+		99A7D7C0221BCEE9001BE0CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99A7D7BF221BCEE9001BE0CA /* Assets.xcassets */; };
+		99A7D7C3221BCEE9001BE0CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A7D7C1221BCEE9001BE0CA /* Main.storyboard */; };
+		99A7D7C6221BCEE9001BE0CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A7D7C5221BCEE9001BE0CA /* main.m */; };
+		99C0809F22CF241F0044F02C /* Sound3DMove01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 99C0809B22CF241F0044F02C /* Sound3DMove01.wav */; };
+		99C080A022CF241F0044F02C /* Sound3DExplosion01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 99C0809C22CF241F0044F02C /* Sound3DExplosion01.wav */; };
+		99C080A122CF241F0044F02C /* Sound3DExplosion00.wav in Resources */ = {isa = PBXBuildFile; fileRef = 99C0809D22CF241F0044F02C /* Sound3DExplosion00.wav */; };
+		99C080A222CF241F0044F02C /* Sound3DMove00.wav in Resources */ = {isa = PBXBuildFile; fileRef = 99C0809E22CF241F0044F02C /* Sound3DMove00.wav */; };
+		99CC8E452331C5FA00C06E07 /* Transform2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99CC8E442331C5FA00C06E07 /* Transform2D.cpp */; };
+		99CC8E472333192500C06E07 /* Transform3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99CC8E462333192500C06E07 /* Transform3D.cpp */; };
+		99F321E82303A88500153023 /* SuperSimpleSmoothMovementForCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99F321E72303A88500153023 /* SuperSimpleSmoothMovementForCamera.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9923E549221FCDCB00066F16 /* Gachan3DObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DObject.cpp; path = ../Gachan/Gachan3D/Gachan3DObject.cpp; sourceTree = "<group>"; };
+		9923E54A221FCDCB00066F16 /* Gachan3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3D.h; path = ../Gachan/Gachan3D/Gachan3D.h; sourceTree = "<group>"; };
+		9923E54C221FCDCB00066F16 /* Gachan3DShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DShader.cpp; path = ../Gachan/Gachan3D/Gachan3DShader.cpp; sourceTree = "<group>"; };
+		9923E54D221FCDCB00066F16 /* Gachan3DCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DCamera.cpp; path = ../Gachan/Gachan3D/Gachan3DCamera.cpp; sourceTree = "<group>"; };
+		9923E54E221FCDCB00066F16 /* Gachan3DObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3DObject.h; path = ../Gachan/Gachan3D/Gachan3DObject.h; sourceTree = "<group>"; };
+		9923E54F221FCDCB00066F16 /* Gachan3DShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3DShader.h; path = ../Gachan/Gachan3D/Gachan3DShader.h; sourceTree = "<group>"; };
+		9923E550221FCDCB00066F16 /* Gachan3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3D.cpp; path = ../Gachan/Gachan3D/Gachan3D.cpp; sourceTree = "<group>"; };
+		9923E551221FCDCC00066F16 /* Gachan3DVertexTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3DVertexTypes.h; path = ../Gachan/Gachan3D/Gachan3DVertexTypes.h; sourceTree = "<group>"; };
+		9923E556221FCDDC00066F16 /* GachanMETALVertexIndex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanMETALVertexIndex.mm; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALVertexIndex.mm; sourceTree = "<group>"; };
+		9923E557221FCDDC00066F16 /* GachanMETALBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanMETALBase.h; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALBase.h; sourceTree = "<group>"; };
+		9923E558221FCDDC00066F16 /* GachanMETALPass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanMETALPass.mm; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALPass.mm; sourceTree = "<group>"; };
+		9923E559221FCDDC00066F16 /* GachanMETALPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanMETALPass.h; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALPass.h; sourceTree = "<group>"; };
+		9923E55C221FCDDC00066F16 /* GachanMETALShader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanMETALShader.mm; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALShader.mm; sourceTree = "<group>"; };
+		9923E55D221FCDDC00066F16 /* GachanMETALBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanMETALBase.mm; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALBase.mm; sourceTree = "<group>"; };
+		9923E563221FCDE500066F16 /* GachanMETALShaderVertex.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = GachanMETALShaderVertex.metal; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALShader/GachanMETALShaderVertex.metal; sourceTree = "<group>"; };
+		9923E564221FCDE500066F16 /* GachanMETALShaderPixel.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = GachanMETALShaderPixel.metal; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALShader/GachanMETALShaderPixel.metal; sourceTree = "<group>"; };
+		9923E565221FCDE500066F16 /* GachanMETALShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanMETALShaderTypes.h; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALShader/GachanMETALShaderTypes.h; sourceTree = "<group>"; };
+		9923E568221FCDFA00066F16 /* GachanGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameObject.cpp; path = ../Gachan/GachanGame/GachanGameObject.cpp; sourceTree = "<group>"; };
+		9923E569221FCDFA00066F16 /* GachanGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameObject.h; path = ../Gachan/GachanGame/GachanGameObject.h; sourceTree = "<group>"; };
+		9923E570221FD70D00066F16 /* GachanMathVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanMathVector.h; path = ../Gachan/GachanMath/GachanMathVector.h; sourceTree = "<group>"; };
+		9923E571221FD70D00066F16 /* GachanMathVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanMathVector.cpp; path = ../Gachan/GachanMath/GachanMathVector.cpp; sourceTree = "<group>"; };
+		9923E572221FD70D00066F16 /* GachanMathMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanMathMatrix.h; path = ../Gachan/GachanMath/GachanMathMatrix.h; sourceTree = "<group>"; };
+		9923E573221FD70D00066F16 /* GachanMathMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanMathMatrix.cpp; path = ../Gachan/GachanMath/GachanMathMatrix.cpp; sourceTree = "<group>"; };
+		9923E576221FD9EC00066F16 /* GachanMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GachanMath.h; path = ../Gachan/GachanMath/GachanMath.h; sourceTree = "<group>"; };
+		9923E577221FE24F00066F16 /* Gachan3DCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gachan3DCamera.h; path = ../Gachan/Gachan3D/Gachan3DCamera.h; sourceTree = "<group>"; };
+		9936316622C4ABAE00C7672E /* GachanControllerMACIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanControllerMACIOS.mm; path = ../Gachan/GachanController/GachanControllerMACIOS.mm; sourceTree = "<group>"; };
+		9936316722C4ABAE00C7672E /* GachanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanController.h; path = ../Gachan/GachanController/GachanController.h; sourceTree = "<group>"; };
+		9936316922C4ABB900C7672E /* GachanGameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameController.cpp; path = ../Gachan/GachanGame/GachanGameController.cpp; sourceTree = "<group>"; };
+		9936316A22C4ABB900C7672E /* GachanGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameController.h; path = ../Gachan/GachanGame/GachanGameController.h; sourceTree = "<group>"; };
+		9937B07322D5B65C00CBC677 /* SuperSimpleSmoothMovement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperSimpleSmoothMovement.cpp; path = "../STAGE3-2_GameProgramming/SuperSimpleSmoothMovement.cpp"; sourceTree = "<group>"; };
+		993A031722CC750200DC67FF /* GachanControllerMACHID.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanControllerMACHID.mm; path = ../Gachan/GachanController/GachanControllerMACHID.mm; sourceTree = "<group>"; };
+		993A031822CC750200DC67FF /* GachanControllerMACHIDMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanControllerMACHIDMap.mm; path = ../Gachan/GachanController/GachanControllerMACHIDMap.mm; sourceTree = "<group>"; };
+		993A031B22CC750C00DC67FF /* GachanController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanController.cpp; path = ../Gachan/GachanController/GachanController.cpp; sourceTree = "<group>"; };
+		993A031D22CC758D00DC67FF /* GachanControllerMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GachanControllerMap.h; path = ../Gachan/GachanController/GachanControllerMap.h; sourceTree = "<group>"; };
+		993A031E22CC7D3400DC67FF /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		993A032022CC7E3200DC67FF /* SampleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleController.cpp; path = ../Sample/SampleController.cpp; sourceTree = "<group>"; };
+		9942E6D32227C11000BE83BC /* Gachan3DObjectDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gachan3DObjectDefine.h; path = ../Gachan/Gachan3D/Gachan3DObjectDefine.h; sourceTree = "<group>"; };
+		9942E6D822291A9900BE83BC /* GachanGameCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameCamera.cpp; path = ../Gachan/GachanGame/GachanGameCamera.cpp; sourceTree = "<group>"; };
+		9942E6D922291A9900BE83BC /* GachanGameCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameCamera.h; path = ../Gachan/GachanGame/GachanGameCamera.h; sourceTree = "<group>"; };
+		9942E6DB2229224200BE83BC /* Sample000.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sample000.cpp; path = ../Sample/Sample000.cpp; sourceTree = "<group>"; };
+		9942E6DD2229229000BE83BC /* GachanGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GachanGame.h; path = ../Gachan/GachanGame/GachanGame.h; sourceTree = "<group>"; };
+		9942E6DE222A78EE00BE83BC /* GachanGameLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameLight.cpp; path = ../Gachan/GachanGame/GachanGameLight.cpp; sourceTree = "<group>"; };
+		9942E6DF222A78EE00BE83BC /* GachanGameLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameLight.h; path = ../Gachan/GachanGame/GachanGameLight.h; sourceTree = "<group>"; };
+		9942E6E5222AA34800BE83BC /* GachanGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGame.cpp; path = ../Gachan/GachanGame/GachanGame.cpp; sourceTree = "<group>"; };
+		9948691622C443AA00607AA1 /* GachanAudioMACIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanAudioMACIOS.mm; path = ../Gachan/GachanAudio/GachanAudioMACIOS.mm; sourceTree = "<group>"; };
+		9948691722C443AA00607AA1 /* GachanAudioMACIOSEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanAudioMACIOSEngine.h; path = ../Gachan/GachanAudio/GachanAudioMACIOSEngine.h; sourceTree = "<group>"; };
+		9948691822C443AA00607AA1 /* GachanAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanAudio.h; path = ../Gachan/GachanAudio/GachanAudio.h; sourceTree = "<group>"; };
+		9948691922C443AA00607AA1 /* GachanAudioMACIOSEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanAudioMACIOSEngine.mm; path = ../Gachan/GachanAudio/GachanAudioMACIOSEngine.mm; sourceTree = "<group>"; };
+		9948691F22C443CA00607AA1 /* GachanGameAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameAudio.cpp; path = ../Gachan/GachanGame/GachanGameAudio.cpp; sourceTree = "<group>"; };
+		9948692022C443CA00607AA1 /* GachanGameAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameAudio.h; path = ../Gachan/GachanGame/GachanGameAudio.h; sourceTree = "<group>"; };
+		9948692422C443DA00607AA1 /* Music00.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Music00.wav; path = ../Gachan/GachanGame/GachanGameAudio/Music00.wav; sourceTree = "<group>"; };
+		9948692522C443DA00607AA1 /* Music01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Music01.wav; path = ../Gachan/GachanGame/GachanGameAudio/Music01.wav; sourceTree = "<group>"; };
+		9948692A22C444DB00607AA1 /* SampleAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleAudio.cpp; path = ../Sample/SampleAudio.cpp; sourceTree = "<group>"; };
+		9948692D22C4453800607AA1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9948C064221D42DA009485B9 /* MyGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyGame.cpp; path = ../User/MyGame.cpp; sourceTree = "<group>"; };
+		996A81F62243511D00176B0B /* GachanNameSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GachanNameSpace.h; path = ../GachanNameSpace.h; sourceTree = "<group>"; };
+		996A81F82243659900176B0B /* Sample001.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sample001.cpp; path = ../Sample/Sample001.cpp; sourceTree = "<group>"; };
+		996A81FA2243707600176B0B /* GachanMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanMath.cpp; path = ../Gachan/GachanMath/GachanMath.cpp; sourceTree = "<group>"; };
+		996A82002244B61D00176B0B /* Sample002.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sample002.cpp; path = ../Sample/Sample002.cpp; sourceTree = "<group>"; };
+		996A82042246056400176B0B /* GachanGameMACIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanGameMACIOS.mm; path = ../Gachan/GachanGame/GachanGameMACIOS.mm; sourceTree = "<group>"; };
+		996A820822460A2500176B0B /* Sample003.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sample003.cpp; path = ../Sample/Sample003.cpp; sourceTree = "<group>"; };
+		99897EAC222BA574003844B5 /* GachanGameKeyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameKeyboard.cpp; path = ../Gachan/GachanGame/GachanGameKeyboard.cpp; sourceTree = "<group>"; };
+		99897EAD222BA574003844B5 /* GachanGameKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameKeyboard.h; path = ../Gachan/GachanGame/GachanGameKeyboard.h; sourceTree = "<group>"; };
+		998A98DB223F6B4F00156DF7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		9997C6722330F51000A51488 /* GachanGameObjectArm.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectArm.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectArm.tst; sourceTree = "<group>"; };
+		999CAE63235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InverseKinematics_RA1_2D2DOF.cpp; path = "../STAGE3-6_Robotics/InverseKinematics_RA1_2D2DOF.cpp"; sourceTree = "<group>"; };
+		999CAE72235D7E3900258461 /* GachanGameInverseKinematics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameInverseKinematics.cpp; path = ../Gachan/GachanGame/GachanGameInverseKinematics.cpp; sourceTree = "<group>"; };
+		999CAE73235D7E3A00258461 /* GachanGameInverseKinematics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameInverseKinematics.h; path = ../Gachan/GachanGame/GachanGameInverseKinematics.h; sourceTree = "<group>"; };
+		999CAE78235E83B500258461 /* GachanRoboticsInverseKinematics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanRoboticsInverseKinematics.h; path = ../Gachan/GachanRobotics/GachanRoboticsInverseKinematics.h; sourceTree = "<group>"; };
+		999CAE79235E83B500258461 /* GachanRoboticsInverseKinematics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanRoboticsInverseKinematics.cpp; path = ../Gachan/GachanRobotics/GachanRoboticsInverseKinematics.cpp; sourceTree = "<group>"; };
+		999CAE7B235EECFD00258461 /* InverseKinematics_RA1_3D3DOF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InverseKinematics_RA1_3D3DOF.cpp; path = "../STAGE3-6_Robotics/InverseKinematics_RA1_3D3DOF.cpp"; sourceTree = "<group>"; };
+		99A15F9622B3808B005BAEA6 /* GachanGameObjectShape00.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectShape00.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectShape00.tst; sourceTree = "<group>"; };
+		99A15F9722B3808B005BAEA6 /* GachanGameObjectBasic00.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectBasic00.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectBasic00.tst; sourceTree = "<group>"; };
+		99A15F9822B3808B005BAEA6 /* GachanGameObjectBlock00.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectBlock00.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectBlock00.tst; sourceTree = "<group>"; };
+		99A15F9922B3808B005BAEA6 /* GachanGameObjectFace00.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectFace00.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectFace00.tst; sourceTree = "<group>"; };
+		99A15F9A22B3808B005BAEA6 /* GachanGameObjectGrid.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectGrid.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectGrid.tst; sourceTree = "<group>"; };
+		99A15FAA22B3A1DE005BAEA6 /* Gachan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gachan.h; path = ../Gachan/Gachan.h; sourceTree = "<group>"; };
+		99A15FAB22B3A3D0005BAEA6 /* Gachan3DMatrixStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DMatrixStack.cpp; path = ../Gachan/Gachan3D/Gachan3DMatrixStack.cpp; sourceTree = "<group>"; };
+		99A15FAC22B3A3D0005BAEA6 /* Gachan3DMatrixStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3DMatrixStack.h; path = ../Gachan/Gachan3D/Gachan3DMatrixStack.h; sourceTree = "<group>"; };
+		99A243A722B4BD9F00A410C6 /* Gachan3DText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DText.cpp; path = ../Gachan/Gachan3D/Gachan3DText.cpp; sourceTree = "<group>"; };
+		99A243A822B4BD9F00A410C6 /* Gachan3DText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3DText.h; path = ../Gachan/Gachan3D/Gachan3DText.h; sourceTree = "<group>"; };
+		99A243D722B4C97600A410C6 /* Gachan3DTextData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DTextData.cpp; path = ../Gachan/Gachan3D/Gachan3DTextData.cpp; sourceTree = "<group>"; };
+		99A243D822B4C97600A410C6 /* Gachan3DTextDataKanji1st.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DTextDataKanji1st.cpp; path = ../Gachan/Gachan3D/Gachan3DTextDataKanji1st.cpp; sourceTree = "<group>"; };
+		99A243D922B4C97600A410C6 /* Gachan3DTextDataKanji2nd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DTextDataKanji2nd.cpp; path = ../Gachan/Gachan3D/Gachan3DTextDataKanji2nd.cpp; sourceTree = "<group>"; };
+		99A243DD22B4D3EC00A410C6 /* TextKanji1st6Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji1st6Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji1st6Mplus2p.tst; sourceTree = "<group>"; };
+		99A243DF22B4D3EC00A410C6 /* TextKanji1st5Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji1st5Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji1st5Mplus2p.tst; sourceTree = "<group>"; };
+		99A243E022B4D3EC00A410C6 /* TextKanji2nd1Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji2nd1Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji2nd1Mplus2p.tst; sourceTree = "<group>"; };
+		99A243E122B4D3EC00A410C6 /* TextKanji2nd3Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji2nd3Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji2nd3Mplus2p.tst; sourceTree = "<group>"; };
+		99A243E222B4D3EC00A410C6 /* TextKatakanaMplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKatakanaMplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKatakanaMplus2p.tst; sourceTree = "<group>"; };
+		99A243E322B4D3EC00A410C6 /* TextKIGOU1Mplus1p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKIGOU1Mplus1p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKIGOU1Mplus1p.tst; sourceTree = "<group>"; };
+		99A243E722B4D3EC00A410C6 /* TextKIGOU2Mplus1p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKIGOU2Mplus1p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKIGOU2Mplus1p.tst; sourceTree = "<group>"; };
+		99A243E822B4D3EC00A410C6 /* TextKanji1st1Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji1st1Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji1st1Mplus2p.tst; sourceTree = "<group>"; };
+		99A243E922B4D3EC00A410C6 /* TextKanji1st4Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji1st4Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji1st4Mplus2p.tst; sourceTree = "<group>"; };
+		99A243EA22B4D3EC00A410C6 /* TextKanji1st3Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji1st3Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji1st3Mplus2p.tst; sourceTree = "<group>"; };
+		99A243EB22B4D3ED00A410C6 /* TextEISUUMplus1p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextEISUUMplus1p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextEISUUMplus1p.tst; sourceTree = "<group>"; };
+		99A243EC22B4D3ED00A410C6 /* TextKanji2nd4Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji2nd4Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji2nd4Mplus2p.tst; sourceTree = "<group>"; };
+		99A243ED22B4D3ED00A410C6 /* TextKanji2nd5Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji2nd5Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji2nd5Mplus2p.tst; sourceTree = "<group>"; };
+		99A243EE22B4D3ED00A410C6 /* TextHiraganaMplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextHiraganaMplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextHiraganaMplus2p.tst; sourceTree = "<group>"; };
+		99A243EF22B4D3ED00A410C6 /* TextHankakuKanaMplus1p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextHankakuKanaMplus1p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextHankakuKanaMplus1p.tst; sourceTree = "<group>"; };
+		99A243F022B4D3ED00A410C6 /* TextASCIIMplus1m.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextASCIIMplus1m.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextASCIIMplus1m.tst; sourceTree = "<group>"; };
+		99A243F122B4D3ED00A410C6 /* TextKanji2nd2Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji2nd2Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji2nd2Mplus2p.tst; sourceTree = "<group>"; };
+		99A243F222B4D3ED00A410C6 /* TextKanji1st2Mplus2p.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TextKanji1st2Mplus2p.tst; path = ../Gachan/Gachan3D/Gachan3DTextData/TextKanji1st2Mplus2p.tst; sourceTree = "<group>"; };
+		99A2440922B4D9A600A410C6 /* SampleText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleText.cpp; path = ../Sample/SampleText.cpp; sourceTree = "<group>"; };
+		99A7D7B6221BCEE9001BE0CA /* GachanMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GachanMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99A7D7B9221BCEE9001BE0CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		99A7D7BA221BCEE9001BE0CA /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		99A7D7BC221BCEE9001BE0CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		99A7D7BD221BCEE9001BE0CA /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		99A7D7BF221BCEE9001BE0CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99A7D7C2221BCEE9001BE0CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		99A7D7C4221BCEE9001BE0CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99A7D7C5221BCEE9001BE0CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		99A7D7C7221BCEE9001BE0CA /* GachanMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GachanMAC.entitlements; sourceTree = "<group>"; };
+		99C0809B22CF241F0044F02C /* Sound3DMove01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound3DMove01.wav; path = ../Gachan/GachanGame/GachanGameAudio/Sound3DMove01.wav; sourceTree = "<group>"; };
+		99C0809C22CF241F0044F02C /* Sound3DExplosion01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound3DExplosion01.wav; path = ../Gachan/GachanGame/GachanGameAudio/Sound3DExplosion01.wav; sourceTree = "<group>"; };
+		99C0809D22CF241F0044F02C /* Sound3DExplosion00.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound3DExplosion00.wav; path = ../Gachan/GachanGame/GachanGameAudio/Sound3DExplosion00.wav; sourceTree = "<group>"; };
+		99C0809E22CF241F0044F02C /* Sound3DMove00.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Sound3DMove00.wav; path = ../Gachan/GachanGame/GachanGameAudio/Sound3DMove00.wav; sourceTree = "<group>"; };
+		99CC8E442331C5FA00C06E07 /* Transform2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Transform2D.cpp; path = "../STAGE2-3_Beginners3DProgramming/Transform2D.cpp"; sourceTree = "<group>"; };
+		99CC8E462333192500C06E07 /* Transform3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Transform3D.cpp; path = "../STAGE2-3_Beginners3DProgramming/Transform3D.cpp"; sourceTree = "<group>"; };
+		99F321E72303A88500153023 /* SuperSimpleSmoothMovementForCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperSimpleSmoothMovementForCamera.cpp; path = "../STAGE3-2_GameProgramming/SuperSimpleSmoothMovementForCamera.cpp"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		99A7D7B3221BCEE9001BE0CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				993A031F22CC7D3500DC67FF /* GameController.framework in Frameworks */,
+				9948692E22C4453800607AA1 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9920EDB122422B5B00EEA29E /* GachanGameObject */ = {
+			isa = PBXGroup;
+			children = (
+				9997C6722330F51000A51488 /* GachanGameObjectArm.tst */,
+				99A15F9722B3808B005BAEA6 /* GachanGameObjectBasic00.tst */,
+				99A15F9822B3808B005BAEA6 /* GachanGameObjectBlock00.tst */,
+				99A15F9922B3808B005BAEA6 /* GachanGameObjectFace00.tst */,
+				99A15F9A22B3808B005BAEA6 /* GachanGameObjectGrid.tst */,
+				99A15F9622B3808B005BAEA6 /* GachanGameObjectShape00.tst */,
+			);
+			name = GachanGameObject;
+			sourceTree = "<group>";
+		};
+		9923E4FB221F99FF00066F16 /* GachanGame */ = {
+			isa = PBXGroup;
+			children = (
+				9942E6E5222AA34800BE83BC /* GachanGame.cpp */,
+				996A82042246056400176B0B /* GachanGameMACIOS.mm */,
+				9942E6DD2229229000BE83BC /* GachanGame.h */,
+				9948691E22C443B100607AA1 /* GachanGameAudio */,
+				9948691F22C443CA00607AA1 /* GachanGameAudio.cpp */,
+				9948692022C443CA00607AA1 /* GachanGameAudio.h */,
+				9942E6D822291A9900BE83BC /* GachanGameCamera.cpp */,
+				9942E6D922291A9900BE83BC /* GachanGameCamera.h */,
+				9936316922C4ABB900C7672E /* GachanGameController.cpp */,
+				9936316A22C4ABB900C7672E /* GachanGameController.h */,
+				999CAE72235D7E3900258461 /* GachanGameInverseKinematics.cpp */,
+				999CAE73235D7E3A00258461 /* GachanGameInverseKinematics.h */,
+				99897EAC222BA574003844B5 /* GachanGameKeyboard.cpp */,
+				99897EAD222BA574003844B5 /* GachanGameKeyboard.h */,
+				9942E6DE222A78EE00BE83BC /* GachanGameLight.cpp */,
+				9942E6DF222A78EE00BE83BC /* GachanGameLight.h */,
+				9920EDB122422B5B00EEA29E /* GachanGameObject */,
+				9923E568221FCDFA00066F16 /* GachanGameObject.cpp */,
+				9923E569221FCDFA00066F16 /* GachanGameObject.h */,
+			);
+			name = GachanGame;
+			sourceTree = "<group>";
+		};
+		9923E546221FCC2200066F16 /* GachanMath */ = {
+			isa = PBXGroup;
+			children = (
+				996A81FA2243707600176B0B /* GachanMath.cpp */,
+				9923E576221FD9EC00066F16 /* GachanMath.h */,
+				9923E573221FD70D00066F16 /* GachanMathMatrix.cpp */,
+				9923E572221FD70D00066F16 /* GachanMathMatrix.h */,
+				9923E571221FD70D00066F16 /* GachanMathVector.cpp */,
+				9923E570221FD70D00066F16 /* GachanMathVector.h */,
+			);
+			name = GachanMath;
+			sourceTree = "<group>";
+		};
+		9923E547221FCCC000066F16 /* Gachan */ = {
+			isa = PBXGroup;
+			children = (
+				99A15FAA22B3A1DE005BAEA6 /* Gachan.h */,
+				9923E546221FCC2200066F16 /* GachanMath */,
+				9948C04D221D426D009485B9 /* Gachan3D */,
+				9948691222C4438700607AA1 /* GachanAudio */,
+				9936316522C4AB8B00C7672E /* GachanController */,
+				999CAE68235D7CAD00258461 /* GachanRobotics */,
+				9923E4FB221F99FF00066F16 /* GachanGame */,
+			);
+			name = Gachan;
+			sourceTree = "<group>";
+		};
+		9936316522C4AB8B00C7672E /* GachanController */ = {
+			isa = PBXGroup;
+			children = (
+				9936316722C4ABAE00C7672E /* GachanController.h */,
+				993A031B22CC750C00DC67FF /* GachanController.cpp */,
+				993A031D22CC758D00DC67FF /* GachanControllerMap.h */,
+				9936316622C4ABAE00C7672E /* GachanControllerMACIOS.mm */,
+				993A031722CC750200DC67FF /* GachanControllerMACHID.mm */,
+				993A031822CC750200DC67FF /* GachanControllerMACHIDMap.mm */,
+			);
+			name = GachanController;
+			sourceTree = "<group>";
+		};
+		9948691222C4438700607AA1 /* GachanAudio */ = {
+			isa = PBXGroup;
+			children = (
+				9948691822C443AA00607AA1 /* GachanAudio.h */,
+				9948691622C443AA00607AA1 /* GachanAudioMACIOS.mm */,
+				9948691722C443AA00607AA1 /* GachanAudioMACIOSEngine.h */,
+				9948691922C443AA00607AA1 /* GachanAudioMACIOSEngine.mm */,
+			);
+			name = GachanAudio;
+			sourceTree = "<group>";
+		};
+		9948691E22C443B100607AA1 /* GachanGameAudio */ = {
+			isa = PBXGroup;
+			children = (
+				99C0809D22CF241F0044F02C /* Sound3DExplosion00.wav */,
+				99C0809C22CF241F0044F02C /* Sound3DExplosion01.wav */,
+				99C0809E22CF241F0044F02C /* Sound3DMove00.wav */,
+				99C0809B22CF241F0044F02C /* Sound3DMove01.wav */,
+				9948692422C443DA00607AA1 /* Music00.wav */,
+				9948692522C443DA00607AA1 /* Music01.wav */,
+			);
+			name = GachanGameAudio;
+			sourceTree = "<group>";
+		};
+		9948692C22C4453800607AA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				993A031E22CC7D3400DC67FF /* GameController.framework */,
+				9948692D22C4453800607AA1 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9948C04B221D4253009485B9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9948C064221D42DA009485B9 /* MyGame.cpp */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		9948C04D221D426D009485B9 /* Gachan3D */ = {
+			isa = PBXGroup;
+			children = (
+				9948C04E221D427B009485B9 /* GachanMETAL */,
+				9923E54A221FCDCB00066F16 /* Gachan3D.h */,
+				9923E550221FCDCB00066F16 /* Gachan3D.cpp */,
+				9923E54D221FCDCB00066F16 /* Gachan3DCamera.cpp */,
+				9923E577221FE24F00066F16 /* Gachan3DCamera.h */,
+				9923E549221FCDCB00066F16 /* Gachan3DObject.cpp */,
+				9923E54E221FCDCB00066F16 /* Gachan3DObject.h */,
+				9942E6D32227C11000BE83BC /* Gachan3DObjectDefine.h */,
+				99A15FAB22B3A3D0005BAEA6 /* Gachan3DMatrixStack.cpp */,
+				99A15FAC22B3A3D0005BAEA6 /* Gachan3DMatrixStack.h */,
+				9923E54C221FCDCB00066F16 /* Gachan3DShader.cpp */,
+				9923E54F221FCDCB00066F16 /* Gachan3DShader.h */,
+				99A243A722B4BD9F00A410C6 /* Gachan3DText.cpp */,
+				99A243A822B4BD9F00A410C6 /* Gachan3DText.h */,
+				99A243AA22B4BF6F00A410C6 /* Gachan3DTextData */,
+				99A243D722B4C97600A410C6 /* Gachan3DTextData.cpp */,
+				99A243D822B4C97600A410C6 /* Gachan3DTextDataKanji1st.cpp */,
+				99A243D922B4C97600A410C6 /* Gachan3DTextDataKanji2nd.cpp */,
+				9923E551221FCDCC00066F16 /* Gachan3DVertexTypes.h */,
+			);
+			name = Gachan3D;
+			sourceTree = "<group>";
+		};
+		9948C04E221D427B009485B9 /* GachanMETAL */ = {
+			isa = PBXGroup;
+			children = (
+				9948C04F221D428C009485B9 /* GachanMETALShader */,
+				9923E55D221FCDDC00066F16 /* GachanMETALBase.mm */,
+				9923E557221FCDDC00066F16 /* GachanMETALBase.h */,
+				9923E558221FCDDC00066F16 /* GachanMETALPass.mm */,
+				9923E559221FCDDC00066F16 /* GachanMETALPass.h */,
+				9923E55C221FCDDC00066F16 /* GachanMETALShader.mm */,
+				9923E556221FCDDC00066F16 /* GachanMETALVertexIndex.mm */,
+			);
+			name = GachanMETAL;
+			sourceTree = "<group>";
+		};
+		9948C04F221D428C009485B9 /* GachanMETALShader */ = {
+			isa = PBXGroup;
+			children = (
+				9923E564221FCDE500066F16 /* GachanMETALShaderPixel.metal */,
+				9923E565221FCDE500066F16 /* GachanMETALShaderTypes.h */,
+				9923E563221FCDE500066F16 /* GachanMETALShaderVertex.metal */,
+			);
+			name = GachanMETALShader;
+			sourceTree = "<group>";
+		};
+		999CAE62235D7B0600258461 /* STAGE3-6_Robotics */ = {
+			isa = PBXGroup;
+			children = (
+				999CAE63235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp */,
+				999CAE7B235EECFD00258461 /* InverseKinematics_RA1_3D3DOF.cpp */,
+			);
+			name = "STAGE3-6_Robotics";
+			sourceTree = "<group>";
+		};
+		999CAE68235D7CAD00258461 /* GachanRobotics */ = {
+			isa = PBXGroup;
+			children = (
+				999CAE79235E83B500258461 /* GachanRoboticsInverseKinematics.cpp */,
+				999CAE78235E83B500258461 /* GachanRoboticsInverseKinematics.h */,
+			);
+			name = GachanRobotics;
+			sourceTree = "<group>";
+		};
+		99A243AA22B4BF6F00A410C6 /* Gachan3DTextData */ = {
+			isa = PBXGroup;
+			children = (
+				99A243F022B4D3ED00A410C6 /* TextASCIIMplus1m.tst */,
+				99A243EB22B4D3ED00A410C6 /* TextEISUUMplus1p.tst */,
+				99A243EF22B4D3ED00A410C6 /* TextHankakuKanaMplus1p.tst */,
+				99A243EE22B4D3ED00A410C6 /* TextHiraganaMplus2p.tst */,
+				99A243E822B4D3EC00A410C6 /* TextKanji1st1Mplus2p.tst */,
+				99A243F222B4D3ED00A410C6 /* TextKanji1st2Mplus2p.tst */,
+				99A243EA22B4D3EC00A410C6 /* TextKanji1st3Mplus2p.tst */,
+				99A243E922B4D3EC00A410C6 /* TextKanji1st4Mplus2p.tst */,
+				99A243DF22B4D3EC00A410C6 /* TextKanji1st5Mplus2p.tst */,
+				99A243DD22B4D3EC00A410C6 /* TextKanji1st6Mplus2p.tst */,
+				99A243E022B4D3EC00A410C6 /* TextKanji2nd1Mplus2p.tst */,
+				99A243F122B4D3ED00A410C6 /* TextKanji2nd2Mplus2p.tst */,
+				99A243E122B4D3EC00A410C6 /* TextKanji2nd3Mplus2p.tst */,
+				99A243EC22B4D3ED00A410C6 /* TextKanji2nd4Mplus2p.tst */,
+				99A243ED22B4D3ED00A410C6 /* TextKanji2nd5Mplus2p.tst */,
+				99A243E222B4D3EC00A410C6 /* TextKatakanaMplus2p.tst */,
+				99A243E322B4D3EC00A410C6 /* TextKIGOU1Mplus1p.tst */,
+				99A243E722B4D3EC00A410C6 /* TextKIGOU2Mplus1p.tst */,
+			);
+			name = Gachan3DTextData;
+			sourceTree = "<group>";
+		};
+		99A7D7AD221BCEE9001BE0CA = {
+			isa = PBXGroup;
+			children = (
+				99A7D7B7221BCEE9001BE0CA /* Products */,
+				9923E547221FCCC000066F16 /* Gachan */,
+				99A7D7B8221BCEE9001BE0CA /* GachanMAC */,
+				99DEA0C22222B1DA00CA7912 /* Sample */,
+				99CC8E432331C59200C06E07 /* STAGE2-3_Beginners3DProgramming */,
+				99B1729E22D33F3A00431265 /* STAGE3-2_GameProgramming */,
+				999CAE62235D7B0600258461 /* STAGE3-6_Robotics */,
+				9948C04B221D4253009485B9 /* User */,
+				996A81F62243511D00176B0B /* GachanNameSpace.h */,
+				998A98DB223F6B4F00156DF7 /* LICENSE.txt */,
+				9948692C22C4453800607AA1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		99A7D7B7221BCEE9001BE0CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99A7D7B6221BCEE9001BE0CA /* GachanMAC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99A7D7B8221BCEE9001BE0CA /* GachanMAC */ = {
+			isa = PBXGroup;
+			children = (
+				99A7D7B9221BCEE9001BE0CA /* AppDelegate.h */,
+				99A7D7BA221BCEE9001BE0CA /* AppDelegate.mm */,
+				99A7D7BC221BCEE9001BE0CA /* ViewController.h */,
+				99A7D7BD221BCEE9001BE0CA /* ViewController.mm */,
+				99A7D7BF221BCEE9001BE0CA /* Assets.xcassets */,
+				99A7D7C1221BCEE9001BE0CA /* Main.storyboard */,
+				99A7D7C4221BCEE9001BE0CA /* Info.plist */,
+				99A7D7C5221BCEE9001BE0CA /* main.m */,
+				99A7D7C7221BCEE9001BE0CA /* GachanMAC.entitlements */,
+			);
+			path = GachanMAC;
+			sourceTree = "<group>";
+		};
+		99B1729E22D33F3A00431265 /* STAGE3-2_GameProgramming */ = {
+			isa = PBXGroup;
+			children = (
+				9937B07322D5B65C00CBC677 /* SuperSimpleSmoothMovement.cpp */,
+				99F321E72303A88500153023 /* SuperSimpleSmoothMovementForCamera.cpp */,
+			);
+			name = "STAGE3-2_GameProgramming";
+			sourceTree = "<group>";
+		};
+		99CC8E432331C59200C06E07 /* STAGE2-3_Beginners3DProgramming */ = {
+			isa = PBXGroup;
+			children = (
+				99CC8E442331C5FA00C06E07 /* Transform2D.cpp */,
+				99CC8E462333192500C06E07 /* Transform3D.cpp */,
+			);
+			name = "STAGE2-3_Beginners3DProgramming";
+			sourceTree = "<group>";
+		};
+		99DEA0C22222B1DA00CA7912 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				9942E6DB2229224200BE83BC /* Sample000.cpp */,
+				996A81F82243659900176B0B /* Sample001.cpp */,
+				996A82002244B61D00176B0B /* Sample002.cpp */,
+				996A820822460A2500176B0B /* Sample003.cpp */,
+				9948692A22C444DB00607AA1 /* SampleAudio.cpp */,
+				993A032022CC7E3200DC67FF /* SampleController.cpp */,
+				99A2440922B4D9A600A410C6 /* SampleText.cpp */,
+			);
+			name = Sample;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99A7D7B5221BCEE9001BE0CA /* GachanMAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99A7D7CA221BCEE9001BE0CA /* Build configuration list for PBXNativeTarget "GachanMAC" */;
+			buildPhases = (
+				99A7D7B2221BCEE9001BE0CA /* Sources */,
+				99A7D7B3221BCEE9001BE0CA /* Frameworks */,
+				99A7D7B4221BCEE9001BE0CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GachanMAC;
+			productName = GachanMAC;
+			productReference = 99A7D7B6221BCEE9001BE0CA /* GachanMAC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		99A7D7AE221BCEE9001BE0CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Gachan;
+				TargetAttributes = {
+					99A7D7B5221BCEE9001BE0CA = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 99A7D7B1221BCEE9001BE0CA /* Build configuration list for PBXProject "GachanMAC" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99A7D7AD221BCEE9001BE0CA;
+			productRefGroup = 99A7D7B7221BCEE9001BE0CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99A7D7B5221BCEE9001BE0CA /* GachanMAC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99A7D7B4221BCEE9001BE0CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99C080A122CF241F0044F02C /* Sound3DExplosion00.wav in Resources */,
+				99C080A022CF241F0044F02C /* Sound3DExplosion01.wav in Resources */,
+				99C080A222CF241F0044F02C /* Sound3DMove00.wav in Resources */,
+				9997C6732330F51000A51488 /* GachanGameObjectArm.tst in Resources */,
+				99C0809F22CF241F0044F02C /* Sound3DMove01.wav in Resources */,
+				9948692822C443DA00607AA1 /* Music00.wav in Resources */,
+				9948692922C443DA00607AA1 /* Music01.wav in Resources */,
+				99A7D7C0221BCEE9001BE0CA /* Assets.xcassets in Resources */,
+				99A7D7C3221BCEE9001BE0CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		99A7D7B2221BCEE9001BE0CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9936316B22C4ABB900C7672E /* GachanGameController.cpp in Sources */,
+				99897EAE222BA574003844B5 /* GachanGameKeyboard.cpp in Sources */,
+				9942E6E6222AA34800BE83BC /* GachanGame.cpp in Sources */,
+				999CAE74235D7E3A00258461 /* GachanGameInverseKinematics.cpp in Sources */,
+				9923E552221FCDCC00066F16 /* Gachan3DObject.cpp in Sources */,
+				9923E56A221FCDFA00066F16 /* GachanGameObject.cpp in Sources */,
+				993A032122CC7E3300DC67FF /* SampleController.cpp in Sources */,
+				9923E555221FCDCC00066F16 /* Gachan3D.cpp in Sources */,
+				9923E553221FCDCC00066F16 /* Gachan3DShader.cpp in Sources */,
+				99A7D7BE221BCEE9001BE0CA /* ViewController.mm in Sources */,
+				993A031A22CC750200DC67FF /* GachanControllerMACHIDMap.mm in Sources */,
+				99CC8E452331C5FA00C06E07 /* Transform2D.cpp in Sources */,
+				9937B07422D5B65C00CBC677 /* SuperSimpleSmoothMovement.cpp in Sources */,
+				9936316822C4ABAE00C7672E /* GachanControllerMACIOS.mm in Sources */,
+				9923E55E221FCDDC00066F16 /* GachanMETALVertexIndex.mm in Sources */,
+				99CC8E472333192500C06E07 /* Transform3D.cpp in Sources */,
+				9948691C22C443AA00607AA1 /* GachanAudioMACIOS.mm in Sources */,
+				99A2440A22B4D9A600A410C6 /* SampleText.cpp in Sources */,
+				993A031C22CC750C00DC67FF /* GachanController.cpp in Sources */,
+				99A15FAD22B3A3D0005BAEA6 /* Gachan3DMatrixStack.cpp in Sources */,
+				999CAE64235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp in Sources */,
+				9942E6DA22291A9900BE83BC /* GachanGameCamera.cpp in Sources */,
+				99A243A922B4BD9F00A410C6 /* Gachan3DText.cpp in Sources */,
+				9948692122C443CA00607AA1 /* GachanGameAudio.cpp in Sources */,
+				9923E561221FCDDC00066F16 /* GachanMETALShader.mm in Sources */,
+				996A82012244B61D00176B0B /* Sample002.cpp in Sources */,
+				9948C065221D42DA009485B9 /* MyGame.cpp in Sources */,
+				996A820922460A2500176B0B /* Sample003.cpp in Sources */,
+				9948691D22C443AA00607AA1 /* GachanAudioMACIOSEngine.mm in Sources */,
+				999CAE7A235E83B500258461 /* GachanRoboticsInverseKinematics.cpp in Sources */,
+				9923E554221FCDCC00066F16 /* Gachan3DCamera.cpp in Sources */,
+				9942E6DC2229224200BE83BC /* Sample000.cpp in Sources */,
+				999CAE7C235EECFD00258461 /* InverseKinematics_RA1_3D3DOF.cpp in Sources */,
+				99A243DA22B4C97700A410C6 /* Gachan3DTextData.cpp in Sources */,
+				9923E562221FCDDC00066F16 /* GachanMETALBase.mm in Sources */,
+				9923E567221FCDE500066F16 /* GachanMETALShaderPixel.metal in Sources */,
+				9923E55F221FCDDC00066F16 /* GachanMETALPass.mm in Sources */,
+				996A81F92243659900176B0B /* Sample001.cpp in Sources */,
+				99A243DC22B4C97700A410C6 /* Gachan3DTextDataKanji2nd.cpp in Sources */,
+				993A031922CC750200DC67FF /* GachanControllerMACHID.mm in Sources */,
+				99A7D7C6221BCEE9001BE0CA /* main.m in Sources */,
+				9923E574221FD70D00066F16 /* GachanMathVector.cpp in Sources */,
+				9923E575221FD70D00066F16 /* GachanMathMatrix.cpp in Sources */,
+				99A7D7BB221BCEE9001BE0CA /* AppDelegate.mm in Sources */,
+				996A81FB2243707600176B0B /* GachanMath.cpp in Sources */,
+				99A243DB22B4C97700A410C6 /* Gachan3DTextDataKanji1st.cpp in Sources */,
+				9948692B22C444DB00607AA1 /* SampleAudio.cpp in Sources */,
+				9942E6E0222A78EE00BE83BC /* GachanGameLight.cpp in Sources */,
+				99F321E82303A88500153023 /* SuperSimpleSmoothMovementForCamera.cpp in Sources */,
+				996A82052246056400176B0B /* GachanGameMACIOS.mm in Sources */,
+				9923E566221FCDE500066F16 /* GachanMETALShaderVertex.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		99A7D7C1221BCEE9001BE0CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99A7D7C2221BCEE9001BE0CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		99A7D7C8221BCEE9001BE0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		99A7D7C9221BCEE9001BE0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		99A7D7CB221BCEE9001BE0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"MAC=1",
+					"METAL=1",
+				);
+				INFOPLIST_FILE = GachanMAC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Gachan.GachanMAC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ../Gachan/Gachan3D/Gachan3DTextData;
+				USE_HEADERMAP = YES;
+			};
+			name = Debug;
+		};
+		99A7D7CC221BCEE9001BE0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"MAC=1",
+					"METAL=1",
+				);
+				INFOPLIST_FILE = GachanMAC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Gachan.GachanMAC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ../Gachan/Gachan3D/Gachan3DTextData;
+				USE_HEADERMAP = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99A7D7B1221BCEE9001BE0CA /* Build configuration list for PBXProject "GachanMAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99A7D7C8221BCEE9001BE0CA /* Debug */,
+				99A7D7C9221BCEE9001BE0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99A7D7CA221BCEE9001BE0CA /* Build configuration list for PBXNativeTarget "GachanMAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99A7D7CB221BCEE9001BE0CA /* Debug */,
+				99A7D7CC221BCEE9001BE0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 99A7D7AE221BCEE9001BE0CA /* Project object */;
+}

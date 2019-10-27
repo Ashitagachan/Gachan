@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Gachan3DShader::SetWVPConst():GachanMETALShader.mm">
+      </ContextState>
+      <ContextState
+         contextName = "Gachan3DCamera::SetCamera(Vec, Vec, float, float, float):Gachan3DCamera.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "width">
+            </PersistentString>
+            <PersistentString
+               value = "height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SAMPLE003::MyPlayer::ExecStageCollisionY():SAMPLE003.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "stage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Gachan3DShader::SetView(Mat44 const&amp;):Gachan3DShader.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "SetView(Vec, Vec):Gachan3DCamera.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Transform3D::Update():Transform3D.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "gachan">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
