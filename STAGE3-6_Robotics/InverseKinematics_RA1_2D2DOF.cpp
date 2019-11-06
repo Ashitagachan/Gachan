@@ -11,6 +11,7 @@
 //逆運動学2D2自由度 InverseKinematics_RA1_2D2DOF
 //
 //解説はこちら。 Explanation is here.
+// https://youtu.be/ekmjw9ni0_I
 //----------------------------
 
 namespace InverseKinematics_RA1_2D2DOF
@@ -122,6 +123,7 @@ namespace InverseKinematics_RA1_2D2DOF
         //逆運動学2D2自由度 InverseKinematics2D2DOF
         //
         //解説はこちら。 Explanation is here.
+        // https://youtu.be/ekmjw9ni0_I
         //----------------------------
         
         GachanGameIK_RA1_Return ikret = gachan->ik2D2DOF.GetIK(gachan->pHpos);

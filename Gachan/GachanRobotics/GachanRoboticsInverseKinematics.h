@@ -29,6 +29,7 @@ public:
 //逆運動学2D2自由度 InverseKinematics RA1_2D2DOF
 //
 //解説はこちら。 Explanation is here.
+// https://youtu.be/ekmjw9ni0_I
 //----------------------------
 class GachanRoboticsIK_RA1_2D2DOF
 {
