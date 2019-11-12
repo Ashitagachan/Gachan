@@ -77,17 +77,17 @@ GachanRoboticsIK_RA1_Return GachanRoboticsIK_RA1_3D3DOF::SolveIK(    Val tE, Val
 
     Mat33 J;
     
-    J.xx = 0.0;
-    J.xy = -tE*cE*sS-tS*sS-tE*sE*cS;
-    J.xz = -tE*sE*cS      -tE*cE*sS;
+    J.a = 0.0;
+    J.b = -tE*cE*sS-tS*sS-tE*sE*cS;
+    J.c = -tE*sE*cS      -tE*cE*sS;
 
-    J.yx = -sSx*tE*cE*sS-sSx*tS*sS-sSx*tE*sE*cS;
-    J.yy =  cSx*tE*cE*cS+cSx*tS*cS-cSx*tE*sE*sS;
-    J.yz = -cSx*tE*sE*sS          +cSx*tE*cE*cS;
+    J.d = -sSx*tE*cE*sS-sSx*tS*sS-sSx*tE*sE*cS;
+    J.e =  cSx*tE*cE*cS+cSx*tS*cS-cSx*tE*sE*sS;
+    J.f = -cSx*tE*sE*sS          +cSx*tE*cE*cS;
     
-    J.zx =  cSx*tE*cE*sS+cSx*tS*sS+cSx*tE*sE*cS;
-    J.zy =  sSx*tE*cE*cS+sSx*tS*cS-sSx*tE*sE*sS;
-    J.zz = -sSx*tE*sE*sS          +sSx*tE*cE*cS;
+    J.g =  cSx*tE*cE*sS+cSx*tS*sS+cSx*tE*sE*cS;
+    J.h =  sSx*tE*cE*cS+sSx*tS*cS-sSx*tE*sE*sS;
+    J.i = -sSx*tE*sE*sS          +sSx*tE*cE*cS;
     
     Val determinant = J.GetDeterminant();
         

@@ -59,6 +59,7 @@ public:
 //逆運動学3D3自由度 InverseKinematics RA1_3D3DOF
 //
 //解説はこちら。 Explanation is here.
+// https://youtu.be/Ndhk7VYiQ9I
 //----------------------------
 class GachanGameIK_RA1_3D3DOF : public GachanRoboticsIK_RA1_3D3DOF
 {

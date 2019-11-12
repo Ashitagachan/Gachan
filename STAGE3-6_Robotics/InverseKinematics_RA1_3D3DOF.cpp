@@ -1,5 +1,5 @@
 //
-// InverseKinematics_RA1_2D2DOF.cpp  source file/ソースファイル
+// InverseKinematics_RA1_3D3DOF.cpp  source file/ソースファイル
 // UTF-8 CRLF format/形式
 //
 // Copyright (c) 2019 Ashitagachan
@@ -8,9 +8,10 @@
 #include "Gachan.h"
 
 //----------------------------
-//逆運動学3D3自由度 InverseKinematics_RA1_2D2DOF
+//逆運動学3D3自由度 InverseKinematics_RA1_3D3DOF
 //
 //解説はこちら。 Explanation is here.
+// https://youtu.be/Ndhk7VYiQ9I
 //----------------------------
 
 
@@ -147,6 +148,7 @@ namespace InverseKinematics_RA1_3D3DOF
         //逆運動学3D3自由度 InverseKinematics3D3DOF
         //
         //解説はこちら。 Explanation is here.
+        // https://youtu.be/Ndhk7VYiQ9I
         //----------------------------
 
         GachanGameIK_RA1_Return ikret = gachan->ik3D3DOF.GetIK(gachan->pHpos);

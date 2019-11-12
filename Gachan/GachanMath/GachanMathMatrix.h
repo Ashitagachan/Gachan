@@ -25,6 +25,11 @@ public:
 #pragma clang diagnostic ignored "-Wnested-anon-types"
     union {
         struct{
+            Val a, b, c,
+                d, e, f,
+                g, h, i;
+        };
+        struct{
             Val xx, xy, xz,
                 yx, yy, yz,
                 zx, zy, zz;
