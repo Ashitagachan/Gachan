@@ -46,7 +46,7 @@
 
 #define DX3DVERTEX_START(name)                  Gachan3DVertex name[] = {{
 #define DX3DVERTEX_VERTBUFFER(name)                  (void*)name,
-#define DX3DVERTEX_VERTNUM(type, vnum)               vnum, Gachan3DVertex::TYPE_##type, (void*) 0, 0,
+#define DX3DVERTEX_VERTNUM_iZ(type, vnum)               vnum, Gachan3DVertex::TYPE_##type, (void*) 0, 0,
 #define DX3DVERTEX_END                          },};
 
 
@@ -105,7 +105,7 @@
 #define DX3DOBJECT_JOINTSETNO(jointset, jointno)
 #define DX3DOBJECT_JOINTEND
 
-#define DX3DOBJECT_FLG(flg)
+#define DX3DOBJECT_FLG_iZiR(flg)
 #define DX3DOBJECT_CALLBACK(callback)
 #define DX3DOBJECT_SIBLING(sibname)               (Gachan3DObject*)sibname,
 #define DX3DOBJECT_CHILD(chname)                  (Gachan3DObject*)chname,

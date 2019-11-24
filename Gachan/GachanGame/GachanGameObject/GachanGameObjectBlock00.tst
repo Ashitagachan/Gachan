@@ -1,6 +1,7 @@
 //skipped groundPlane_transform
 //skipped Manipulator1
 //skipped UniversalManip
+//skipped CubeCompass
 /////////////////////////////////////////////
 // object_BlockA__
 /////////////////////////////////////////////
@@ -28,30 +29,30 @@ DX3DMATERIAL_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockA___mBlock_0 )
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //8
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //9
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //10
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //11
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //12
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //13
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //14
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //15
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //16
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //17
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //18
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //19
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //20
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //21
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //22
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //23
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //8
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //9
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //10
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //11
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //12
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //13
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //14
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //15
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //16
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //17
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //18
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //19
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //20
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //21
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //22
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //23
 DX3DVERT_END
 #endif
 
@@ -62,7 +63,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockA___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 24 )
+DX3DVERTEX_VERTNUM_iZ( VN, 24 )
 DX3DVERTEX_END
 
 
@@ -146,42 +147,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockA__, 57126069 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockA__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -206,86 +207,86 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockB___mBlock_0 )
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //8
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //9
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //10
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //11
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //12
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //13
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //14
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //15
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //16
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //17
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //18
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //19
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //20
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //21
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //22
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //23
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //24
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //25
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //26
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //27
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //28
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //29
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //30
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //31
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //32
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //33
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //34
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //35
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //36
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //37
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //38
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //39
-DX3DVERT( -1.5, -0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //40
-DX3DVERT( -0.5, -0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //41
-DX3DVERT( -0.5, 0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //42
-DX3DVERT( -1.5, 0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //43
-DX3DVERT( 0.5, -0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //44
-DX3DVERT( 0.5, 0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //45
-DX3DVERT( 1.5, -0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //46
-DX3DVERT( 1.5, 0.5, 0.515 ) DX3DVNORM( 0, 0, 1 )  //47
-DX3DVERT( -1.5, 0.5, 0.515 ) DX3DVNORM( 0, 1, 0 )  //48
-DX3DVERT( -0.5, 0.5, 0.515 ) DX3DVNORM( 0, 1, 0 )  //49
-DX3DVERT( -0.5, 0.5, -0.485 ) DX3DVNORM( 0, 1, 0 )  //50
-DX3DVERT( -1.5, 0.5, -0.485 ) DX3DVNORM( 0, 1, 0 )  //51
-DX3DVERT( 0.5, 0.5, 0.515 ) DX3DVNORM( 0, 1, 0 )  //52
-DX3DVERT( 0.5, 0.5, -0.485 ) DX3DVNORM( 0, 1, 0 )  //53
-DX3DVERT( 1.5, 0.5, 0.515 ) DX3DVNORM( 0, 1, 0 )  //54
-DX3DVERT( 1.5, 0.5, -0.485 ) DX3DVNORM( 0, 1, 0 )  //55
-DX3DVERT( -1.5, 0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //56
-DX3DVERT( -0.5, 0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //57
-DX3DVERT( -0.5, -0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //58
-DX3DVERT( -1.5, -0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //59
-DX3DVERT( 0.5, 0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //60
-DX3DVERT( 0.5, -0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //61
-DX3DVERT( 1.5, 0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //62
-DX3DVERT( 1.5, -0.5, -0.485 ) DX3DVNORM( 0, 0, -1 )  //63
-DX3DVERT( -1.5, -0.5, -0.485 ) DX3DVNORM( 0, -1, 0 )  //64
-DX3DVERT( -0.5, -0.5, -0.485 ) DX3DVNORM( 0, -1, 0 )  //65
-DX3DVERT( -0.5, -0.5, 0.515 ) DX3DVNORM( 0, -1, 0 )  //66
-DX3DVERT( -1.5, -0.5, 0.515 ) DX3DVNORM( 0, -1, 0 )  //67
-DX3DVERT( 0.5, -0.5, -0.485 ) DX3DVNORM( 0, -1, 0 )  //68
-DX3DVERT( 0.5, -0.5, 0.515 ) DX3DVNORM( 0, -1, 0 )  //69
-DX3DVERT( 1.5, -0.5, -0.485 ) DX3DVNORM( 0, -1, 0 )  //70
-DX3DVERT( 1.5, -0.5, 0.515 ) DX3DVNORM( 0, -1, 0 )  //71
-DX3DVERT( 1.5, -0.5, 0.515 ) DX3DVNORM( 1, 0, 0 )  //72
-DX3DVERT( 1.5, -0.5, -0.485 ) DX3DVNORM( 1, 0, 0 )  //73
-DX3DVERT( 1.5, 0.5, -0.485 ) DX3DVNORM( 1, 0, 0 )  //74
-DX3DVERT( 1.5, 0.5, 0.515 ) DX3DVNORM( 1, 0, 0 )  //75
-DX3DVERT( -1.5, -0.5, -0.485 ) DX3DVNORM( -1, 0, 0 )  //76
-DX3DVERT( -1.5, -0.5, 0.515 ) DX3DVNORM( -1, 0, 0 )  //77
-DX3DVERT( -1.5, 0.5, 0.515 ) DX3DVNORM( -1, 0, 0 )  //78
-DX3DVERT( -1.5, 0.5, -0.485 ) DX3DVNORM( -1, 0, 0 )  //79
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //8
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //9
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //10
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //11
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //12
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //13
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //14
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //15
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //16
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //17
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //18
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //19
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //20
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //21
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //22
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //23
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //24
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //25
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //26
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //27
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //28
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //29
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //30
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //31
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //32
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //33
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //34
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //35
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //36
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //37
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //38
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //39
+DX3DVERT( -1.5, -0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //40
+DX3DVERT( -0.5, -0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //41
+DX3DVERT( -0.5, 0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //42
+DX3DVERT( -1.5, 0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //43
+DX3DVERT( 0.5, -0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //44
+DX3DVERT( 0.5, 0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //45
+DX3DVERT( 1.5, -0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //46
+DX3DVERT( 1.5, 0.5, -0.515 ) DX3DVNORM( 0, 0, -1 )  //47
+DX3DVERT( -1.5, 0.5, -0.515 ) DX3DVNORM( 0, 1, -0 )  //48
+DX3DVERT( -0.5, 0.5, -0.515 ) DX3DVNORM( 0, 1, -0 )  //49
+DX3DVERT( -0.5, 0.5, 0.485 ) DX3DVNORM( 0, 1, -0 )  //50
+DX3DVERT( -1.5, 0.5, 0.485 ) DX3DVNORM( 0, 1, -0 )  //51
+DX3DVERT( 0.5, 0.5, -0.515 ) DX3DVNORM( 0, 1, -0 )  //52
+DX3DVERT( 0.5, 0.5, 0.485 ) DX3DVNORM( 0, 1, -0 )  //53
+DX3DVERT( 1.5, 0.5, -0.515 ) DX3DVNORM( 0, 1, -0 )  //54
+DX3DVERT( 1.5, 0.5, 0.485 ) DX3DVNORM( 0, 1, -0 )  //55
+DX3DVERT( -1.5, 0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //56
+DX3DVERT( -0.5, 0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //57
+DX3DVERT( -0.5, -0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //58
+DX3DVERT( -1.5, -0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //59
+DX3DVERT( 0.5, 0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //60
+DX3DVERT( 0.5, -0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //61
+DX3DVERT( 1.5, 0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //62
+DX3DVERT( 1.5, -0.5, 0.485 ) DX3DVNORM( 0, 0, 1 )  //63
+DX3DVERT( -1.5, -0.5, 0.485 ) DX3DVNORM( 0, -1, -0 )  //64
+DX3DVERT( -0.5, -0.5, 0.485 ) DX3DVNORM( 0, -1, -0 )  //65
+DX3DVERT( -0.5, -0.5, -0.515 ) DX3DVNORM( 0, -1, -0 )  //66
+DX3DVERT( -1.5, -0.5, -0.515 ) DX3DVNORM( 0, -1, -0 )  //67
+DX3DVERT( 0.5, -0.5, 0.485 ) DX3DVNORM( 0, -1, -0 )  //68
+DX3DVERT( 0.5, -0.5, -0.515 ) DX3DVNORM( 0, -1, -0 )  //69
+DX3DVERT( 1.5, -0.5, 0.485 ) DX3DVNORM( 0, -1, -0 )  //70
+DX3DVERT( 1.5, -0.5, -0.515 ) DX3DVNORM( 0, -1, -0 )  //71
+DX3DVERT( 1.5, -0.5, -0.515 ) DX3DVNORM( 1, 0, -0 )  //72
+DX3DVERT( 1.5, -0.5, 0.485 ) DX3DVNORM( 1, 0, -0 )  //73
+DX3DVERT( 1.5, 0.5, 0.485 ) DX3DVNORM( 1, 0, -0 )  //74
+DX3DVERT( 1.5, 0.5, -0.515 ) DX3DVNORM( 1, 0, -0 )  //75
+DX3DVERT( -1.5, -0.5, 0.485 ) DX3DVNORM( -1, 0, -0 )  //76
+DX3DVERT( -1.5, -0.5, -0.515 ) DX3DVNORM( -1, 0, -0 )  //77
+DX3DVERT( -1.5, 0.5, -0.515 ) DX3DVNORM( -1, 0, -0 )  //78
+DX3DVERT( -1.5, 0.5, 0.485 ) DX3DVNORM( -1, 0, -0 )  //79
 DX3DVERT_END
 #endif
 
@@ -296,7 +297,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockB___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 80 )
+DX3DVERTEX_VERTNUM_iZ( VN, 80 )
 DX3DVERTEX_END
 
 
@@ -424,42 +425,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockB__, 57127513 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockB__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -484,66 +485,66 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockC___mBlock_0 )
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //8
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //9
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //10
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //11
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //12
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //13
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //14
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //15
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //16
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //17
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //18
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //19
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //20
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //21
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //22
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //23
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //24
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //25
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //26
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //27
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //28
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //29
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //30
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //31
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //32
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //33
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //34
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //35
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //36
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //37
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //38
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //39
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //40
-DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //41
-DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //42
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //43
-DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //44
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //45
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //46
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //47
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //48
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //49
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //50
-DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //51
-DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //52
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //53
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //54
-DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //55
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //56
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //57
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //58
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //59
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //8
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //9
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //10
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //11
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //12
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //13
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //14
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //15
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //16
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //17
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //18
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //19
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //20
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //21
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //22
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //23
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //24
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //25
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //26
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //27
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //28
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //29
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //30
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //31
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //32
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //33
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //34
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //35
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //36
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //37
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //38
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //39
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //40
+DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //41
+DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //42
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //43
+DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //44
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //45
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //46
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //47
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //48
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //49
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //50
+DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //51
+DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //52
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //53
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //54
+DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //55
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //56
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //57
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //58
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //59
 DX3DVERT_END
 #endif
 
@@ -554,7 +555,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockC___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 60 )
+DX3DVERTEX_VERTNUM_iZ( VN, 60 )
 DX3DVERTEX_END
 
 
@@ -666,42 +667,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockC__, 57128957 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockC__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -726,64 +727,64 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockD___mBlock_0 )
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 1.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //8
-DX3DVERT( 1.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //9
-DX3DVERT( 1.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //10
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //11
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //12
-DX3DVERT( 1.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //13
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //14
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //15
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //16
-DX3DVERT( 1.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //17
-DX3DVERT( 1.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //18
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //19
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //20
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //21
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //22
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //23
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //24
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //25
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //26
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //27
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //28
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //29
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //30
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //31
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //32
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //33
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //34
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //35
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //36
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //37
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //38
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //39
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //40
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //41
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //42
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //43
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //44
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //45
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //46
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //47
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //48
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //49
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //50
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //51
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //52
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //53
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //54
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //55
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //56
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //57
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 1.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //8
+DX3DVERT( 1.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //9
+DX3DVERT( 1.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //10
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //11
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //12
+DX3DVERT( 1.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //13
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //14
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //15
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //16
+DX3DVERT( 1.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //17
+DX3DVERT( 1.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //18
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //19
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //20
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //21
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //22
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //23
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //24
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //25
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //26
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //27
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //28
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //29
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //30
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //31
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //32
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //33
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //34
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //35
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //36
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //37
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //38
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //39
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //40
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //41
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //42
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //43
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //44
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //45
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //46
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //47
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //48
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //49
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //50
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //51
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //52
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //53
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //54
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //55
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //56
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //57
 DX3DVERT_END
 #endif
 
@@ -794,7 +795,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockD___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 58 )
+DX3DVERTEX_VERTNUM_iZ( VN, 58 )
 DX3DVERTEX_END
 
 
@@ -906,42 +907,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockD__, 57130401 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockD__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -966,64 +967,64 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockE___mBlock_0 )
-DX3DVERT( -1.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -1.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -1.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -1.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( -1.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //8
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //9
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //10
-DX3DVERT( -1.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //11
-DX3DVERT( -1.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //12
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //13
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //14
-DX3DVERT( -1.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //15
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //16
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //17
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //18
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //19
-DX3DVERT( -1.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //20
-DX3DVERT( -1.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //21
-DX3DVERT( -1.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //22
-DX3DVERT( -1.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //23
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //24
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //25
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //26
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //27
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //28
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //29
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //30
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //31
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //32
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, 0 )  //33
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //34
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //35
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, 0 )  //36
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //37
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //38
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //39
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //40
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //41
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //42
-DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //43
-DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, 0 )  //44
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //45
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //46
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //47
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //48
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //49
-DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //50
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //51
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //52
-DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, 0 )  //53
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //54
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //55
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //56
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //57
+DX3DVERT( -1.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -1.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -1.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -1.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( -1.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //8
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //9
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //10
+DX3DVERT( -1.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //11
+DX3DVERT( -1.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //12
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //13
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //14
+DX3DVERT( -1.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //15
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //16
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //17
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //18
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //19
+DX3DVERT( -1.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //20
+DX3DVERT( -1.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //21
+DX3DVERT( -1.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //22
+DX3DVERT( -1.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //23
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //24
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //25
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //26
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //27
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //28
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //29
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //30
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //31
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //32
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, -0 )  //33
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //34
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //35
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, -0 )  //36
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //37
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //38
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //39
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //40
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //41
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //42
+DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //43
+DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, -0 )  //44
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //45
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //46
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //47
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //48
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //49
+DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //50
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //51
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //52
+DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, -0 )  //53
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //54
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //55
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //56
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //57
 DX3DVERT_END
 #endif
 
@@ -1034,7 +1035,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockE___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 58 )
+DX3DVERTEX_VERTNUM_iZ( VN, 58 )
 DX3DVERTEX_END
 
 
@@ -1146,42 +1147,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockE__, 57131845 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockE__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -1206,50 +1207,50 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockF___mBlock_0 )
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //8
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //9
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //10
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //11
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //12
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //13
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //14
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( 0, -1, 0 )  //15
-DX3DVERT( 0.5, -0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //16
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //17
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //18
-DX3DVERT( 0.5, 0.5, 1.5 ) DX3DVNORM( 1, 0, 0 )  //19
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //20
-DX3DVERT( -0.5, -0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //21
-DX3DVERT( -0.5, 0.5, 1.5 ) DX3DVNORM( -1, 0, 0 )  //22
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //23
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //24
-DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //25
-DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //26
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //27
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //28
-DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //29
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //30
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //31
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //32
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //33
-DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //34
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //35
-DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //36
-DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //37
-DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //38
-DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //39
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //40
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //41
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //42
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //43
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //8
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //9
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //10
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //11
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //12
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //13
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //14
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( 0, -1, -0 )  //15
+DX3DVERT( 0.5, -0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //16
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //17
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //18
+DX3DVERT( 0.5, 0.5, -1.5 ) DX3DVNORM( 1, 0, -0 )  //19
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //20
+DX3DVERT( -0.5, -0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //21
+DX3DVERT( -0.5, 0.5, -1.5 ) DX3DVNORM( -1, 0, -0 )  //22
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //23
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //24
+DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //25
+DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //26
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //27
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //28
+DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //29
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //30
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //31
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //32
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //33
+DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //34
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //35
+DX3DVERT( 1.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //36
+DX3DVERT( 1.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //37
+DX3DVERT( 1.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //38
+DX3DVERT( 1.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //39
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //40
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //41
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //42
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //43
 DX3DVERT_END
 #endif
 
@@ -1260,7 +1261,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockF___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 44 )
+DX3DVERTEX_VERTNUM_iZ( VN, 44 )
 DX3DVERTEX_END
 
 
@@ -1356,42 +1357,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockF__, 57133289 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockF__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -1416,30 +1417,30 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockG___mBlock_0 )
-DX3DVERT( -0.5, -0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 0.5, -0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 0.5, 0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.5, 0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.5, 0.5, 5.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 0.5, 0.5, 5.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 0.5, 0.5, -5.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -0.5, 0.5, -5.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( -0.5, 0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //8
-DX3DVERT( 0.5, 0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //9
-DX3DVERT( 0.5, -0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //10
-DX3DVERT( -0.5, -0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //11
-DX3DVERT( -0.5, -0.5, -5.5 ) DX3DVNORM( 0, -1, 0 )  //12
-DX3DVERT( 0.5, -0.5, -5.5 ) DX3DVNORM( 0, -1, 0 )  //13
-DX3DVERT( 0.5, -0.5, 5.5 ) DX3DVNORM( 0, -1, 0 )  //14
-DX3DVERT( -0.5, -0.5, 5.5 ) DX3DVNORM( 0, -1, 0 )  //15
-DX3DVERT( 0.5, -0.5, 5.5 ) DX3DVNORM( 1, 0, 0 )  //16
-DX3DVERT( 0.5, -0.5, -5.5 ) DX3DVNORM( 1, 0, 0 )  //17
-DX3DVERT( 0.5, 0.5, -5.5 ) DX3DVNORM( 1, 0, 0 )  //18
-DX3DVERT( 0.5, 0.5, 5.5 ) DX3DVNORM( 1, 0, 0 )  //19
-DX3DVERT( -0.5, -0.5, -5.5 ) DX3DVNORM( -1, 0, 0 )  //20
-DX3DVERT( -0.5, -0.5, 5.5 ) DX3DVNORM( -1, 0, 0 )  //21
-DX3DVERT( -0.5, 0.5, 5.5 ) DX3DVNORM( -1, 0, 0 )  //22
-DX3DVERT( -0.5, 0.5, -5.5 ) DX3DVNORM( -1, 0, 0 )  //23
+DX3DVERT( -0.5, -0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 0.5, -0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 0.5, 0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.5, 0.5, -5.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.5, 0.5, -5.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 0.5, 0.5, -5.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 0.5, 0.5, 5.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -0.5, 0.5, 5.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( -0.5, 0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //8
+DX3DVERT( 0.5, 0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //9
+DX3DVERT( 0.5, -0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //10
+DX3DVERT( -0.5, -0.5, 5.5 ) DX3DVNORM( 0, 0, 1 )  //11
+DX3DVERT( -0.5, -0.5, 5.5 ) DX3DVNORM( 0, -1, -0 )  //12
+DX3DVERT( 0.5, -0.5, 5.5 ) DX3DVNORM( 0, -1, -0 )  //13
+DX3DVERT( 0.5, -0.5, -5.5 ) DX3DVNORM( 0, -1, -0 )  //14
+DX3DVERT( -0.5, -0.5, -5.5 ) DX3DVNORM( 0, -1, -0 )  //15
+DX3DVERT( 0.5, -0.5, -5.5 ) DX3DVNORM( 1, 0, -0 )  //16
+DX3DVERT( 0.5, -0.5, 5.5 ) DX3DVNORM( 1, 0, -0 )  //17
+DX3DVERT( 0.5, 0.5, 5.5 ) DX3DVNORM( 1, 0, -0 )  //18
+DX3DVERT( 0.5, 0.5, -5.5 ) DX3DVNORM( 1, 0, -0 )  //19
+DX3DVERT( -0.5, -0.5, 5.5 ) DX3DVNORM( -1, 0, -0 )  //20
+DX3DVERT( -0.5, -0.5, -5.5 ) DX3DVNORM( -1, 0, -0 )  //21
+DX3DVERT( -0.5, 0.5, -5.5 ) DX3DVNORM( -1, 0, -0 )  //22
+DX3DVERT( -0.5, 0.5, 5.5 ) DX3DVNORM( -1, 0, -0 )  //23
 DX3DVERT_END
 #endif
 
@@ -1450,7 +1451,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockG___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 24 )
+DX3DVERTEX_VERTNUM_iZ( VN, 24 )
 DX3DVERTEX_END
 
 
@@ -1534,42 +1535,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockG__, 57134733 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockG__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -1594,30 +1595,30 @@ DX3DOBJECT_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BlockH___mBlock_0 )
-DX3DVERT( -5.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( 5.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( 5.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -5.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -5.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //4
-DX3DVERT( 5.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //5
-DX3DVERT( 5.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //6
-DX3DVERT( -5.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //7
-DX3DVERT( -5.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //8
-DX3DVERT( 5.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //9
-DX3DVERT( 5.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //10
-DX3DVERT( -5.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //11
-DX3DVERT( -5.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //12
-DX3DVERT( 5.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //13
-DX3DVERT( 5.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //14
-DX3DVERT( -5.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //15
-DX3DVERT( 5.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //16
-DX3DVERT( 5.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //17
-DX3DVERT( 5.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //18
-DX3DVERT( 5.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //19
-DX3DVERT( -5.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //20
-DX3DVERT( -5.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //21
-DX3DVERT( -5.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //22
-DX3DVERT( -5.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //23
+DX3DVERT( -5.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( 5.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( 5.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -5.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -5.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //4
+DX3DVERT( 5.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //5
+DX3DVERT( 5.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //6
+DX3DVERT( -5.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //7
+DX3DVERT( -5.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //8
+DX3DVERT( 5.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //9
+DX3DVERT( 5.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //10
+DX3DVERT( -5.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //11
+DX3DVERT( -5.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //12
+DX3DVERT( 5.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //13
+DX3DVERT( 5.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //14
+DX3DVERT( -5.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //15
+DX3DVERT( 5.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //16
+DX3DVERT( 5.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //17
+DX3DVERT( 5.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //18
+DX3DVERT( 5.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //19
+DX3DVERT( -5.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //20
+DX3DVERT( -5.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //21
+DX3DVERT( -5.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //22
+DX3DVERT( -5.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //23
 DX3DVERT_END
 #endif
 
@@ -1628,7 +1629,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BlockH___mBlock_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 24 )
+DX3DVERTEX_VERTNUM_iZ( VN, 24 )
 DX3DVERTEX_END
 
 
@@ -1712,42 +1713,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BlockH__, 57136177 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BlockH__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -1792,102 +1793,102 @@ DX3DMATERIAL_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BrickA___mBrick_0 )
-DX3DVERT( -0.46138, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( -0.168743, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( -0.168743, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.46138, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.102056, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //4
-DX3DVERT( -0.102056, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //5
-DX3DVERT( 0.457871, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //6
-DX3DVERT( 0.457871, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //7
-DX3DVERT( 0.338526, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //8
-DX3DVERT( -0.46138, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //9
-DX3DVERT( 0.405212, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //10
-DX3DVERT( 0.457871, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //11
-DX3DVERT( 0.338526, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //12
-DX3DVERT( -0.46138, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //13
-DX3DVERT( 0.405212, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //14
-DX3DVERT( 0.457871, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //15
-DX3DVERT( -0.46138, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 0 )  //16
-DX3DVERT( -0.310495, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 1.66346e-006 )  //17
-DX3DVERT( -0.310495, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 0 )  //18
-DX3DVERT( -0.46138, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 0 )  //19
-DX3DVERT( -0.243809, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 1.2719e-006 )  //20
-DX3DVERT( -0.243809, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 1.95576e-007 )  //21
-DX3DVERT( 0.457871, 0.5, 0.466418 ) DX3DVNORM( 0, 1, -3.91555e-007 )  //22
-DX3DVERT( 0.457871, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 1.95576e-007 )  //23
-DX3DVERT( 0.257842, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 0 )  //24
-DX3DVERT( -0.46138, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 0 )  //25
-DX3DVERT( 0.324528, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 1.95576e-007 )  //26
-DX3DVERT( 0.457871, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 1.95576e-007 )  //27
-DX3DVERT( 0.257842, 0.5, -0.468788 ) DX3DVNORM( 0, 1, -1.78977e-006 )  //28
-DX3DVERT( -0.46138, 0.5, -0.468788 ) DX3DVNORM( 0, 1, 0 )  //29
-DX3DVERT( 0.324528, 0.5, -0.468788 ) DX3DVNORM( 0, 1, -1.3672e-006 )  //30
-DX3DVERT( 0.457871, 0.5, -0.468788 ) DX3DVNORM( 0, 1, 4.22574e-007 )  //31
-DX3DVERT( -0.46138, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //32
-DX3DVERT( 0.338526, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //33
-DX3DVERT( 0.338526, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //34
-DX3DVERT( -0.46138, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //35
-DX3DVERT( 0.405212, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //36
-DX3DVERT( 0.405212, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //37
-DX3DVERT( 0.457871, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //38
-DX3DVERT( 0.457871, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //39
-DX3DVERT( -0.168743, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //40
-DX3DVERT( -0.46138, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //41
-DX3DVERT( -0.102056, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //42
-DX3DVERT( 0.457871, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //43
-DX3DVERT( -0.168743, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //44
-DX3DVERT( -0.46138, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //45
-DX3DVERT( -0.102056, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //46
-DX3DVERT( 0.457871, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //47
-DX3DVERT( -0.46138, -0.5, -0.468788 ) DX3DVNORM( 0, -1, 0 )  //48
-DX3DVERT( 0.257842, -0.5, -0.468788 ) DX3DVNORM( 0, -1, -1.78977e-006 )  //49
-DX3DVERT( 0.257842, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 0 )  //50
-DX3DVERT( -0.46138, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 0 )  //51
-DX3DVERT( 0.324528, -0.5, -0.468788 ) DX3DVNORM( 0, -1, -1.3672e-006 )  //52
-DX3DVERT( 0.324528, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 1.95576e-007 )  //53
-DX3DVERT( 0.457871, -0.5, -0.468788 ) DX3DVNORM( 0, -1, 4.22574e-007 )  //54
-DX3DVERT( 0.457871, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 1.95576e-007 )  //55
-DX3DVERT( -0.310495, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 0 )  //56
-DX3DVERT( -0.46138, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 0 )  //57
-DX3DVERT( -0.243809, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 1.95576e-007 )  //58
-DX3DVERT( 0.457871, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 1.95576e-007 )  //59
-DX3DVERT( -0.310495, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 1.66346e-006 )  //60
-DX3DVERT( -0.46138, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 0 )  //61
-DX3DVERT( -0.243809, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 1.2719e-006 )  //62
-DX3DVERT( 0.457871, -0.5, 0.466418 ) DX3DVNORM( 0, -1, -3.91555e-007 )  //63
-DX3DVERT( 0.5, -0.465531, 0.0563776 ) DX3DVNORM( 1, 1.12507e-007, 0 )  //64
-DX3DVERT( 0.5, -0.465531, -0.468788 ) DX3DVNORM( 1, 1.12507e-007, 0 )  //65
-DX3DVERT( 0.5, -0.0405055, -0.468788 ) DX3DVNORM( 1, -1.29887e-007, 0 )  //66
-DX3DVERT( 0.5, -0.0405055, 0.0563776 ) DX3DVNORM( 1, -1.29887e-007, 0 )  //67
-DX3DVERT( 0.5, -0.465531, 0.147622 ) DX3DVNORM( 1, 0, 0 )  //68
-DX3DVERT( 0.5, -0.0405055, 0.147622 ) DX3DVNORM( 1, 0, 0 )  //69
-DX3DVERT( 0.5, -0.465531, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //70
-DX3DVERT( 0.5, -0.0405055, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //71
-DX3DVERT( 0.5, 0.0467681, -0.468788 ) DX3DVNORM( 1, -1.29887e-007, 0 )  //72
-DX3DVERT( 0.5, 0.0467681, -0.336685 ) DX3DVNORM( 1, -1.29887e-007, 0 )  //73
-DX3DVERT( 0.5, 0.0467681, -0.245441 ) DX3DVNORM( 1, 0, 0 )  //74
-DX3DVERT( 0.5, 0.0467681, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //75
-DX3DVERT( 0.5, 0.47174, -0.468788 ) DX3DVNORM( 1, 0, 0 )  //76
-DX3DVERT( 0.5, 0.47174, -0.336685 ) DX3DVNORM( 1, 0, 0 )  //77
-DX3DVERT( 0.5, 0.47174, -0.245441 ) DX3DVNORM( 1, 2.35315e-007, 0 )  //78
-DX3DVERT( 0.5, 0.47174, 0.466418 ) DX3DVNORM( 1, 2.35315e-007, 0 )  //79
-DX3DVERT( -0.5, -0.465531, -0.468788 ) DX3DVNORM( -1, 0, 0 )  //80
-DX3DVERT( -0.5, -0.465531, 0.0563776 ) DX3DVNORM( -1, 0, 0 )  //81
-DX3DVERT( -0.5, -0.0405055, 0.0563776 ) DX3DVNORM( -1, -1.29887e-007, 0 )  //82
-DX3DVERT( -0.5, -0.0405055, -0.468788 ) DX3DVNORM( -1, -1.29887e-007, 0 )  //83
-DX3DVERT( -0.5, -0.465531, 0.147622 ) DX3DVNORM( -1, -1.48595e-007, 0 )  //84
-DX3DVERT( -0.5, -0.0405055, 0.147622 ) DX3DVNORM( -1, -8.28312e-008, 0 )  //85
-DX3DVERT( -0.5, -0.465531, 0.466418 ) DX3DVNORM( -1, -1.48595e-007, 0 )  //86
-DX3DVERT( -0.5, -0.0405055, 0.466418 ) DX3DVNORM( -1, -8.28312e-008, 0 )  //87
-DX3DVERT( -0.5, 0.0467681, -0.336685 ) DX3DVNORM( -1, -1.29887e-007, 0 )  //88
-DX3DVERT( -0.5, 0.0467681, -0.468788 ) DX3DVNORM( -1, -1.29887e-007, 0 )  //89
-DX3DVERT( -0.5, 0.0467681, -0.245441 ) DX3DVNORM( -1, -8.28312e-008, 0 )  //90
-DX3DVERT( -0.5, 0.0467681, 0.466418 ) DX3DVNORM( -1, -8.28312e-008, 0 )  //91
-DX3DVERT( -0.5, 0.47174, -0.336685 ) DX3DVNORM( -1, 0, 0 )  //92
-DX3DVERT( -0.5, 0.47174, -0.468788 ) DX3DVNORM( -1, 0, 0 )  //93
-DX3DVERT( -0.5, 0.47174, -0.245441 ) DX3DVNORM( -1, 2.35315e-007, 0 )  //94
-DX3DVERT( -0.5, 0.47174, 0.466418 ) DX3DVNORM( -1, 2.35315e-007, 0 )  //95
+DX3DVERT( -0.46138, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( -0.168743, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( -0.168743, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.46138, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.102056, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //4
+DX3DVERT( -0.102056, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //5
+DX3DVERT( 0.457871, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //6
+DX3DVERT( 0.457871, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //7
+DX3DVERT( 0.338526, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //8
+DX3DVERT( -0.46138, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //9
+DX3DVERT( 0.405212, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //10
+DX3DVERT( 0.457871, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //11
+DX3DVERT( 0.338526, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //12
+DX3DVERT( -0.46138, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //13
+DX3DVERT( 0.405212, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //14
+DX3DVERT( 0.457871, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //15
+DX3DVERT( -0.46138, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -0 )  //16
+DX3DVERT( -0.310495, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -1.66346e-006 )  //17
+DX3DVERT( -0.310495, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -0 )  //18
+DX3DVERT( -0.46138, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -0 )  //19
+DX3DVERT( -0.243809, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -1.2719e-006 )  //20
+DX3DVERT( -0.243809, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -1.95576e-007 )  //21
+DX3DVERT( 0.457871, 0.5, -0.466418 ) DX3DVNORM( 0, 1, 3.91555e-007 )  //22
+DX3DVERT( 0.457871, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -1.95576e-007 )  //23
+DX3DVERT( 0.257842, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -0 )  //24
+DX3DVERT( -0.46138, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -0 )  //25
+DX3DVERT( 0.324528, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -1.95576e-007 )  //26
+DX3DVERT( 0.457871, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -1.95576e-007 )  //27
+DX3DVERT( 0.257842, 0.5, 0.468788 ) DX3DVNORM( 0, 1, 1.78977e-006 )  //28
+DX3DVERT( -0.46138, 0.5, 0.468788 ) DX3DVNORM( 0, 1, -0 )  //29
+DX3DVERT( 0.324528, 0.5, 0.468788 ) DX3DVNORM( 0, 1, 1.3672e-006 )  //30
+DX3DVERT( 0.457871, 0.5, 0.468788 ) DX3DVNORM( 0, 1, -4.22574e-007 )  //31
+DX3DVERT( -0.46138, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //32
+DX3DVERT( 0.338526, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //33
+DX3DVERT( 0.338526, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //34
+DX3DVERT( -0.46138, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //35
+DX3DVERT( 0.405212, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //36
+DX3DVERT( 0.405212, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //37
+DX3DVERT( 0.457871, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //38
+DX3DVERT( 0.457871, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //39
+DX3DVERT( -0.168743, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //40
+DX3DVERT( -0.46138, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //41
+DX3DVERT( -0.102056, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //42
+DX3DVERT( 0.457871, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //43
+DX3DVERT( -0.168743, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //44
+DX3DVERT( -0.46138, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //45
+DX3DVERT( -0.102056, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //46
+DX3DVERT( 0.457871, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //47
+DX3DVERT( -0.46138, -0.5, 0.468788 ) DX3DVNORM( 0, -1, -0 )  //48
+DX3DVERT( 0.257842, -0.5, 0.468788 ) DX3DVNORM( 0, -1, 1.78977e-006 )  //49
+DX3DVERT( 0.257842, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -0 )  //50
+DX3DVERT( -0.46138, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -0 )  //51
+DX3DVERT( 0.324528, -0.5, 0.468788 ) DX3DVNORM( 0, -1, 1.3672e-006 )  //52
+DX3DVERT( 0.324528, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -1.95576e-007 )  //53
+DX3DVERT( 0.457871, -0.5, 0.468788 ) DX3DVNORM( 0, -1, -4.22574e-007 )  //54
+DX3DVERT( 0.457871, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -1.95576e-007 )  //55
+DX3DVERT( -0.310495, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -0 )  //56
+DX3DVERT( -0.46138, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -0 )  //57
+DX3DVERT( -0.243809, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -1.95576e-007 )  //58
+DX3DVERT( 0.457871, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -1.95576e-007 )  //59
+DX3DVERT( -0.310495, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -1.66346e-006 )  //60
+DX3DVERT( -0.46138, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -0 )  //61
+DX3DVERT( -0.243809, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -1.2719e-006 )  //62
+DX3DVERT( 0.457871, -0.5, -0.466418 ) DX3DVNORM( 0, -1, 3.91555e-007 )  //63
+DX3DVERT( 0.5, -0.465531, -0.0563776 ) DX3DVNORM( 1, 1.12507e-007, -0 )  //64
+DX3DVERT( 0.5, -0.465531, 0.468788 ) DX3DVNORM( 1, 1.12507e-007, -0 )  //65
+DX3DVERT( 0.5, -0.0405055, 0.468788 ) DX3DVNORM( 1, -1.29887e-007, -0 )  //66
+DX3DVERT( 0.5, -0.0405055, -0.0563776 ) DX3DVNORM( 1, -1.29887e-007, -0 )  //67
+DX3DVERT( 0.5, -0.465531, -0.147622 ) DX3DVNORM( 1, 0, -0 )  //68
+DX3DVERT( 0.5, -0.0405055, -0.147622 ) DX3DVNORM( 1, 0, -0 )  //69
+DX3DVERT( 0.5, -0.465531, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //70
+DX3DVERT( 0.5, -0.0405055, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //71
+DX3DVERT( 0.5, 0.0467681, 0.468788 ) DX3DVNORM( 1, -1.29887e-007, -0 )  //72
+DX3DVERT( 0.5, 0.0467681, 0.336685 ) DX3DVNORM( 1, -1.29887e-007, -0 )  //73
+DX3DVERT( 0.5, 0.0467681, 0.245441 ) DX3DVNORM( 1, 0, -0 )  //74
+DX3DVERT( 0.5, 0.0467681, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //75
+DX3DVERT( 0.5, 0.47174, 0.468788 ) DX3DVNORM( 1, 0, -0 )  //76
+DX3DVERT( 0.5, 0.47174, 0.336685 ) DX3DVNORM( 1, 0, -0 )  //77
+DX3DVERT( 0.5, 0.47174, 0.245441 ) DX3DVNORM( 1, 2.35315e-007, -0 )  //78
+DX3DVERT( 0.5, 0.47174, -0.466418 ) DX3DVNORM( 1, 2.35315e-007, -0 )  //79
+DX3DVERT( -0.5, -0.465531, 0.468788 ) DX3DVNORM( -1, 0, -0 )  //80
+DX3DVERT( -0.5, -0.465531, -0.0563776 ) DX3DVNORM( -1, 0, -0 )  //81
+DX3DVERT( -0.5, -0.0405055, -0.0563776 ) DX3DVNORM( -1, -1.29887e-007, -0 )  //82
+DX3DVERT( -0.5, -0.0405055, 0.468788 ) DX3DVNORM( -1, -1.29887e-007, -0 )  //83
+DX3DVERT( -0.5, -0.465531, -0.147622 ) DX3DVNORM( -1, -1.48595e-007, -0 )  //84
+DX3DVERT( -0.5, -0.0405055, -0.147622 ) DX3DVNORM( -1, -8.28312e-008, -0 )  //85
+DX3DVERT( -0.5, -0.465531, -0.466418 ) DX3DVNORM( -1, -1.48595e-007, -0 )  //86
+DX3DVERT( -0.5, -0.0405055, -0.466418 ) DX3DVNORM( -1, -8.28312e-008, -0 )  //87
+DX3DVERT( -0.5, 0.0467681, 0.336685 ) DX3DVNORM( -1, -1.29887e-007, -0 )  //88
+DX3DVERT( -0.5, 0.0467681, 0.468788 ) DX3DVNORM( -1, -1.29887e-007, -0 )  //89
+DX3DVERT( -0.5, 0.0467681, 0.245441 ) DX3DVNORM( -1, -8.28312e-008, -0 )  //90
+DX3DVERT( -0.5, 0.0467681, -0.466418 ) DX3DVNORM( -1, -8.28312e-008, -0 )  //91
+DX3DVERT( -0.5, 0.47174, 0.336685 ) DX3DVNORM( -1, 0, -0 )  //92
+DX3DVERT( -0.5, 0.47174, 0.468788 ) DX3DVNORM( -1, 0, -0 )  //93
+DX3DVERT( -0.5, 0.47174, 0.245441 ) DX3DVNORM( -1, 2.35315e-007, -0 )  //94
+DX3DVERT( -0.5, 0.47174, -0.466418 ) DX3DVNORM( -1, 2.35315e-007, -0 )  //95
 DX3DVERT_END
 #endif
 
@@ -1898,7 +1899,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BrickA___mBrick_0 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 96 )
+DX3DVERTEX_VERTNUM_iZ( VN, 96 )
 DX3DVERTEX_END
 
 
@@ -2063,198 +2064,198 @@ DX3DINDEX_END
 
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DVERT_START( VN, vertexbuff_BrickA___mWhite_1 )
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //0
-DX3DVERT( -0.46138, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //1
-DX3DVERT( -0.46138, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //2
-DX3DVERT( -0.5, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //3
-DX3DVERT( -0.0403597, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //4
-DX3DVERT( -0.168743, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //5
-DX3DVERT( 0.0263267, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //6
-DX3DVERT( -0.102056, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //7
-DX3DVERT( 0.457871, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //8
-DX3DVERT( 0.457871, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //9
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //10
-DX3DVERT( 0.5, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //11
-DX3DVERT( -0.46138, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //12
-DX3DVERT( -0.5, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //13
-DX3DVERT( 0.5, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //14
-DX3DVERT( 0.457871, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //15
-DX3DVERT( -0.46138, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //16
-DX3DVERT( -0.5, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //17
-DX3DVERT( 0.5, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //18
-DX3DVERT( 0.457871, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //19
-DX3DVERT( -0.46138, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //20
-DX3DVERT( -0.5, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //21
-DX3DVERT( 0.5, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //22
-DX3DVERT( 0.457871, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //23
-DX3DVERT( -0.46138, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //24
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //25
-DX3DVERT( 0.338526, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //26
-DX3DVERT( -0.0403597, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //27
-DX3DVERT( 0.405212, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //28
-DX3DVERT( 0.0263267, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //29
-DX3DVERT( 0.457871, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //30
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //31
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //32
-DX3DVERT( -0.46138, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //33
-DX3DVERT( -0.46138, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 0 )  //34
-DX3DVERT( -0.5, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 0 )  //35
-DX3DVERT( -0.0403597, 0.5, 0.5 ) DX3DVNORM( 0, 1, 3.32692e-006 )  //36
-DX3DVERT( -0.310495, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 1.66346e-006 )  //37
-DX3DVERT( 0.0263267, 0.5, 0.5 ) DX3DVNORM( 0, 1, 2.54381e-006 )  //38
-DX3DVERT( -0.243809, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 1.2719e-006 )  //39
-DX3DVERT( 0.457871, 0.5, 0.5 ) DX3DVNORM( 0, 1, -7.83111e-007 )  //40
-DX3DVERT( 0.457871, 0.5, 0.466418 ) DX3DVNORM( 0, 1, -3.91555e-007 )  //41
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, 0 )  //42
-DX3DVERT( 0.5, 0.5, 0.466418 ) DX3DVNORM( 0, 1, 0 )  //43
-DX3DVERT( -0.46138, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 0 )  //44
-DX3DVERT( -0.5, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 0 )  //45
-DX3DVERT( 0.5, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 0 )  //46
-DX3DVERT( 0.457871, 0.5, 0.057901 ) DX3DVNORM( 0, 1, 1.95576e-007 )  //47
-DX3DVERT( -0.46138, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 0 )  //48
-DX3DVERT( -0.5, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 0 )  //49
-DX3DVERT( 0.5, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 0 )  //50
-DX3DVERT( 0.457871, 0.5, -0.0333432 ) DX3DVNORM( 0, 1, 1.95576e-007 )  //51
-DX3DVERT( -0.46138, 0.5, -0.468788 ) DX3DVNORM( 0, 1, 0 )  //52
-DX3DVERT( -0.5, 0.5, -0.468788 ) DX3DVNORM( 0, 1, 0 )  //53
-DX3DVERT( 0.5, 0.5, -0.468788 ) DX3DVNORM( 0, 1, 0 )  //54
-DX3DVERT( 0.457871, 0.5, -0.468788 ) DX3DVNORM( 0, 1, 4.22574e-007 )  //55
-DX3DVERT( -0.46138, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //56
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //57
-DX3DVERT( 0.257842, 0.5, -0.468788 ) DX3DVNORM( 0, 1, -1.78977e-006 )  //58
-DX3DVERT( -0.0403597, 0.5, -0.5 ) DX3DVNORM( 0, 1, -3.57955e-006 )  //59
-DX3DVERT( 0.324528, 0.5, -0.468788 ) DX3DVNORM( 0, 1, -1.3672e-006 )  //60
-DX3DVERT( 0.0263267, 0.5, -0.5 ) DX3DVNORM( 0, 1, -2.7344e-006 )  //61
-DX3DVERT( 0.457871, 0.5, -0.5 ) DX3DVNORM( 0, 1, 8.45149e-007 )  //62
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, 0 )  //63
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //64
-DX3DVERT( -0.46138, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //65
-DX3DVERT( -0.46138, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //66
-DX3DVERT( -0.5, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //67
-DX3DVERT( -0.0403597, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //68
-DX3DVERT( 0.338526, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //69
-DX3DVERT( 0.0263267, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //70
-DX3DVERT( 0.405212, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //71
-DX3DVERT( 0.457871, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //72
-DX3DVERT( 0.457871, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //73
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //74
-DX3DVERT( 0.5, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //75
-DX3DVERT( -0.46138, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //76
-DX3DVERT( -0.5, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //77
-DX3DVERT( 0.5, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //78
-DX3DVERT( 0.457871, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //79
-DX3DVERT( -0.46138, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //80
-DX3DVERT( -0.5, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //81
-DX3DVERT( 0.5, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //82
-DX3DVERT( 0.457871, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //83
-DX3DVERT( -0.46138, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //84
-DX3DVERT( -0.5, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //85
-DX3DVERT( 0.5, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //86
-DX3DVERT( 0.457871, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //87
-DX3DVERT( -0.46138, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //88
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //89
-DX3DVERT( -0.168743, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //90
-DX3DVERT( -0.0403597, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //91
-DX3DVERT( -0.102056, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //92
-DX3DVERT( 0.0263267, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //93
-DX3DVERT( 0.457871, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //94
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //95
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //96
-DX3DVERT( -0.46138, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //97
-DX3DVERT( -0.46138, -0.5, -0.468788 ) DX3DVNORM( 0, -1, 0 )  //98
-DX3DVERT( -0.5, -0.5, -0.468788 ) DX3DVNORM( 0, -1, 0 )  //99
-DX3DVERT( -0.0403597, -0.5, -0.5 ) DX3DVNORM( 0, -1, -3.57955e-006 )  //100
-DX3DVERT( 0.257842, -0.5, -0.468788 ) DX3DVNORM( 0, -1, -1.78977e-006 )  //101
-DX3DVERT( 0.0263267, -0.5, -0.5 ) DX3DVNORM( 0, -1, -2.7344e-006 )  //102
-DX3DVERT( 0.324528, -0.5, -0.468788 ) DX3DVNORM( 0, -1, -1.3672e-006 )  //103
-DX3DVERT( 0.457871, -0.5, -0.5 ) DX3DVNORM( 0, -1, 8.45149e-007 )  //104
-DX3DVERT( 0.457871, -0.5, -0.468788 ) DX3DVNORM( 0, -1, 4.22574e-007 )  //105
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, 0 )  //106
-DX3DVERT( 0.5, -0.5, -0.468788 ) DX3DVNORM( 0, -1, 0 )  //107
-DX3DVERT( -0.46138, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 0 )  //108
-DX3DVERT( -0.5, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 0 )  //109
-DX3DVERT( 0.5, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 0 )  //110
-DX3DVERT( 0.457871, -0.5, -0.0333432 ) DX3DVNORM( 0, -1, 1.95576e-007 )  //111
-DX3DVERT( -0.46138, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 0 )  //112
-DX3DVERT( -0.5, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 0 )  //113
-DX3DVERT( 0.5, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 0 )  //114
-DX3DVERT( 0.457871, -0.5, 0.057901 ) DX3DVNORM( 0, -1, 1.95576e-007 )  //115
-DX3DVERT( -0.46138, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 0 )  //116
-DX3DVERT( -0.5, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 0 )  //117
-DX3DVERT( 0.5, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 0 )  //118
-DX3DVERT( 0.457871, -0.5, 0.466418 ) DX3DVNORM( 0, -1, -3.91555e-007 )  //119
-DX3DVERT( -0.46138, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //120
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //121
-DX3DVERT( -0.310495, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 1.66346e-006 )  //122
-DX3DVERT( -0.0403597, -0.5, 0.5 ) DX3DVNORM( 0, -1, 3.32692e-006 )  //123
-DX3DVERT( -0.243809, -0.5, 0.466418 ) DX3DVNORM( 0, -1, 1.2719e-006 )  //124
-DX3DVERT( 0.0263267, -0.5, 0.5 ) DX3DVNORM( 0, -1, 2.54381e-006 )  //125
-DX3DVERT( 0.457871, -0.5, 0.5 ) DX3DVNORM( 0, -1, -7.83111e-007 )  //126
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, 0 )  //127
-DX3DVERT( 0.5, -0.5, -0.468788 ) DX3DVNORM( 1, 2.25013e-007, 0 )  //128
-DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //129
-DX3DVERT( 0.5, -0.465531, -0.5 ) DX3DVNORM( 1, 0, 0 )  //130
-DX3DVERT( 0.5, -0.465531, -0.468788 ) DX3DVNORM( 1, 1.12507e-007, 0 )  //131
-DX3DVERT( 0.5, -0.5, -0.0333432 ) DX3DVNORM( 1, 2.25013e-007, 0 )  //132
-DX3DVERT( 0.5, -0.465531, 0.0563776 ) DX3DVNORM( 1, 1.12507e-007, 0 )  //133
-DX3DVERT( 0.5, -0.5, 0.057901 ) DX3DVNORM( 1, 0, 0 )  //134
-DX3DVERT( 0.5, -0.465531, 0.147622 ) DX3DVNORM( 1, 0, 0 )  //135
-DX3DVERT( 0.5, -0.5, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //136
-DX3DVERT( 0.5, -0.465531, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //137
-DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //138
-DX3DVERT( 0.5, -0.465531, 0.5 ) DX3DVNORM( 1, 0, 0 )  //139
-DX3DVERT( 0.5, -0.0405055, -0.5 ) DX3DVNORM( 1, 0, 0 )  //140
-DX3DVERT( 0.5, -0.0405055, -0.468788 ) DX3DVNORM( 1, -1.29887e-007, 0 )  //141
-DX3DVERT( 0.5, -0.0405055, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //142
-DX3DVERT( 0.5, -0.0405055, 0.5 ) DX3DVNORM( 1, 0, 0 )  //143
-DX3DVERT( 0.5, 0.0467681, -0.5 ) DX3DVNORM( 1, 0, 0 )  //144
-DX3DVERT( 0.5, 0.0467681, -0.468788 ) DX3DVNORM( 1, -1.29887e-007, 0 )  //145
-DX3DVERT( 0.5, 0.0467681, 0.466418 ) DX3DVNORM( 1, 0, 0 )  //146
-DX3DVERT( 0.5, 0.0467681, 0.5 ) DX3DVNORM( 1, 0, 0 )  //147
-DX3DVERT( 0.5, 0.47174, -0.5 ) DX3DVNORM( 1, 0, 0 )  //148
-DX3DVERT( 0.5, 0.47174, -0.468788 ) DX3DVNORM( 1, 0, 0 )  //149
-DX3DVERT( 0.5, 0.47174, 0.466418 ) DX3DVNORM( 1, 2.35315e-007, 0 )  //150
-DX3DVERT( 0.5, 0.47174, 0.5 ) DX3DVNORM( 1, 0, 0 )  //151
-DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, 0 )  //152
-DX3DVERT( 0.5, 0.5, -0.468788 ) DX3DVNORM( 1, 0, 0 )  //153
-DX3DVERT( 0.5, 0.47174, -0.336685 ) DX3DVNORM( 1, 0, 0 )  //154
-DX3DVERT( 0.5, 0.5, -0.0333432 ) DX3DVNORM( 1, 0, 0 )  //155
-DX3DVERT( 0.5, 0.47174, -0.245441 ) DX3DVNORM( 1, 2.35315e-007, 0 )  //156
-DX3DVERT( 0.5, 0.5, 0.057901 ) DX3DVNORM( 1, 4.70629e-007, 0 )  //157
-DX3DVERT( 0.5, 0.5, 0.466418 ) DX3DVNORM( 1, 4.70629e-007, 0 )  //158
-DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, 0 )  //159
-DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //160
-DX3DVERT( -0.5, -0.5, -0.468788 ) DX3DVNORM( -1, 0, 0 )  //161
-DX3DVERT( -0.5, -0.465531, -0.468788 ) DX3DVNORM( -1, 0, 0 )  //162
-DX3DVERT( -0.5, -0.465531, -0.5 ) DX3DVNORM( -1, 0, 0 )  //163
-DX3DVERT( -0.5, -0.5, -0.0333432 ) DX3DVNORM( -1, 0, 0 )  //164
-DX3DVERT( -0.5, -0.465531, 0.0563776 ) DX3DVNORM( -1, 0, 0 )  //165
-DX3DVERT( -0.5, -0.5, 0.057901 ) DX3DVNORM( -1, -2.9719e-007, 0 )  //166
-DX3DVERT( -0.5, -0.465531, 0.147622 ) DX3DVNORM( -1, -1.48595e-007, 0 )  //167
-DX3DVERT( -0.5, -0.5, 0.466418 ) DX3DVNORM( -1, -2.9719e-007, 0 )  //168
-DX3DVERT( -0.5, -0.465531, 0.466418 ) DX3DVNORM( -1, -1.48595e-007, 0 )  //169
-DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //170
-DX3DVERT( -0.5, -0.465531, 0.5 ) DX3DVNORM( -1, 0, 0 )  //171
-DX3DVERT( -0.5, -0.0405055, -0.468788 ) DX3DVNORM( -1, -1.29887e-007, 0 )  //172
-DX3DVERT( -0.5, -0.0405055, -0.5 ) DX3DVNORM( -1, 0, 0 )  //173
-DX3DVERT( -0.5, -0.0405055, 0.5 ) DX3DVNORM( -1, 0, 0 )  //174
-DX3DVERT( -0.5, -0.0405055, 0.466418 ) DX3DVNORM( -1, -8.28312e-008, 0 )  //175
-DX3DVERT( -0.5, 0.0467681, -0.468788 ) DX3DVNORM( -1, -1.29887e-007, 0 )  //176
-DX3DVERT( -0.5, 0.0467681, -0.5 ) DX3DVNORM( -1, 0, 0 )  //177
-DX3DVERT( -0.5, 0.0467681, 0.5 ) DX3DVNORM( -1, 0, 0 )  //178
-DX3DVERT( -0.5, 0.0467681, 0.466418 ) DX3DVNORM( -1, -8.28312e-008, 0 )  //179
-DX3DVERT( -0.5, 0.47174, -0.468788 ) DX3DVNORM( -1, 0, 0 )  //180
-DX3DVERT( -0.5, 0.47174, -0.5 ) DX3DVNORM( -1, 0, 0 )  //181
-DX3DVERT( -0.5, 0.47174, 0.5 ) DX3DVNORM( -1, 0, 0 )  //182
-DX3DVERT( -0.5, 0.47174, 0.466418 ) DX3DVNORM( -1, 2.35315e-007, 0 )  //183
-DX3DVERT( -0.5, 0.5, -0.468788 ) DX3DVNORM( -1, 0, 0 )  //184
-DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, 0 )  //185
-DX3DVERT( -0.5, 0.47174, -0.336685 ) DX3DVNORM( -1, 0, 0 )  //186
-DX3DVERT( -0.5, 0.5, -0.0333432 ) DX3DVNORM( -1, 0, 0 )  //187
-DX3DVERT( -0.5, 0.47174, -0.245441 ) DX3DVNORM( -1, 2.35315e-007, 0 )  //188
-DX3DVERT( -0.5, 0.5, 0.057901 ) DX3DVNORM( -1, 4.70629e-007, 0 )  //189
-DX3DVERT( -0.5, 0.5, 0.466418 ) DX3DVNORM( -1, 4.70629e-007, 0 )  //190
-DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, 0 )  //191
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //0
+DX3DVERT( -0.46138, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //1
+DX3DVERT( -0.46138, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //2
+DX3DVERT( -0.5, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //3
+DX3DVERT( -0.0403597, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //4
+DX3DVERT( -0.168743, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //5
+DX3DVERT( 0.0263267, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //6
+DX3DVERT( -0.102056, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //7
+DX3DVERT( 0.457871, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //8
+DX3DVERT( 0.457871, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //9
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //10
+DX3DVERT( 0.5, -0.465531, -0.5 ) DX3DVNORM( 0, 0, -1 )  //11
+DX3DVERT( -0.46138, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //12
+DX3DVERT( -0.5, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //13
+DX3DVERT( 0.5, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //14
+DX3DVERT( 0.457871, -0.0405055, -0.5 ) DX3DVNORM( 0, 0, -1 )  //15
+DX3DVERT( -0.46138, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //16
+DX3DVERT( -0.5, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //17
+DX3DVERT( 0.5, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //18
+DX3DVERT( 0.457871, 0.0467681, -0.5 ) DX3DVNORM( 0, 0, -1 )  //19
+DX3DVERT( -0.46138, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //20
+DX3DVERT( -0.5, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //21
+DX3DVERT( 0.5, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //22
+DX3DVERT( 0.457871, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //23
+DX3DVERT( -0.46138, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //24
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //25
+DX3DVERT( 0.338526, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //26
+DX3DVERT( -0.0403597, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //27
+DX3DVERT( 0.405212, 0.47174, -0.5 ) DX3DVNORM( 0, 0, -1 )  //28
+DX3DVERT( 0.0263267, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //29
+DX3DVERT( 0.457871, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //30
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 0, -1 )  //31
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //32
+DX3DVERT( -0.46138, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //33
+DX3DVERT( -0.46138, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -0 )  //34
+DX3DVERT( -0.5, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -0 )  //35
+DX3DVERT( -0.0403597, 0.5, -0.5 ) DX3DVNORM( 0, 1, -3.32692e-006 )  //36
+DX3DVERT( -0.310495, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -1.66346e-006 )  //37
+DX3DVERT( 0.0263267, 0.5, -0.5 ) DX3DVNORM( 0, 1, -2.54381e-006 )  //38
+DX3DVERT( -0.243809, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -1.2719e-006 )  //39
+DX3DVERT( 0.457871, 0.5, -0.5 ) DX3DVNORM( 0, 1, 7.83111e-007 )  //40
+DX3DVERT( 0.457871, 0.5, -0.466418 ) DX3DVNORM( 0, 1, 3.91555e-007 )  //41
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 0, 1, -0 )  //42
+DX3DVERT( 0.5, 0.5, -0.466418 ) DX3DVNORM( 0, 1, -0 )  //43
+DX3DVERT( -0.46138, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -0 )  //44
+DX3DVERT( -0.5, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -0 )  //45
+DX3DVERT( 0.5, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -0 )  //46
+DX3DVERT( 0.457871, 0.5, -0.057901 ) DX3DVNORM( 0, 1, -1.95576e-007 )  //47
+DX3DVERT( -0.46138, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -0 )  //48
+DX3DVERT( -0.5, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -0 )  //49
+DX3DVERT( 0.5, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -0 )  //50
+DX3DVERT( 0.457871, 0.5, 0.0333432 ) DX3DVNORM( 0, 1, -1.95576e-007 )  //51
+DX3DVERT( -0.46138, 0.5, 0.468788 ) DX3DVNORM( 0, 1, -0 )  //52
+DX3DVERT( -0.5, 0.5, 0.468788 ) DX3DVNORM( 0, 1, -0 )  //53
+DX3DVERT( 0.5, 0.5, 0.468788 ) DX3DVNORM( 0, 1, -0 )  //54
+DX3DVERT( 0.457871, 0.5, 0.468788 ) DX3DVNORM( 0, 1, -4.22574e-007 )  //55
+DX3DVERT( -0.46138, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //56
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //57
+DX3DVERT( 0.257842, 0.5, 0.468788 ) DX3DVNORM( 0, 1, 1.78977e-006 )  //58
+DX3DVERT( -0.0403597, 0.5, 0.5 ) DX3DVNORM( 0, 1, 3.57955e-006 )  //59
+DX3DVERT( 0.324528, 0.5, 0.468788 ) DX3DVNORM( 0, 1, 1.3672e-006 )  //60
+DX3DVERT( 0.0263267, 0.5, 0.5 ) DX3DVNORM( 0, 1, 2.7344e-006 )  //61
+DX3DVERT( 0.457871, 0.5, 0.5 ) DX3DVNORM( 0, 1, -8.45149e-007 )  //62
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 1, -0 )  //63
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //64
+DX3DVERT( -0.46138, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //65
+DX3DVERT( -0.46138, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //66
+DX3DVERT( -0.5, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //67
+DX3DVERT( -0.0403597, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //68
+DX3DVERT( 0.338526, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //69
+DX3DVERT( 0.0263267, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //70
+DX3DVERT( 0.405212, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //71
+DX3DVERT( 0.457871, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //72
+DX3DVERT( 0.457871, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //73
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //74
+DX3DVERT( 0.5, 0.47174, 0.5 ) DX3DVNORM( 0, 0, 1 )  //75
+DX3DVERT( -0.46138, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //76
+DX3DVERT( -0.5, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //77
+DX3DVERT( 0.5, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //78
+DX3DVERT( 0.457871, 0.0467681, 0.5 ) DX3DVNORM( 0, 0, 1 )  //79
+DX3DVERT( -0.46138, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //80
+DX3DVERT( -0.5, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //81
+DX3DVERT( 0.5, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //82
+DX3DVERT( 0.457871, -0.0405055, 0.5 ) DX3DVNORM( 0, 0, 1 )  //83
+DX3DVERT( -0.46138, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //84
+DX3DVERT( -0.5, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //85
+DX3DVERT( 0.5, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //86
+DX3DVERT( 0.457871, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //87
+DX3DVERT( -0.46138, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //88
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //89
+DX3DVERT( -0.168743, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //90
+DX3DVERT( -0.0403597, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //91
+DX3DVERT( -0.102056, -0.465531, 0.5 ) DX3DVNORM( 0, 0, 1 )  //92
+DX3DVERT( 0.0263267, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //93
+DX3DVERT( 0.457871, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //94
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, 0, 1 )  //95
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //96
+DX3DVERT( -0.46138, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //97
+DX3DVERT( -0.46138, -0.5, 0.468788 ) DX3DVNORM( 0, -1, -0 )  //98
+DX3DVERT( -0.5, -0.5, 0.468788 ) DX3DVNORM( 0, -1, -0 )  //99
+DX3DVERT( -0.0403597, -0.5, 0.5 ) DX3DVNORM( 0, -1, 3.57955e-006 )  //100
+DX3DVERT( 0.257842, -0.5, 0.468788 ) DX3DVNORM( 0, -1, 1.78977e-006 )  //101
+DX3DVERT( 0.0263267, -0.5, 0.5 ) DX3DVNORM( 0, -1, 2.7344e-006 )  //102
+DX3DVERT( 0.324528, -0.5, 0.468788 ) DX3DVNORM( 0, -1, 1.3672e-006 )  //103
+DX3DVERT( 0.457871, -0.5, 0.5 ) DX3DVNORM( 0, -1, -8.45149e-007 )  //104
+DX3DVERT( 0.457871, -0.5, 0.468788 ) DX3DVNORM( 0, -1, -4.22574e-007 )  //105
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 0, -1, -0 )  //106
+DX3DVERT( 0.5, -0.5, 0.468788 ) DX3DVNORM( 0, -1, -0 )  //107
+DX3DVERT( -0.46138, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -0 )  //108
+DX3DVERT( -0.5, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -0 )  //109
+DX3DVERT( 0.5, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -0 )  //110
+DX3DVERT( 0.457871, -0.5, 0.0333432 ) DX3DVNORM( 0, -1, -1.95576e-007 )  //111
+DX3DVERT( -0.46138, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -0 )  //112
+DX3DVERT( -0.5, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -0 )  //113
+DX3DVERT( 0.5, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -0 )  //114
+DX3DVERT( 0.457871, -0.5, -0.057901 ) DX3DVNORM( 0, -1, -1.95576e-007 )  //115
+DX3DVERT( -0.46138, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -0 )  //116
+DX3DVERT( -0.5, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -0 )  //117
+DX3DVERT( 0.5, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -0 )  //118
+DX3DVERT( 0.457871, -0.5, -0.466418 ) DX3DVNORM( 0, -1, 3.91555e-007 )  //119
+DX3DVERT( -0.46138, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //120
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //121
+DX3DVERT( -0.310495, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -1.66346e-006 )  //122
+DX3DVERT( -0.0403597, -0.5, -0.5 ) DX3DVNORM( 0, -1, -3.32692e-006 )  //123
+DX3DVERT( -0.243809, -0.5, -0.466418 ) DX3DVNORM( 0, -1, -1.2719e-006 )  //124
+DX3DVERT( 0.0263267, -0.5, -0.5 ) DX3DVNORM( 0, -1, -2.54381e-006 )  //125
+DX3DVERT( 0.457871, -0.5, -0.5 ) DX3DVNORM( 0, -1, 7.83111e-007 )  //126
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 0, -1, -0 )  //127
+DX3DVERT( 0.5, -0.5, 0.468788 ) DX3DVNORM( 1, 2.25013e-007, -0 )  //128
+DX3DVERT( 0.5, -0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //129
+DX3DVERT( 0.5, -0.465531, 0.5 ) DX3DVNORM( 1, 0, -0 )  //130
+DX3DVERT( 0.5, -0.465531, 0.468788 ) DX3DVNORM( 1, 1.12507e-007, -0 )  //131
+DX3DVERT( 0.5, -0.5, 0.0333432 ) DX3DVNORM( 1, 2.25013e-007, -0 )  //132
+DX3DVERT( 0.5, -0.465531, -0.0563776 ) DX3DVNORM( 1, 1.12507e-007, -0 )  //133
+DX3DVERT( 0.5, -0.5, -0.057901 ) DX3DVNORM( 1, 0, -0 )  //134
+DX3DVERT( 0.5, -0.465531, -0.147622 ) DX3DVNORM( 1, 0, -0 )  //135
+DX3DVERT( 0.5, -0.5, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //136
+DX3DVERT( 0.5, -0.465531, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //137
+DX3DVERT( 0.5, -0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //138
+DX3DVERT( 0.5, -0.465531, -0.5 ) DX3DVNORM( 1, 0, -0 )  //139
+DX3DVERT( 0.5, -0.0405055, 0.5 ) DX3DVNORM( 1, 0, -0 )  //140
+DX3DVERT( 0.5, -0.0405055, 0.468788 ) DX3DVNORM( 1, -1.29887e-007, -0 )  //141
+DX3DVERT( 0.5, -0.0405055, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //142
+DX3DVERT( 0.5, -0.0405055, -0.5 ) DX3DVNORM( 1, 0, -0 )  //143
+DX3DVERT( 0.5, 0.0467681, 0.5 ) DX3DVNORM( 1, 0, -0 )  //144
+DX3DVERT( 0.5, 0.0467681, 0.468788 ) DX3DVNORM( 1, -1.29887e-007, -0 )  //145
+DX3DVERT( 0.5, 0.0467681, -0.466418 ) DX3DVNORM( 1, 0, -0 )  //146
+DX3DVERT( 0.5, 0.0467681, -0.5 ) DX3DVNORM( 1, 0, -0 )  //147
+DX3DVERT( 0.5, 0.47174, 0.5 ) DX3DVNORM( 1, 0, -0 )  //148
+DX3DVERT( 0.5, 0.47174, 0.468788 ) DX3DVNORM( 1, 0, -0 )  //149
+DX3DVERT( 0.5, 0.47174, -0.466418 ) DX3DVNORM( 1, 2.35315e-007, -0 )  //150
+DX3DVERT( 0.5, 0.47174, -0.5 ) DX3DVNORM( 1, 0, -0 )  //151
+DX3DVERT( 0.5, 0.5, 0.5 ) DX3DVNORM( 1, 0, -0 )  //152
+DX3DVERT( 0.5, 0.5, 0.468788 ) DX3DVNORM( 1, 0, -0 )  //153
+DX3DVERT( 0.5, 0.47174, 0.336685 ) DX3DVNORM( 1, 0, -0 )  //154
+DX3DVERT( 0.5, 0.5, 0.0333432 ) DX3DVNORM( 1, 0, -0 )  //155
+DX3DVERT( 0.5, 0.47174, 0.245441 ) DX3DVNORM( 1, 2.35315e-007, -0 )  //156
+DX3DVERT( 0.5, 0.5, -0.057901 ) DX3DVNORM( 1, 4.70629e-007, -0 )  //157
+DX3DVERT( 0.5, 0.5, -0.466418 ) DX3DVNORM( 1, 4.70629e-007, -0 )  //158
+DX3DVERT( 0.5, 0.5, -0.5 ) DX3DVNORM( 1, 0, -0 )  //159
+DX3DVERT( -0.5, -0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //160
+DX3DVERT( -0.5, -0.5, 0.468788 ) DX3DVNORM( -1, 0, -0 )  //161
+DX3DVERT( -0.5, -0.465531, 0.468788 ) DX3DVNORM( -1, 0, -0 )  //162
+DX3DVERT( -0.5, -0.465531, 0.5 ) DX3DVNORM( -1, 0, -0 )  //163
+DX3DVERT( -0.5, -0.5, 0.0333432 ) DX3DVNORM( -1, 0, -0 )  //164
+DX3DVERT( -0.5, -0.465531, -0.0563776 ) DX3DVNORM( -1, 0, -0 )  //165
+DX3DVERT( -0.5, -0.5, -0.057901 ) DX3DVNORM( -1, -2.9719e-007, -0 )  //166
+DX3DVERT( -0.5, -0.465531, -0.147622 ) DX3DVNORM( -1, -1.48595e-007, -0 )  //167
+DX3DVERT( -0.5, -0.5, -0.466418 ) DX3DVNORM( -1, -2.9719e-007, -0 )  //168
+DX3DVERT( -0.5, -0.465531, -0.466418 ) DX3DVNORM( -1, -1.48595e-007, -0 )  //169
+DX3DVERT( -0.5, -0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //170
+DX3DVERT( -0.5, -0.465531, -0.5 ) DX3DVNORM( -1, 0, -0 )  //171
+DX3DVERT( -0.5, -0.0405055, 0.468788 ) DX3DVNORM( -1, -1.29887e-007, -0 )  //172
+DX3DVERT( -0.5, -0.0405055, 0.5 ) DX3DVNORM( -1, 0, -0 )  //173
+DX3DVERT( -0.5, -0.0405055, -0.5 ) DX3DVNORM( -1, 0, -0 )  //174
+DX3DVERT( -0.5, -0.0405055, -0.466418 ) DX3DVNORM( -1, -8.28312e-008, -0 )  //175
+DX3DVERT( -0.5, 0.0467681, 0.468788 ) DX3DVNORM( -1, -1.29887e-007, -0 )  //176
+DX3DVERT( -0.5, 0.0467681, 0.5 ) DX3DVNORM( -1, 0, -0 )  //177
+DX3DVERT( -0.5, 0.0467681, -0.5 ) DX3DVNORM( -1, 0, -0 )  //178
+DX3DVERT( -0.5, 0.0467681, -0.466418 ) DX3DVNORM( -1, -8.28312e-008, -0 )  //179
+DX3DVERT( -0.5, 0.47174, 0.468788 ) DX3DVNORM( -1, 0, -0 )  //180
+DX3DVERT( -0.5, 0.47174, 0.5 ) DX3DVNORM( -1, 0, -0 )  //181
+DX3DVERT( -0.5, 0.47174, -0.5 ) DX3DVNORM( -1, 0, -0 )  //182
+DX3DVERT( -0.5, 0.47174, -0.466418 ) DX3DVNORM( -1, 2.35315e-007, -0 )  //183
+DX3DVERT( -0.5, 0.5, 0.468788 ) DX3DVNORM( -1, 0, -0 )  //184
+DX3DVERT( -0.5, 0.5, 0.5 ) DX3DVNORM( -1, 0, -0 )  //185
+DX3DVERT( -0.5, 0.47174, 0.336685 ) DX3DVNORM( -1, 0, -0 )  //186
+DX3DVERT( -0.5, 0.5, 0.0333432 ) DX3DVNORM( -1, 0, -0 )  //187
+DX3DVERT( -0.5, 0.47174, 0.245441 ) DX3DVNORM( -1, 2.35315e-007, -0 )  //188
+DX3DVERT( -0.5, 0.5, -0.057901 ) DX3DVNORM( -1, 4.70629e-007, -0 )  //189
+DX3DVERT( -0.5, 0.5, -0.466418 ) DX3DVNORM( -1, 4.70629e-007, -0 )  //190
+DX3DVERT( -0.5, 0.5, -0.5 ) DX3DVNORM( -1, 0, -0 )  //191
 DX3DVERT_END
 #endif
 
@@ -2265,7 +2266,7 @@ DX3DVERTEX_VERTBUFFER( vertexbuff_BrickA___mWhite_1 )
 #else
 DX3DVERTEX_VERTBUFFER( 0 )
 #endif
-DX3DVERTEX_VERTNUM( VN, 192 )
+DX3DVERTEX_VERTNUM_iZ( VN, 192 )
 DX3DVERTEX_END
 
 
@@ -2542,42 +2543,42 @@ DX3DMODELTBL_END
 DX3DOBJECT_START_HASH( object_BrickA__, 467464181 )
 DX3DOBJECT_ROTORDER( RO_XYZ )
 DX3DOBJECT_MODEL( modeltbl_BrickA__ )
-DX3DOBJECT_MATRIXBIND(
+DX3DOBJECT_MATRIXBIND( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXBIND_ABS(
+DX3DOBJECT_MATRIXBIND_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSBIND_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
-DX3DOBJECT_MATRIXPOSE(
+DX3DOBJECT_MATRIXPOSE( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
-DX3DOBJECT_MATRIXPOSE_ABS(
+DX3DOBJECT_MATRIXPOSE_ABS( 
 	1, 0, 0, 0, 
 	0, 1, 0, 0, 
 	0, 0, 1, 0, 
 	0, 0, 0, 1
 )
 DX3DOBJECT_TRSPOSE_ROTORDER( RO_XYZ,
-	0, 0, 0, 
-	0, 0, 0,                // 0, 0, 0
+	0, 0, -0, 
+	-0, -0, 0,                // -0, -0, 0
 	1, 1, 1
 )
 DX3DOBJECT_NORMAL
-DX3DOBJECT_FLG( NONE )
+DX3DOBJECT_FLG_iZiR( NONE )
 DX3DOBJECT_CALLBACK( 0 )
 DX3DOBJECT_SIBLING( object_NULL__ )
 DX3DOBJECT_CHILD( object_NULL__ )
@@ -2585,7 +2586,6 @@ DX3DOBJECT_END
 
 
 
-//skipped CubeCompass
 
 //////////// export info ///////////////
 DX3DOBJECT_JOINTCOUNT( jointcnt_GachanGameObjectBlock00_tst___0, 0 )
@@ -2604,7 +2604,7 @@ DX3DOBJECT_JOINTCOUNT( jointcnt_GachanGameObjectBlock00_tst___7, 0 )
 #if ( !BINARY_GachanGameObjectBlock00_tst__ )
 DX3DBINARYFILE( binaryfile_GachanGameObjectBlock00_tst__, NULL )
 #else
-DX3DBINARYFILE( binaryfile_GachanGameObjectBlock00_tst__, "" )
+DX3DBINARYFILE( binaryfile_GachanGameObjectBlock00_tst__, "Z:/toshi2gachan/_GachanWorkspace/object/" )
 #endif
 
 

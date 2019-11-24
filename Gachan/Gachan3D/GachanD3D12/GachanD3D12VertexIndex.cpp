@@ -40,9 +40,6 @@
 	{
 		if (vif == 0) {
 			
-			//ConvUV();
-			
-			ConvXYiZ();
             
 
 			int vertidx = GachanD3D12Shader_GetIdleVertexBufferIndex();

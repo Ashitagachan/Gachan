@@ -30,8 +30,6 @@ public:
     };
     unsigned int        flag;
 
-    void ConvXYiZ();//maya座標系からGachan座標系へ変換
-    void ConvUV();
     void Create();
     void Release();
 };

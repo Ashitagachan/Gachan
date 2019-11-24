@@ -27,8 +27,6 @@
     {
         if (vif == 0) {
             
-            ConvXYiZ();
-            
             unsigned int vertsize = vertexnum * Gachan3DVertex::Stride[vertextype];
             
             id<MTLDevice> device = [[GachanMetalBase sharedInstance] getDevice];
