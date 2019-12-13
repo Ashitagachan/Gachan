@@ -32,8 +32,11 @@ static void CFSetApplier(const void *value,void *context)
 IOHIDManagerRef manager;
 
 IOHIDDeviceRef shoudlManage[numOfDetection];
+IOHIDDeviceRef releaseDevice[numOfDetection];
+int releaseDeviceNum = 0;
+
 IOHIDDeviceRef* devices;
-int deviceNum;
+int deviceNum = 0;
 
 void ReleaseHIDGamePad();
 
@@ -104,7 +107,8 @@ void CreateHIDGamePad()
     }
     
     deviceNum = 0;
-    
+    releaseDeviceNum = 0;
+
     manager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
 #if 0
     IOHIDManagerSetDeviceMatching(manager, (__bridge CFDictionaryRef)criteria);
@@ -147,8 +151,33 @@ void CreateHIDGamePad()
         if (hidDevice == NULL) {
             continue;
         }
-        
+#define SKIP_GCFRAMEWORK_DEVICE (1)
+#if SKIP_GCFRAMEWORK_DEVICE
+        int vid = 0;
+        int pid = 0;
+        auto vendor = static_cast<CFNumberRef>(IOHIDDeviceGetProperty(hidDevice, CFSTR(kIOHIDVendorIDKey)));
+        if (vendor) {
+            CFNumberGetValue(vendor, kCFNumberSInt32Type, &vid);
+        }
+        auto product = static_cast<CFNumberRef>(IOHIDDeviceGetProperty(hidDevice, CFSTR(kIOHIDProductIDKey)));
+        if (product) {
+            CFNumberGetValue(product, kCFNumberSInt32Type, &pid);
+        }
+        if ((vid == 0x54C  && pid == 0x9CC)  ||  //PS4 CONTROLLER
+            (vid == 0x1038 && pid == 0x1420) ||  //SteelSeries Nimbus
+            (vid == 0x0F0D && pid == 0x0090)) {  //HoriPad Ultimate
+            printf("CreateHIDGamePad(): SKIPPED vid %x pid %x\n", vid, pid);
+            continue;
+        }
+        else {
+            shoudlManage[deviceNum++] = hidDevice;
+        }
+        releaseDevice[releaseDeviceNum++] = hidDevice;
+#else
         shoudlManage[deviceNum++] = hidDevice;
+        releaseDevice[releasedeviceNum++] = hidDevice;
+#endif
+        
     }
     
     devices = shoudlManage;
@@ -158,11 +187,19 @@ void CreateHIDGamePad()
 
 void ReleaseHIDGamePad()
 {
+#if SKIP_GCFRAMEWORK_DEVICE
+    for (int i=0; i<releaseDeviceNum; i++) {
+        if (releaseDevice[i]) {
+            IOHIDDeviceClose(releaseDevice[i], kIOHIDOptionsTypeNone);
+        }
+    }
+#else
     for (int i=0; i<deviceNum; i++) {
         if (devices[i]) {
             IOHIDDeviceClose(devices[i], kIOHIDOptionsTypeNone);
         }
     }
+#endif
     IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetCurrent(), kCFRunLoopCommonModes);
     IOHIDManagerClose(manager, kIOHIDOptionsTypeNone);
     CFRelease(manager);
