@@ -164,6 +164,7 @@ void CreateHIDGamePad()
             CFNumberGetValue(product, kCFNumberSInt32Type, &pid);
         }
         if ((vid == 0x54C  && pid == 0x9CC)  ||  //PS4 CONTROLLER
+          //(vid == 0x54C  && pid == 0x9CC)  ||  //XBoxOne CONTROLLER Pending 
             (vid == 0x1038 && pid == 0x1420) ||  //SteelSeries Nimbus
             (vid == 0x0F0D && pid == 0x0090)) {  //HoriPad Ultimate
             printf("CreateHIDGamePad(): SKIPPED vid %x pid %x\n", vid, pid);
