@@ -58,7 +58,8 @@ public:
 #include "GachanGameAudio.h"
 #include "GachanGameController.h"
 #include "GachanGameInverseKinematics.h"
-
+#include "GachanGameMemory.h"
+#include "GachanGameTask.h"
 
 #ifndef GACHANGAMESTOP
 #define GACHANGAMESTOP  do{}while(1)

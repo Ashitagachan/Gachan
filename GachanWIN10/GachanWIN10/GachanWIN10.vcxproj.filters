@@ -59,6 +59,9 @@
     <Filter Include="STAGE3-6_Robotics">
       <UniqueIdentifier>{fbab2d8f-b2a7-46cd-9edb-8104c795ae13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="STAGE2-2_BeginnersGameProgramming">
+      <UniqueIdentifier>{422358ff-a32e-44ae-96f5-f5e538ac9f99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GachanWIN10.h">
@@ -168,6 +171,12 @@
       <Filter>Gachan\GachanRobotics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameMemory.h">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameTask.h">
       <Filter>Gachan\GachanGame</Filter>
     </ClInclude>
   </ItemGroup>
@@ -321,6 +330,15 @@
     </ClCompile>
     <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_2D2DOF.cpp">
       <Filter>STAGE3-6_Robotics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\MemoryAndTask.cpp">
+      <Filter>STAGE2-2_BeginnersGameProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameTask.cpp">
+      <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameMemory.cpp">
+      <Filter>Gachan\GachanGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

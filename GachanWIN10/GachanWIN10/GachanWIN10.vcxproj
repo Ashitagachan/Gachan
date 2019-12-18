@@ -191,7 +191,9 @@
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.h" />
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameKeyboard.h" />
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameLight.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameMemory.h" />
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameObject.h" />
+    <ClInclude Include="..\..\Gachan\GachanGame\GachanGameTask.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMath.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathMatrix.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathVector.h" />
@@ -230,7 +232,9 @@
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameInverseKinematics.cpp" />
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameKeyboard.cpp" />
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameLight.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameMemory.cpp" />
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameObject.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanGame\GachanGameTask.cpp" />
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameWIN10.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMath.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathMatrix.cpp" />
@@ -243,6 +247,7 @@
     <ClCompile Include="..\..\Sample\SampleAudio.cpp" />
     <ClCompile Include="..\..\Sample\SampleController.cpp" />
     <ClCompile Include="..\..\Sample\SampleText.cpp" />
+    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\MemoryAndTask.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform2D.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform3D.cpp" />
     <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovement.cpp" />

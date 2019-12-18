@@ -37,12 +37,49 @@ public:
         x = 0.0f;
         y = 0.0f;
     }
+    Vec2    operator-(void) const;
+    Vec2    operator+(void) const;
+    Vec2    operator*(Val) const;
+    Vec2    operator/(Val) const;
+
     Vec2    operator+(Vec2 const&) const;
     Vec2    operator-(Vec2 const&) const;
+    
+    Vec2&   operator*=(Val);
+    Vec2&   operator/=(Val);
+    Vec2&   operator+=(Vec2 const&);
+    Vec2&   operator-=(Vec2 const&);
+
 };
 
 typedef GachanMathVector2 Vec2;  //ショートバージョン Short Version
 typedef GachanMathVector2 float2;//シェーダーバージョン Shader Version
+
+
+
+inline Vec2 Vec2::operator-(void) const
+{
+    Vec2 ret = {-x, -y};
+    
+    return ret;
+}
+inline Vec2 Vec2::operator+(void) const
+{
+    return *this;
+}
+inline Vec2 Vec2::operator*(Val s) const
+{
+    Vec2 ret = {x*s, y*s};
+    
+    return ret;
+}
+inline Vec2 Vec2::operator/(Val s) const
+{
+    Vec2 ret = {x/s, y/s};
+    
+    return ret;
+}
+
 
 inline Vec2 Vec2::operator+(Vec2 const& v) const
 {
@@ -50,7 +87,6 @@ inline Vec2 Vec2::operator+(Vec2 const& v) const
     
     return ret;
 }
-
 inline Vec2 Vec2::operator-(Vec2 const& v) const
 {
     Vec2 ret;
@@ -60,6 +96,37 @@ inline Vec2 Vec2::operator-(Vec2 const& v) const
     
     return ret;
 }
+
+
+inline Vec2& Vec2::operator+=(Vec2 const& v)
+{
+    x += v.x;
+    y += v.y;
+    
+    return *this;
+}
+inline Vec2& Vec2::operator-=(Vec2 const& v)
+{
+    x -= v.x;
+    y -= v.y;
+    
+    return *this;
+}
+inline Vec2& Vec2::operator*=(Val s)
+{
+    x *= s;
+    y *= s;
+    
+    return *this;
+}
+inline Vec2& Vec2::operator/=(Val s)
+{
+    x /= s;
+    y /= s;
+    
+    return *this;
+}
+
 
 
 
@@ -142,6 +209,7 @@ public:
     Vec    operator+(void) const;
     Vec    operator*(Val) const;
     Vec    operator/(Val) const;
+    
     friend Vec    operator*(Val s, Vec const& v)
     {
         return v*s;

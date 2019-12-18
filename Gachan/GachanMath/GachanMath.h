@@ -35,6 +35,9 @@ typedef unsigned short        UInt16;
 typedef unsigned int          UInt32;
 typedef unsigned long long    UInt64;
 
+#define KILO                  (1024)
+#define MEGA                  (KILO * KILO)
+#define GIGA                  (MEGA * KILO)
 
 //Val型のゼロ判定用の値  ZERO detection value for Val type
 #define ValZERO              ((Val)0.000002)
