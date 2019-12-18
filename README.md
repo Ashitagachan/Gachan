@@ -237,6 +237,23 @@ https://youtu.be/9rziCENfXWo
 超かんたんスムーズ移動        Super Simple Smooth Movement             https://youtu.be/ncpIfvq3I98  
 超かんたんスムーズ移動 カメラ編 Super Simple Smooth Movement For Camera  https://youtu.be/b6mkaiKVkec  
 ![SSSM](https://user-images.githubusercontent.com/48670081/71062226-578ae280-21ad-11ea-8e08-fea553225c59.png)
+
+
+
+
+Gachanをうごかす Run Gachan at macOS Metal Xcode https://youtu.be/Yg3pA2_P6iA  
+Gachanをうごかす Run Gachan at iOS Metal Xcode https://youtu.be/q5Kyy4ym01s  
+![MACIOS](https://user-images.githubusercontent.com/48670081/71064477-82c40080-21b2-11ea-8974-d358819d12ef.png)
+
+
+Gachanをうごかす Run Gachan at Windows10 DirectX12 VisualStudio2019 https://youtu.be/5yPz4O7p3uA  
+![WIN10](https://user-images.githubusercontent.com/48670081/71064426-6c1da980-21b2-11ea-922b-de14a3792c36.png)
+
+
+ごあいさつ Welcome note https://youtu.be/dnNmlCMUlpY  
+サンプル紹介000-003 Introduction to Sample000-003 https://youtu.be/TByp95BtHJA  
+![aisatu](https://user-images.githubusercontent.com/48670081/71064858-65dbfd00-21b3-11ea-8bfe-a1a6da258d7b.png)
+
   
   
 ーーー
