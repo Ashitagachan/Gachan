@@ -36,7 +36,7 @@ void GachanGameTask::RemoveFromManager()
 
 
 
-void* GachanGameTask::operator new(size_t size, const std::nothrow_t&, void* manager) throw()
+void* GachanGameTask::operator new(size_t size, void* manager) throw()
 {
     GachanGameTask* task = (GachanGameTask*) ((GachanGameTaskManager*)manager)->Pool.Alloc(size);
     if (task) {
@@ -44,7 +44,7 @@ void* GachanGameTask::operator new(size_t size, const std::nothrow_t&, void* man
     }
     return (void*)task;
 }
-void GachanGameTask::operator delete(void* ptr, const std::nothrow_t&, void* manager) throw()
+void GachanGameTask::operator delete(void* ptr, void* manager) throw()
 {
     if (manager) {
         ((GachanGameTaskManager*)manager)->Pool.Free(ptr);
@@ -204,12 +204,7 @@ void GachanGameTaskManager::Kill(GachanGameTask* taskkill)
         if (taskkill->IsAdded()) {
             Remove(taskkill);
         }
-#if 1
 		delete taskkill;
-#else
-        taskkill->~GachanGameTask();
-        Pool.Free(taskkill);
-#endif
     }
 }
 

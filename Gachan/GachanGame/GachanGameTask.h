@@ -8,7 +8,6 @@
 #ifndef __GACHANGAMETASK_H__
 #define __GACHANGAMETASK_H__
 
-#include <new>
 #include "GachanGameMemory.h"
 
 
@@ -72,8 +71,8 @@ public:
         return (flag & f)? true : false;
     }
 
-	void* operator new(size_t size, const std::nothrow_t&, void* manager) throw();//最近のC++のnewではNULLが返らないのでnothrowが必要
-	void operator delete(void* ptr, const std::nothrow_t&, void* manager) throw();//new引数の対delete
+	void* operator new(size_t size, void* manager) throw();//最近のC++のnewではNULLが返らないのでthrow()が必要
+	void operator delete(void* ptr, void* manager) throw();//new引数の対delete
     
     void operator delete(void* ptr);//実際使うのはこっち
 };

@@ -133,7 +133,7 @@ namespace MemoryAndTask
             if (time > 30) {
                 time = 0;
                 //子供のタスクを生成 Create child task
-                MyGameTaskChild* child = new(std::nothrow, &gachan->taskmanager) MyGameTaskChild();
+                MyGameTaskChild* child = new(&gachan->taskmanager) MyGameTaskChild();
                 if (child) {
                     child->Clear();
                     child->text.SetPosition(pos);
@@ -175,7 +175,7 @@ namespace MemoryAndTask
 
         gachan->taskmanager.Create(sizeof(MyGameTaskParent) + sizeof(MyGameTaskChild) * 32);
         
-        MyGameTaskParent* parent = new(std::nothrow, &gachan->taskmanager) MyGameTaskParent;
+        MyGameTaskParent* parent = new(&gachan->taskmanager) MyGameTaskParent;
         if (parent) {
             parent->Clear();
             parent->AddToManager(0);
