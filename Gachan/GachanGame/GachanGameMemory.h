@@ -20,13 +20,11 @@ public:
 	UChar* addr;
 };
 
-class GachanGameMemoryPool
+class GachanGameMemory
 {
 	UChar* pool;
 	UInt poolsize;
 	unsigned long long alignment;
-
-	const static UChar magicnumber = 123;
 public:
 	bool Create(UInt size, unsigned long long align = 8);
 	void Release();

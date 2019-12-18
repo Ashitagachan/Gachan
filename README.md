@@ -19,6 +19,7 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
     Gachanに関して 
         1. いろいろ説明
         2. サンプル説明 
+        3. 開発環境
 
 
     プログラミング
@@ -31,7 +32,7 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
             2. ゲームプログラミング  (STAGE 2-2 という感じで..)
             3. 3Dプログラミング     
 
-        STAGE 3 トピック 
+        STAGE 3 チップスやトピックス
             1. プログラミング       
             2. ゲームプログラミング  
             3. 3Dプログラミング     
@@ -40,9 +41,15 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
             6. ロボット工学       
             いろいろ... 
 
-        STAGE 4 具体的な機能・表現をつくる！ 
+        STAGE 4 ソフト ツール フォーマット デバイス
 
-        STAGE 5 ゲームをつくる！ 
+        STAGE 5 IDE SDK
+
+        STAGE 6 他のエンジン
+
+        STAGE 7 具体的な機能・表現をつくる！ 
+
+        STAGE 8 ゲームをつくる！ 
 
 
     アート
@@ -76,8 +83,8 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
     * ひたすらサウンド、音楽の追加
     * フレーム間時間の取得
     * 行列スタック（対応済）
-    * タスクシステム
-    * メモリアロケータ
+    * タスクシステム（対応済）
+    * メモリアロケータ（対応済）
     * 3Dオブジェクトの階層構造
     * ユーザーゲームオブジェクト
     * テクスチャ
@@ -120,6 +127,8 @@ Like Super Mario STAGE 1-1.
     ABOUT Gachan
         1. Various Explanation
         2. Sample Explanation
+        3. Development Environment
+
 
 
     PROGRAMMING
@@ -132,7 +141,7 @@ Like Super Mario STAGE 1-1.
             2. Game Programming     (STAGE 2-2 and so on..)
             3. 3D Programming
 
-        STAGE 3 Topics
+        STAGE 3 Tips and Topics
             1. Programming
             2. Game Programming
             3. 3D Programming
@@ -141,9 +150,15 @@ Like Super Mario STAGE 1-1.
             6. Robotics
             Etc...
 
-        STAGE 4 Create Specific Functions and Expressions!
+        STAGE 4 Software Tool Format Device
 
-        STAGE 5 Create Games!
+        STAGE 5 IDE SDK
+
+        STAGE 6 Other Engines
+
+        STAGE 7 Create Specific Functions and Expressions!
+
+        STAGE 8 Create Games!
 
 
     ART
@@ -176,8 +191,8 @@ Future specific plan list (Just a plan, Schedule is undecided)
     * Repeat addition of Sound and Music
     * Getting inter frame time
     * Matrix Stack (Done)
-    * Task System
-    * Memory Allocator
+    * Task System (Done)
+    * Memory Allocator (Done)
     * Hierarchical structure of 3D objects
     * User Game Object
     * Texture
@@ -200,6 +215,28 @@ Use at your own risk.
 See LICENSE.txt for licensing information.  
   
 ーーー
+
+
+
+逆運動学2D2自由度  
+逆運動学3D3自由度  
+![IK](https://user-images.githubusercontent.com/48670081/71062383-afc1e480-21ad-11ea-853c-6c5b2eb11b49.png)
+
+
+
+変換で関節の階層構造をつくる  
+![hiera](https://user-images.githubusercontent.com/48670081/71062341-94ef7000-21ad-11ea-9901-ec041f5bc0a9.png)
+
+
+2D変換  
+3D変換  
+![Transform2Dand3D](https://user-images.githubusercontent.com/48670081/71062298-8012dc80-21ad-11ea-8959-cf19f241ac38.png)
+
+
+超かんたんスムーズ移動  
+超かんたんスムーズ移動　カメラ編  
+![SSSM](https://user-images.githubusercontent.com/48670081/71062226-578ae280-21ad-11ea-8e08-fea553225c59.png)
+
 
 
 ゲームコントローラサンプル GAME CONTROLLER SAMPLE  

@@ -13,7 +13,7 @@
 
 
 
-bool GachanGameMemoryPool::Create(UInt size, unsigned long long align)
+bool GachanGameMemory::Create(UInt size, unsigned long long align)
 {
 	pool = (UChar*) malloc(size);
 	poolsize  = size;
@@ -27,7 +27,7 @@ bool GachanGameMemoryPool::Create(UInt size, unsigned long long align)
 	return (pool != (UChar*) 0);
 }
 
-void GachanGameMemoryPool::Release()
+void GachanGameMemory::Release()
 {
 	if (pool) {
 		free(pool); 
@@ -35,7 +35,7 @@ void GachanGameMemoryPool::Release()
 	}
 }
 
-void* GachanGameMemoryPool::Alloc(size_t size)
+void* GachanGameMemory::Alloc(size_t size)
 {
 	GachanGameMemoryHead* headwalk = (GachanGameMemoryHead*) pool;
 
@@ -64,7 +64,7 @@ void* GachanGameMemoryPool::Alloc(size_t size)
 	return (void*)0;
 }
 
-void GachanGameMemoryPool::Free(void* ptr)
+void GachanGameMemory::Free(void* ptr)
 {
 	if (!ptr) {
 		return;
@@ -82,7 +82,7 @@ void GachanGameMemoryPool::Free(void* ptr)
 	}
 }
 
-UInt GachanGameMemoryPool::GetUsedSize()
+UInt GachanGameMemory::GetUsedSize()
 {
     UInt used = 0;
     GachanGameMemoryHead* headwalk = (GachanGameMemoryHead*) pool;
@@ -95,7 +95,7 @@ UInt GachanGameMemoryPool::GetUsedSize()
     return used;
 }
 
-UInt GachanGameMemoryPool::GetPoolSize()
+UInt GachanGameMemory::GetPoolSize()
 {
     return poolsize;
 }

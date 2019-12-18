@@ -81,7 +81,7 @@ public:
 class GachanGameTaskManager
 {
 public:
-    GachanGameMemoryPool Pool;
+    GachanGameMemory Pool;
 
 	bool Create(UInt size, unsigned long long align = 8);
 	void Release();
