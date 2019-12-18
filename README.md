@@ -234,11 +234,12 @@ https://youtu.be/9rziCENfXWo
 ![Transform2Dand3D](https://user-images.githubusercontent.com/48670081/71062298-8012dc80-21ad-11ea-8959-cf19f241ac38.png)
 
 
-超かんたんスムーズ移動         Super Simple Smooth Movement             https://youtu.be/ncpIfvq3I98  
-超かんたんスムーズ移動　カメラ編 Super Simple Smooth Movement For Camera  https://youtu.be/b6mkaiKVkec  
+超かんたんスムーズ移動        Super Simple Smooth Movement             https://youtu.be/ncpIfvq3I98  
+超かんたんスムーズ移動 カメラ編 Super Simple Smooth Movement For Camera  https://youtu.be/b6mkaiKVkec  
 ![SSSM](https://user-images.githubusercontent.com/48670081/71062226-578ae280-21ad-11ea-8e08-fea553225c59.png)
   
   
+ーーー
   
   
 
