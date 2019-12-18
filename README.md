@@ -218,26 +218,29 @@ See LICENSE.txt for licensing information.
 
 
 
-逆運動学2D2自由度  
-逆運動学3D3自由度  
+逆運動学2D2自由度 Inverse Kinematics 2D2DOF https://youtu.be/ekmjw9ni0_I  
+逆運動学3D3自由度 Inverse Kinematics 3D3DOF https://youtu.be/Ndhk7VYiQ9I  
 ![IK](https://user-images.githubusercontent.com/48670081/71062383-afc1e480-21ad-11ea-853c-6c5b2eb11b49.png)
 
 
 
-変換で関節の階層構造をつくる  
-![hiera](https://user-images.githubusercontent.com/48670081/71062341-94ef7000-21ad-11ea-9901-ec041f5bc0a9.png)
+変換で関節の階層構造をつくる Creating a hierarchical structure of joints by transformation  
+https://youtu.be/9rziCENfXWo  
+![hiera](https://user-images.githubusercontent.com/48670081/71062787-b69d2700-21ae-11ea-8379-5cccb890599c.png)
 
 
-2D変換  
-3D変換  
+2D変換 Transform 2D https://youtu.be/_crIwRmchKs  
+3D変換 Transform 3D https://youtu.be/yTgVhLlgPvs  
 ![Transform2Dand3D](https://user-images.githubusercontent.com/48670081/71062298-8012dc80-21ad-11ea-8959-cf19f241ac38.png)
 
 
-超かんたんスムーズ移動  
-超かんたんスムーズ移動　カメラ編  
+超かんたんスムーズ移動         Super Simple Smooth Movement             https://youtu.be/ncpIfvq3I98  
+超かんたんスムーズ移動　カメラ編 Super Simple Smooth Movement For Camera  https://youtu.be/b6mkaiKVkec  
 ![SSSM](https://user-images.githubusercontent.com/48670081/71062226-578ae280-21ad-11ea-8e08-fea553225c59.png)
-
-
+  
+  
+  
+  
 
 ゲームコントローラサンプル GAME CONTROLLER SAMPLE  
 [SampleController.cpp](/Sample/SampleController.cpp)  
