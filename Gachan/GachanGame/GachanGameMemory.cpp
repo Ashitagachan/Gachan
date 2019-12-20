@@ -45,7 +45,7 @@ void* GachanGameMemory::Alloc(size_t size)
 			nexthead = pool + poolsize;
 		}
 		UChar* empaddr = (UChar*)headwalk->addr + headwalk->size; 
-		if ((UInt)((UChar*)nexthead - empaddr) > (UInt)size + alignment ) {
+		if ((UInt)((UChar*)nexthead - empaddr) > sizeof(GachanGameMemoryHead) + alignment + (UInt)size ) {
 			GachanGameMemoryHead* head	= (GachanGameMemoryHead*) empaddr;
 			head->size		= (UInt)size;
 			head->next		= headwalk->next;
