@@ -154,7 +154,7 @@ namespace MemoryAndTask
     
     void Initialize()
     {
-        
+        //GachanGameMemory::Test();
     }
     
     void Create()

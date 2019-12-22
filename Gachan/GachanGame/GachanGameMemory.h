@@ -15,15 +15,15 @@
 class GachanGameMemoryHead
 {
 public:
-	UInt size;
+    UChar* addr;
+	UInt   size;
 	UChar* next;
-	UChar* addr;
 };
 
 class GachanGameMemory
 {
 	UChar* pool;
-	UInt poolsize;
+	UInt   poolsize;
 	unsigned long long alignment;
 public:
 	bool Create(UInt size, unsigned long long align = 8);
@@ -34,6 +34,8 @@ public:
     
     UInt GetUsedSize();
     UInt GetPoolSize();
+    
+    static void Test();
 };
 
 

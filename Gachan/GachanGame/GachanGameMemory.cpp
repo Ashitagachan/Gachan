@@ -7,6 +7,7 @@
 //
 #include <stdlib.h>
 #include <memory.h>
+#include "GachanGame.h"
 #include "GachanGameMemory.h"
 
 
@@ -98,6 +99,76 @@ UInt GachanGameMemory::GetUsedSize()
 UInt GachanGameMemory::GetPoolSize()
 {
     return poolsize;
+}
+
+
+
+void GachanGameMemory::Test()
+{
+    struct Table
+    {
+        void* addr;
+        UInt  size;
+    };
+    
+    const static int poolsize = 1024;
+    const static int tablenum = 128;
+    const static int maxsize  = 256;
+    const static int maxtest  = 1024 * 16;
+
+    GachanGameMemory testmemory;
+    testmemory.Create(poolsize);
+
+    Table table[tablenum];
+    memset(table, 0, sizeof(table));
+    
+    for (int test = 0; test < maxtest; test++) {
+        
+        int index = Math::RandomInt(0, tablenum-1);
+
+        bool change = false;
+        if (table[index].addr) {
+            testmemory.Free(table[index].addr);
+            GachanGame::Log("%d: -%d", test, table[index].size);
+            table[index].addr = NULL;
+            table[index].size = 0;
+            change = true;
+        }
+        else {
+            int size = Math::RandomInt(1, maxsize);
+            table[index].addr = testmemory.Alloc(size);
+            if (table[index].addr) {
+                table[index].size = size;
+                memset(table[index].addr, 0xFF, table[index].size);
+                GachanGame::Log("%d +%d", test, table[index].size);
+                change = true;
+            }
+            else {
+                //printf(" +0");
+            }
+        }
+        if (change) {
+            UInt used = testmemory.GetUsedSize();
+            GachanGame::Log(" => %d\n", used);
+        }
+    }
+    
+    GachanGame::Log("END TEST\n");
+
+    for (int index = 0; index < tablenum; index++) {
+        if (table[index].addr) {
+            testmemory.Free(table[index].addr);
+            table[index].addr = NULL;
+            table[index].size = 0;
+        }
+    }
+    UInt used = testmemory.GetUsedSize();
+    GachanGame::Log("FINAL %d\n", used);
+
+    testmemory.Release();
+
+    
+    
 }
 
 
