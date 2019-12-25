@@ -25,6 +25,7 @@ class GachanGameTask
     GachanGameTask* next;
     GachanGameTask* prev;
     
+protected:
     GachanGameTaskManager* manager;
     
 public:

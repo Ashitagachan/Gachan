@@ -16,20 +16,6 @@ namespace MemoryAndTask
 {
 
 
-    class Gachan
-    {
-    public:
-        GachanGame game;
-        GachanGameKeyboard keyboard;
-        GachanGameController controller;
-        GachanGameCamera camera;
-        GachanGameObject text;
-    
-        GachanGameTaskManager taskmanager;
-    };
-    static Gachan* gachan;
-
-
 
 
     class MyGameTaskChild : public GachanGameTask
@@ -133,7 +119,7 @@ namespace MemoryAndTask
             if (time > 30) {
                 time = 0;
                 //子供のタスクを生成 Create child task
-                MyGameTaskChild* child = new(&gachan->taskmanager) MyGameTaskChild();
+                MyGameTaskChild* child = new(manager) MyGameTaskChild();
                 if (child) {
                     child->Clear();
                     child->text.SetPosition(pos);
@@ -149,6 +135,22 @@ namespace MemoryAndTask
             text.Draw(u8"親");
         }
     };
+
+
+
+    class Gachan
+    {
+    public:
+        GachanGame game;
+        GachanGameKeyboard keyboard;
+        GachanGameController controller;
+        GachanGameCamera camera;
+        GachanGameObject text;
+
+        GachanGameTaskManager taskmanager;
+    };
+    static Gachan* gachan;
+
 
 
     
