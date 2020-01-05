@@ -32,7 +32,7 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
             2. ゲームプログラミング  (STAGE 2-2 という感じで..)
             3. 3Dプログラミング     
 
-        STAGE 3 チップスやトピックス
+        STAGE 3 チップス トピックス
             1. プログラミング       
             2. ゲームプログラミング  
             3. 3Dプログラミング     
@@ -43,7 +43,7 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
         STAGE 4 ソフト ツール フォーマット デバイス
 
-        STAGE 5 IDE SDK
+        STAGE 5 SDK
 
         STAGE 6 他のエンジン
 
@@ -152,7 +152,7 @@ Like Super Mario STAGE 1-1.
 
         STAGE 4 Software Tool Format Device
 
-        STAGE 5 IDE SDK
+        STAGE 5 SDK
 
         STAGE 6 Other Engines
 
