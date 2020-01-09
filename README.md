@@ -31,14 +31,16 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
             1. プログラミング       (STAGE 2-1)
             2. ゲームプログラミング  (STAGE 2-2 という感じで..)
             3. 3Dプログラミング     
+            4. シェーダープログラミング               
 
         STAGE 3 チップス トピックス
             1. プログラミング       
             2. ゲームプログラミング  
             3. 3Dプログラミング     
-            4. 数学               
-            5. 物理学・物理シミュレーション  
-            6. ロボット工学       
+            4. シェーダープログラミング               
+            5. 数学               
+            6. ロボット工学  
+            7. 物理学・物理シミュレーション       
             いろいろ... 
 
         STAGE 4 ソフト ツール フォーマット デバイス
@@ -140,14 +142,16 @@ Like Super Mario STAGE 1-1.
             1. Programming          (STAGE 2-1)
             2. Game Programming     (STAGE 2-2 and so on..)
             3. 3D Programming
+            4. Shader Programming
 
         STAGE 3 Tips and Topics
             1. Programming
             2. Game Programming
             3. 3D Programming
-            4. Mathematics
-            5. Physics, Physics Simulation
+            4. Shader Programming
+            5. Mathematics
             6. Robotics
+            7. Physics, Physics Simulation
             Etc...
 
         STAGE 4 Software Tool Format Device
