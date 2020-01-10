@@ -220,6 +220,10 @@ See LICENSE.txt for licensing information.
   
 ーーー
 
+ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA  
+ゲームタスク Game Task   https://youtu.be/TzLAb17v9Zw  
+![MemoryAndTask](https://user-images.githubusercontent.com/48670081/72143467-1a93c380-33da-11ea-9530-3310eeaad9ca.png)
+
 
 
 逆運動学2D2自由度 Inverse Kinematics 2D2DOF https://youtu.be/ekmjw9ni0_I  
