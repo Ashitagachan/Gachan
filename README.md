@@ -256,8 +256,7 @@ Gachanをうごかす Run Gachan at Windows10 DirectX12 VisualStudio2019 https:/
 
 ごあいさつ Welcome note https://youtu.be/dnNmlCMUlpY  
 サンプル紹介000-003 Introduction to Sample000-003 https://youtu.be/TByp95BtHJA  
-![aisatu](https://user-images.githubusercontent.com/48670081/71064858-65dbfd00-21b3-11ea-8bfe-a1a6da258d7b.png)
-
+![aisatu](https://user-images.githubusercontent.com/48670081/72128112-2325d300-33b5-11ea-85ea-15445aea9956.png)
   
   
 ーーー
