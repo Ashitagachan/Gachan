@@ -43,15 +43,13 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
             7. 物理学・物理シミュレーション       
             いろいろ... 
 
-        STAGE 4 ソフト ツール フォーマット デバイス
+        STAGE 4 SDK
 
-        STAGE 5 SDK
+        STAGE 5 他のエンジン
 
-        STAGE 6 他のエンジン
+        STAGE 6 具体的な機能・表現をつくる！ 
 
-        STAGE 7 具体的な機能・表現をつくる！ 
-
-        STAGE 8 ゲームをつくる！ 
+        STAGE 7 ゲームをつくる！ 
 
 
     アート
@@ -155,15 +153,13 @@ Like Super Mario STAGE 1-1.
             7. Physics, Physics Simulation
             Etc...
 
-        STAGE 4 Software Tool Format Device
+        STAGE 4 SDK
 
-        STAGE 5 SDK
+        STAGE 5 Other Engines
 
-        STAGE 6 Other Engines
+        STAGE 6 Create Specific Functions and Expressions!
 
-        STAGE 7 Create Specific Functions and Expressions!
-
-        STAGE 8 Create Games!
+        STAGE 7 Create Games!
 
 
     ART
