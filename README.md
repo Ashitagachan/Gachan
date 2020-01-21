@@ -1,4 +1,4 @@
-# がちゃん Gachan
+# Gachan
 
 
 
