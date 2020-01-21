@@ -2,11 +2,24 @@
 
 
 
-「がちゃん(Gachan)」はゲーム開発環境であり、ゲーム開発学習環境です。ゲームエンジン等を使わず直に最新のグラフィックスAPI（DirectX12/Metal）を使っていて、生コード付帯状態でビルドできるようになっています。いわゆる実際のゲーム開発環境の原型であるといえます。いわゆるガチということです。自分のC++言語のコードを書き、ビルドして、エラーの修正、バグの修正、といった一連の内容と作業は、ガチのゲーム開発で行うものとなんら変わりません。それにも関わらず、「がちゃん(Gachan)」が用意したインターフェイスを使うことによって、ユーザーコードで簡単に制御ができますので、とても学習に向いています。ぜひサンプルソースコード(Sample***.cpp)を見てみてください。以下の環境で同じC++のユーザーコードが動くようになっています。
+「がちゃん(Gachan)」はゲーム開発環境であり、ゲーム開発学習環境です。  
+ゲームエンジン等や外部ライブラリを使わずに直接OSが提供しているAPI
 
-    1. Windows10 (32bit/64bit) DirectX12 VisualStudio2019
-    2. macOS Metal Xcode
-    3. iOS (iPhone/iPad等) Metal Xcode
+    Windows10 (32bit/64bit)
+    	最新のグラフィックスAPI: DirectX 12
+    	ゲームコントローラーAPI: XInput, DirectInput
+    	オーディオ/3DサウンドAPI: XAudio2, X3DAudio
+
+    macOS/iOS
+    	最新のグラフィックスAPI: Metal
+    	ゲームコントローラーAPI: GameController.framework(macOS/iOS), macOS HID(macOS)
+    	オーディオ/3DサウンドAPI: AVAudioEngine
+
+を使っていて、とにかく解りやすさ重視のため生コード付帯でユーザーコードと一緒にビルドする全ビルド型になっています。いわゆる実際のゲーム開発環境の原型、ゲームエンジンの原型であるといえます。自分のC++言語のコードを書き、ビルドして、エラーの修正、バグの修正、といった一連の内容と作業は、ガチのゲーム開発で行うものとなんら変わりません。それにも関わらず、「がちゃん(Gachan)」が用意したインターフェイスを使うことによって、ユーザーコードで簡単に制御ができますので、とても学習に向いています。ぜひサンプルソースコード(Sample***.cpp)を見てみてください。そして以下の環境で同じC++のユーザーコードが動くようになっています。
+
+    1. Windows10 (32bit/64bit) VisualStudio 2019
+    2. macOS Xcode
+    3. iOS (iPhone/iPad等) Xcode
 
 Gachanの環境は随時更新されていきます。現状はまだまだ未完成な状態です。説明動画とともにアップデートしていきます。基本的には動画を見ながらキャッチアップしていってもらえればと思います。
 説明動画コンテンツはこちらになります。
@@ -50,6 +63,9 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
         STAGE 6 具体的な機能・表現をつくる！ 
 
         STAGE 7 ゲームをつくる！ 
+
+        STAGE 8 ゲームをリリースする！
+ 
 
 
     アート
@@ -110,12 +126,25 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
   
 
 
-Gachan is a Game Development Environment and Game Development Learning Environment.  The latest graphics API (DirectX12 / Metal) is used without using a game engine, and 
-It can be built with raw code attached. It can be said that it is a prototype of actual game development environment. Writing and building your own C ++ code, fixing errors, fixing bugs, etc. A series of essences and tasks are the same as a part of ACTUAL game development. Nevertheless, the interface provided by Gachan makes it easy to control with user code, This is very good for learning. Please take a look at the sample source code (Sample***.cpp). You can run same C++ user source code under these platforms.
+Gachan is a Game Development Environment and Game Development Learning Environment.  
+Gachan uses the API provided by the OS directly without using game engines or external libraries.  
+Gachan uses
 
-    1. Windows10 (32bit/64bit) DirectX12 VisualStudio2019
-    2. macOS Metal Xcode
-    3. iOS (iPhone/iPad etc) Metal Xcode
+    Windows10
+    	Latest Graphics API: DirectX 12
+    	Game Controller API: XInput, DirectInput
+    	Audio/3DSound API: XAudio2, X3DAudio
+
+    macOS/iOS
+    	Latest Graphics API: Metal
+    	Game Controller API: GameController.framework(macOS/iOS), macOS HID(macOS)
+    	Audio/3DSound API: AVAudioEngine
+
+User code can be built with these raw code for understandability. It can be said that this is a prototype of actual game development environment or game engine. Writing and building your own C ++ code, fixing errors, fixing bugs, etc. A series of essences and tasks are the same as a part of ACTUAL game development. Nevertheless, the interface provided by Gachan makes it easy to control with user code, This is very good for learning. Please take a look at the sample source code (Sample***.cpp). You can run same C++ user source code under these platforms.
+
+    1. Windows10 (32bit/64bit) VisualStudio 2019
+    2. macOS Xcode
+    3. iOS (iPhone/iPad etc) Xcode
 
 Gachan's environment will be updated from time to time. The present condition is still in an incomplete state.  We will update along with the explanatory video. Basically, I hope you can catch up while watching the video.
 Explanation video content is here.
@@ -160,6 +189,8 @@ Like Super Mario STAGE 1-1.
         STAGE 6 Create Specific Functions and Expressions!
 
         STAGE 7 Create Games!
+
+        STAGE 8 Release Games!
 
 
     ART
