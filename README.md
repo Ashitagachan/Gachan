@@ -6,13 +6,13 @@
 ゲームエンジン等や外部ライブラリを使わず、直接OSが提供しているAPI
 
     Windows10 (32bit/64bit)
-    	最新のグラフィックスAPI: DirectX12
-    	ゲームコントローラーAPI: XInput, DirectInput
+    	最新のグラフィックスAPI:  DirectX12
+    	ゲームコントローラーAPI:  XInput, DirectInput
     	オーディオ/3DサウンドAPI: XAudio2, X3DAudio
 
     macOS/iOS
-    	最新のグラフィックスAPI: Metal
-    	ゲームコントローラーAPI: GameController.framework(macOS/iOS), macOS HID(macOS)
+    	最新のグラフィックスAPI:  Metal
+    	ゲームコントローラーAPI:  GameController.framework(macOS/iOS), macOS HID(macOS)
     	オーディオ/3DサウンドAPI: AVAudioEngine
 
 を使っています。解りやすさ重視のために生ソースコード付帯になっていて、ユーザーコードはこれらの「がちゃん (Gachan)」のソースコードと一緒にビルドする全ビルド型になっています。全ビルド型なので、何かを変更・追加して試すことも簡単にできます。そしてこれは「実際のゲーム開発環境の原型」、「ゲームエンジンの原型」であるといえるでしょう。自分のC++言語のコードを書き、ビルドして、エラーの修正、バグの修正、といった一連の内容と作業は、ガチのゲーム開発で行うものとなんら変わりません。それにも関わらず、「がちゃん (Gachan)」が用意したインターフェイスを使うことによって、ユーザーコードで簡単に制御ができますので、学習に向いています。ぜひサンプルソースコード(Sample***.cpp)を見てみてください。また、以下の環境で同じC++のユーザーコードが動くようになっています。
@@ -133,12 +133,12 @@ Gachan uses
     Windows10
     	Latest Graphics API: DirectX12
     	Game Controller API: XInput, DirectInput
-    	Audio/3DSound API: XAudio2, X3DAudio
+    	Audio/3DSound API:   XAudio2, X3DAudio
 
     macOS/iOS
     	Latest Graphics API: Metal
     	Game Controller API: GameController.framework(macOS/iOS), macOS HID(macOS)
-    	Audio/3DSound API: AVAudioEngine
+    	Audio/3DSound API:   AVAudioEngine
 
 User code can be built with these raw code for understandability. This is all build type. Because this is all built type, you can easily change and add something and try it out. It can be said that this is "a prototype of actual game development environment" or "a prototype of game engine". Writing and building your own C ++ code, fixing errors, fixing bugs, etc. A series of essences and tasks are the same as a part of ACTUAL game development. Nevertheless, the interface provided by Gachan makes it easy to control with user code, This is good for learning. Please take a look at the sample source code (Sample***.cpp). You can run same C++ user source code under these platforms.
 
