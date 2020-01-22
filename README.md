@@ -21,11 +21,11 @@
     2. macOS Xcode
     3. iOS (iPhone/iPad等) Xcode
 
-Gachanの環境は随時更新されていきます。現状はまだまだ未完成な状態です。説明動画とともにアップデートしていきます。基本的には動画を見ながらキャッチアップしていってもらえればと思います。
-説明動画コンテンツはこちらになります。
+関連するゲーム開発解説動画コンテンツはこちらになります。一動作環境として「がちゃん (Gachan)」が使われています。
 
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
+ゲーム開発解説動画コンテンツは、
 今のところ以下のように項目別にアップしていく予定です。  
 スーパーマリオの STAGE 1-1 という感じで。
 
@@ -76,7 +76,7 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
 
 
-
+Gachanの環境は随時更新されていきます。現状はまだまだ未完成な状態です。
 今後の具体的な予定リストになります。（あくまで予定、時期も未定ですが。。）
 
     * ひたすらGachanの説明
@@ -146,12 +146,12 @@ User code can be built with these raw code for understandability. This is all bu
     2. macOS Xcode
     3. iOS (iPhone/iPad etc) Xcode
 
-Gachan's environment will be updated from time to time. The present condition is still in an incomplete state.  We will update along with the explanatory video. Basically, I hope you can catch up while watching the video.
-Explanation video content is here.
+Related game development commentary video content is here. "Gachan" is used as one operating environment.
 
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
-Up to now we are planning to upload items as follows.  
+About game development commentary video content,
+For now, we are planning to upload each item as follows.
 Like Super Mario STAGE 1-1.
 
     ABOUT Gachan
@@ -200,8 +200,8 @@ Like Super Mario STAGE 1-1.
             1. LOW POLYGON MODELING  (WORLD 2-1)
 
 
-
-Future specific plan list (Just a plan, Schedule is undecided)
+Gachan's environment will be updated from time to time. The present condition is still in an incomplete state. 
+Future specific plan list (Just a plan, Schedule is undecided) is here.
 
     * Repeat explanation of Gachan
     * Repeat maintenance and function addition of Gachan
