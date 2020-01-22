@@ -247,6 +247,9 @@ Use at your own risk.
 See LICENSE.txt for licensing information.  
   
 ーーー
+関連するゲーム開発解説動画コンテンツ  
+Related game development commentary video content.  
+  
 
 ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA  
 ゲームタスク Game Task   https://youtu.be/TzLAb17v9Zw  
