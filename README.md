@@ -246,9 +246,10 @@ Use or not use is at the decision of the user, so do not use anything that have 
 Use at your own risk.  
 See LICENSE.txt for licensing information.  
   
-ーーー関連するゲーム開発解説動画コンテンツ Related game development commentary video content.  
+ーーー  
+関連するゲーム開発解説動画コンテンツ Related game development commentary video content.  
   
-
+  
 ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA  
 ゲームタスク Game Task   https://youtu.be/TzLAb17v9Zw  
 ![MemoryAndTask](https://user-images.githubusercontent.com/48670081/72143467-1a93c380-33da-11ea-9530-3310eeaad9ca.png)
@@ -292,10 +293,10 @@ Gachanをうごかす Run Gachan at Windows10 DirectX12 VisualStudio2019 https:/
 ![aisatu](https://user-images.githubusercontent.com/48670081/72128112-2325d300-33b5-11ea-85ea-15445aea9956.png)
   
   
-ーーーサンプル Samples
+ーーー  
+サンプル Samples
   
   
-
 ゲームコントローラサンプル GAME CONTROLLER SAMPLE  
 [SampleController.cpp](/Sample/SampleController.cpp)  
 SampleController.cppをビルドするには[GachanNameSpace.h](/GachanNameSpace.h)のNAMESPACE定義をSampleControllerに置き換えてください。  
