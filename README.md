@@ -76,7 +76,7 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
 
 
-Gachanの環境は随時更新されていきます。現状はまだまだ未完成な状態です。
+Gachanの環境は随時更新されていきます。現状はまだまだ未完成な状態です。  
 今後の具体的な予定リストになります。（あくまで予定、時期も未定ですが。。）
 
     * ひたすらGachanの説明
@@ -151,7 +151,7 @@ Related game development commentary video content is here. "Gachan" is used as o
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
 About game development commentary video content,
-For now, we are planning to upload each item as follows.
+For now, we are planning to upload each item as follows.  
 Like Super Mario STAGE 1-1.
 
     ABOUT Gachan
@@ -200,7 +200,7 @@ Like Super Mario STAGE 1-1.
             1. LOW POLYGON MODELING  (WORLD 2-1)
 
 
-Gachan's environment will be updated from time to time. The present condition is still in an incomplete state. 
+Gachan's environment will be updated from time to time. The present condition is still in an incomplete state.  
 Future specific plan list (Just a plan, Schedule is undecided) is here.
 
     * Repeat explanation of Gachan
