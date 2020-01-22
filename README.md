@@ -246,9 +246,7 @@ Use or not use is at the decision of the user, so do not use anything that have 
 Use at your own risk.  
 See LICENSE.txt for licensing information.  
   
-ーーー
-関連するゲーム開発解説動画コンテンツ  
-Related game development commentary video content.  
+ーーー関連するゲーム開発解説動画コンテンツ Related game development commentary video content.  
   
 
 ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA  
@@ -294,7 +292,7 @@ Gachanをうごかす Run Gachan at Windows10 DirectX12 VisualStudio2019 https:/
 ![aisatu](https://user-images.githubusercontent.com/48670081/72128112-2325d300-33b5-11ea-85ea-15445aea9956.png)
   
   
-ーーー
+ーーーサンプル Samples
   
   
 
