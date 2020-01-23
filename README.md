@@ -21,7 +21,7 @@
     2. macOS Xcode
     3. iOS (iPhone/iPad等) Xcode
 
-関連するゲーム開発解説動画コンテンツはこちらになります。一動作環境として「がちゃん (Gachan)」が使われています。
+関連するゲーム開発解説動画コンテンツはこちらになります。動作環境として「がちゃん (Gachan)」が使われています。（というか「がちゃん (Gachan)」と動画はほぼ一緒に作っているのですが。。）
 
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
@@ -147,6 +147,7 @@ User code can be built with these raw code for understandability. This is all bu
     3. iOS (iPhone/iPad etc) Xcode
 
 Related game development commentary video content is here. "Gachan" is used as one operating environment.
+("Gachan" and the video are made almost simultaneously.)
 
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
