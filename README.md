@@ -21,7 +21,7 @@
     2. macOS Xcode
     3. iOS (iPhone/iPad等) Xcode
 
-関連するゲーム開発解説動画コンテンツはこちらになります。動作環境として「がちゃん (Gachan)」が使われています。（というか「がちゃん (Gachan)」と動画はほぼ一緒に作っているのですが。。）
+関連するゲーム開発解説動画コンテンツはこちらになります。動作環境として「がちゃん (Gachan)」が使われています。（というか「がちゃん (Gachan)」と動画はほぼ一緒に作っています。。）
 
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
