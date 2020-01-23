@@ -147,7 +147,7 @@ User code can be built with these raw code for understandability. This is all bu
     3. iOS (iPhone/iPad etc) Xcode
 
 Related game development commentary video content is here. "Gachan" is used as one operating environment.
-("Gachan" and the video are made almost simultaneously.)
+(or rather "Gachan" and the video are made almost simultaneously.)
 
 https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
