@@ -254,12 +254,17 @@ See LICENSE.txt for licensing information.
 ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA  
 ゲームタスク Game Task   https://youtu.be/TzLAb17v9Zw  
 ![MemoryAndTask](https://user-images.githubusercontent.com/48670081/72143467-1a93c380-33da-11ea-9530-3310eeaad9ca.png)
-
-
-
+  
+  
+逆運動学 IK (2D/3D)の全手順をやります！  
+自由度さえ気を付ければ独自の関節構造でも逆運動学が組めると思います。  
+  
+All steps of IK(2D/3D) !  
+I think that you can build inverse kinematics even with your own joint structure if you pay attention to the degree of freedom.  
+  
 逆運動学2D2自由度 Inverse Kinematics 2D2DOF https://youtu.be/ekmjw9ni0_I  
 逆運動学3D3自由度 Inverse Kinematics 3D3DOF https://youtu.be/Ndhk7VYiQ9I  
-![IK](https://user-images.githubusercontent.com/48670081/71062383-afc1e480-21ad-11ea-853c-6c5b2eb11b49.png)
+![IK2D3D](https://user-images.githubusercontent.com/48670081/73041518-2931ae80-3ea1-11ea-920a-13dafd691039.png)
 
 
 
