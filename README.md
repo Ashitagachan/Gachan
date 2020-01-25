@@ -248,7 +248,7 @@ Use at your own risk.
 See LICENSE.txt for licensing information.  
   
 ーーー  
-関連するゲーム開発解説動画コンテンツ Related game development commentary video content.  
+▪️関連するゲーム開発解説動画コンテンツ Related game development commentary video content.  
   
   
 OSにお願いするメモリ・タスクが見積もりにくいので、  
@@ -314,7 +314,7 @@ Gachanをうごかす Run Gachan at Windows10 DirectX12 VisualStudio2019 https:/
   
   
 ーーー  
-サンプル Samples
+▪️サンプル Samples
   
   
 ゲームコントローラサンプル GAME CONTROLLER SAMPLE  
