@@ -251,9 +251,16 @@ See LICENSE.txt for licensing information.
 関連するゲーム開発解説動画コンテンツ Related game development commentary video content.  
   
   
+OSにお願いするメモリ・タスクが見積もりにくいので、  
+自分でメモリ・タスクを管理します。  
+  
+Since it is difficult to estimate the memory and task requested to the OS,  
+Manage memory and task myrself.  
+  
 ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA  
 ゲームタスク Game Task   https://youtu.be/TzLAb17v9Zw  
-![MemoryAndTask](https://user-images.githubusercontent.com/48670081/72143467-1a93c380-33da-11ea-9530-3310eeaad9ca.png)
+![memory_task](https://user-images.githubusercontent.com/48670081/73115428-1bdff700-3f69-11ea-8058-b1e9fad5469e.png)
+
   
   
 逆運動学 IK (2D/3D)の全手順をやります！  
@@ -272,10 +279,17 @@ I think that you can build inverse kinematics even with your own joint structure
 https://youtu.be/9rziCENfXWo  
 ![hiera](https://user-images.githubusercontent.com/48670081/71062787-b69d2700-21ae-11ea-8379-5cccb890599c.png)
 
-
+  
+  
+2D/3Dで、拡大縮小・回転・平行移動してオブジェクトを配置する方法です。  
+この後半である「変換で関節の階層構造をつくる」を続けてご覧ください。  
+  
+This is a method of placing objects in 2D/3D by scaling, rotating, and translating.  
+Please continue watching “Creating a hierarchical structure of joints by transformation”, the second half of this.  
+    
 2D変換 Transform 2D https://youtu.be/_crIwRmchKs  
 3D変換 Transform 3D https://youtu.be/yTgVhLlgPvs  
-![Transform2Dand3D](https://user-images.githubusercontent.com/48670081/71062298-8012dc80-21ad-11ea-8959-cf19f241ac38.png)
+![transform2D3D](https://user-images.githubusercontent.com/48670081/73115433-25695f00-3f69-11ea-88d4-f3d54f9194f0.png)
 
 
 超かんたんスムーズ移動        Super Simple Smooth Movement             https://youtu.be/ncpIfvq3I98  
