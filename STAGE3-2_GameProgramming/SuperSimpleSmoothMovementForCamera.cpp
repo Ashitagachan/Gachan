@@ -70,7 +70,7 @@ namespace SuperSimpleSmoothMovementForCamera
         
         Vec camerafront = objectpos - camerapos;
         camerafront.y = 0.0f;
-        camerafront.Unit();
+        camerafront.SetUnit();
         
         
         Val frontK    = 0.15;

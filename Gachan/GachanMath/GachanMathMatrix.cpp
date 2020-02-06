@@ -155,6 +155,15 @@ Mat44 Mat44::GetTranslate(Val tx, Val ty, Val tz)
     return trs;
 }
 
+void Mat44::Translate(Val tx, Val ty, Val tz)
+{
+    Mat44 t = GetTranslate(tx, ty, tz);
+    
+    *this = t * (*this);
+}
+
+
+
 // |sx 0  0  0|
 // |0  sy 0  0|
 // |0  0  sz 0|
@@ -171,6 +180,13 @@ Mat44 Mat44::GetScale(Val sx, Val sy, Val sz)
 Mat44 Mat44::GetScale(Val scl)
 {
     return GetScale(scl,scl,scl);    
+}
+
+void Mat44::Scale(Val sx, Val sy, Val sz)
+{
+    Mat44 s = GetScale(sx, sy, sz);
+    
+    *this = s * (*this);
 }
 
 //==================================================================================

@@ -109,7 +109,11 @@ public:
 public:
     void         Clear(void);
     Mat44        GetTranspose(void) const;
+    
+    void         Translate(Val tx, Val ty, Val tz);
     static Mat44 GetTranslate(Val tx, Val ty, Val tz);
+    
+    void         Scale(Val sx, Val sy, Val sz);
     static Mat44 GetScale(Val sx, Val sy, Val sz);
     static Mat44 GetScale(Val s);
     

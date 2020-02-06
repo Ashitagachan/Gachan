@@ -179,6 +179,9 @@
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameTask.h">
       <Filter>Gachan\GachanGame</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathPrimitive.h">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GachanWIN10.cpp">
@@ -339,6 +342,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameMemory.cpp">
       <Filter>Gachan\GachanGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan.cpp">
+      <Filter>Gachan</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\VectorDraw.cpp">
+      <Filter>STAGE2-3_Beginners3DProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\VectorCalculation.cpp">
+      <Filter>STAGE2-3_Beginners3DProgramming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathPrimitive.cpp">
+      <Filter>Gachan\GachanMath</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

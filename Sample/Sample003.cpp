@@ -182,7 +182,7 @@ namespace Sample003
             
             Vec pos = object.GetPosition();
             Vec dir = target - pos;
-            if (dir.Length2() > 0.1) {
+            if (dir.GetLength2() > 0.1) {
                 Val radian = atan2f(-dir.x, -dir.z);//atan2そのうちにGachanで提供する予定。今は標準関数。
                 object.SetRotation(ROTATIONORDER::XYZ, 0, radian, 0);
             }

@@ -37,25 +37,92 @@ public:
         x = 0.0f;
         y = 0.0f;
     }
-    Vec2    operator-(void) const;
-    Vec2    operator+(void) const;
-    Vec2    operator*(Val) const;
-    Vec2    operator/(Val) const;
-
-    Vec2    operator+(Vec2 const&) const;
-    Vec2    operator-(Vec2 const&) const;
+    void   Set(Val, Val);
+    Val    GetLength(void) const;
+    Val    GetLength2(void) const;
     
-    Vec2&   operator*=(Val);
-    Vec2&   operator/=(Val);
-    Vec2&   operator+=(Vec2 const&);
-    Vec2&   operator-=(Vec2 const&);
+    Vec2   GetProject(Vec2 n);//|n| = 1
+    Vec2   GetReflect(Vec2 n);//|n| = 1
+    Vec2   GetAbsorb(Vec2 n);//|n| = 1
+    
+    bool   SetLength(Val length);
+    bool   SetUnit(void);
+    
+    Vec2   operator-(void) const;
+    Vec2   operator+(void) const;
+    Vec2   operator*(Val) const;
+    Vec2   operator/(Val) const;
+
+    friend Vec2    operator*(Val s, Vec2 const& v)
+    {
+        return v*s;
+    }
+
+    Val    operator^(Vec2 const&) const;
+    Val    operator*(Vec2 const&) const;
+    Vec2   operator+(Vec2 const&) const;
+    Vec2   operator-(Vec2 const&) const;
+    
+    Vec2&  operator*=(Val);
+    Vec2&  operator/=(Val);
+    Vec2&  operator+=(Vec2 const&);
+    Vec2&  operator-=(Vec2 const&);
 
 };
 
 typedef GachanMathVector2 Vec2;  //ショートバージョン Short Version
 typedef GachanMathVector2 float2;//シェーダーバージョン Shader Version
 
+extern const Vec2 Vec2ZERO;
 
+inline void    Vec2::Set(Val _x, Val _y)
+{
+    x = _x; y = _y;
+}
+
+inline Val Vec2::GetLength() const
+{
+    return (Val) sqrtf(x*x + y*y);
+}
+
+inline Val Vec2::GetLength2() const
+{
+    return x*x + y*y;
+}
+inline bool Vec2::SetLength(Val length)
+{
+    if (SetUnit()) {
+        *this *= length;
+        return true;
+    }
+    return false;
+}
+inline Vec2 Vec2::GetProject(Vec2 n)
+{
+    Val dot = (*this)^n;
+    return dot * n;
+}
+inline Vec2 Vec2::GetReflect(Vec2 n)
+{
+    Vec2 project = GetProject(n);
+    return *(this) - 2*project;
+}
+inline Vec2 Vec2::GetAbsorb(Vec2 n)
+{
+    Vec2 project = GetProject(n);
+    return *(this) - project;
+}
+
+
+inline Val Vec2::operator^( Vec2 const& v ) const
+{
+    return x * v.x + y * v.y;
+}
+
+inline Val Vec2::operator*( Vec2 const& v ) const
+{
+    return x * v.y - y * v.x;
+}
 
 inline Vec2 Vec2::operator-(void) const
 {
@@ -131,45 +198,6 @@ inline Vec2& Vec2::operator/=(Val s)
 
 
 
-//要素4のベクトル Vector of 4 elements
-class GachanMathVector4
-{
-public:
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wgnu"
-#pragma clang diagnostic ignored "-Wnested-anon-types"
-    union {
-        struct {
-            Val x, y, z, w;
-        };
-        struct {
-            Val r, g, b, a;
-        };
-        Val val[4];
-    };
-#pragma clang diagnostic pop
-    void Clear(void)
-    {
-        x = 0.0f;
-        y = 0.0f;
-        z = 0.0f;
-        w = 0.0f;
-    }
-
-    void Set(Val _x, Val _y, Val _z, Val _w)
-    {
-        x = _x;
-        y = _y;
-        z = _z;
-        w = _w;
-    }    
-};
-
-typedef GachanMathVector4 Vec4;  //ショートバージョン Short Version
-typedef GachanMathVector4 float4;//シェーダーバージョン Shader Version
-
-
-
 
 
 
@@ -200,11 +228,16 @@ public:
         z = 0.0f;
     }
     void   Set(Val, Val, Val);
-    Val    Length(void) const;
-    Val    Length2(void) const;
-    bool   SetLength(Val length);
-    bool   Unit(void);
+    Val    GetLength(void) const;
+    Val    GetLength2(void) const;
     
+    Vec    GetProject(Vec n);//|n| = 1
+    Vec    GetReflect(Vec n);//|n| = 1
+    Vec    GetAbsorb(Vec n);//|n| = 1
+
+    bool   SetLength(Val length);
+    bool   SetUnit(void);
+
     Vec    operator-(void) const;
     Vec    operator+(void) const;
     Vec    operator*(Val) const;
@@ -215,9 +248,8 @@ public:
         return v*s;
     }
     
-    
-    Val    operator^(Vec const&) const;//内積 Inner product
-    Vec    operator*(Vec const&) const;//外積 Outer product
+    Val    operator^(Vec const&) const;
+    Vec    operator*(Vec const&) const;
     Vec    operator+(Vec const&) const;
     Vec    operator-(Vec const&) const;
 
@@ -231,29 +263,46 @@ typedef GachanMathVector3 Vec;   //ショートバージョン Short Version
 typedef GachanMathVector3 Vec3;  //ショートバージョン Short Version
 typedef GachanMathVector3 float3;//シェーダーバージョン Shader Version
 
-
+extern const Vec  VecZERO;
+extern const Vec3 Vec3ZERO;
 
 inline void    Vec::Set(Val _x, Val _y, Val _z)
 {
     x = _x; y = _y; z = _z;
 }
 
-inline Val Vec::Length() const
+inline Val Vec::GetLength() const
 {
     return (Val) sqrtf(x*x + y*y + z*z);
 }
 
-inline Val Vec::Length2() const
+inline Val Vec::GetLength2() const
 {
     return x*x + y*y + z*z;
 }
+
 inline bool Vec::SetLength(Val length)
 {
-    if (Unit()) {
+    if (SetUnit()) {
         *this *= length;
         return true;
     }
     return false;
+}
+inline Vec Vec::GetProject(Vec n)
+{
+    Val dot = (*this)^n;
+    return dot * n;
+}
+inline Vec Vec::GetReflect(Vec n)
+{
+    Vec project = GetProject(n);
+    return *(this) - 2*project;
+}
+inline Vec Vec::GetAbsorb(Vec n)
+{
+    Vec project = GetProject(n);
+    return *(this) - project;
 }
 
 
@@ -350,6 +399,54 @@ inline Vec& Vec::operator/=(Val s)
     
     return *this;
 }
+
+
+
+
+
+
+
+
+
+//要素4のベクトル Vector of 4 elements
+class GachanMathVector4
+{
+public:
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu"
+#pragma clang diagnostic ignored "-Wnested-anon-types"
+    union {
+        struct {
+            Val x, y, z, w;
+        };
+        struct {
+            Val r, g, b, a;
+        };
+        Val val[4];
+    };
+#pragma clang diagnostic pop
+    void Clear(void)
+    {
+        x = 0.0f;
+        y = 0.0f;
+        z = 0.0f;
+        w = 0.0f;
+    }
+
+    void Set(Val _x, Val _y, Val _z, Val _w)
+    {
+        x = _x;
+        y = _y;
+        z = _z;
+        w = _w;
+    }
+};
+
+typedef GachanMathVector4 Vec4;  //ショートバージョン Short Version
+typedef GachanMathVector4 float4;//シェーダーバージョン Shader Version
+
+extern const Vec4 Vec4ZERO;
+
 
 
 #endif

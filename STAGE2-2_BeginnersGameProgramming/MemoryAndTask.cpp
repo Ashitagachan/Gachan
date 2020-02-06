@@ -7,9 +7,19 @@
 //
 #include "Gachan.h"
 
+//--------------------------------------------------------------------------
+//OSにお願いするメモリ・タスクが見積もりにくいので、
+//自分でメモリ・タスクを管理します。
+//
+//Since it is difficult to estimate the memory and task requested to the OS,
+//Manage memory and task myrself.
+//
+//ゲームメモリ Game Memory https://youtu.be/n2awZYqSZyA
+//ゲームタスク Game Task https://youtu.be/TzLAb17v9Zw
+//--------------------------------------------------------------------------
+
 //MemoryAndTask.cppをビルドするにはGachanNameSpace.hのNAMESPACE定義をMemoryAndTaskに置き換えてください。
 //To build MemoryAndTask.cpp, Replace NAMESPACE definition at GachanNameSpace.h with MemoryAndTask.
-
 
 
 namespace MemoryAndTask
@@ -74,7 +84,7 @@ namespace MemoryAndTask
         }
         void Draw(Int arg)
         {
-            text.Draw(u8"子");
+            text.Draw(u8"Child");
         }
     };
 
@@ -132,7 +142,7 @@ namespace MemoryAndTask
         
         void Draw(Int arg)
         {
-            text.Draw(u8"親");
+            text.Draw(u8"Parent");
         }
     };
 

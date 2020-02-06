@@ -36,7 +36,7 @@ void GachanGameLightAmbient::SetLight()
 void GachanGameLightDirection::SetDirection(Vec dir)
 {
     direction = dir;
-    direction.Unit();
+    direction.SetUnit();
 }
 
 void GachanGameLightDirection::SetDirection(Val x, Val y, Val z)
@@ -44,7 +44,7 @@ void GachanGameLightDirection::SetDirection(Val x, Val y, Val z)
     direction.x = x;
     direction.y = y;
     direction.z = z;
-    direction.Unit();
+    direction.SetUnit();
 }
 Vec GachanGameLightDirection::GetDirection()
 {

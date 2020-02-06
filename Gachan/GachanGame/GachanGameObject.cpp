@@ -36,13 +36,17 @@ namespace block00 {
 namespace arm {
 #include "GachanGameObject/GachanGameObjectArm.tst"
 }
+namespace system00 {
+#include "GachanGameObject/GachanGameObjectSystem00.tst"
+}
 
 
 static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
     NULL,//NONE
     NULL,
     NULL,
-    
+    NULL,
+
     grid   ::object_Grid10x10__,
     grid   ::object_Grid20x20__,
     
@@ -74,12 +78,17 @@ static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
     arm::object_ArmLower_R___,
     arm::object_ArmHand_R___,
 
+    system00::object_LineA__,
+    system00::object_LineB__,
+    system00::object_LineArrowCap__,
+
 };
 static Gachan3DMaterial* materialtable[GachanGameObject::OBJECT::NUM] = {
     NULL,//NONE
     NULL,
     NULL,
-    
+    system00 ::material_MateLine,
+
     grid   ::material_mGrid,
     grid   ::material_mGrid,
     
@@ -110,6 +119,10 @@ static Gachan3DMaterial* materialtable[GachanGameObject::OBJECT::NUM] = {
     arm::material_mArm,
     arm::material_mArm,
     arm::material_mArm,
+    
+    system00 ::material_MateLine,
+    system00 ::material_MateLine,
+    system00 ::material_MateLine,
 };
 void GachanGameObjectCreate()
 {
@@ -118,6 +131,9 @@ void GachanGameObjectCreate()
             objecttable[i]->Create();
         }
     }
+    
+    system00 ::material_MateLine->flag |= Gachan3DMaterial::FLG_DOUBLESIDE;
+
     
     Gachan3DMaterial* gridmate;
     gridmate = materialtable[GachanGameObject::OBJECT::GRID10x10];
@@ -145,12 +161,9 @@ void GachanGameObject::Clear()
 {
     flag = 0;
     
-    position.x = 0.0f;
-    position.y = 0.0f;
-    position.z = 0.0f;
-    rotation.x = 0.0f;
-    rotation.y = 0.0f;
-    rotation.z = 0.0f;
+    position .Clear();
+    position2.Clear();
+    rotation .Clear();
     scale.x    = 1.0f;
     scale.y    = 1.0f;
     scale.z    = 1.0f;
@@ -160,6 +173,11 @@ void GachanGameObject::Clear()
     textsize         = 1.0f;
     textinterval     = 1.0f;
     textlineinterval = 1.0f;
+    
+    position2.Clear();
+    vectordiameter = 0.2f;
+    vectorarrowcap[0] = false;
+    vectorarrowcap[1] = false;
 }
 
 
@@ -169,17 +187,21 @@ void GachanGameObject::SetObject(OBJECT obj)
 }
 
 
-void GachanGameObject::SetPosition(Vec pos)
+void GachanGameObject::SetPosition(Vec pos, Vec pos2)
 {
     ResetFlag(FLAG_SETMATRIX);
     position = pos;
+    position2 = pos2;
 }
-void GachanGameObject::SetPosition(Val posx, Val posy, Val posz)
+void GachanGameObject::SetPosition(Val posx, Val posy, Val posz, Val pos2x, Val pos2y, Val pos2z)
 {
     ResetFlag(FLAG_SETMATRIX);
     position.x = posx;
     position.y = posy;
     position.z = posz;
+    position2.x = pos2x;
+    position2.y = pos2y;
+    position2.z = pos2z;
 }
 Vec  GachanGameObject::GetPosition()
 {
@@ -232,12 +254,36 @@ Mat44 GachanGameObject::GetMatrix()
         return matrix;
     }
     
-    matrix.Clear();
-    matrix.Rotate(rotationorder, rotation.x, rotation.y, rotation.z);
-    matrix.et = position;
-    matrix.ex.SetLength(scale.x);
-    matrix.ey.SetLength(scale.y);
-    matrix.ez.SetLength(scale.z);
+    if (object == VECTOR) {
+        matrix.Clear();
+#if 0
+        matrix.et = 0.5f * (position + position2);
+        matrix.ez = position - position2;
+        vectorlength = matrix.ez.GetLength();
+        if (vectorlength > ValZERO) {
+            matrix.ex.Set(1.0f, 0.0f, 0.0f);
+            matrix.ey = matrix.ez * matrix.ex;
+            if (matrix.ey.GetLength() > ValZERO) {
+                matrix.ex = matrix.ey * matrix.ez;
+            }
+            else {
+                matrix.ey.Set(0.0f, 1.0f, 0.0f);
+                matrix.ex = matrix.ey * matrix.ez;
+                matrix.ey = matrix.ez * matrix.ex;
+            }
+        }
+        matrix.ex.Length(vectordiameter/0.2f);
+        matrix.ey.Length(vectordiameter/0.2f);
+#endif
+    }
+    else {
+        matrix.Clear();
+        matrix.Rotate(rotationorder, rotation.x, rotation.y, rotation.z);
+        matrix.et = position;
+        matrix.ex.SetLength(scale.x);
+        matrix.ey.SetLength(scale.y);
+        matrix.ez.SetLength(scale.z);
+    }
     return matrix;
 }
 void GachanGameObject::SetMatrix(Mat mat)
@@ -281,7 +327,13 @@ void GachanGameObject::SetTextParameter(Val tsize, Val tinterval, Val tlineinter
 }
 
 
-
+//for VECTOR
+void GachanGameObject::SetVectorParameter(Val diameter, bool capa, bool capb)
+{
+    vectordiameter = diameter;
+    vectorarrowcap[0] = capa;
+    vectorarrowcap[1] = capb;
+}
 
 
 
@@ -297,7 +349,7 @@ void GachanGameObject::DrawSub(const char* utf8char)
     
     
     MatStack::Push();
-    
+
     Mat m = GetMatrix();
     MatStack::Mul(m);
     
@@ -306,7 +358,96 @@ void GachanGameObject::DrawSub(const char* utf8char)
         Gachan3DText::SetColor(color.r, color.g, color.b, color.a);
         Gachan3DText::Draw(utf8char);
     }
-    if (object != OBJECT::TEXT) {
+    else if (object == OBJECT::VECTOR) {
+        Mat44* world = MatStack::Get();
+        Vec tpa, tpb;
+        tpa = position * (*world);
+        tpb = position2 * (*world);
+        Vec v = (tpa - tpb) * 0.5f;
+        Val length = v.GetLength();
+        if (length > ValZERO) {
+            Vec center = 0.5f * (tpa + tpb);
+            Val diameter = vectordiameter * world->ex.GetLength();//スケールは等方のみ対応
+            Val scale    = diameter / 0.2f;//0.2 is original diameter
+            Val arrowlen = 0.5f * scale;//0.5 if original length of arrow
+            
+            matrix.et = center;
+            matrix.ez = v;
+
+            matrix.ex.Set(1.0f, 0.0f, 0.0f);
+            matrix.ey = matrix.ez * matrix.ex;
+            if (matrix.ey.GetLength() > ValZERO) {
+                matrix.ex = matrix.ey * matrix.ez;
+            }
+            else {
+                matrix.ey.Set(0.0f, 1.0f, 0.0f);
+                matrix.ex = matrix.ey * matrix.ez;
+                matrix.ey = matrix.ez * matrix.ex;
+            }
+            matrix.ex.SetLength(scale);
+            matrix.ey.SetLength(scale);
+#if 1
+            if (vectorarrowcap[0]) {
+                Val barlen = length - arrowlen;
+                matrix.ez.SetLength(barlen);
+            }
+#if 0
+            system00 ::material_MateLine->diffuse.r = 0.0;
+            system00 ::material_MateLine->diffuse.g = 1.0;
+            system00 ::material_MateLine->diffuse.b = 0.0;
+#endif
+            MatStack::Push(matrix);
+            system00::object_LineB__->Draw();
+            MatStack::Pop();
+
+            if (vectorarrowcap[0]) {
+
+                Mat44 matrixarrow = matrix;
+                matrixarrow.et = center + v;
+                matrixarrow.ez = v;
+                matrixarrow.ez.SetLength(scale);
+
+                MatStack::Push(matrixarrow);
+                system00::object_LineArrowCap__->Draw();
+                MatStack::Pop();
+            }
+#endif
+#if 1
+            //もう片方の描画
+            matrix.ez = -v;
+
+            if (vectorarrowcap[1]) {
+                Val barlen = length - arrowlen;
+                matrix.ez.SetLength(barlen);
+            }
+#if 0
+            system00 ::material_MateLine->diffuse.r = 1.0;
+            system00 ::material_MateLine->diffuse.g = 0.0;
+            system00 ::material_MateLine->diffuse.b = 0.0;
+#endif
+            MatStack::Push(matrix);
+            system00::object_LineB__->Draw();
+            MatStack::Pop();
+
+            if (vectorarrowcap[1]) {
+
+                Mat44 matrixarrow = matrix;
+                matrixarrow.et = center - v;
+                matrixarrow.ez = -v;
+                matrixarrow.ez.SetLength(scale);
+
+                MatStack::Push(matrixarrow);
+                system00::object_LineArrowCap__->Draw();
+                MatStack::Pop();
+            }
+#endif
+
+            
+        }
+
+        
+    }
+    else if (object != OBJECT::TEXT) {
         Gachan3DObject* obj = objecttable[object];
         if (obj) {
             obj->Draw();
@@ -314,6 +455,7 @@ void GachanGameObject::DrawSub(const char* utf8char)
     }
     MatStack::Pop();
 }
+
 
 void GachanGameObject::Draw(const char* utf8char, ...)
 {

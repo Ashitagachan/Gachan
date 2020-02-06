@@ -24,4 +24,25 @@
 #endif
 
 
+class GachanInitialize
+{
+public:
+    enum ENABLE {
+        TEXT_JP_HIRAKANA,//日本語全角ひらがなカタカナ英数記号
+        TEXT_JP_KANJI1ST,//日本語第一水準漢字
+        TEXT_JP_KANJI2ND,//日本語第二水準漢字(一部)
+        TEXT_JP_ALL,     //日本語上記全部
+        //RAYTRACING,
+    };
+    static void Enable(ENABLE enable);
+    
+};
+
+class GachanFinalize
+{
+public:
+    int dummy;
+};
+
+
 #endif

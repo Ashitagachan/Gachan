@@ -182,13 +182,13 @@ namespace Sample001
                     //ボールと風船の距離 Distance the ball and the baloon.
                     Val hit = 0.1 + 0.5;//当たり判定の距離（ボールの半径と風船の半径を足した距離）  Hit Distance(Distance of ball radius + balloon radius)
                     Vec distance = ballpos - balloonpos;
-                    if (distance.Length2() < hit*hit) {
+                    if (distance.GetLength2() < hit*hit) {
                         //ボールが風船に当たった！  The ball hit the baloon!
                         gachan->score += 10;
                         gachan->balloonstate[i] = 0;
                         
                         //ボールを跳ね返す Bounce the ball
-                        distance.Unit();//風船からボールへの長さ１のベクトル Vector of length 1 from balloons to balls.
+                        distance.SetUnit();//風船からボールへの長さ１のベクトル Vector of length 1 from balloons to balls.
                         Val inner = distance ^ gachan->ballspeed;//ボール速度との内積をとって、跳ね返りの大きさを求める Find the size of the bounce by taking the inner product with the ball speed
                         gachan->ballspeed -= 2.0 * inner * distance;//跳ね返す Bounce back
                         

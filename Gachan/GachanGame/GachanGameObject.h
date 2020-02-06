@@ -41,6 +41,7 @@ public:
         NONE,
         USER,     //ユーザーオブジェクト
         TEXT,     //テキストオブジェクト
+        VECTOR,   //ベクトルオブジェクト
 
         GRID10x10,//グリッド 10x10
         GRID20x20,//グリッド 20x20
@@ -71,6 +72,10 @@ public:
         ARM_UPPER_R,
         ARM_LOWER_R,
         ARM_HAND_R,
+        
+        LINEA,
+        LINEB,
+        LINEARROWCAP,
 
         NUM
     };
@@ -78,6 +83,7 @@ public:
     OBJECT        object;
     
     Vec           position;
+    Vec           position2;
     ROTATIONORDER rotationorder;
     Vec           rotation;
     Vec           scale;
@@ -93,8 +99,8 @@ public:
     void SetObject(OBJECT object);
     
     //位置のセット
-    void SetPosition(Vec pos);
-    void SetPosition(Val posx, Val posy, Val posz);
+    void SetPosition(Vec pos, Vec pos2 = VecZERO);
+    void SetPosition(Val posx, Val posy, Val posz, Val pos2x = 0.0f, Val pos2y = 0.0f, Val pos2z = 0.0f);
     Vec  GetPosition();
     
     //回転のセット
@@ -133,8 +139,16 @@ public:
     Val           textlineinterval;//垂直間隔率 ratio of horizontal interval
     
     void SetTextParameter(Val textsize = 1.0f, Val textinterval = 1.0f, Val textlineinterval = 1.0f);
-    
     void Draw(const char* utf8char, ...);//テキスト描画 (注意:u8をつける require u8)
+
+    //-----------------
+    // for VECTOR
+    //-----------------
+    Val           vectordiameter;
+    bool          vectorarrowcap[2];
+    void SetVectorParameter(Val diameter, bool arrowcapA, bool arrowcapB);//diameter:default 0.2
+    void Draw(Vec pa, Vec pb);//テキスト描画 (注意:u8をつける require u8)
+
 };
 
 

@@ -196,6 +196,7 @@
     <ClInclude Include="..\..\Gachan\GachanGame\GachanGameTask.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMath.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathMatrix.h" />
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathPrimitive.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathVector.h" />
     <ClInclude Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.h" />
     <ClInclude Include="GachanWIN10.h" />
@@ -204,6 +205,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Gachan\Gachan.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3D.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DCamera.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.cpp" />
@@ -238,6 +240,7 @@
     <ClCompile Include="..\..\Gachan\GachanGame\GachanGameWIN10.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMath.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathMatrix.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathPrimitive.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathVector.cpp" />
     <ClCompile Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.cpp" />
     <ClCompile Include="..\..\Sample\Sample000.cpp" />
@@ -250,6 +253,8 @@
     <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\MemoryAndTask.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform2D.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform3D.cpp" />
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\VectorCalculation.cpp" />
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\VectorDraw.cpp" />
     <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovement.cpp" />
     <ClCompile Include="..\..\STAGE3-2_GameProgramming\SuperSimpleSmoothMovementForCamera.cpp" />
     <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_2D2DOF.cpp" />

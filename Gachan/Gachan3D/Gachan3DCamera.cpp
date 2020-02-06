@@ -38,9 +38,9 @@ static void SetView(Vec p, Vec t)
     y.y = 1.0f;
     x = y * z;
     y = z * x;
-    x.Unit();
-    y.Unit();
-    z.Unit();
+    x.SetUnit();
+    y.SetUnit();
+    z.SetUnit();
     
     Gachan3DCamera::position = p;
     Gachan3DCamera::front    = z;

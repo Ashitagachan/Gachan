@@ -48,7 +48,6 @@ namespace Transform2D
     
     void Initialize()
     {
-        
     }
     
     void Create()

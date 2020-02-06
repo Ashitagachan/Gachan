@@ -102,6 +102,7 @@ namespace TextKanji2nd5 {
     extern char code[];
 }
 
+UInt64 Gachan3DText::Flag = 0;
 
 
 //漢字だけで第一第二で6000文字＋ASCIIひらカナ英数記号等。将来追加する分を見て、10240文字分確保する
@@ -212,24 +213,29 @@ void Gachan3DText::Create()
 {
     TextASCII      ::object_root__->Create();
     TextHankakuKana::object_root__->Create();
-    TextHiragana   ::object_root__->Create();
-    TextKatakana   ::object_root__->Create();
-    TextEISUU      ::object_root__->Create();
-    TextKIGOU1     ::object_root__->Create();
-    TextKIGOU2     ::object_root__->Create();
-    TextKanji1st1  ::object_root__->Create();
-    TextKanji1st2  ::object_root__->Create();
-    TextKanji1st3  ::object_root__->Create();
-    TextKanji1st4  ::object_root__->Create();
-    TextKanji1st5  ::object_root__->Create();
-    TextKanji1st6  ::object_root__->Create();
-    TextKanji2nd1  ::object_root__->Create();
-    TextKanji2nd2  ::object_root__->Create();
-    TextKanji2nd3  ::object_root__->Create();
-    TextKanji2nd4  ::object_root__->Create();
-    TextKanji2nd5  ::object_root__->Create();
-    
-    
+
+    if (IsFlag(FLG_JP_HIRAKANA)) {
+        TextHiragana   ::object_root__->Create();
+        TextKatakana   ::object_root__->Create();
+        TextEISUU      ::object_root__->Create();
+        TextKIGOU1     ::object_root__->Create();
+        TextKIGOU2     ::object_root__->Create();
+    }
+    if (IsFlag(FLG_JP_KANJI1ST)) {
+        TextKanji1st1  ::object_root__->Create();
+        TextKanji1st2  ::object_root__->Create();
+        TextKanji1st3  ::object_root__->Create();
+        TextKanji1st4  ::object_root__->Create();
+        TextKanji1st5  ::object_root__->Create();
+        TextKanji1st6  ::object_root__->Create();
+    }
+    if (IsFlag(FLG_JP_KANJI2ND)) {
+        TextKanji2nd1  ::object_root__->Create();
+        TextKanji2nd2  ::object_root__->Create();
+        TextKanji2nd3  ::object_root__->Create();
+        TextKanji2nd4  ::object_root__->Create();
+        TextKanji2nd5  ::object_root__->Create();
+    }
     //テーブルは一度作ったら二度と作らない。なぜならリストの順番を入れ替えてるから。
     if (TextObjectINDEX) {
         return;
@@ -241,22 +247,28 @@ void Gachan3DText::Create()
     
     TextObjectINDEXZenkaku = TextObjectINDEX;
     
-    CreateIndex(TextHiragana   ::object_root__, TextHiragana   ::code);
-    CreateIndex(TextKatakana   ::object_root__, TextKatakana   ::code);
-    CreateIndex(TextEISUU      ::object_root__, TextEISUU      ::code);
-    CreateIndex(TextKIGOU1     ::object_root__, TextKIGOU1     ::code);
-    CreateIndex(TextKIGOU2     ::object_root__, TextKIGOU2     ::code);
-    CreateIndex(TextKanji1st1  ::object_root__, TextKanji1st1  ::code);
-    CreateIndex(TextKanji1st2  ::object_root__, TextKanji1st2  ::code);
-    CreateIndex(TextKanji1st3  ::object_root__, TextKanji1st3  ::code);
-    CreateIndex(TextKanji1st4  ::object_root__, TextKanji1st4  ::code);
-    CreateIndex(TextKanji1st5  ::object_root__, TextKanji1st5  ::code);
-    CreateIndex(TextKanji1st6  ::object_root__, TextKanji1st6  ::code);
-    CreateIndex(TextKanji2nd1  ::object_root__, TextKanji2nd1  ::code);
-    CreateIndex(TextKanji2nd2  ::object_root__, TextKanji2nd2  ::code);
-    CreateIndex(TextKanji2nd3  ::object_root__, TextKanji2nd3  ::code);
-    CreateIndex(TextKanji2nd4  ::object_root__, TextKanji2nd4  ::code);
-    CreateIndex(TextKanji2nd5  ::object_root__, TextKanji2nd5  ::code);
+    if (IsFlag(FLG_JP_HIRAKANA)) {
+        CreateIndex(TextHiragana   ::object_root__, TextHiragana   ::code);
+        CreateIndex(TextKatakana   ::object_root__, TextKatakana   ::code);
+        CreateIndex(TextEISUU      ::object_root__, TextEISUU      ::code);
+        CreateIndex(TextKIGOU1     ::object_root__, TextKIGOU1     ::code);
+        CreateIndex(TextKIGOU2     ::object_root__, TextKIGOU2     ::code);
+    }
+    if (IsFlag(FLG_JP_KANJI1ST)) {
+        CreateIndex(TextKanji1st1  ::object_root__, TextKanji1st1  ::code);
+        CreateIndex(TextKanji1st2  ::object_root__, TextKanji1st2  ::code);
+        CreateIndex(TextKanji1st3  ::object_root__, TextKanji1st3  ::code);
+        CreateIndex(TextKanji1st4  ::object_root__, TextKanji1st4  ::code);
+        CreateIndex(TextKanji1st5  ::object_root__, TextKanji1st5  ::code);
+        CreateIndex(TextKanji1st6  ::object_root__, TextKanji1st6  ::code);
+    }
+    if (IsFlag(FLG_JP_KANJI2ND)) {
+        CreateIndex(TextKanji2nd1  ::object_root__, TextKanji2nd1  ::code);
+        CreateIndex(TextKanji2nd2  ::object_root__, TextKanji2nd2  ::code);
+        CreateIndex(TextKanji2nd3  ::object_root__, TextKanji2nd3  ::code);
+        CreateIndex(TextKanji2nd4  ::object_root__, TextKanji2nd4  ::code);
+        CreateIndex(TextKanji2nd5  ::object_root__, TextKanji2nd5  ::code);
+    }
     CreateIndexOne(NULL, (unsigned char*)TextZenkakuSpace::code);
     
     //printf("dx3dtext textcount %d\n", TextObjectINDEX);

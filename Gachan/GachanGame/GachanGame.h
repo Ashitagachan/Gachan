@@ -11,6 +11,9 @@
 #include "GachanMath.h"
 #include "GachanMathVector.h"
 #include "GachanMathMatrix.h"
+#include "GachanMathPrimitive.h"
+
+#include "Gachan3DMatrixStack.h"
 
 class GachanGame
 {

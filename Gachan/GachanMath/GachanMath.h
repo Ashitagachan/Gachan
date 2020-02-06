@@ -57,6 +57,21 @@ typedef unsigned long long    UInt64;
 //ラジアンから度へ変換 Convert from RADIAN to DEGREE
 #define DEGREE(radian)       ((Val)(180.0 * ((Val)(radian))/PI))
 
+inline Val CLAMP(Val n, Val min, Val max)
+{
+    if (n > max) {
+        return max;
+    }
+    if (n < min) {
+        return min;
+    }
+    return n;
+}
+
+inline Val LERP(Val a, Val b, Val k)
+{
+    return a + (b - a) * k;
+}
 
 
 
