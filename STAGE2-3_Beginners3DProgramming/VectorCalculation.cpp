@@ -120,10 +120,8 @@ namespace VectorCalculation
         if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::D))  {
         }
         if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::W))  {
-            add.z = key;
         }
         if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::S))  {
-            add.z = -key;
         }
         if (inputAN & 1) {
             gachan->n += add;
@@ -145,18 +143,15 @@ namespace VectorCalculation
             
             Val x = gachan->controller.GetValue(0, GachanGameControllerDevice::STICK_LX);
             Val y = gachan->controller.GetValue(0, GachanGameControllerDevice::STICK_LY);
-            Val z = gachan->controller.GetValue(0, GachanGameControllerDevice::STICK_RY);
 
             static float k = 0.05;
             if (inputAN & 1) {
                 gachan->n.x += k * x;
                 gachan->n.y += k * y;
-                gachan->n.z += k * z;
             }
             else {
                 gachan->a.x += k * x;
                 gachan->a.y += k * y;
-                gachan->a.z += k * z;
             }
         }
 
@@ -169,7 +164,7 @@ namespace VectorCalculation
         gachan->lightdirection.SetLight();
 
         gachan->text[1].SetPosition(-4, 4, 0);
-        gachan->text[1].Draw(u8"Push 'Enter' or 'B' to go next", gachan->result.z);
+        gachan->text[1].Draw(u8"Push 'Space' or 'A' change control\nPush 'Enter' or 'B' to go next");
 
         switch (gachan->calculation) {
         case 0:
@@ -296,9 +291,6 @@ namespace VectorCalculation
                     gachan->adraw.Draw();
                     gachan->adraw.SetPosition(gachan->n, ta);
                     gachan->adraw.Draw();
-
-                    gachan->ndraw.SetPosition(VecZERO, gachan->n);
-                    gachan->ndraw.Draw();
 
                     gachan->resultdraw.SetPosition(VecZERO, gachan->a);
                     gachan->resultdraw.Draw();
