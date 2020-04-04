@@ -14,12 +14,15 @@ class Gachan3DCamera
 {
 public:
     static Vec position;
+    static Vec target;
     static Vec up;
     static Vec front;
 
     static void SetScreen(int width, int height);//will be called from GachanMetalBase or GachanD3D12Base
     static void SetAspectRatio(Val tate, Val yoko);
     static void SetCamera(Vec position, Vec target, Val nearclip, Val farclip, Val angle);
+    
+    static void SetLightCamera();
 };
 
 

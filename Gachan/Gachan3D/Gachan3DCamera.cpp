@@ -8,6 +8,7 @@
 #include "Gachan3DCamera.h"
 #include "GachanMathMatrix.h"
 #include "Gachan3DShader.h"
+#include "Gachan3DPass.h"
 
 static int width;
 static int height;
@@ -26,12 +27,14 @@ void Gachan3DCamera::SetAspectRatio(Val tate, Val yoko)
 }
 
 
-Vec Gachan3DCamera::position = {0.0f, 0.0f, 0.0f};
-Vec Gachan3DCamera::up    = {0.0f, 1.0f, 0.0f};
-Vec Gachan3DCamera::front = {0.0f, 0.0f, 1.0f};
+Vec Gachan3DCamera::position = {0.0f, 0.0f, -5.0f};
+Vec Gachan3DCamera::target   = {0.0f, 0.0f, 0.0f};
+Vec Gachan3DCamera::up       = {0.0f, 1.0f, 0.0f};
+Vec Gachan3DCamera::front    = {0.0f, 0.0f, 1.0f};
 
 static void SetView(Vec p, Vec t)
 {
+    
     Vec x, y, z;
     z = t - p;
     y.Clear();
@@ -82,8 +85,22 @@ static void SetProjFovY(Val nearz, Val farz, Val fov, Val aspect, Val tateRatio)
     Gachan3DShader::SetProj(mat);
 }
 
+//平行投影
+static void SetProjOrthographic(Val nearz, Val farz, Val width, Val height)
+{
+    Mat44 mat;
+    mat.Clear();
+    mat.val[0][0] = 2.0f / width;
+    mat.val[1][1] = 2.0f / height;
+    mat.val[2][2] = 1.0f / (farz - nearz);
+    mat.val[3][2] = nearz / (farz - nearz);
+    Gachan3DShader::SetProj(mat);
+}
+
 void Gachan3DCamera::SetCamera(Vec p, Vec t, Val n, Val f, Val a)
 {
+    Gachan3DCamera::target = t;
+
     //アスペクトレシオを包含するように調整する
     Val tateRatio = 1.0f;
     if (aspectRatio > 0.01f) {
@@ -102,9 +119,55 @@ void Gachan3DCamera::SetCamera(Vec p, Vec t, Val n, Val f, Val a)
             }
         }
     }
-
-    SetView(p, t);
-    SetProjFovY(n, f, a, (Val)width / (Val)height, tateRatio);
+    
+    //ライトカメラをチェックするには、ここを!=に変更してパス（metalbase.cpp)をノーマルだけにすれば普通に画面に表示される
+    if (Gachan3DPass::GetPass() == Gachan3DPass::DRAW_SHADOWMAP) {
+        //カメラの更新があればカメラターゲットが影響を受けるのでライトカメラを作り直す。
+        //ここ以外にShader::SetLightDirの中でライトが更新されても呼ばれる
+        SetLightCamera();
+    }
+    else {
+        SetView(p, t);
+        SetProjFovY(n, f, a, (Val)width / (Val)height, tateRatio);
+    }
 }
 
 
+//ライトからのカメラを作る for　DRAW_SHADOWMAPのパス
+void Gachan3DCamera::SetLightCamera()
+{
+    bool orthographic = true;//平行投影を使うか？
+    
+    Vec t = target;
+    Vec p;
+    Val orthosize = 40.0f;
+    Val persfov   = 90.0f;
+    Val nearz     = 5.0f;
+    Val farz      = 1000.0f;
+    if (orthographic) {
+        //平行光源用のライトカメラ
+        //ターゲットの方を向いてそこから光源の向きに合わせてカメラの位置をセットすることでカメラに追従させる
+        Vec dir = Gachan3DShader::GetLightDirection();
+        Val distance = 20.0f;//動的に調整できるといいね！
+        p = t + dir * distance;
+        
+        orthosize = 40.0f;//動的に調整できるといいね！
+    }
+    else {
+        //点光源用のライトカメラは位置を固定しないと影が動いちゃう
+        //点光源の位置にライトカメラをおいて、向きをカメラ手前(ターゲットあたり？)くらいにすればカメラに追従して良い。
+        //が、まだdx::Shader側が点光源に対応してないので、まだ使われない。
+        p.Set(10.0f, 10.0f, -10.0f);//とりあえずの固定位置
+
+        persfov = 90.0f;//動的に調整できるといいね！
+    }
+    
+    SetView(p,t);
+    if (orthographic) {
+        SetProjOrthographic(nearz, farz, orthosize, orthosize);
+    }
+    else {
+        SetProjFovY(nearz, farz, persfov / 180.0f * 3.141592f, 1.0f, 1.0f);
+    }
+}
+    

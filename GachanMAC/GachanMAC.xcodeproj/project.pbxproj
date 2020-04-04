@@ -50,6 +50,8 @@
 		996AB78823A8B44100DDB75F /* GachanGameMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 996AB78423A8B44100DDB75F /* GachanGameMemory.cpp */; };
 		996AB78923A8B44100DDB75F /* GachanGameTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 996AB78723A8B44100DDB75F /* GachanGameTask.cpp */; };
 		99897EAE222BA574003844B5 /* GachanGameKeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99897EAC222BA574003844B5 /* GachanGameKeyboard.cpp */; };
+		998B7B942435C63400E05067 /* Gachan3DPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 998B7B932435C63400E05067 /* Gachan3DPass.cpp */; };
+		998B7B962435C8F300E05067 /* GachanMETALTex.mm in Sources */ = {isa = PBXBuildFile; fileRef = 998B7B952435C8F300E05067 /* GachanMETALTex.mm */; };
 		9997C6732330F51000A51488 /* GachanGameObjectArm.tst in Resources */ = {isa = PBXBuildFile; fileRef = 9997C6722330F51000A51488 /* GachanGameObjectArm.tst */; };
 		999CAE64235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999CAE63235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp */; };
 		999CAE74235D7E3A00258461 /* GachanGameInverseKinematics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999CAE72235D7E3900258461 /* GachanGameInverseKinematics.cpp */; };
@@ -150,6 +152,10 @@
 		99897EAC222BA574003844B5 /* GachanGameKeyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameKeyboard.cpp; path = ../Gachan/GachanGame/GachanGameKeyboard.cpp; sourceTree = "<group>"; };
 		99897EAD222BA574003844B5 /* GachanGameKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GachanGameKeyboard.h; path = ../Gachan/GachanGame/GachanGameKeyboard.h; sourceTree = "<group>"; };
 		998A98DB223F6B4F00156DF7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		998B7B922435C63400E05067 /* Gachan3DPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gachan3DPass.h; path = ../Gachan/Gachan3D/Gachan3DPass.h; sourceTree = "<group>"; };
+		998B7B932435C63400E05067 /* Gachan3DPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gachan3DPass.cpp; path = ../Gachan/Gachan3D/Gachan3DPass.cpp; sourceTree = "<group>"; };
+		998B7B952435C8F300E05067 /* GachanMETALTex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GachanMETALTex.mm; path = ../Gachan/Gachan3D/GachanMETAL/GachanMETALTex.mm; sourceTree = "<group>"; };
+		998B7B972435CA6000E05067 /* Gachan3DShaderConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gachan3DShaderConst.h; path = ../Gachan/Gachan3D/Gachan3DShaderConst.h; sourceTree = "<group>"; };
 		9997C6722330F51000A51488 /* GachanGameObjectArm.tst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = GachanGameObjectArm.tst; path = ../Gachan/GachanGame/GachanGameObject/GachanGameObjectArm.tst; sourceTree = "<group>"; };
 		999CAE63235D7B1B00258461 /* InverseKinematics_RA1_2D2DOF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InverseKinematics_RA1_2D2DOF.cpp; path = "../STAGE3-6_Robotics/InverseKinematics_RA1_2D2DOF.cpp"; sourceTree = "<group>"; };
 		999CAE72235D7E3900258461 /* GachanGameInverseKinematics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GachanGameInverseKinematics.cpp; path = ../Gachan/GachanGame/GachanGameInverseKinematics.cpp; sourceTree = "<group>"; };
@@ -367,8 +373,11 @@
 				9942E6D32227C11000BE83BC /* Gachan3DObjectDefine.h */,
 				99A15FAB22B3A3D0005BAEA6 /* Gachan3DMatrixStack.cpp */,
 				99A15FAC22B3A3D0005BAEA6 /* Gachan3DMatrixStack.h */,
+				998B7B932435C63400E05067 /* Gachan3DPass.cpp */,
+				998B7B922435C63400E05067 /* Gachan3DPass.h */,
 				9923E54C221FCDCB00066F16 /* Gachan3DShader.cpp */,
 				9923E54F221FCDCB00066F16 /* Gachan3DShader.h */,
+				998B7B972435CA6000E05067 /* Gachan3DShaderConst.h */,
 				99A243A722B4BD9F00A410C6 /* Gachan3DText.cpp */,
 				99A243A822B4BD9F00A410C6 /* Gachan3DText.h */,
 				99A243AA22B4BF6F00A410C6 /* Gachan3DTextData */,
@@ -389,6 +398,7 @@
 				9923E558221FCDDC00066F16 /* GachanMETALPass.mm */,
 				9923E559221FCDDC00066F16 /* GachanMETALPass.h */,
 				9923E55C221FCDDC00066F16 /* GachanMETALShader.mm */,
+				998B7B952435C8F300E05067 /* GachanMETALTex.mm */,
 				9923E556221FCDDC00066F16 /* GachanMETALVertexIndex.mm */,
 			);
 			name = GachanMETAL;
@@ -397,9 +407,9 @@
 		9948C04F221D428C009485B9 /* GachanMETALShader */ = {
 			isa = PBXGroup;
 			children = (
-				9923E564221FCDE500066F16 /* GachanMETALShaderPixel.metal */,
 				9923E565221FCDE500066F16 /* GachanMETALShaderTypes.h */,
 				9923E563221FCDE500066F16 /* GachanMETALShaderVertex.metal */,
+				9923E564221FCDE500066F16 /* GachanMETALShaderPixel.metal */,
 			);
 			name = GachanMETALShader;
 			sourceTree = "<group>";
@@ -627,6 +637,7 @@
 				993A031A22CC750200DC67FF /* GachanControllerMACHIDMap.mm in Sources */,
 				99CC8E452331C5FA00C06E07 /* Transform2D.cpp in Sources */,
 				9937B07422D5B65C00CBC677 /* SuperSimpleSmoothMovement.cpp in Sources */,
+				998B7B942435C63400E05067 /* Gachan3DPass.cpp in Sources */,
 				996AB78923A8B44100DDB75F /* GachanGameTask.cpp in Sources */,
 				9936316822C4ABAE00C7672E /* GachanControllerMACIOS.mm in Sources */,
 				9923E55E221FCDDC00066F16 /* GachanMETALVertexIndex.mm in Sources */,
@@ -661,6 +672,7 @@
 				993A031922CC750200DC67FF /* GachanControllerMACHID.mm in Sources */,
 				99A7D7C6221BCEE9001BE0CA /* main.m in Sources */,
 				9923E574221FD70D00066F16 /* GachanMathVector.cpp in Sources */,
+				998B7B962435C8F300E05067 /* GachanMETALTex.mm in Sources */,
 				99A0196F23CC4D0800716EC5 /* GachanMathPrimitive.cpp in Sources */,
 				9923E575221FD70D00066F16 /* GachanMathMatrix.cpp in Sources */,
 				99A7D7BB221BCEE9001BE0CA /* AppDelegate.mm in Sources */,
@@ -742,6 +754,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				MTL_HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -795,6 +808,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				MTL_HEADER_SEARCH_PATHS = "";
 				SDKROOT = macosx;
 			};
 			name = Release;

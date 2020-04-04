@@ -34,6 +34,37 @@ public:
     void Release();
 };
 
+
+
+class Tex
+{
+public:
+    Char*    name;
+    void*    tif;
+
+    bool Create();
+    bool Release();
+};
+
+class Gachan3DMaterialTex
+{
+public:
+    Tex* tex;                //Null terminate
+    
+    enum {
+        WRAP_REPEAT             = -1, //convert to GL_REPEAT
+        WRAP_MIRRORED_REPEAT    = -2, //convert to GL_MIRRORED_REPEAT
+        WRAP_CLAMP_TO_EDGE      = -3, //convert to GL_CLAMP_TO_EDGE
+        WRAP_NUM = 3,//Dx9,GL向けに3個。METAL向けだともっとあるんだけど、使ってないのでまだ3個のまま。
+    };
+    int wrapu, wrapv; ///2014/9/16 added
+    
+    inline static int wrapToIndex(int wrap)
+    {
+        return (-wrap) - 1;
+    }
+};
+
 class Gachan3DMaterial
 {
 public:

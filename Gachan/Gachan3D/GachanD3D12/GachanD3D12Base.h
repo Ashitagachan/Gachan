@@ -16,14 +16,14 @@
 #include "GachanD3D12.h"
 
 
-typedef void (*D3DXIIFUNC)(void);
+typedef void (*GACHAND3D12FUNC)(void);
 
 class GachanD3D12Base
 {
 public:
 	//static D3DXIIBase* sharedInstance();//metalbase.h のobjcぽくしようかと思ったけどやめた。。
 
-	static void d3d12withHWND(HWND hwnd, int w, int h, D3DXIIFUNC action);
+	static void d3d12withHWND(HWND hwnd, int w, int h, GACHAND3D12FUNC udpate, GACHAND3D12FUNC render);
 
 	static ID3D12Device*   getDevice();
 	static IDXGIFactory4*  getFactory();

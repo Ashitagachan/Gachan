@@ -486,7 +486,7 @@ namespace Sample003
         gachan->lightambient.SetColor(0.4, 0.4, 0.4);
         
         gachan->lightdirection.SetColor(0.4, 0.4, 0.4);
-        gachan->lightdirection.SetDirection(-0.3, -0.9, 0.1);
+        gachan->lightdirection.SetDirection(-1, -1, 1);
 
         for (int h = 0; h < stageheight; h++) {
             for (int d = 0; d < stagedepth; d++) {
@@ -543,7 +543,7 @@ namespace Sample003
 
         gachan->lightambient  .SetLight();
         gachan->lightdirection.SetLight();
-        
+
         for (int h = 0; h < stageheight; h++) {
             for (int d = 0; d < stagedepth; d++) {
                 for (int w = 0; w < stagewidth; w++) {
@@ -553,6 +553,7 @@ namespace Sample003
                 }
             }
         }
+
         gachan->player.Draw();
     }
 

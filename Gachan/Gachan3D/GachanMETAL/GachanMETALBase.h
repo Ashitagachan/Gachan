@@ -29,9 +29,9 @@
 
 //注意：iOSの場合、実機でないとCAMetalLayerが定義されていないとエラーになるので実機をつないで実機ターゲットを選ぶ必要あり。。これ不便なんですけど。。
 #if MAC
-- (CAMetalLayer*) metalWithView:(NSView*)view target:(id)target action:(SEL)action;
+- (CAMetalLayer*) metalWithView:(NSView*)view target:(id)target update:(SEL)update render:(SEL)render;
 #else
-- (CAMetalLayer*) metalWithView:(UIView*)view target:(id)target action:(SEL)action;
+- (CAMetalLayer*) metalWithView:(UIView*)view target:(id)target update:(SEL)update render:(SEL)render;
 #endif
 - (id<MTLDevice>) getDevice;
 - (CAMetalLayer*) getLayer;

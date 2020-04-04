@@ -59,6 +59,31 @@ struct VS_POSCOL
 
 VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm, constant UniformVertex &uniforms)
 {
+#if 1
+    //diffuse lighting
+    float lightAmt = saturate( dot( LightDir[0].xyz, wnorm ) );
+    float4 lightColor = lightAmt*LightDCol[0] + LightAmb;
+        
+    // Calculate specular power
+    float3 viewDir = normalize( Eye.xyz - wpos.xyz );
+    float3 halfAngle = normalize( viewDir + LightDir[0].xyz );
+    float4 spec = pow( saturate(dot( halfAngle, wnorm )), 64 );
+        
+    // Return combined lighting
+    VS_POSCOL vsout;
+    vsout.col = lightColor * Diffuse + spec * Specular * Diffuse.a;
+
+    
+    vsout.pos = mul(wpos, VPMatrix);
+    vsout.depth.xy = vsout.pos.ww;//w buffer float depth
+    
+    //texr/texcとりあえず仮 Gachanに持ってくとき整理する
+    float3 eyevec, eyervec;
+    eyevec = viewDir;//normalize(Eye.xyz - wpos.xyz);
+    eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
+    vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
+    vsout.texc = eyervec;
+#else
     //===================================================
     //Lighting Model
     //I = ka*Ia + kd*dot(N,L)*Id + ks*pow(dot(E,L),K)*Is
@@ -72,7 +97,7 @@ VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm, constant UniformVertex &unifo
     //===================================
     //diffuse kd*dot(N,L)*Id
     //===================================
-    float dotnl = max(0.0, dot(wnorm, -LightDir[0].xyz));//注意：ここではLightDirは光源からの方向ベクトル
+    float dotnl = max(0.0, dot(wnorm, LightDir[0].xyz));
     float3 diff = LightDCol[0].rgb * dotnl * Diffuse.rgb;
     
     //===================================
@@ -82,7 +107,7 @@ VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm, constant UniformVertex &unifo
     eyevec = normalize(Eye.xyz - wpos.xyz);
     eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
     
-    float dotes = max(0.0, dot(eyervec, -LightDir[0].xyz));////注意：ここではLightDirは光源からの方向ベクトル
+    float dotes = max(0.0, dot(eyervec, LightDir[0].xyz));
     float3 spec = LightDCol[0].rgb * (dotes * dotes) * Specular.rgb;
     
     VS_POSCOL vsout;
@@ -97,7 +122,7 @@ VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm, constant UniformVertex &unifo
     vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
     vsout.texc = eyervec;
     vsout.depth.xy = vsout.pos.ww;//w buffer float depth
-    
+#endif
     return vsout;
 }
 
@@ -113,6 +138,46 @@ VS_POSCOL Sub_GetPosColNL(float4 wpos, float3 wnorm, constant UniformVertex &uni
 }
 
 
+
+
+//===================================================================
+// Shadow Map function
+//===================================================================
+#define DX3DSHADERSUB_SHADOW_VERTEXDIV    (0)
+
+//射影変換後のwは線形深度になる
+//out
+//    x,y coord
+//    w depth
+float4 Sub_GetShadowMapTexcoord(float4 wpos, constant UniformVertex &uniforms)
+{
+    float4 tex;
+    tex = mul(wpos, LPMatrix);
+#if DX3DSHADERSUB_SHADOW_VERTEXDIV
+    tex.xy = 0.5 * tex.xy / tex.w + float2( 0.5, 0.5 );
+    tex.y = 1.0 - tex.y;
+#endif
+    return tex;
+}
+
+
+vertex float4 vs_shadow_vn(VS_INPUT_VN in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
+{
+    float4 wpos  = mul(inPos, WMatrix);
+    wpos = mul(wpos, VPMatrix);
+    return wpos;
+}
+
+//ピクセルシェーダps_shadowは存在しない。
+
+
+//===================================================================
+// vertex shader main
+//===================================================================
+
+
+
+
 vertex VS_OUTPUT vs_default(VS_INPUT_VN in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
 {
     float4 wpos  = mul(inPos, WMatrix);
@@ -124,6 +189,7 @@ vertex VS_OUTPUT vs_default(VS_INPUT_VN in[[stage_in]], constant UniformVertex &
     VS_OUTPUT Out;
     Out.pos = PosCol.pos;
     Out.col = PosCol.col;
+    Out.shadowtex = Sub_GetShadowMapTexcoord(wpos, uniforms);
 
     return Out;
 }
@@ -139,6 +205,7 @@ vertex VS_OUTPUT  vs_defaultNL(VS_INPUT_VN in[[stage_in]], constant UniformVerte
     VS_OUTPUT Out;
     Out.pos = PosCol.pos;
     Out.col = PosCol.col;
-    
+    Out.shadowtex = Sub_GetShadowMapTexcoord(wpos, uniforms);
+
     return Out;
 }

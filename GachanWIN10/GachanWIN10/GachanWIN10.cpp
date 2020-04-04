@@ -29,14 +29,17 @@ namespace NAMESPACE
 	void Finalize();
 }
 
-static void render()
+static void update()
 {
 	GachanGameUpdate();
 
 	NAMESPACE::Update();
 
 	GachanGameKeyboard::ResetSystemKey();
+}
 
+static void render()
+{
 	NAMESPACE::Render();
 }
 
@@ -235,7 +238,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    { 
 		return FALSE; 
    }
-   GachanD3D12Base::d3d12withHWND(hWnd, Width, Height, render);
+   GachanD3D12Base::d3d12withHWND(hWnd, Width, Height, update, render);
 
    GachanGameCreate();
 

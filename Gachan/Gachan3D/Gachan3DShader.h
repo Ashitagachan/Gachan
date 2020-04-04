@@ -21,6 +21,8 @@ public:
         SHADER_DEFAULT,
         SHADER_DEFAULTNL,
         SHADER_NUM,
+        
+        SHADER_SHADOWMAP_NUM = Gachan3DVertex::TYPES_NUM,
     };
     struct Table {
         int           VertType;
@@ -34,6 +36,9 @@ public:
 #endif
     };
     static Table    ShaderList[SHADER_NUM];
+    static Table    ShaderListShadowMap[SHADER_SHADOWMAP_NUM];
+
+    
 
 
 
@@ -41,18 +46,20 @@ public:
     static bool Release();
     
     static int   CurShader;
-    static Mat44 MatW, MatV, MatP, MatVP, MatWV, MatWVP;
+    static Mat44 MatW, MatV, MatP, MatVP, MatWV, MatWVP, MatLP;
     static bool  FlipFace;
     
     //from camera
     static void SetProj(const Mat44& mat);
     static void SetView(const Mat44& mat);
     static void SetEye(const Vec& eye);
+    static void SetLightProj();
     //from object
     static void SetWorld(const Mat44& mat);
     //from light
     static void SetLightAmbient(const Vec& col);
     static void SetLightDirection(const Vec& dir, const Vec& col);
+    static Vec GetLightDirection();
     //from material
     static void SetDiffuse(const Vec4& col);
     static void SetSpecular(const Vec4& col);

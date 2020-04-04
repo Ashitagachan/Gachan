@@ -19,6 +19,7 @@
 #include <InitGUID.h>
 #include <dxgidebug.h>
 
+#include "Gachan.h"
 #include "Gachan3DCamera.h"
 #include "GachanD3D12Sub.h"
 #include "GachanD3D12Pass.h"
@@ -39,14 +40,17 @@ static ID3D12Device*       Device;
 static HWND hWND;
 static int Width;
 static int Height;
-static D3DXIIFUNC RenderFuncCallback;
+static GACHAND3D12FUNC UpdateFuncCallback;
+static GACHAND3D12FUNC RenderFuncCallback;
 
-void GachanD3D12Base::d3d12withHWND(HWND hwnd, int w, int h, D3DXIIFUNC action)
+
+void GachanD3D12Base::d3d12withHWND(HWND hwnd, int w, int h, GACHAND3D12FUNC update, GACHAND3D12FUNC render)
 {
 	hWND   = hwnd;
 	Width  = w;
 	Height = h;
-	RenderFuncCallback = action;
+	UpdateFuncCallback = update;
+	RenderFuncCallback = render;
 
 	GachanD3D12Sub::CreateFactory(&Factory);
 	GachanD3D12Sub::CreateDevice(Factory, &Device);
@@ -57,6 +61,25 @@ void GachanD3D12Base::d3d12withHWND(HWND hwnd, int w, int h, D3DXIIFUNC action)
 
 void GachanD3D12Base::render()
 {
+
+	if (UpdateFuncCallback) {
+		UpdateFuncCallback();
+	}
+
+
+
+	if (GachanInitialize::IsEnabled(GachanInitialize::FLG_SHADOWMAP)) {
+		GachanD3D12Pass::StartShadowMap();
+
+		if (RenderFuncCallback) {
+			RenderFuncCallback();
+		}
+
+		GachanD3D12Pass::EndShadowMap();
+	}
+
+
+
 	Gachan3DCamera::SetScreen(Width, Height);
 
 	GachanD3D12Pass::Start();

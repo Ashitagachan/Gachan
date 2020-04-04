@@ -182,6 +182,15 @@
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathPrimitive.h">
       <Filter>Gachan\GachanMath</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_shadow_vn.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DPass.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShaderConst.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GachanWIN10.cpp">
@@ -354,6 +363,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathPrimitive.cpp">
       <Filter>Gachan\GachanMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Tex.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DPass.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

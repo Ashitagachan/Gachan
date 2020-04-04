@@ -18,6 +18,7 @@ Mat44 Gachan3DShader::MatV;
 Mat44 Gachan3DShader::MatVP;
 Mat44 Gachan3DShader::MatWV;
 Mat44 Gachan3DShader::MatWVP;
+Mat44 Gachan3DShader::MatLP;
 
 
 
@@ -42,6 +43,10 @@ void Gachan3DShader::SetView(const Mat44& mat)
 
 
 
+void Gachan3DShader::SetLightProj()
+{
+    MatLP = MatVP;
+}
 
 bool Gachan3DShader::FlipFace;
 

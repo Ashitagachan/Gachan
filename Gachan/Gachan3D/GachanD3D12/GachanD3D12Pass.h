@@ -17,9 +17,23 @@ class GachanD3D12Pass
 {
 public:
     static void Create();
-    static void Release();
+	static void CreateShadowMap();//dx::Shader::Create()のあとに呼ばれるようにする
+	static void Release();
     
-    static void Start();
+
+	//SHADOWMAP PASS
+	static void StartShadowMap();
+
+	static D3D12_CPU_DESCRIPTOR_HANDLE GetShadowMapViewHandle();
+	static D3D12_VIEWPORT GetShadowMapViewport();
+	static D3D12_RECT     GetShadowMapScissorRect();
+
+	static void EndShadowMap();
+
+
+
+	//NORMAL PASS
+	static void Start();
 
 	static ID3D12CommandQueue* GetCommandQueue();
 

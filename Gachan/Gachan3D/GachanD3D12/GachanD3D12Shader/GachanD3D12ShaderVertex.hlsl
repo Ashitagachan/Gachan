@@ -61,6 +61,31 @@ struct VS_POSCOL
 
 VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm)
 {
+#if 1 
+	//diffuse lighting
+	float lightAmt = saturate(dot(LightDir[0].xyz, wnorm));
+	float4 lightColor = lightAmt * LightDCol[0] + LightAmb;
+
+	// Calculate specular power
+	float3 viewDir = normalize(Eye.xyz - wpos.xyz);
+	float3 halfAngle = normalize(viewDir + LightDir[0].xyz);
+	float4 spec = pow(saturate(dot(halfAngle, wnorm)), 64);
+
+	// Return combined lighting
+	VS_POSCOL vsout;
+	vsout.col = lightColor * Diffuse + spec * Specular * Diffuse.a;
+
+
+	vsout.pos = mul(wpos, VPMatrix);
+	vsout.depth.xy = vsout.pos.ww;//w buffer float depth
+
+	//texr/texcとりあえず仮 Gachanに持ってくとき整理する
+	float3 eyevec, eyervec;
+	eyevec = viewDir;//normalize(Eye.xyz - wpos.xyz);
+	eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
+	vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
+	vsout.texc = eyervec;
+#else
     //===================================================
     //Lighting Model
     //I = ka*Ia + kd*dot(N,L)*Id + ks*pow(dot(E,L),K)*Is
@@ -74,7 +99,7 @@ VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm)
     //===================================
     //diffuse kd*dot(N,L)*Id
     //===================================
-    float dotnl = max(0.0, dot(wnorm, -LightDir[0].xyz));//注意：ここではLightDirは光源からの方向ベクトル
+    float dotnl = max(0.0, dot(wnorm, LightDir[0].xyz));
     float3 diff = LightDCol[0].rgb * dotnl * Diffuse.rgb;
     
     //===================================
@@ -84,7 +109,7 @@ VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm)
     eyevec = normalize(Eye.xyz - wpos.xyz);
     eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
     
-    float dotes = max(0.0, dot(eyervec, -LightDir[0].xyz));//注意：ここではLightDirは光源からの方向ベクトル
+    float dotes = max(0.0, dot(eyervec, LightDir[0].xyz));
     float3 spec = LightDCol[0].rgb * (dotes * dotes) * Specular.rgb;
     
     VS_POSCOL vsout;
@@ -99,7 +124,7 @@ VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm)
     vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
     vsout.texc = eyervec;
     vsout.depth.xy = vsout.pos.ww;//w buffer float depth
-    
+#endif
     return vsout;
 }
 
@@ -115,9 +140,42 @@ VS_POSCOL Sub_GetPosColNL(float4 wpos, float3 wnorm)
 }
 
 
+//===================================================================
+// Shadow Map function
+//===================================================================
+
+#define DX3DSHADERSUB_SHADOW_VERTEXDIV    (0)
+
+//射影変換後のwは線形深度になる
+//out
+//    x,y coord
+//    w depth
+float4 Sub_GetShadowMapTexcoord(float4 wpos)
+{
+	float4 tex;
+	tex = mul(wpos, LPMatrix);
+#if DX3DSHADERSUB_SHADOW_VERTEXDIV
+	tex.xy = 0.5 * tex.xy / tex.w + float2(0.5, 0.5);
+	tex.y = 1.0 - tex.y;
+#endif
+	return tex;
+}
 
 
 
+float4 vs_shadow_vn(const VS_INPUT_VN input) : SV_POSITION
+{
+	float4 wpos = mul(inPos, WMatrix);
+	wpos = mul(wpos, VPMatrix);
+	return wpos;
+}
+
+//ピクセルシェーダps_shadowは存在しない。
+
+
+//===================================================================
+// vertex shader main
+//===================================================================
 
 
 VS_OUTPUT vs_default(const VS_INPUT_VN input)
@@ -131,7 +189,8 @@ VS_OUTPUT vs_default(const VS_INPUT_VN input)
     VS_OUTPUT Out;
     Out.pos = PosCol.pos;
     Out.col = PosCol.col;
-    
+	Out.shadowtex = Sub_GetShadowMapTexcoord(wpos);
+
     return Out;
 }
 
@@ -146,6 +205,7 @@ VS_OUTPUT  vs_defaultNL(const VS_INPUT_VN input)
 	VS_OUTPUT Out;
 	Out.pos = PosCol.pos;
 	Out.col = PosCol.col;
+	Out.shadowtex = Sub_GetShadowMapTexcoord(wpos);
 
 	return Out;
 }

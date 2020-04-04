@@ -8,26 +8,33 @@
 #ifndef __GACHANMETALSHADERTYPES_H__
 #define __GACHANMETALSHADERTYPES_H__
 
+#if 0
 #ifdef __METAL_VERSION__
 #else
 #include "GachanMathMatrix.h"
 #include "GachanMathVector.h"
 #endif
+#endif
+
+#include "../../Gachan3DShaderConst.h"
 
 typedef struct
 {
+    float4x4 LPMatrix;
     float4x4 WMatrix;
     float4x4 VPMatrix;
     float4   Diffuse;
     float4   Specular;
     float4   Eye;
-    float4   LightDir [1];//注意：ここではLightDirは光源からの方向ベクトル
+    float4   LightDir [1];
     float4   LightDCol[1];
     float4   LightAmb;
 } UniformVertex;
 
+
 #ifdef __METAL_VERSION__
 
+#define LPMatrix     uniforms.LPMatrix
 #define WMatrix      uniforms.WMatrix
 #define VPMatrix     uniforms.VPMatrix
 #define Diffuse      uniforms.Diffuse
@@ -79,6 +86,7 @@ struct VS_OUTPUT
 {
     float4 pos [[position]];
     float4 col;
+    float4 shadowtex;
 };
 
 struct PS_OUTPUT
@@ -87,8 +95,10 @@ struct PS_OUTPUT
 };
 
 #define Texture(tex, no) texture2d<half> tex [[texture(no)]], sampler tex##smp [[sampler(no)]]
-
 #define tex2D(tex, texcoord)  (float4)tex.sample(tex##smp, texcoord)
+
+#define TextureDepth(tex, no) depth2d<float> tex [[texture(no)]], sampler tex##smp [[sampler(no)]]
+#define tex2DDepth(tex, texcoord)  (float)tex.sample(tex##smp, texcoord)
 
 
 #define vec2 float2

@@ -164,6 +164,7 @@ void GachanGameObject::Clear()
     position .Clear();
     position2.Clear();
     rotation .Clear();
+    rotationorder = RO::XYZ;
     scale.x    = 1.0f;
     scale.y    = 1.0f;
     scale.z    = 1.0f;

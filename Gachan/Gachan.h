@@ -27,15 +27,25 @@
 class GachanInitialize
 {
 public:
-    enum ENABLE {
-        TEXT_JP_HIRAKANA,//日本語全角ひらがなカタカナ英数記号
-        TEXT_JP_KANJI1ST,//日本語第一水準漢字
-        TEXT_JP_KANJI2ND,//日本語第二水準漢字(一部)
-        TEXT_JP_ALL,     //日本語上記全部
-        //RAYTRACING,
+    enum {
+        //-------------
+        //DEFAULT OFF
+        //-------------
+        FLG_TEXT_JP_HIRAKANA = 1<<0,//日本語全角ひらがなカタカナ英数記号
+        FLG_TEXT_JP_KANJI1ST = 1<<1,//日本語第一水準漢字
+        FLG_TEXT_JP_KANJI2ND = 1<<2,//日本語第二水準漢字(一部)
+        FLG_TEXT_JP_ALL = FLG_TEXT_JP_HIRAKANA|FLG_TEXT_JP_KANJI1ST|FLG_TEXT_JP_KANJI2ND,//日本語上記全部
+        //FLG_RAYTRACING,
+        
+        //-------------
+        //DEFAULT ON
+        //-------------
+        FLG_SHADOWMAP        = 1<<3,
     };
-    static void Enable(ENABLE enable);
-    
+    static void Enable(UInt64 flag);
+    static void Disable(UInt64 flag);
+    static bool IsEnabled(UInt64 flag);
+
 };
 
 class GachanFinalize

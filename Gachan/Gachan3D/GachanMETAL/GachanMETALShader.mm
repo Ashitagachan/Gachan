@@ -7,8 +7,10 @@
 //
 
 #import <Metal/Metal.h>
+#include "Gachan3DCamera.h"
 #include "Gachan3DObject.h"
 #include "Gachan3DShader.h"
+#include "Gachan3DPass.h"
 #include "GachanMETALShaderTypes.h"
 
 #import "GachanMETALBase.h"
@@ -21,11 +23,31 @@ Gachan3DShader::Table Gachan3DShader::ShaderList[Gachan3DShader::SHADER_NUM] = {
     { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_defaultNL", (const unsigned int*) "ps_defaultNL"    },
 };
 
-MTLVertexDescriptor* VertexDesc[Gachan3DVertex::TYPES_NUM];
+Gachan3DShader::Table Gachan3DShader::ShaderListShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM] = {
+    //for shadow map creation
+    { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_shadow_vn",  (const unsigned int*) NULL },
+};
 
-//SHADER
+
+id <MTLSamplerState>      SamplerStateWRAP[Gachan3DMaterialTex::WRAP_NUM][Gachan3DMaterialTex::WRAP_NUM];//wrapu x wrapv
+id <MTLSamplerState>      SamplerState[DX3DTEX_NUM];
+id <MTLTexture>           Texture     [DX3DTEX_NUM];
+
+
+//最初にセットしておくテクスチャ
+//METALでは、ExistingShadowTexture(tex stage 1)とか使わなくてもセットしておくべき
+void* TextureObject;
+void* TextureStaticShadow;
+void* TextureDynamicShadow;
+
+
+
+MTLVertexDescriptor* VertexDesc[Gachan3DShader::SHADER_NUM];
 id <MTLFunction>    VertexShader[Gachan3DShader::SHADER_NUM];
 id <MTLFunction>    PixelShader [Gachan3DShader::SHADER_NUM];
+
+MTLVertexDescriptor* VertexDescShadowMap  [Gachan3DShader::SHADER_SHADOWMAP_NUM];
+id <MTLFunction>     VertexShaderShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM];
 
 //PIPELINESTATE and RENDERSTATE
 static MTLCullMode CullMode;
@@ -34,6 +56,7 @@ static int  AlphaBlend = 1;//0:Off 1:ON
 static int  DepthTest  = 1;//0:Off 1:ON
 
 id <MTLRenderPipelineState> PipelineState[Gachan3DShader::SHADER_NUM][2];//0:AlphaBlend OFF  1:AlphaBlend ON
+id <MTLRenderPipelineState> PipelineStateShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM];
 
 
 
@@ -64,6 +87,38 @@ UniformVertex* UniformBufferVertexPtr;
 
 
 
+static void VertexDescVertType(Int verttype, MTLVertexDescriptor* vertexdesc)
+{
+    //switch (verttype)
+    {
+         int offset = 0;
+         int index  = 0;
+         vertexdesc.attributes[index].format      = MTLVertexFormatFloat3;//V POS
+         vertexdesc.attributes[index].offset      = offset;
+         vertexdesc.attributes[index].bufferIndex = 0;
+         offset += 12;
+         index++;
+         vertexdesc.attributes[index].format      = MTLVertexFormatFloat3;//N NORMAL
+         vertexdesc.attributes[index].offset      = offset;
+         vertexdesc.attributes[index].bufferIndex = 0;
+         offset += 12;
+         index++;
+#if 0
+        switch (verttype) {
+          case Gachan3DVertex::TYPE_VNUV:
+              vertexdesc.attributes[index].format      = MTLVertexFormatFloat2;//UV
+              vertexdesc.attributes[index].offset      = offset;
+              vertexdesc.attributes[index].bufferIndex = 0;
+              offset += 8;
+              break;
+        }
+#endif
+        vertexdesc.layouts[0].stride = offset;
+        vertexdesc.layouts[0].stepRate = 1;
+        vertexdesc.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
+    }
+
+ }
 
 
 static void LoadShader(int shader)
@@ -83,26 +138,7 @@ static void LoadShader(int shader)
     NSLog(@"ps %@ %@", (PixelShader[shader])?  @"OK" : @"FAILED", ps);
 #endif
     VertexDesc[shader] = [[MTLVertexDescriptor alloc] init];
-    
-        {//VN
-            int offset = 0;
-            int index  = 0;
-            VertexDesc[shader].attributes[index].format      = MTLVertexFormatFloat3;//V POS
-            VertexDesc[shader].attributes[index].offset      = offset;
-            VertexDesc[shader].attributes[index].bufferIndex = 0;
-            offset += 12;
-            index++;
-            VertexDesc[shader].attributes[index].format      = MTLVertexFormatFloat3;//N NORMAL
-            VertexDesc[shader].attributes[index].offset      = offset;
-            VertexDesc[shader].attributes[index].bufferIndex = 0;
-            offset += 12;
-            index++;
-
-            
-            VertexDesc[shader].layouts[0].stride = offset;
-            VertexDesc[shader].layouts[0].stepRate = 1;
-            VertexDesc[shader].layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
-        }
+    VertexDescVertType(Gachan3DShader::ShaderList[shader].VertType, VertexDesc[shader]);
     
     //--------------------------------
     //PIPELINE STATE
@@ -139,7 +175,45 @@ static void LoadShader(int shader)
     }
 }
 
+    static bool LoadShaderShadowMap(int shader)//shader == VertexType
+    {
+        id<MTLDevice> device = [[GachanMetalBase sharedInstance] getDevice];
 
+        NSError *error = NULL;
+        id<MTLLibrary> library = [device newDefaultLibraryWithBundle:MetalShaderBundle error:&error];
+
+        NSString* vs = [NSString stringWithUTF8String:(char*)Gachan3DShader::ShaderListShadowMap[shader].VSBuffer];
+
+        VertexShaderShadowMap[shader] = [library newFunctionWithName:vs];
+#ifdef DEBUG
+        NSLog(@"vs %@ %@", (VertexShaderShadowMap[shader])? @"OK" : @"FAILED", vs);
+#endif
+        VertexDescShadowMap[shader] = [[MTLVertexDescriptor alloc] init];
+        VertexDescVertType(Gachan3DShader::ShaderListShadowMap[shader].VertType, VertexDescShadowMap[shader]);
+        
+        MTLRenderPipelineDescriptor* pipelineDesc;
+        pipelineDesc = [[MTLRenderPipelineDescriptor alloc] init];
+        pipelineDesc.label = @"MyPipelineShadowMap";
+        pipelineDesc.vertexFunction                  = VertexShaderShadowMap[shader];
+        pipelineDesc.fragmentFunction                = nil;
+        pipelineDesc.vertexDescriptor                = VertexDescShadowMap[shader];
+        pipelineDesc.sampleCount                     = 1;
+        pipelineDesc.depthAttachmentPixelFormat      = MTLPixelFormatDepth32Float;
+        pipelineDesc.stencilAttachmentPixelFormat    = MTLPixelFormatInvalid;
+        pipelineDesc.colorAttachments[0].pixelFormat = MTLPixelFormatInvalid;
+
+        PipelineStateShadowMap[shader] = [device newRenderPipelineStateWithDescriptor:pipelineDesc error:&error];
+        if (!PipelineStateShadowMap[shader]) {
+            NSLog(@"Failed to created pipeline state ShadowMap, error %@", error);
+        }
+        return true;
+            
+    }
+
+
+    
+
+extern void* CreateTextureColored(int width, int height, unsigned int abgr);
 
 void MergeDrawInit();
 
@@ -166,8 +240,50 @@ bool Gachan3DShader::Create()
     for (int i = 0; i < Gachan3DShader::SHADER_NUM; i++) {
         LoadShader(i);
     }
+    for (Int i = 0; i < SHADER_SHADOWMAP_NUM; i++) {
+        LoadShaderShadowMap(i);
+    }
     
+    TextureObject         = CreateTextureColored(64,64,0xFF900000);
+    TextureStaticShadow   = CreateTextureColored(64,64,0xFFFFFFFF);
+    TextureDynamicShadow  = CreateTextureColored(64,64,0xFFFFFFFF);
+    
+    //Shader::SetTexture()と同じことをする
+    Texture[DX3DTEX0_OBJECT]        = (__bridge id<MTLTexture>)TextureObject;
+    Texture[DX3DTEX6_STATICSHADOW]  = (__bridge id<MTLTexture>)TextureStaticShadow;
+    Texture[DX3DTEX7_DYNAMICSHADOW] = (__bridge id<MTLTexture>)TextureDynamicShadow;
+
     CurShader = -1;
+    
+    
+            
+            MTLSamplerDescriptor* samplerDesc = [MTLSamplerDescriptor new];
+            samplerDesc.magFilter = MTLSamplerMinMagFilterLinear;
+            samplerDesc.minFilter = MTLSamplerMinMagFilterLinear;
+            samplerDesc.mipFilter = MTLSamplerMipFilterLinear;
+            
+            for (int wrapu = 0; wrapu < Gachan3DMaterialTex::WRAP_NUM; wrapu++) {
+                for (int wrapv = 0; wrapv < Gachan3DMaterialTex::WRAP_NUM; wrapv++) {
+                    MTLSamplerAddressMode wrap[Gachan3DMaterialTex::WRAP_NUM] = {
+                        MTLSamplerAddressModeRepeat,//GL_REPEAT,
+                        MTLSamplerAddressModeMirrorRepeat,//GL_MIRRORED_REPEAT,
+                        MTLSamplerAddressModeClampToEdge,//GL_CLAMP_TO_EDGE,
+                    };
+                    samplerDesc.sAddressMode = wrap[wrapu];
+                    samplerDesc.tAddressMode = wrap[wrapv];
+                    samplerDesc.rAddressMode = MTLSamplerAddressModeRepeat;
+                    SamplerStateWRAP[wrapu][wrapv] = [device newSamplerStateWithDescriptor:samplerDesc];
+                }
+            }
+            for (int i = 0; i < DX3DTEX_NUM; i++) {
+                SamplerState[i] = SamplerStateWRAP[0][0];
+            }
+
+            //DRAW_WITH_SHADOWMAP SAMPLER
+            int clamp_to_edge = Gachan3DMaterialTex::wrapToIndex(Gachan3DMaterialTex::WRAP_CLAMP_TO_EDGE);
+            SamplerState[DX3DTEX7_DYNAMICSHADOW] = SamplerStateWRAP[clamp_to_edge][clamp_to_edge];
+
+    
     
     
     Gachan3DShader::MatP.Clear();
@@ -191,10 +307,14 @@ bool Gachan3DShader::Release()
         PixelShader [i] = nil;
         PipelineState[i][0] = nil;
         PipelineState[i][1] = nil;
-    }
-    for (int i = 0; i < Gachan3DVertex::TYPES_NUM; i++) {
         VertexDesc[i] = nil;
     }
+    for (Int i = 0; i < SHADER_SHADOWMAP_NUM; i++) {
+        VertexShaderShadowMap[i] = nil;
+        PipelineStateShadowMap[i] = nil;
+        VertexDescShadowMap[i] = nil;
+    }
+
 #if MERGEDRAW
     MergeCommandBuffer = nil;
     MergeRenderEncoder = nil;
@@ -206,6 +326,18 @@ bool Gachan3DShader::Release()
 #else
     UniformBufferVertex = nil;
 #endif
+    
+    //Texture::Release()と同じことをする
+    id<MTLTexture> texobj      = (__bridge_transfer id<MTLTexture>) TextureObject;
+    texobj = NULL;
+    
+    id<MTLTexture> texexshadow = (__bridge_transfer id<MTLTexture>) TextureStaticShadow;
+    texexshadow = NULL;
+
+    id<MTLTexture> texdyshadow = (__bridge_transfer id<MTLTexture>) TextureDynamicShadow;
+    texdyshadow = NULL;
+
+
     return true;
 }
 
@@ -232,9 +364,9 @@ void Gachan3DShader::SetLightAmbient(const Vec& col)
 void Gachan3DShader::SetLightDirection(const Vec& dir, const Vec& col)
 {
     Vec4 dirvec;
-    dirvec.x = dir.x;
-    dirvec.y = dir.y;
-    dirvec.z = dir.z;
+    dirvec.x = -dir.x;//光からのベクトルの向きを光への向きのベクトル（逆向き）にする
+    dirvec.y = -dir.y;
+    dirvec.z = -dir.z;
     dirvec.w = 1.0f;
     
     Vec4 colvec;
@@ -245,6 +377,19 @@ void Gachan3DShader::SetLightDirection(const Vec& dir, const Vec& col)
 
     UniformBufferVertexPtr->LightDir[0]  = dirvec;
     UniformBufferVertexPtr->LightDCol[0] = colvec;
+    
+    if (Gachan3DPass::GetPass() == Gachan3DPass::DRAW_SHADOWMAP) {
+        Gachan3DCamera::SetLightCamera();
+    }
+
+}
+
+Vec Gachan3DShader::GetLightDirection()
+{
+    Vec4 vec4 = UniformBufferVertexPtr->LightDir[0];
+    Vec ret;
+    ret.Set(vec4.x, vec4.y, vec4.z);
+    return ret;
 }
 
 
@@ -305,6 +450,7 @@ void Gachan3DShader::SetDoubleSideFace(bool b)
 
 void Gachan3DShader::SetWVPConst()
 {
+    UniformBufferVertexPtr->LPMatrix = MatLP.GetTranspose();
     UniformBufferVertexPtr-> WMatrix = MatW. GetTranspose();
     UniformBufferVertexPtr->VPMatrix = MatVP.GetTranspose();
 }
@@ -391,7 +537,14 @@ void Gachan3DShader::DrawIndex(const void* vbuff, int vnum, const void* ibuff, i
     
     [MergeRenderEncoder setFrontFacingWinding:MTLWindingClockwise];
     [MergeRenderEncoder setCullMode:(DoubleSide)? MTLCullModeNone : CullMode];
-    [MergeRenderEncoder setRenderPipelineState:PipelineState[CurShader][AlphaBlend]];
+    
+    if (Gachan3DPass::GetPass() == Gachan3DPass::DRAW_SHADOWMAP) {
+        int verttype = Gachan3DShader::ShaderList[CurShader].VertType;
+        [MergeRenderEncoder setRenderPipelineState:PipelineStateShadowMap[verttype]];
+    }
+    else {
+        [MergeRenderEncoder setRenderPipelineState:PipelineState[CurShader][AlphaBlend]];
+    }
     [MergeRenderEncoder setDepthStencilState:GachanMetalPass::GetDepthStencilState(DepthTest)];
     
     id<MTLBuffer> vb = (__bridge id<MTLBuffer>)vbuff;//(__bridge_transferを使うと解放されてしまう)
@@ -400,6 +553,14 @@ void Gachan3DShader::DrawIndex(const void* vbuff, int vnum, const void* ibuff, i
     [MergeRenderEncoder setVertexBuffer:vb                                offset:0 atIndex:0];
     [MergeRenderEncoder setVertexBuffer:UniformBufferVertex[MergeIdx][MergeDrawCount] offset:0 atIndex:1];
     
+    //[MergeRenderEncoder setFragmentBuffer:UniformBufferPixel[ConstantIdx][MergeDrawCount] offset:0 atIndex:0];
+
+    for (int i = 0; i < DX3DTEX_NUM; i++) {
+        if (Texture[i]) {
+            [MergeRenderEncoder setFragmentTexture:Texture[i]           atIndex:i];
+            [MergeRenderEncoder setFragmentSamplerState:SamplerState[i] atIndex:i];
+        }
+    }
     
     [MergeRenderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
                                    indexCount:primnum*3

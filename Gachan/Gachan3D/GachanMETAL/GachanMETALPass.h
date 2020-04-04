@@ -14,10 +14,18 @@
 class GachanMetalPass
 {
 public:
+    static void CreateShadowMap();
+    static void ReleaseShadowMap();
     static void Create();
     static void Release();
+
     static void SetBackgroundColor(Val r, Val g, Val b);
+
+    //SHADOWMAP PASS
+    static void StartShadowMap();
+    static void EndShadowMap();
     
+    //NORMAL PASS
     static void Start();
     static void SetRenderPassDesc_LoadRenderTarget();
     

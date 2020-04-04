@@ -11,7 +11,9 @@
 
 
 #include "Gachan3DShader.h"
+#include "Gachan3DShaderConst.h"
 #include "Gachan3DObject.h"
+#include "Gachan3DPass.h"
 
 #include "GachanD3D12Sub.h"
 #include "GachanD3D12Base.h"
@@ -24,6 +26,7 @@
 #include "GachanD3D12Shader_vs_defaultNL.h"
 #include "GachanD3D12Shader_ps_defaultNL.h"
 
+#include "GachanD3D12Shader_vs_shadow_vn.h"
 
 
 
@@ -36,8 +39,71 @@
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_defaultNL),    (const unsigned int*)ptsz(ps_defaultNL)	},
 	};
 
-    
+	Gachan3DShader::Table Gachan3DShader::ShaderListShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM] = {
+		//for shadow map creation
+		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_shadow_vn),	(const unsigned int*)ptszNULL	},
+	};
 	
+
+
+	//TEXTURE
+	ID3D12DescriptorHeap*       SamplerHeap;//SAMPLERのヒープ(View) MaterialTex::WRAP_NUM x MaterialTex::WRAP_NUM
+	UINT                        SamplerDescriptorSize;
+	//id <MTLSamplerState>      SamplerStateWRAP[MaterialTex::WRAP_NUM][MaterialTex::WRAP_NUM];//wrapu x wrapv
+	D3D12_GPU_DESCRIPTOR_HANDLE SamplerState[DX3DTEX_NUM];//描画に使うヒープ(View)のハンドル
+	D3D12_GPU_DESCRIPTOR_HANDLE Texture[DX3DTEX_NUM];//描画に使うヒープ(View)のハンドル
+
+//	D3D12_CPU_DESCRIPTOR_HANDLE GachanD3D12Shader_GetSamplerViewHandle(int wrapu, int wrapv)
+//	{
+//		return GachanD3D12Sub::GetSamplerViewHandle(SamplerHeap, SamplerDescriptorSize, wrapu, wrapv);
+//	}
+	D3D12_GPU_DESCRIPTOR_HANDLE GachanD3D12Shader_GetSamplerGPUHandle(int wrapu, int wrapv)
+	{
+		return GachanD3D12Sub::GetSamplerGPUHandle(SamplerHeap, SamplerDescriptorSize, wrapu, wrapv);
+	}
+
+
+
+	//使用するテクスチャの最大数
+	//上限の概念があるのはDirectX12対応だけ（Metalは無い）
+	const static int            TextureNum = 2048;//DEFAULT 足りない場合はセットできるようにする予定
+	ID3D12Resource*             TextureRes[TextureNum];
+	D3D12_CPU_DESCRIPTOR_HANDLE TextureCPUStartHandle;
+
+	//GLみたいだね。。
+	int GachanD3D12Shader_GetIdleTextureIndex()
+	{
+		for (int idx = 1; idx < TextureNum; idx++) {
+			if (TextureRes[idx] == NULL) {
+				return idx;
+			}
+		}
+		OutputDebugStringA("GachanD3D12Shader_GetIdleTextureIndex Index Over\n");
+		while (1) {}
+		return 0;//index == 0 はNULL扱い
+	}
+	ID3D12Resource** GachanD3D12Shader_GetTextureResource(int idx)
+	{
+		return &TextureRes[idx];
+	}
+	void GachanD3D12Shader_ReleaseTexture(int idx)
+	{
+		if (TextureRes[idx]) {
+			TextureRes[idx]->Release();
+			TextureRes[idx] = NULL;
+		}
+	}
+
+
+	//最初にセットしておくテクスチャ
+	//METALでは、ExistingShadowTexture(tex stage 1)とか使わなくてもセットしておくべき
+	int             Texture0;
+	int             Texture1;
+	int             Texture2;
+	int             Texture6StaticShadow;
+	int             Texture7DynamicShadow;
+
+
 
 
 	const static int          VertexIndexBufferNum = 2048*4;//漢字をいっぱいつくるので増やした
@@ -122,6 +188,8 @@
 	//パイプラインステート。これがDirectX12の最大の特徴
 	// SHADER x ALPHABLEND(OFF/ON) x DEPTHTEST(OFF/ON) x CULLMODE(NONE/FRONT/BACK)
 	ID3D12PipelineState* PipelineState[Gachan3DShader::SHADER_NUM][2][2][GACHAND3D12SHADER_CULL_MODE_NUM];
+	ID3D12PipelineState* PipelineStateShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM][GACHAND3D12SHADER_CULL_MODE_NUM];
+
 	ID3D12RootSignature* RootSignature;
 
 #define MERGEDRAW  (1)
@@ -145,16 +213,22 @@
 	//Uniform buffer
 	ID3D12Resource* UniformBufferVertex;   //VertexShaderConstantALLSize全部一気に割り当てます(D3D12DynamicIndexingのサンプルみてちょ)
 	UniformVertex*  UniformBufferVertexMap;
-	UINT64          UniformBufferUse[MergeSemaphoreNum];  //0:not used   1:used
 	UniformVertex*  UniformBufferVertexPtr;
-
+	ID3D12Resource* UniformBufferPixel;    //PixelShaderConstantALLSize全部一気に割り当てます(D3D12DynamicIndexingのサンプルみてちょ)
+	UniformPixel*   UniformBufferPixelMap;
+	UniformPixel*   UniformBufferPixelPtr;
+	UINT64          UniformBufferUse[MergeSemaphoreNum];  //0:not used   1:used
 
 	//CONSTANTBUFFER(UniformBuffer) and SHADERRESOURCE(TEXTURE)のヒープ(View) 同じ一つのヒープにする必要あり
 	ID3D12DescriptorHeap*       CbvSrvHeap;
 	UINT                        CbvSrvDescriptorSize;
-	UINT                        CbvSrvDescriptorNum = MergeSemaphoreNum * MergeDrawMax; //UniformBufferVertexの数
+	UINT                        CbvSrvDescriptorNum =
+		MergeSemaphoreNum * MergeDrawMax +  //UniformBufferVertexの数
+		MergeSemaphoreNum * MergeDrawMax +  //UniformBufferPixelの数
+		TextureNum;                            //Textureの数
 
 	D3D12_CPU_DESCRIPTOR_HANDLE UniformBufferVertexCPUStartHandle;
+	D3D12_CPU_DESCRIPTOR_HANDLE UniformBufferPixelCPUStartHandle;
 
 	D3D12_GPU_DESCRIPTOR_HANDLE GachanD3D12Shader_GetUniformBufferVertexGPUHandle(int mergeidx, int drawidx)
 	{
@@ -163,17 +237,49 @@
 			(mergeidx * MergeDrawMax + drawidx) * CbvSrvDescriptorSize;
 		return handle;
 	}
+	D3D12_GPU_DESCRIPTOR_HANDLE GachanD3D12Shader_GetUniformBufferPixelGPUHandle(int mergeidx, int drawidx)
+	{
+		D3D12_GPU_DESCRIPTOR_HANDLE handle = CbvSrvHeap->GetGPUDescriptorHandleForHeapStart();
+		handle.ptr +=
+			(MergeSemaphoreNum * MergeDrawMax +
+			(mergeidx * MergeDrawMax + drawidx)) * CbvSrvDescriptorSize;
+		return handle;
+	}
+
+	D3D12_CPU_DESCRIPTOR_HANDLE GachanD3D12Shader_GetTextureViewHandle(int idx)
+	{
+		return GachanD3D12Sub::GetTextureViewHandle(TextureCPUStartHandle, CbvSrvDescriptorSize, idx);
+	}
+	D3D12_GPU_DESCRIPTOR_HANDLE GachanD3D12Shader_GetTextureGPUHandle(int idx)
+	{
+		D3D12_GPU_DESCRIPTOR_HANDLE handle = CbvSrvHeap->GetGPUDescriptorHandleForHeapStart();
+		handle.ptr +=
+			(MergeSemaphoreNum * MergeDrawMax +
+				MergeSemaphoreNum * MergeDrawMax + idx) * CbvSrvDescriptorSize;
+		return handle;
+	}
+
+
+
+
 
 	//need 256byte size alignment for DirectX12
 #define aligned(num, align)    (((num) + ((align) - 1)) & ~((align) - 1))
 	static const int VertexShaderConstantSize = aligned(sizeof(UniformVertex), 256);
+	static const int  PixelShaderConstantSize = aligned(sizeof(UniformPixel), 256);
 
 	static const int VertexShaderConstantALLSize = VertexShaderConstantSize * MergeSemaphoreNum * MergeDrawMax;
+	static const int  PixelShaderConstantALLSize =  PixelShaderConstantSize * MergeSemaphoreNum * MergeDrawMax;
 
 	void* GetUniformBufferVertexPtr(int mergeidx, int drawidx)
 	{
 		unsigned long long offsetunit = MergeDrawMax * mergeidx + drawidx;
 		return (char*)UniformBufferVertexMap + (offsetunit * VertexShaderConstantSize);
+	}
+	void* GetUniformBufferPixelPtr(int mergeidx, int drawidx)
+	{
+		unsigned long long offsetunit = MergeDrawMax * mergeidx + drawidx;
+		return (char*)UniformBufferPixelMap + (offsetunit * PixelShaderConstantSize);
 	}
 #else
 	ID3D12CommandAllocator*    CommandAlloc;
@@ -239,6 +345,26 @@
         return TRUE;
     }
 
+	static bool loadShadersShadowMap(int shader)
+	{
+		if (Gachan3DShader::ShaderListShadowMap[shader].VSBuffer == NULL) {
+			return false;
+		}
+		ID3D12Device* device = GachanD3D12Base::getDevice();
+
+		//SHADER x CULLMODE(NONE / FRONT / BACK)
+		for (int cullmode = GACHAND3D12SHADER_CULL_MODE_NONE; cullmode < GACHAND3D12SHADER_CULL_MODE_NUM; cullmode++) {
+			GachanD3D12Sub::CreatePipelineStateShadowMap(
+				device,
+				RootSignature, shader,
+				CullTable[cullmode],
+				&PipelineStateShadowMap[shader][cullmode]);
+		}
+		return TRUE;
+	}
+
+	extern int CreateTextureColored(int width, int height, unsigned int abgr);
+
 	
     
 	void MergeDrawInit();
@@ -255,14 +381,23 @@
 
 #if MERGEDRAW
 		GachanD3D12Sub::CreateConstantBuffer(device, VertexShaderConstantALLSize, &UniformBufferVertex,(void**)&UniformBufferVertexMap);
+		GachanD3D12Sub::CreateConstantBuffer(device, PixelShaderConstantALLSize,  &UniformBufferPixel, (void**)&UniformBufferPixelMap);
 
 		UniformBufferVertexCPUStartHandle = CbvSrvHeap->GetCPUDescriptorHandleForHeapStart();
 
-		GachanD3D12Sub::CreateConstantBufferView(
-			device,
-			UniformBufferVertexCPUStartHandle, CbvSrvDescriptorSize,
-			UniformBufferVertex->GetGPUVirtualAddress(), VertexShaderConstantSize,
-			MergeSemaphoreNum, MergeDrawMax);
+		UniformBufferPixelCPUStartHandle =
+			GachanD3D12Sub::CreateConstantBufferView(
+				device,
+				UniformBufferVertexCPUStartHandle, CbvSrvDescriptorSize,
+				UniformBufferVertex->GetGPUVirtualAddress(), VertexShaderConstantSize,
+				MergeSemaphoreNum, MergeDrawMax);
+
+		TextureCPUStartHandle =
+			GachanD3D12Sub::CreateConstantBufferView(
+				device,
+				UniformBufferPixelCPUStartHandle, CbvSrvDescriptorSize,
+				UniformBufferPixel->GetGPUVirtualAddress(), PixelShaderConstantSize,
+				MergeSemaphoreNum, MergeDrawMax);
 
 		MergeDrawInit();
 #else
@@ -282,6 +417,10 @@
 		CommandList->SetName(L"CommandList");
 		ThrowIfFailed(CommandList->Close());
 #endif
+
+		SamplerDescriptorSize =
+			GachanD3D12Sub::CreateSamplerView(device, &SamplerHeap);
+
 		//ROOT SIGNATURE
 		GachanD3D12Sub::CreateRootSignature(device, &RootSignature);
 
@@ -289,11 +428,40 @@
         for (int i = 0; i < SHADER_NUM; i++) {
             loadShaders(i);
         }
+		for (Int i = 0; i < SHADER_SHADOWMAP_NUM; i++) {
+			loadShadersShadowMap(i);
+		}
 
+
+		//最初にセットしておくテクスチャ
+//METALでは、ExistingShadowTexture(tex stage 1)とか使わなくてもセットしておくべき
+//Texture::Create()と同じことをする
+		Texture0              = CreateTextureColored(64, 64, 0xFF900000);
+		Texture1              = CreateTextureColored(64, 64, 0xFF900000);
+		Texture2              = CreateTextureColored(64, 64, 0xFF900000);
+		Texture6StaticShadow  = CreateTextureColored(64, 64, 0xFFFFFFFF);
+		Texture7DynamicShadow = CreateTextureColored(64, 64, 0xFFFFFFFF);
+
+		//Shader::SetTexture()と同じことをする
+		Texture[DX3DTEX0_OBJECT]        = GachanD3D12Shader_GetTextureGPUHandle(Texture0);
+		Texture[DX3DTEX1_SOMETHING]     = GachanD3D12Shader_GetTextureGPUHandle(Texture1);
+		Texture[DX3DTEX2_SOMETHING]     = GachanD3D12Shader_GetTextureGPUHandle(Texture2);
+		Texture[DX3DTEX6_STATICSHADOW]  = GachanD3D12Shader_GetTextureGPUHandle(Texture6StaticShadow);
+		Texture[DX3DTEX7_DYNAMICSHADOW] = GachanD3D12Shader_GetTextureGPUHandle(Texture7DynamicShadow);
 
 
         CurShader = -1;
-        
+
+		for (int i = 0; i < DX3DTEX_NUM; i++) {
+			//SamplerState[i] = SamplerStateWRAP[0][0];
+			SamplerState[i] = GachanD3D12Shader_GetSamplerGPUHandle(0, 0);
+		}
+		//DRAW_WITH_SHADOWMAP SAMPLER
+		int clamp_to_edge = Gachan3DMaterialTex::wrapToIndex(Gachan3DMaterialTex::WRAP_CLAMP_TO_EDGE);
+		SamplerState[DX3DTEX7_DYNAMICSHADOW] = GachanD3D12Shader_GetSamplerGPUHandle(clamp_to_edge, clamp_to_edge);
+
+
+
 		MatP.Clear();
 		MatV.Clear();
 		MatW.Clear();
@@ -306,13 +474,33 @@
 		SetFlipFace(true);
 		SetDoubleSideFace(false);
 
-        
+		GachanD3D12Pass::CreateShadowMap();
+
+
 		return true;
 	}
 	
 	bool Gachan3DShader::Release()
 	{
 		GachanD3D12Pass::WaitForGPU();
+
+		GachanD3D12Shader_ReleaseTexture(Texture0);
+		GachanD3D12Shader_ReleaseTexture(Texture1);
+		GachanD3D12Shader_ReleaseTexture(Texture2);
+		GachanD3D12Shader_ReleaseTexture(Texture6StaticShadow);
+		GachanD3D12Shader_ReleaseTexture(Texture7DynamicShadow);
+
+		Texture0 = 0;
+		Texture1 = 0;
+		Texture2 = 0;
+		Texture6StaticShadow = 0;
+		Texture7DynamicShadow = 0;
+
+		if (SamplerHeap) {
+			SamplerHeap->Release();//SAMPLERのヒープ(View) MaterialTex::WRAP_NUM x MaterialTex::WRAP_NUM
+			SamplerHeap = NULL;
+		}
+
 
 		//これらはdx::Texture/dx::Vertex等により個別にリリースされる
 		//ID3D12Resource*           VertexBufferRes[VertexIndexBufferNum];
@@ -331,6 +519,15 @@
 				}
 			}
 		}
+		for (int shader = 0; shader < Gachan3DShader::SHADER_SHADOWMAP_NUM; shader++) {
+			for (int cullmode = 0; cullmode < GACHAND3D12SHADER_CULL_MODE_NUM; cullmode++) {
+				if (PipelineStateShadowMap[shader][cullmode]) {
+					PipelineStateShadowMap[shader][cullmode]->Release();
+					PipelineStateShadowMap[shader][cullmode] = NULL;
+				}
+			}
+		}
+
 		if (RootSignature) {
 			RootSignature->Release();
 			RootSignature = NULL;
@@ -340,6 +537,10 @@
 			UniformBufferVertex->Release();
 			UniformBufferVertex = NULL;
 		}   
+		if (UniformBufferPixel) {//PixelShaderConstantALLSize全部一気に割り当てます(D3D12DynamicIndexingのサンプルみてちょ)
+			UniformBufferPixel->Release();
+			UniformBufferPixel = NULL;
+		}
 		if (CbvSrvHeap) {
 			CbvSrvHeap->Release();
 			CbvSrvHeap = NULL;
@@ -396,9 +597,9 @@
 	void Gachan3DShader::SetLightDirection(const Vec& dir, const Vec& col)
 	{
 		Vec4 dirvec;
-		dirvec.x = dir.x;
-		dirvec.y = dir.y;
-		dirvec.z = dir.z;
+		dirvec.x = -dir.x;//光からのベクトルの向きを光への向きのベクトル（逆向き）にする
+		dirvec.y = -dir.y;
+		dirvec.z = -dir.z;
 		dirvec.w = 1.0f;
 
 		Vec4 colvec;
@@ -411,7 +612,14 @@
 		UniformBufferVertexPtr->LightDCol[0] = colvec;
 	}
 
-	
+	Vec Gachan3DShader::GetLightDirection()
+	{
+		Vec4 vec4 = UniformBufferVertexPtr->LightDir[0];
+		Vec ret;
+		ret.Set(vec4.x, vec4.y, vec4.z);
+		return ret;
+	}
+
 	//===============================================
 	//from camera
 	//===============================================
@@ -469,7 +677,8 @@
 
 	void Gachan3DShader::SetWVPConst()
 	{
-		UniformBufferVertexPtr->WMatrix = MatW.GetTranspose();
+		UniformBufferVertexPtr->LPMatrix = MatLP.GetTranspose();
+		UniformBufferVertexPtr->WMatrix  = MatW.GetTranspose();
 		UniformBufferVertexPtr->VPMatrix = MatVP.GetTranspose();
 	}
 
@@ -498,12 +707,17 @@
 
 		MergeIdx = 0;
 		UniformBufferVertexPtr = (UniformVertex*)GetUniformBufferVertexPtr(MergeIdx, 0);
+		UniformBufferPixelPtr  = (UniformPixel*) GetUniformBufferPixelPtr(MergeIdx, 0);
 	}
 	void MergeDrawCopyUniform(int mergeidx, int drawidx)
 	{
 		UniformVertex* vsc = UniformBufferVertexPtr;
 		UniformBufferVertexPtr = (UniformVertex*)GetUniformBufferVertexPtr(mergeidx, drawidx);
 		memcpy(UniformBufferVertexPtr, vsc, sizeof(UniformVertex));
+
+		UniformPixel* psc = UniformBufferPixelPtr;
+		UniformBufferPixelPtr = (UniformPixel*)GetUniformBufferPixelPtr(mergeidx, drawidx);
+		memcpy(UniformBufferPixelPtr, psc, sizeof(UniformPixel));
 	}
 	void MergeDrawStart(bool firstdraw)
 	{
@@ -554,22 +768,50 @@
 		//PIXBeginEvent(MergeCommandList[ConstantIdx], 0, L"DrawIndex");
 
 		MergeCommandList[MergeIdx]->SetGraphicsRootSignature(RootSignature);
-		MergeCommandList[MergeIdx]->SetPipelineState(PipelineState[CurShader][AlphaBlending][DepthTest][CullMode]);
 
-		D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = GachanD3D12Pass::GetRenderTargetViewHandle();
-		D3D12_CPU_DESCRIPTOR_HANDLE dsvhandle = GachanD3D12Pass::GetDepthStencilViewHandle();
-		MergeCommandList[MergeIdx]->OMSetRenderTargets(1, &rtvHandle, FALSE, &dsvhandle);
 
-		D3D12_VIEWPORT viewport = GachanD3D12Pass::GetViewport();
-		D3D12_RECT     scissorrect = GachanD3D12Pass::GetScissorRect();
+		D3D12_VIEWPORT viewport;
+		D3D12_RECT     scissorrect;
+		if (Gachan3DPass::GetPass() == Gachan3DPass::DRAW_SHADOWMAP) {
+			int verttype = Gachan3DShader::ShaderList[CurShader].VertType;
+			MergeCommandList[MergeIdx]->SetPipelineState(PipelineStateShadowMap[verttype][CullMode]);
+
+			D3D12_CPU_DESCRIPTOR_HANDLE dsvhandle = GachanD3D12Pass::GetShadowMapViewHandle();
+			MergeCommandList[MergeIdx]->OMSetRenderTargets(0, nullptr, FALSE, &dsvhandle);
+
+			viewport    = GachanD3D12Pass::GetShadowMapViewport();
+			scissorrect = GachanD3D12Pass::GetShadowMapScissorRect();
+		}
+		else {
+			MergeCommandList[MergeIdx]->SetPipelineState(PipelineState[CurShader][AlphaBlending][DepthTest][CullMode]);
+
+			D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = GachanD3D12Pass::GetRenderTargetViewHandle();
+			D3D12_CPU_DESCRIPTOR_HANDLE dsvhandle = GachanD3D12Pass::GetDepthStencilViewHandle();
+			MergeCommandList[MergeIdx]->OMSetRenderTargets(1, &rtvHandle, FALSE, &dsvhandle);
+
+			viewport    = GachanD3D12Pass::GetViewport();
+			scissorrect = GachanD3D12Pass::GetScissorRect();
+		}
 		MergeCommandList[MergeIdx]->RSSetViewports(1, &viewport);
 		MergeCommandList[MergeIdx]->RSSetScissorRects(1, &scissorrect);
 
-		ID3D12DescriptorHeap* ppHeaps[] = { CbvSrvHeap };
+		ID3D12DescriptorHeap* ppHeaps[] = { CbvSrvHeap, SamplerHeap };
 		MergeCommandList[MergeIdx]->SetDescriptorHeaps(_countof(ppHeaps), ppHeaps);
 
 		D3D12_GPU_DESCRIPTOR_HANDLE constantvshandle = GachanD3D12Shader_GetUniformBufferVertexGPUHandle(MergeIdx, MergeDrawCount);
+		D3D12_GPU_DESCRIPTOR_HANDLE constantpshandle = GachanD3D12Shader_GetUniformBufferPixelGPUHandle(MergeIdx, MergeDrawCount);
 		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(0, constantvshandle);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(1, constantpshandle);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(2, Texture[0]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(3, Texture[1]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(4, Texture[2]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(5, Texture[6]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(6, Texture[7]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(7, SamplerState[0]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(8, SamplerState[1]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(9, SamplerState[2]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(10, SamplerState[6]);
+		MergeCommandList[MergeIdx]->SetGraphicsRootDescriptorTable(11, SamplerState[7]);
 
 #pragma warning(push)
 #pragma warning(disable: 4311)

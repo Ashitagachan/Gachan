@@ -27,8 +27,15 @@ struct GachanD3D12Size
 class GachanD3D12
 {
 public:
-};
+	//for commandList->ResourceBarrier()
+	static void SetResourceBarrierTransition(ID3D12Resource* resource, D3D12_RESOURCE_STATES before, D3D12_RESOURCE_STATES after, D3D12_RESOURCE_BARRIER* pbarrier);
 
+	//for device->CreateCommittedResource() 
+	static void SetHeapProperties(D3D12_HEAP_TYPE type, D3D12_HEAP_PROPERTIES* pheapprop);
+	static void SetResourceDescBuffer(UINT64 size, D3D12_RESOURCE_DESC* presourcedesc);
+	static void SetResourceDescTex2D(DXGI_FORMAT format, UINT width, UINT height, D3D12_RESOURCE_DESC* presourcedesc);
+	static void SetResourceDescDepthStencil(UINT width, UINT height, D3D12_RESOURCE_DESC* presourcedesc);
+};
 
 
 

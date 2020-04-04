@@ -110,26 +110,26 @@ namespace NAMESPACE
 }
 - (NSArray *)keyCommands {
     return @[
-             [UIKeyCommand keyCommandWithInput:UIKeyInputUpArrow    modifierFlags:0 action:@selector(upKeyPress)    discoverabilityTitle:@"Up"],
-             [UIKeyCommand keyCommandWithInput:UIKeyInputDownArrow  modifierFlags:0 action:@selector(downKeyPress)  discoverabilityTitle:@"Down"],
-             [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow  modifierFlags:0 action:@selector(leftKeyPress)  discoverabilityTitle:@"Left"],
-             [UIKeyCommand keyCommandWithInput:UIKeyInputRightArrow modifierFlags:0 action:@selector(rightKeyPress) discoverabilityTitle:@"Right"],
-             [UIKeyCommand keyCommandWithInput:@" "                 modifierFlags:0 action:@selector(spaceKeyPress) discoverabilityTitle:@"Space"],
-             [UIKeyCommand keyCommandWithInput:@"\r"                modifierFlags:0 action:@selector(enterKeyPress) discoverabilityTitle:@"Enter"],
-             [UIKeyCommand keyCommandWithInput:@"0"                 modifierFlags:0 action:@selector(num0KeyPress)  discoverabilityTitle:@"0"],
-             [UIKeyCommand keyCommandWithInput:@"1"                 modifierFlags:0 action:@selector(num1KeyPress)  discoverabilityTitle:@"1"],
-             [UIKeyCommand keyCommandWithInput:@"2"                 modifierFlags:0 action:@selector(num2KeyPress)  discoverabilityTitle:@"2"],
-             [UIKeyCommand keyCommandWithInput:@"3"                 modifierFlags:0 action:@selector(num3KeyPress)  discoverabilityTitle:@"3"],
-             [UIKeyCommand keyCommandWithInput:@"4"                 modifierFlags:0 action:@selector(num4KeyPress)  discoverabilityTitle:@"4"],
-             [UIKeyCommand keyCommandWithInput:@"5"                 modifierFlags:0 action:@selector(num5KeyPress)  discoverabilityTitle:@"5"],
-             [UIKeyCommand keyCommandWithInput:@"6"                 modifierFlags:0 action:@selector(num6KeyPress)  discoverabilityTitle:@"6"],
-             [UIKeyCommand keyCommandWithInput:@"7"                 modifierFlags:0 action:@selector(num7KeyPress)  discoverabilityTitle:@"7"],
-             [UIKeyCommand keyCommandWithInput:@"8"                 modifierFlags:0 action:@selector(num8KeyPress)  discoverabilityTitle:@"8"],
-             [UIKeyCommand keyCommandWithInput:@"9"                 modifierFlags:0 action:@selector(num9KeyPress)  discoverabilityTitle:@"9"],
-             [UIKeyCommand keyCommandWithInput:@"A"                 modifierFlags:0 action:@selector(numAKeyPress)  discoverabilityTitle:@"A"],
-             [UIKeyCommand keyCommandWithInput:@"S"                 modifierFlags:0 action:@selector(numSKeyPress)  discoverabilityTitle:@"S"],
-             [UIKeyCommand keyCommandWithInput:@"D"                 modifierFlags:0 action:@selector(numDKeyPress)  discoverabilityTitle:@"D"],
-             [UIKeyCommand keyCommandWithInput:@"W"                 modifierFlags:0 action:@selector(numWKeyPress)  discoverabilityTitle:@"W"],
+             [UIKeyCommand keyCommandWithInput:UIKeyInputUpArrow    modifierFlags:0 action:@selector(upKeyPress)   ],
+             [UIKeyCommand keyCommandWithInput:UIKeyInputDownArrow  modifierFlags:0 action:@selector(downKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow  modifierFlags:0 action:@selector(leftKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:UIKeyInputRightArrow modifierFlags:0 action:@selector(rightKeyPress)],
+             [UIKeyCommand keyCommandWithInput:@" "                 modifierFlags:0 action:@selector(spaceKeyPress)],
+             [UIKeyCommand keyCommandWithInput:@"\r"                modifierFlags:0 action:@selector(enterKeyPress)],
+             [UIKeyCommand keyCommandWithInput:@"0"                 modifierFlags:0 action:@selector(num0KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"1"                 modifierFlags:0 action:@selector(num1KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"2"                 modifierFlags:0 action:@selector(num2KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"3"                 modifierFlags:0 action:@selector(num3KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"4"                 modifierFlags:0 action:@selector(num4KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"5"                 modifierFlags:0 action:@selector(num5KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"6"                 modifierFlags:0 action:@selector(num6KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"7"                 modifierFlags:0 action:@selector(num7KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"8"                 modifierFlags:0 action:@selector(num8KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"9"                 modifierFlags:0 action:@selector(num9KeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"A"                 modifierFlags:0 action:@selector(numAKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"S"                 modifierFlags:0 action:@selector(numSKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"D"                 modifierFlags:0 action:@selector(numDKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"W"                 modifierFlags:0 action:@selector(numWKeyPress) ],
              ];
 }
 
@@ -163,7 +163,7 @@ void GachanGameUpdate();
 
     NAMESPACE::Initialize();
 
-    [[GachanMetalBase sharedInstance] metalWithView:self.view target:self action:@selector(render:)];
+    [[GachanMetalBase sharedInstance] metalWithView:self.view target:self update:@selector(update:) render:@selector(render:)];
     
     GachanGameCreate();
 
@@ -172,14 +172,17 @@ void GachanGameUpdate();
     [[GachanMetalBase sharedInstance] start];
 }
 
-- (void)render:(id)sender
+- (void)update:(id)sender
 {
     GachanGameUpdate();
     
     NAMESPACE::Update();
     
     GachanGameKeyboard::ResetSystemKey();
+}
 
+- (void)render:(id)sender
+{
     NAMESPACE::Render();
 }
 

@@ -8,22 +8,33 @@
 #include "Gachan.h"
 #include "Gachan3DText.h"
 
-void GachanInitialize::Enable(GachanInitialize::ENABLE enable)
+
+static UInt64 enableflag = GachanInitialize::FLG_SHADOWMAP;//初期値
+
+bool GachanInitialize::IsEnabled(UInt64 f)
 {
-    switch (enable) {
-        case ENABLE::TEXT_JP_HIRAKANA:
+    return (enableflag & f)? true : false;
+}
+
+
+void GachanInitialize::Enable(UInt64 f)
+{
+    enableflag |= f;
+    
+    if (enableflag & GachanInitialize::FLG_TEXT_JP_HIRAKANA) {
             Gachan3DText::SetFlag(Gachan3DText::FLG_JP_HIRAKANA);
-            break;
-        case ENABLE::TEXT_JP_KANJI1ST:
-            Gachan3DText::SetFlag(Gachan3DText::FLG_JP_KANJI1ST);
-            break;
-        case ENABLE::TEXT_JP_KANJI2ND:
-            Gachan3DText::SetFlag(Gachan3DText::FLG_JP_KANJI2ND);
-            break;
-        case ENABLE::TEXT_JP_ALL:
-            Gachan3DText::SetFlag(Gachan3DText::FLG_JP_ALL);
-            break;
     }
+    if (enableflag & GachanInitialize::FLG_TEXT_JP_KANJI1ST) {
+            Gachan3DText::SetFlag(Gachan3DText::FLG_JP_KANJI1ST);
+    }
+    if (enableflag & GachanInitialize::FLG_TEXT_JP_KANJI2ND) {
+            Gachan3DText::SetFlag(Gachan3DText::FLG_JP_KANJI2ND);
+    }
+}
+
+void GachanInitialize::Disable(UInt64 f)
+{
+    enableflag &= ~f;
 }
 
 

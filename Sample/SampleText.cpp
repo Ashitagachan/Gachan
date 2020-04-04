@@ -48,8 +48,8 @@ namespace SampleText
 
     void Initialize()
     {
-        GachanInitialize::Enable(GachanInitialize::ENABLE::TEXT_JP_HIRAKANA);
-        GachanInitialize::Enable(GachanInitialize::ENABLE::TEXT_JP_KANJI1ST);
+        GachanInitialize::Enable(GachanInitialize::FLG_TEXT_JP_HIRAKANA);
+        GachanInitialize::Enable(GachanInitialize::FLG_TEXT_JP_KANJI1ST);
     }
 
     void Create()

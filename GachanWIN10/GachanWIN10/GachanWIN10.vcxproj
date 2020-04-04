@@ -170,7 +170,9 @@
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObject.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObjectDefine.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DPass.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShader.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShaderConst.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DText.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DVertexTypes.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12.h" />
@@ -179,6 +181,7 @@
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderTypes.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_ps_default.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_default.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_shadow_vn.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.h" />
     <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudio.h" />
     <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.h" />
@@ -210,6 +213,7 @@
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DCamera.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DObject.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DPass.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DShader.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DText.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextData.cpp" />
@@ -220,6 +224,7 @@
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Pass.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Tex.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12VertexIndex.cpp" />
     <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10.cpp" />
     <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.cpp" />

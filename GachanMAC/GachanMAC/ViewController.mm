@@ -126,7 +126,7 @@ void GachanGameUpdate();
     
     NAMESPACE::Initialize();
     
-    [[GachanMetalBase sharedInstance] metalWithView:self.view target:self action:@selector(render:)];
+    [[GachanMetalBase sharedInstance] metalWithView:self.view target:self update:@selector(update:) render:@selector(render:)];
     
     GachanGameCreate();
     
@@ -141,14 +141,17 @@ void GachanGameUpdate();
     // Update the view, if already loaded.
 }
 
-- (void)render:(id)sender
+- (void)update:(id)update
 {
     GachanGameUpdate();
     
     NAMESPACE::Update();
-    
+
     GachanGameKeyboard::ResetSystemKey();
-    
+}
+
+- (void)render:(id)sender
+{
     NAMESPACE::Render();
 }
 

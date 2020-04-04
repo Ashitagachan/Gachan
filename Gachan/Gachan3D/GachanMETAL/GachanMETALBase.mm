@@ -9,7 +9,8 @@
 #include "GachanMETALPass.h"
 #include "GachanMETALBase.h"
 #include "Gachan3DCamera.h"
-
+#include "Gachan3DPass.h"
+#include "Gachan.h"
 
 @implementation GachanMetalBase
 {
@@ -22,6 +23,7 @@
     CADisplayLink*             displayLink;
 #endif
     
+    SEL updateFuncCallback;
     SEL renderFuncCallback;
 #ifdef NOUSE_ARC
     id renderLoopTarget;
@@ -65,13 +67,14 @@ static CVReturn renderloop(CVDisplayLinkRef displayLink,
                            CVOptionFlags flagsIn,
                            CVOptionFlags *flagsOut,
                            void *displayLinkContext);
-- (CAMetalLayer*) metalWithView:(NSView*)view target:(id)target action:(SEL)action
+- (CAMetalLayer*) metalWithView:(NSView*)view target:(id)target update:(SEL)update render:(SEL)render
 #else
-- (CAMetalLayer*) metalWithView:(UIView*)view target:(id)target action:(SEL)action
+- (CAMetalLayer*) metalWithView:(UIView*)view target:(id)target update:(SEL)update render:(SEL)render
 #endif
 {
     renderFuncTarget   = target;
-    renderFuncCallback = action;
+    updateFuncCallback = update;
+    renderFuncCallback = render;
     
     // MTLDeivceの生成
     device = MTLCreateSystemDefaultDevice();
@@ -152,7 +155,26 @@ static CVReturn renderloop(CVDisplayLinkRef displayLink,
     if (renderFuncTarget == nil) {
         return;
     }
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [renderFuncTarget performSelector:updateFuncCallback  withObject:self];
+#pragma clang diagnostic pop
+
+
+    if (GachanInitialize::IsEnabled(GachanInitialize::FLG_SHADOWMAP)) {
+        
+        GachanMetalPass::StartShadowMap();
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [renderFuncTarget performSelector:renderFuncCallback  withObject:self];
+#pragma clang diagnostic pop
+        
+        GachanMetalPass::EndShadowMap();
+    }
     
+
     Gachan3DCamera::SetScreen(metalLayer.drawableSize.width, metalLayer.drawableSize.height);
 
     GachanMetalPass::Start();

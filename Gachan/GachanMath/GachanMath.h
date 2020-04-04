@@ -35,6 +35,8 @@ typedef unsigned short        UInt16;
 typedef unsigned int          UInt32;
 typedef unsigned long long    UInt64;
 
+typedef void                  Void;
+
 #define KILO                  (1024)
 #define MEGA                  (KILO * KILO)
 #define GIGA                  (MEGA * KILO)
