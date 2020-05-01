@@ -103,14 +103,15 @@ Gachanの環境は随時更新されていきます。現状はまだまだ未�
     * 行列スタック（対応済）
     * タスクシステム（対応済）
     * メモリアロケータ（対応済）
-    * 3Dオブジェクトの階層構造
+    * 3Dオブジェクトの階層構造（対応済）
     * ユーザーゲームオブジェクト
-    * テクスチャ
+    * テクスチャ（対応済）
     * ゲームパッド（対応済）
     * テキストの表示（対応済）
     * Frame Per Secondの表示
     * ポーズ機構
-    * コリジョン
+    * 静的コリジョン（対応済）
+    * 動的コリジョン
     * SE（対応済）
     * BGM（対応済）
     * アニメーション
@@ -231,14 +232,15 @@ Future specific plan list (Just a plan, Schedule is undecided) is here.
     * Matrix Stack (Done)
     * Task System (Done)
     * Memory Allocator (Done)
-    * Hierarchical structure of 3D objects
+    * Hierarchical structure of 3D objects (Done)
     * User Game Object
-    * Texture
+    * Texture (Done)
     * Game pad (Done)
     * Displaying Text (Done)
     * Displaying  Frame Per Second
     * Pause Mechanism
-    * Collision
+    * Static Collision (Done)
+    * Dynamic Collision
     * SE (Done)
     * BGM (Done)
     * Animation
