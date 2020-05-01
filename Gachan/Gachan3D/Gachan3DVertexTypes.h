@@ -15,6 +15,11 @@ struct VertexVN {
     Vec     n;
 };
 
+struct VertexVNUV {
+    Vec        v;
+    Vec        n;
+    Vec2    uv;
+};
 
 
 

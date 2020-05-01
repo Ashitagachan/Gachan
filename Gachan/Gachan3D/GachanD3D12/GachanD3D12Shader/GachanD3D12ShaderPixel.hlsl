@@ -48,6 +48,24 @@ PS_OUTPUT ps_default(VS_OUTPUT In)
     return Out;
 }
 
+
+PS_OUTPUT  ps_texa(VS_OUTPUT In)
+{
+	PS_OUTPUT Out;
+
+	Out.col = tex2D(Tex0, In.tex) * In.col;
+	if (Out.col.a < 0.01) {
+		discard;
+	}
+
+	if (Sub_IsInsideShadow(In.shadowtex)) {
+		Out.col.rgb -= SHADOW_COLOR;
+	}
+	return Out;
+}
+
+
+
 PS_OUTPUT ps_defaultNL(VS_OUTPUT In)
 {
 	PS_OUTPUT Out;

@@ -26,7 +26,7 @@ public:
 	//for device->CreateCommittedResource() 
 	static void SetHeapProperties(D3D12_HEAP_TYPE type, D3D12_HEAP_PROPERTIES* pheapprop);
 	static void SetResourceDescBuffer(UINT64 size, D3D12_RESOURCE_DESC* presourcedesc);
-	static void SetResourceDescTex2D(DXGI_FORMAT format, UINT width, UINT height, D3D12_RESOURCE_DESC* presourcedesc);
+	static void SetResourceDescTex2D(DXGI_FORMAT format, UINT width, UINT height, UINT miplevels, UINT depthorarraysize, D3D12_RESOURCE_DESC* presourcedesc);
 	static void SetResourceDescDepthStencil(UINT width, UINT height, D3D12_RESOURCE_DESC* presourcedesc);
 
 

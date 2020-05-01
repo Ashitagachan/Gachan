@@ -10,7 +10,7 @@
 
 #include "GachanGame.h"
 #include "GachanMathVector.h"
-
+#include "Gachan3DObject.h"
 
 //ゲームオブジェクト Game Object
 class GachanGameObject
@@ -67,6 +67,8 @@ public:
         BALLOON,  //ふうせん
         MISSILE,  //ミサイル
         
+        CAR_KEI,  //kei自動車
+        
         BRICKA,   //レンガA
         
         ARM_UPPER_R,
@@ -81,7 +83,8 @@ public:
     };
 
     OBJECT        object;
-    
+    Gachan3DObject*   dxobject;
+
     Vec           position;
     Vec           position2;
     ROTATIONORDER rotationorder;
@@ -98,6 +101,9 @@ public:
     //オブジェクトのセット
     void SetObject(OBJECT object);
     
+    //オブジェクトのセット
+    void SetObject(Gachan3DObject* obj);
+
     //位置のセット
     void SetPosition(Vec pos, Vec pos2 = VecZERO);
     void SetPosition(Val posx, Val posy, Val posz, Val pos2x = 0.0f, Val pos2y = 0.0f, Val pos2z = 0.0f);

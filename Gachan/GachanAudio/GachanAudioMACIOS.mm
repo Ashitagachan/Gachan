@@ -6,12 +6,11 @@
 // See LICENSE.txt for licensing information.
 //
 
+#include "Gachan.h"
+#include "GachanBundle.h"
 #include "GachanAudio.h"
 #import "GachanAudioMACIOSEngine.h"
 
-
-
-    static NSBundle* Bundle = NULL;
 
     
     //AVAudio3Dは単位メートル  dxは単位10cm
@@ -32,10 +31,32 @@
         NSError *error;
         BOOL success = NO;
         
+        NSBundle* bundle = nil;
+        if (GachanBundle::GetStr()) {
+            NSString* bundlepath = [NSString stringWithUTF8String:GachanBundle::GetStr()];
+            bundle = [NSBundle bundleWithPath:bundlepath];
+        }
+        if (bundle == nil) {
+            bundle = [NSBundle mainBundle];
+        }
+        
+        //GachanルートからのパスをFilesフォルダからにする
+        const char* path = [filename UTF8String];
+        const char* filespath = GetFilesPath(path);
+        
+        SysLog("WAV:%s\n", filespath);
+        
+        NSString* filespathstr = [NSString stringWithUTF8String:filespath];
+        
         // load the collision sound into a buffer
-        NSURL *soundFileURL = [NSURL URLWithString:[Bundle pathForResource:filename ofType:nil]];
+        NSURL *soundFileURL = [NSURL URLWithString:[bundle pathForResource:filespathstr ofType:nil]];
         //NSAssert(soundFileURL, @"Error creating URL to sound file");
         
+        if (soundFileURL == nil) {
+            SysLog("WAV:READ ERROR\n");
+            DEBUGSTOP;
+        }
+
         AVAudioFile *soundFile = [[AVAudioFile alloc] initForReading:soundFileURL commonFormat:AVAudioPCMFormatFloat32 interleaved:NO error:&error];
         //NSAssert(soundFile != nil, @"Error creating soundFile, %@", error.localizedDescription);
         
@@ -255,23 +276,14 @@ void GachanAudio3DPlayer::Stop()
     
     
     
-void GachanAudio::Create(const char* bundleID)
+void GachanAudio::Create()
 {
-    if (bundleID) {
-        NSString* bundlepath = [NSString stringWithUTF8String:bundleID];
-        Bundle = [NSBundle bundleWithPath:bundlepath];
-    }
-    else {
-        Bundle = [NSBundle mainBundle];
-    }
-    
     [GachanAudioEngine sharedInstance];
 }
     
 void GachanAudio::Release()
 {
     [GachanAudioEngine releaseInstance];
-    Bundle = NULL;
 }
 
     

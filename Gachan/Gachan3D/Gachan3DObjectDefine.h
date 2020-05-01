@@ -54,12 +54,18 @@
 #define DX3DINDEX_END                           };
 
 
+#define DX3DTEXTURE_START(name)                    GachanTex name[] = {
+#define DX3DTEXTURE_NAME(texname)                    { (Char*) texname, (void*) 0 },
+#define DX3DTEXTURE_END                            };
 
+#define DX3DMATERIALTEX_START(name)                GachanMaterialTex name[] = {
+#define DX3DMATERIALTEX_NAME(texname)                { texname, -1, -1 },
+#define DX3DMATERIALTEX_END                        {0,}};
 
-#define DX3DMATERIAL_START(name)                Gachan3DMaterial name[] = {{ (char*) #name,
+#define DX3DMATERIAL_START(name)                GachanMaterial name[] = {{ (char*) #name,
 #define DX3DMATERIAL_DIFF(a, r, g, b)                { (Val)(r), (Val)(g), (Val)(b),  (Val)(a) },
 #define DX3DMATERIAL_SPEC(a, r, g, b)                { (Val)(r), (Val)(g), (Val)(b),  (Val)(a) },
-#define DX3DMATERIAL_TEX(name)
+#define DX3DMATERIAL_TEX(name)                       name,
 #define DX3DMATERIAL_SHADER(shader)                  Gachan3DShader::SHADER_##shader,
 #define DX3DMATERIAL_FLG(flg)                        flg,
 #define DX3DMATERIAL_CALLBACK(cb)
@@ -97,9 +103,14 @@
 #define DX3DOBJECT_MATRIXBIND(     m00,m01,m02,m03, m10,m11,m12,m13, m20,m21,m22,m23, m30,m31,m32,m33 )
 #define DX3DOBJECT_MATRIXBIND_ABS( m00,m01,m02,m03, m10,m11,m12,m13, m20,m21,m22,m23, m30,m31,m32,m33 )
 #define DX3DOBJECT_TRSBIND_ROTORDER(rotorder, t0, t1, t2, t3, t4, t5, t6, t7, t8 )
-#define DX3DOBJECT_MATRIXPOSE(     m00,m01,m02,m03, m10,m11,m12,m13, m20,m21,m22,m23, m30,m31,m32,m33 )
+#define DX3DOBJECT_MATRIXPOSE( m00,m01,m02,m03, m10,m11,m12,m13, m20,m21,m22,m23, m30,m31,m32,m33 )   \
+{    (Val)m00, (Val)m01, (Val)m02, (Val)m03,            \
+    (Val)m10, (Val)m11, (Val)m12, (Val)m13,            \
+    (Val)m20, (Val)m21, (Val)m22, (Val)m23,            \
+    (Val)m30, (Val)m31, (Val)m32, (Val)m33  },
 #define DX3DOBJECT_MATRIXPOSE_ABS( m00,m01,m02,m03, m10,m11,m12,m13, m20,m21,m22,m23, m30,m31,m32,m33 )
-#define DX3DOBJECT_TRSPOSE_ROTORDER(rotorder, t0, t1, t2, t3, t4, t5, t6, t7, t8 )
+#define DX3DOBJECT_TRSPOSE_ROTORDER(rotorder, t0, t1, t2, t3, t4, t5, t6, t7, t8 )     \
+{  (Val)(t0), (Val)(t1), (Val)(t2),(Val)(t3),(Val)(t4),(Val)(t5),(Val)(t6),(Val)(t7),(Val)(t8),(rotorder) },
 #define DX3DOBJECT_NORMAL
 #define DX3DOBJECT_JOINT(jointno)
 #define DX3DOBJECT_JOINTSETNO(jointset, jointno)

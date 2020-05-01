@@ -9,13 +9,15 @@
 #define __GACHAN3DOBJECT_H__
 
 #include "Gachan3DVertexTypes.h"
-
+#include "GachanMathTransform.h"
 
 class Gachan3DVertex
 {
 public:
     enum {
+        //ここを増やしたら、Stride[TYPES_NUM]にも追加せよ
         TYPE_VN,
+        TYPE_VNUV,
         TYPES_NUM,
     };
     static unsigned int Stride[TYPES_NUM];
@@ -30,13 +32,19 @@ public:
     };
     unsigned int        flag;
 
+    UInt GetStride()
+    {
+        return Stride[vertextype];
+    }
+    void Freeze();
     void Create();
     void Release();
 };
+typedef Gachan3DVertex Vertex;
 
 
 
-class Tex
+class GachanTex
 {
 public:
     Char*    name;
@@ -46,10 +54,10 @@ public:
     bool Release();
 };
 
-class Gachan3DMaterialTex
+class GachanMaterialTex
 {
 public:
-    Tex* tex;                //Null terminate
+    GachanTex* tex;                //Null terminate
     
     enum {
         WRAP_REPEAT             = -1, //convert to GL_REPEAT
@@ -65,12 +73,13 @@ public:
     }
 };
 
-class Gachan3DMaterial
+class GachanMaterial
 {
 public:
     char*           name;
     Vec4            diffuse;
     Vec4            specular;
+    GachanMaterialTex* texture;    //texture list
     int             shader;
     
     enum {
@@ -89,13 +98,14 @@ public:
             flag &= ~f;
         }
     }
-    
     void Create();
     void Release();
 };
+typedef GachanMaterial Material;
 
 
 typedef unsigned short Gachan3DIndexType;
+typedef unsigned short IndexType;
 class Gachan3DIndex
 {
 public:
@@ -103,6 +113,8 @@ public:
     static void* Create(Gachan3DIndexType* index, unsigned int indexnum);
     static void Release(void* iif);
 };
+typedef Gachan3DIndex Index;
+
 
 class Gachan3DModel
 {
@@ -111,16 +123,18 @@ public:
     Gachan3DIndexType* index;
     unsigned int       indexnum;
     void*              iif;
-    Gachan3DMaterial*  material;
+    GachanMaterial*    material;
 
     bool isTerminator()
     {
         return (vertex == NULL) && (index == NULL);
     }
+    void Freeze();
     void Create();
     void Release();
     void Draw();
 };
+typedef Gachan3DModel Model;
 
 class Gachan3DObject
 {
@@ -128,11 +142,17 @@ public:
     char*          name;
     Gachan3DModel* model;
     
-    
+    Mat44        matrixpose;
+    Trans        trspose;
+
     //hierarchy
     Gachan3DObject* sibling;
     Gachan3DObject* child;
     
+    void FreezeSub();
+    void Freeze();//頂点をグローバル値にする
+    
+    bool CalcMatrixPoseAbsSub();
     void CreateSub();
     void Create();
     void ReleaseSub();
@@ -140,5 +160,6 @@ public:
     void DrawSub();
     void Draw();
 };
+typedef Gachan3DObject Object;
 
 #endif

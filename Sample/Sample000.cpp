@@ -44,7 +44,9 @@ namespace Sample000
         GachanGameObject togechan;
         GachanGameObject starchan;
         GachanGameObject slimechan;
-        
+
+        GachanGameObject car;
+
         GachanGameObject armupper;
         GachanGameObject armlower;
         GachanGameObject armhand;
@@ -170,6 +172,12 @@ namespace Sample000
         gachan->missile   .SetPosition(4, 0.5, -2);
         gachan->missile   .SetColor(GachanGame::COLOR::WHITE);
 
+        gachan->car   .Clear();
+        gachan->car   .SetObject(GachanGameObject::OBJECT::CAR_KEI);
+        gachan->car   .SetPosition(5, 0.5, 2);
+        gachan->car   .SetScale(0.1, 0.1, 0.1);
+        gachan->car   .SetColor(GachanGame::COLOR::WHITE);
+
 
         gachan->armhand   .Clear();
         gachan->armhand   .SetObject(GachanGameObject::OBJECT::ARM_HAND_R);
@@ -201,6 +209,31 @@ namespace Sample000
     void Update()
     {
         {
+#if 1
+            //カメラをキーボードで動かしてみる Move the camera with the keyboard
+            Vec positionc = gachan->camera.GetPosition();
+            if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::UP))  {
+                positionc.z += 1;
+                gachan->camera.SetPosition(positionc);
+                GachanGame::Log("KEYUP\n");
+            }
+            if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::DOWN))  {
+                positionc.z -= 1;
+                gachan->camera.SetPosition(positionc);
+                GachanGame::Log("KEYDOWN\n");
+            }
+            if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::LEFT))  {
+                positionc.x -= 1;
+                gachan->camera.SetPosition(positionc);
+                GachanGame::Log("KEYLEFT\n");
+            }
+            if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::RIGHT))  {
+                positionc.x += 1;
+                gachan->camera.SetPosition(positionc);
+                GachanGame::Log("KEYRIGHT\n");
+            }
+#endif
+            
             //カーソルをキーボードで動かしてみる Move the cursor with the keyboard
             Vec position = gachan->cursor.GetPosition();
             if (gachan->keyboard.GetSystemKey(GachanGameKeyboard::KEY::UP))  {
@@ -272,6 +305,7 @@ namespace Sample000
         gachan->cursor   .Draw();
         gachan->balloon  .Draw();
         gachan->missile  .Draw();
+        gachan->car      .Draw();
 
         gachan->armhand  .Draw();
         gachan->armlower .Draw();

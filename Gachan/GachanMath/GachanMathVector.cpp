@@ -10,6 +10,7 @@
 
 const Vec2 Vec2ZERO = {(Val)0.0, (Val)0.0};
 const Vec3 Vec3ZERO = {(Val)0.0, (Val)0.0, (Val)0.0};
+const Vec3 Vec_Zero = {(Val)0.0, (Val)0.0, (Val)0.0};
 const Vec  VecZERO  = {(Val)0.0, (Val)0.0, (Val)0.0};
 const Vec4 Vec4ZERO = {(Val)0.0, (Val)0.0, (Val)0.0, (Val)0.0};
 

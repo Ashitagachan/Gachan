@@ -60,14 +60,14 @@ void GachanD3D12Sub::SetResourceDescBuffer(UINT64 size, D3D12_RESOURCE_DESC* pre
 	presourcedesc->Flags = D3D12_RESOURCE_FLAG_NONE;
 }
 
-void GachanD3D12Sub::SetResourceDescTex2D(DXGI_FORMAT format, UINT width, UINT height, D3D12_RESOURCE_DESC* presourcedesc)
+void GachanD3D12Sub::SetResourceDescTex2D(DXGI_FORMAT format, UINT width, UINT height, UINT miplevels, UINT depthorarraysize, D3D12_RESOURCE_DESC* presourcedesc)
 {
 	presourcedesc->Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
 	presourcedesc->Alignment = 0;
 	presourcedesc->Width = width;// CityMaterialTextureWidth;
 	presourcedesc->Height = height;// CityMaterialTextureHeight;
-	presourcedesc->DepthOrArraySize = 1;
-	presourcedesc->MipLevels = 1;
+	presourcedesc->DepthOrArraySize = depthorarraysize;
+	presourcedesc->MipLevels = miplevels;
 	presourcedesc->Format = format;// DXGI_FORMAT_R8G8B8A8_UNORM;
 	presourcedesc->SampleDesc.Count = 1;
 	presourcedesc->SampleDesc.Quality = 0;
@@ -237,7 +237,7 @@ void GachanD3D12Sub::SetResourceDescDepthStencil(UINT width, UINT height, D3D12_
 	}
 
 
-	D3D12_TEXTURE_ADDRESS_MODE wrap[Gachan3DMaterialTex::WRAP_NUM] = {
+	D3D12_TEXTURE_ADDRESS_MODE wrap[GachanMaterialTex::WRAP_NUM] = {
 		D3D12_TEXTURE_ADDRESS_MODE_WRAP,
 		D3D12_TEXTURE_ADDRESS_MODE_MIRROR,
 		D3D12_TEXTURE_ADDRESS_MODE_CLAMP
@@ -247,12 +247,12 @@ void GachanD3D12Sub::SetResourceDescDepthStencil(UINT width, UINT height, D3D12_
 	UINT GachanD3D12Sub::CreateSamplerView(ID3D12Device* device, ID3D12DescriptorHeap** samplerheap)
 	{
 		UINT SamplerDescriptorSize =
-			CreateDescriptorHeapSAMPLER(device, Gachan3DMaterialTex::WRAP_NUM * Gachan3DMaterialTex::WRAP_NUM, samplerheap);
+			CreateDescriptorHeapSAMPLER(device, GachanMaterialTex::WRAP_NUM * GachanMaterialTex::WRAP_NUM, samplerheap);
 
 		D3D12_CPU_DESCRIPTOR_HANDLE samplerHandle = (*samplerheap)->GetCPUDescriptorHandleForHeapStart();
 
-		for (int u = 0; u < Gachan3DMaterialTex::WRAP_NUM; u++) {
-			for (int v = 0; v < Gachan3DMaterialTex::WRAP_NUM; v++) {
+		for (int u = 0; u < GachanMaterialTex::WRAP_NUM; u++) {
+			for (int v = 0; v < GachanMaterialTex::WRAP_NUM; v++) {
 				D3D12_SAMPLER_DESC samplerDesc = {};
 				samplerDesc.Filter = D3D12_FILTER_MIN_MAG_MIP_LINEAR;
 				samplerDesc.AddressU = wrap[u];// D3D12_TEXTURE_ADDRESS_MODE_WRAP;
@@ -273,7 +273,7 @@ void GachanD3D12Sub::SetResourceDescDepthStencil(UINT width, UINT height, D3D12_
 	{
 		D3D12_CPU_DESCRIPTOR_HANDLE samplerHandle = samplerheap->GetCPUDescriptorHandleForHeapStart();
 
-		samplerHandle.ptr += (Gachan3DMaterialTex::WRAP_NUM * wrapu + wrapv) * descriptorsize;
+		samplerHandle.ptr += (GachanMaterialTex::WRAP_NUM * wrapu + wrapv) * descriptorsize;
 
 		return samplerHandle;
 	}
@@ -281,7 +281,7 @@ void GachanD3D12Sub::SetResourceDescDepthStencil(UINT width, UINT height, D3D12_
 	{
 		D3D12_GPU_DESCRIPTOR_HANDLE samplerHandle = samplerheap->GetGPUDescriptorHandleForHeapStart();
 
-		samplerHandle.ptr += (Gachan3DMaterialTex::WRAP_NUM * wrapu + wrapv) * descriptorsize;
+		samplerHandle.ptr += (GachanMaterialTex::WRAP_NUM * wrapu + wrapv) * descriptorsize;
 
 		return samplerHandle;
 	}
@@ -523,6 +523,17 @@ void GachanD3D12Sub::SetResourceDescDepthStencil(UINT width, UINT height, D3D12_
 				static D3D12_INPUT_ELEMENT_DESC elements[] = {
 					{ "POSITION",  0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 					{ "NORMAL",    0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+				};
+				*vertexdesc = elements;
+				numelement = _countof(elements);
+				break;
+			}
+			case Gachan3DVertex::TYPE_VNUV:
+			{
+				static D3D12_INPUT_ELEMENT_DESC elements[] = {
+					{ "POSITION",  0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+					{ "NORMAL",    0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+					{ "TEXCOORD",  0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 				};
 				*vertexdesc = elements;
 				numelement = _countof(elements);

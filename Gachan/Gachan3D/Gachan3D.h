@@ -26,5 +26,12 @@ public:
 #endif
 
 
+#include "Gachan3DMatrixStack.h"
+#include "Gachan3DColliStatic.h"
+#include "Gachan3DVertexTypes.h"
+#include "Gachan3DObject.h"
+#include "Gachan3DObjectDefine.h"
+#include "Gachan3DPass.h"
+
 
 #endif

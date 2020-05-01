@@ -103,6 +103,7 @@ struct VS_OUTPUT
 {
     float4 pos         : SV_POSITION;   // vertex position
     float4 col         : VTX_COLOR;     // vertex diffuse color (note that COLOR0 is clamped from 0..1)
+	float2 tex         : TEXCOORD0;
 	float4 shadowtex   : TEXCOORD3;
 };
 

@@ -32,6 +32,12 @@ typedef struct
 } UniformVertex;
 
 
+typedef struct
+{
+    float4 Spacer;
+} UniformPixel;
+
+
 #ifdef __METAL_VERSION__
 
 #define LPMatrix     uniforms.LPMatrix
@@ -86,6 +92,7 @@ struct VS_OUTPUT
 {
     float4 pos [[position]];
     float4 col;
+    float2 tex;
     float4 shadowtex;
 };
 

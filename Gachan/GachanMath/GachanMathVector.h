@@ -264,6 +264,7 @@ typedef GachanMathVector3 Vec3;  //ショートバージョン Short Version
 typedef GachanMathVector3 float3;//シェーダーバージョン Shader Version
 
 extern const Vec  VecZERO;
+extern const Vec  Vec_Zero;
 extern const Vec3 Vec3ZERO;
 
 inline void    Vec::Set(Val _x, Val _y, Val _z)
@@ -411,6 +412,8 @@ inline Vec& Vec::operator/=(Val s)
 //要素4のベクトル Vector of 4 elements
 class GachanMathVector4
 {
+    typedef GachanMathVector4 Vec4;  //ショートバージョン Short Version
+
 public:
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wgnu"
@@ -440,6 +443,28 @@ public:
         z = _z;
         w = _w;
     }
+
+    void SetRGB565(UInt16 rgb565)
+    {
+        int R = (rgb565 >> 11) & 0x1f;
+        int G = (rgb565 >> 5)  & 0x3f;
+        int B = (rgb565 >> 0)  & 0x1f;
+        r = (Val)R / 31.0f;
+        g = (Val)G / 63.0f;
+        b = (Val)B / 31.0f;
+        a = 1.0f;
+    }
+    static Vec4 GetLerp(Vec4 a, Vec4 b, Val t)
+    {
+        Vec4 ret;
+        ret.r = (a.r + t * (b.r - a.r));
+        ret.g = (a.g + t * (b.g - a.g));
+        ret.b = (a.b + t * (b.b - a.b));
+        ret.a = (a.a + t * (b.a - a.a));
+        return ret;
+    }
+
+    
 };
 
 typedef GachanMathVector4 Vec4;  //ショートバージョン Short Version

@@ -12,15 +12,16 @@
 
 static const char* filename3D[GachanGameAudio3D::BUFFER::NUM] =
 {
-    "Sound3DExplosion00.wav",
-    "Sound3DExplosion01.wav",
-    "Sound3DMove00.wav",
-    "Sound3DMove01.wav",
+    //Gachanルートからのパス
+    "Gachan/GachanGame/GachanGameAudioFiles/Sound3DExplosion00.wav",
+    "Gachan/GachanGame/GachanGameAudioFiles/Sound3DExplosion01.wav",
+    "Gachan/GachanGame/GachanGameAudioFiles/Sound3DMove00.wav",
+    "Gachan/GachanGame/GachanGameAudioFiles/Sound3DMove01.wav",
 };
 static const char* filename[GachanGameAudio::BUFFER::NUM] =
 {
-    "Music00.wav",
-    "Music01.wav",
+    "Gachan/GachanGame/GachanGameAudioFiles/Music00.wav",
+    "Gachan/GachanGame/GachanGameAudioFiles/Music01.wav",
 };
 static GachanAudio3DBuffer audio3Dbuffer[GachanGameAudio3D::BUFFER::NUM] = {0,};
 static int                 audio3DPlayerNumMax = GachanGameAudio3D::PlayerNum;

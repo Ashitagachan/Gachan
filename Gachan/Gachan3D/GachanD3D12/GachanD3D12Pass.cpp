@@ -8,6 +8,7 @@
 #include <d3d12.h>
 #include <dxgi1_4.h>
 
+#include "Gachan.h"
 #include "GachanMathVector.h"
 #include "Gachan3D.h"
 #include "Gachan3DShaderConst.h"
@@ -307,7 +308,9 @@ ID3D12Resource**                   GachanD3D12Shader_GetTextureResource(int idx)
 
     void GachanD3D12Pass::Start()
     {
-		Gachan3DPass::Start(Gachan3DPass::DRAW_WITH_SHADOWMAP);
+		int pass = (GachanInitialize::IsEnabled(GachanInitialize::FLG_SHADOWMAP)) ?
+			Gachan3DPass::DRAW_WITH_SHADOWMAP : Gachan3DPass::DRAW;
+		Gachan3DPass::Start(pass);
 
 
 		ThrowIfFailed(CommandAllocBefore->Reset());
@@ -319,11 +322,12 @@ ID3D12Resource**                   GachanD3D12Shader_GetTextureResource(int idx)
 		CommandListBefore->ResourceBarrier(1, &barrier);
 
 
-		ID3D12Resource** shadowmap = GachanD3D12Shader_GetTextureResource(ShadowMapIdx);
-		//SHADOWMAPのリソースバリア
-		GachanD3D12::SetResourceBarrierTransition(*shadowmap, D3D12_RESOURCE_STATE_DEPTH_WRITE, D3D12_RESOURCE_STATE_GENERIC_READ, &barrier);
-		CommandListBefore->ResourceBarrier(1, &barrier);
-
+		if (Gachan3DPass::GetPass() == Gachan3DPass::DRAW_WITH_SHADOWMAP) {
+			ID3D12Resource** shadowmap = GachanD3D12Shader_GetTextureResource(ShadowMapIdx);
+			//SHADOWMAPのリソースバリア
+			GachanD3D12::SetResourceBarrierTransition(*shadowmap, D3D12_RESOURCE_STATE_DEPTH_WRITE, D3D12_RESOURCE_STATE_GENERIC_READ, &barrier);
+			CommandListBefore->ResourceBarrier(1, &barrier);
+		}
 
 
 		ThrowIfFailed(CommandListBefore->Close());

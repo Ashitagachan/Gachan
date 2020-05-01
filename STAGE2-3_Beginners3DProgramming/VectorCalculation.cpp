@@ -282,7 +282,7 @@ namespace VectorCalculation
                     ta.Set( 2,  2, 0);
                     tb.Set(-2,  2, 0);
 
-                    bool inside = Prim::PointInTraiangle(gachan->a, ta, tb, gachan->n);
+                    bool inside = PointInTriangle(gachan->a, ta, tb, gachan->n);
                     
                     //描画
                     gachan->adraw.SetPosition(tb, ta);

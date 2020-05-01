@@ -169,6 +169,13 @@ float4 vs_shadow_vn(const VS_INPUT_VN input) : SV_POSITION
 	wpos = mul(wpos, VPMatrix);
 	return wpos;
 }
+float4 vs_shadow_vnuv(const VS_INPUT_VNUV input) : SV_POSITION
+{
+	float4 wpos = mul(inPos, WMatrix);
+	wpos = mul(wpos, VPMatrix);
+	return wpos;
+}
+
 
 //ピクセルシェーダps_shadowは存在しない。
 
@@ -193,6 +200,29 @@ VS_OUTPUT vs_default(const VS_INPUT_VN input)
 
     return Out;
 }
+
+
+
+
+VS_OUTPUT vs_texa(const VS_INPUT_VNUV input)
+{
+	float4 wpos = mul(inPos, WMatrix);
+	float3 wnorm = normalize(mul(inNormal, WMatrix));
+
+	VS_POSCOL PosCol;
+	PosCol = Sub_GetPosCol(wpos, wnorm);
+
+	VS_OUTPUT Out;
+	Out.pos = PosCol.pos;
+	Out.col = PosCol.col;
+	Out.tex = inTex;
+	Out.shadowtex = Sub_GetShadowMapTexcoord(wpos);
+
+	return Out;
+}
+
+
+
 
 VS_OUTPUT  vs_defaultNL(const VS_INPUT_VN input)
 {

@@ -9,12 +9,14 @@
 #define __GACHANMATH_H__
 
 #include <math.h>
-
+#include <float.h>
 
 
 typedef float                 GachanMathValue32;
 typedef GachanMathValue32     Val;//ショートバージョン Short Version
 typedef GachanMathValue32     Val32;
+#define                       ValMAX  (FLT_MAX)
+#define                       ValMIN  (FLT_MIN)
 
 typedef double                GachanMathValue64;
 typedef GachanMathValue64     Val64;//ショートバージョン Short Version
@@ -42,8 +44,8 @@ typedef void                  Void;
 #define GIGA                  (MEGA * KILO)
 
 //Val型のゼロ判定用の値  ZERO detection value for Val type
-#define ValZERO              ((Val)0.000002)
-
+#define                       ValZERO  ((Val)0.000002)
+#define                       Val_Zero ValZERO
 
 
 //パイ pi
@@ -59,6 +61,13 @@ typedef void                  Void;
 //ラジアンから度へ変換 Convert from RADIAN to DEGREE
 #define DEGREE(radian)       ((Val)(180.0 * ((Val)(radian))/PI))
 
+#ifndef MAX
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#endif
+
+
+
 inline Val CLAMP(Val n, Val min, Val max)
 {
     if (n > max) {
@@ -71,6 +80,10 @@ inline Val CLAMP(Val n, Val min, Val max)
 }
 
 inline Val LERP(Val a, Val b, Val k)
+{
+    return a + (b - a) * k;
+}
+inline Val Lerp(Val a, Val b, Val k)
 {
     return a + (b - a) * k;
 }

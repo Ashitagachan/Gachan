@@ -61,13 +61,16 @@ void Gachan3DShader::ChangeFlipFace()
 //===============================================
 //from object
 //===============================================
-void Gachan3DShader::SetMaterial(const Gachan3DMaterial* mat)
+void Gachan3DShader::SetMaterial(const GachanMaterial* mat)
 {
     SetDiffuse(mat->diffuse);
     SetSpecular(mat->specular);
-    SetDoubleSideFace(mat->flag & Gachan3DMaterial::FLG_DOUBLESIDE);
+    SetTexture( mat->texture);
+    SetDoubleSideFace(mat->flag & GachanMaterial::FLG_DOUBLESIDE);
     SetShader(mat->shader);
 }
+
+
 
 
 void Gachan3DShader::SetWorld(const Mat44& mat)
@@ -78,4 +81,25 @@ void Gachan3DShader::SetWorld(const Mat44& mat)
 }
 
 
+
+
+
+void Gachan3DShader::SetTexture(const GachanMaterialTex* tex)
+{
+    //if (ShaderPP::isPreProcess) {
+    //    return;
+    //}
+    
+    if (tex) {
+        Int texstage = 0;
+        while (tex->tex) {
+            if (tex->tex->tif) {
+                SetTexture(texstage, tex);
+            }
+            texstage++;
+            tex++;
+        }
+    }
+    
+}
 

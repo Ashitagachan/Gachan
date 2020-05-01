@@ -19,7 +19,7 @@
 //#define NAMESPACE     Sample000
 //#define NAMESPACE     Sample001
 //#define NAMESPACE     Sample002
-#define NAMESPACE     Sample003
+//#define NAMESPACE     Sample003
 //#define NAMESPACE     SampleAudio
 //#define NAMESPACE     SampleController
 //#define NAMESPACE     SampleText
@@ -28,6 +28,8 @@
 //STAGE 2-2 Beginners Game Programming
 //------------------------------------------------
 //#define NAMESPACE     MemoryAndTask
+//#define NAMESPACE     Collision
+#define NAMESPACE     Texture
 
 //------------------------------------------------
 //STAGE 2-3 Beginners 3D Programming

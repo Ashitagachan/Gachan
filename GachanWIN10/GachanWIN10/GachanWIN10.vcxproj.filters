@@ -62,6 +62,18 @@
     <Filter Include="STAGE2-2_BeginnersGameProgramming">
       <UniqueIdentifier>{422358ff-a32e-44ae-96f5-f5e538ac9f99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Gachan\Gachan3D\Gachan3DPrimitive">
+      <UniqueIdentifier>{f48026d8-dc62-45ca-b1c1-10d752d6f496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-2_BeginnersGameProgramming\Collision">
+      <UniqueIdentifier>{9e954f0d-675c-4d2b-a445-ee87f8e2da1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-2_BeginnersGameProgramming\Texture">
+      <UniqueIdentifier>{e12703eb-7293-4876-a503-6744391b97d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles">
+      <UniqueIdentifier>{b810be3a-335b-40d7-ac67-ee7ef7adcb91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GachanWIN10.h">
@@ -191,11 +203,29 @@
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShaderConst.h">
       <Filter>Gachan\Gachan3D</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathTransform.h">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DColliStatic.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\GachanPool.h">
+      <Filter>Gachan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DTex.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DTexDDS.h">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12TexDDS.h">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GachanWIN10.cpp">
-      <Filter>GachanWIN10</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>GachanWIN10</Filter>
     </ClCompile>
@@ -370,6 +400,39 @@
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DPass.cpp">
       <Filter>Gachan\Gachan3D</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathTransform.cpp">
+      <Filter>Gachan\GachanMath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DColliStatic.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanPool.cpp">
+      <Filter>Gachan</Filter>
+    </ClCompile>
+    <ClCompile Include="GachanWIN10_.cpp">
+      <Filter>GachanWIN10</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\GachanWIN10.cpp">
+      <Filter>Gachan</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.cpp">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\Texture.cpp">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTex.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTexDDS.cpp">
+      <Filter>Gachan\Gachan3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12TexDDS.cpp">
+      <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GachanWIN10.rc">
@@ -382,6 +445,21 @@
     </Image>
     <Image Include="GachanWIN10.ico">
       <Filter>GachanWIN10\リソース ファイル</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba_nomip.DDS">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt1.DDS">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt3.DDS">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt5.DDS">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba.DDS">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -462,6 +540,21 @@
     </None>
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectArm.tst">
       <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectCar.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive\sphere.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DPrimitive</Filter>
+    </None>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive\line.tst">
+      <Filter>Gachan\Gachan3D\Gachan3DPrimitive</Filter>
+    </None>
+    <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.tst">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Collision</Filter>
+    </None>
+    <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\Texture.tst">
+      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

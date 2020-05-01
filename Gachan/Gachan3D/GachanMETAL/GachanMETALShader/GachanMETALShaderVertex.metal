@@ -167,6 +167,13 @@ vertex float4 vs_shadow_vn(VS_INPUT_VN in[[stage_in]], constant UniformVertex & 
     wpos = mul(wpos, VPMatrix);
     return wpos;
 }
+vertex float4 vs_shadow_vnuv(VS_INPUT_VNUV in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
+{
+    float4 wpos  = mul(inPos, WMatrix);
+    wpos = mul(wpos, VPMatrix);
+    return wpos;
+}
+
 
 //ピクセルシェーダps_shadowは存在しない。
 
@@ -194,6 +201,27 @@ vertex VS_OUTPUT vs_default(VS_INPUT_VN in[[stage_in]], constant UniformVertex &
     return Out;
 }
 
+
+vertex VS_OUTPUT vs_texa(VS_INPUT_VNUV in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
+{
+    float4 wpos  = mul(inPos, WMatrix);
+    float3 wnorm = normalize(mul(inNormal, WMatrix));
+    
+    VS_POSCOL PosCol;
+    PosCol = Sub_GetPosCol(wpos, wnorm, uniforms);
+    
+    VS_OUTPUT Out;
+    Out.pos = PosCol.pos;
+    Out.col = PosCol.col;
+    Out.tex = inTex;
+    Out.shadowtex = Sub_GetShadowMapTexcoord(wpos, uniforms);
+
+    return Out;
+}
+
+
+
+
 vertex VS_OUTPUT  vs_defaultNL(VS_INPUT_VN in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
 {
     float4 wpos  = mul(inPos, WMatrix);
@@ -209,3 +237,5 @@ vertex VS_OUTPUT  vs_defaultNL(VS_INPUT_VN in[[stage_in]], constant UniformVerte
 
     return Out;
 }
+
+

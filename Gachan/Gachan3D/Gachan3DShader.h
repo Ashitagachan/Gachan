@@ -19,6 +19,7 @@ class Gachan3DShader
 public:
     enum {
         SHADER_DEFAULT,
+        SHADER_TEXA,
         SHADER_DEFAULTNL,
         SHADER_NUM,
         
@@ -64,7 +65,9 @@ public:
     static void SetDiffuse(const Vec4& col);
     static void SetSpecular(const Vec4& col);
     static void SetShader(int shader);
-    static void SetMaterial(const Gachan3DMaterial* mat);
+    static void SetMaterial(const GachanMaterial* mat);
+    static void SetTexture(const GachanMaterialTex* tex);
+    static void SetTexture(int stage, const GachanMaterialTex* tex);
 
     static void SetZTest(bool b);
     static void SetAlpha(bool b);

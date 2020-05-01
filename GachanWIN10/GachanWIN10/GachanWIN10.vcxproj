@@ -167,12 +167,16 @@
     <ClInclude Include="..\..\Gachan\Gachan.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3D.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DCamera.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DColliStatic.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObject.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DObjectDefine.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DPass.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShader.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DShaderConst.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DTex.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DTexDDS.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DText.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\Gachan3DVertexTypes.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12.h" />
@@ -183,6 +187,7 @@
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_default.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12Shader_vs_shadow_vn.h" />
     <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.h" />
+    <ClInclude Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12TexDDS.h" />
     <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudio.h" />
     <ClInclude Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.h" />
     <ClInclude Include="..\..\Gachan\GachanController\GachanController.h" />
@@ -200,7 +205,9 @@
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMath.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathMatrix.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathPrimitive.h" />
+    <ClInclude Include="..\..\Gachan\GachanMath\GachanMathTransform.h" />
     <ClInclude Include="..\..\Gachan\GachanMath\GachanMathVector.h" />
+    <ClInclude Include="..\..\Gachan\GachanPool.h" />
     <ClInclude Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.h" />
     <ClInclude Include="GachanWIN10.h" />
     <ClInclude Include="Resource.h" />
@@ -211,10 +218,14 @@
     <ClCompile Include="..\..\Gachan\Gachan.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3D.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DCamera.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DColliStatic.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DMatrixStack.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DObject.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DPass.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DShader.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTex.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTexDDS.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DText.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextData.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTextDataKanji1st.cpp" />
@@ -225,6 +236,7 @@
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Sub.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Tex.cpp" />
+    <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12TexDDS.cpp" />
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12VertexIndex.cpp" />
     <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10.cpp" />
     <ClCompile Include="..\..\Gachan\GachanAudio\GachanAudioWIN10Engine.cpp" />
@@ -246,8 +258,11 @@
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMath.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathMatrix.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathPrimitive.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanMath\GachanMathTransform.cpp" />
     <ClCompile Include="..\..\Gachan\GachanMath\GachanMathVector.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanPool.cpp" />
     <ClCompile Include="..\..\Gachan\GachanRobotics\GachanRoboticsInverseKinematics.cpp" />
+    <ClCompile Include="..\..\Gachan\GachanWIN10.cpp" />
     <ClCompile Include="..\..\Sample\Sample000.cpp" />
     <ClCompile Include="..\..\Sample\Sample001.cpp" />
     <ClCompile Include="..\..\Sample\Sample002.cpp" />
@@ -255,7 +270,9 @@
     <ClCompile Include="..\..\Sample\SampleAudio.cpp" />
     <ClCompile Include="..\..\Sample\SampleController.cpp" />
     <ClCompile Include="..\..\Sample\SampleText.cpp" />
+    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.cpp" />
     <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\MemoryAndTask.cpp" />
+    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\Texture.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform2D.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform3D.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\VectorCalculation.cpp" />
@@ -265,7 +282,7 @@
     <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_2D2DOF.cpp" />
     <ClCompile Include="..\..\STAGE3-6_Robotics\InverseKinematics_RA1_3D3DOF.cpp" />
     <ClCompile Include="..\..\User\MyGame.cpp" />
-    <ClCompile Include="GachanWIN10.cpp" />
+    <ClCompile Include="GachanWIN10_.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -277,10 +294,17 @@
     <ResourceCompile Include="GachanWIN10.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt1.DDS" />
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt3.DDS" />
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt5.DDS" />
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba.DDS" />
+    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba_nomip.DDS" />
     <Image Include="GachanWIN10.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive\line.tst" />
+    <None Include="..\..\Gachan\Gachan3D\Gachan3DPrimitive\sphere.tst" />
     <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextASCIIMplus1m.tst" />
     <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextEISUUMplus1p.tst" />
     <None Include="..\..\Gachan\Gachan3D\Gachan3DTextData\TextHankakuKanaMplus1p.tst" />
@@ -308,9 +332,12 @@
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectArm.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBasic00.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBlock00.tst" />
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectCar.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectFace00.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectGrid.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectShape00.tst" />
+    <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.tst" />
+    <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\Texture.tst" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\LICENSE.txt" />

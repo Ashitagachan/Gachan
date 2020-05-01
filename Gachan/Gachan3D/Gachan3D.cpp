@@ -10,16 +10,19 @@
 #include "Gachan3DShader.h"
 #include "Gachan3DMatrixStack.h"
 #include "Gachan3DText.h"
+#include "Gachan3DPrimitive.h"
 
 void Gachan3D::Create()
 {
     Gachan3DShader::Create();
     Gachan3DMatrixStack::Create();
     Gachan3DText::Create();
+    Gachan3DPrimitive::Create();
 }
 
 void Gachan3D::Release()
 {
+    Gachan3DPrimitive::Release();
     Gachan3DText::Release();
     Gachan3DShader::Release();    
 }

@@ -8,10 +8,12 @@
 
 #include <d3d12.h>
 
+#include "Gachan.h"
+#include "Gachan3DTex.h"
 #include "GachanD3D12.h"
 #include "GachanD3D12Base.h"
 #include "GachanD3D12Pass.h"
-
+#include "GachanD3D12TexDDS.h"
 
 
 
@@ -134,4 +136,48 @@ int CreateTextureColored(int width, int height, unsigned int abgr)
 		}
 	}
 	return createtexturesub(width, height, bits);
+}
+
+
+
+bool GetSystemPath(char* path, int len, const char* fullpath);
+
+
+//from d3d9tex.cpp
+bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
+{
+	if (!fname) {
+		return false;
+	}
+
+	char path[1024];
+
+	GetSystemPath(path, 1024, fname);
+
+	SysLog("Texture:%s\n", path);
+
+	int texidx = 0;
+	char* dds = strstr(path, ".dds");
+	if (dds == NULL) {
+		dds = strstr(path, ".DDS");
+	}
+	if (dds) {
+		texidx = createtextureDDS(path);
+		*ptif = (void*)texidx;
+		if (*ptif) {
+			return true;
+		}
+	}
+
+	SysLog("Texture:READ ERROR\n");
+
+	return false;
+}
+
+bool Gachan3DTexture::Release(void* ptif)
+{
+	int texidx = (int)ptif;
+	GachanD3D12Shader_ReleaseTexture(texidx);
+	//NULLクリアは呼び出し元で行っている。
+	return true;
 }

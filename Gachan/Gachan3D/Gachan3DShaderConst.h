@@ -1,5 +1,5 @@
 //
-// GachanTemplate.cpp  source file/ソースファイル
+// Gachan3DShaderConst.cpp  source file/ソースファイル
 // UTF-8 CRLF format/形式
 //
 // Copyright (c) 2020 Ashitagachan

@@ -11,6 +11,7 @@
 
 
 #include "GachanMath.h"
+#include "Gachan3D.h"
 #include "GachanGame.h"
 
 
@@ -22,6 +23,17 @@
 #ifndef DEBUGSTOP
 #define DEBUGSTOP  do{}while(1)
 #endif
+
+
+
+//MAC IOS において、
+//フルパス、もしくはGachanのルートパスからFilesパスにする
+//Filesがなければファイル名だけ返す
+//Filesフォルダも、バンドルべた置も対応
+const char* GetFilesPath(const char* fullpath);
+
+
+void SysLog(const char* format, ...);
 
 
 class GachanInitialize

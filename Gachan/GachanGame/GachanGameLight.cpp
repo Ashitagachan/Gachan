@@ -69,7 +69,12 @@ Vec GachanGameLightDirection::GetColor()
 
 void GachanGameLightDirection::SetLight()
 {
-    Gachan3DShader::SetLightDirection(direction, color);
+    Vec3 d;
+    d.x = -direction.x;//GachanGameでは、光源→方向のベクトル Gachan3Dと逆になっている。。のでここで吸収しておく。
+    d.y = -direction.y;
+    d.z = -direction.z;
+
+    Gachan3DShader::SetLightDirection(d, color);
 }
 
 

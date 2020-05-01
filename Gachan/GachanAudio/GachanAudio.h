@@ -87,7 +87,7 @@ public:
 class GachanAudio
 {
 public:
-    static void Create(const char* bundleID = NULL);
+    static void Create();
     static void Release();
     
     static void SetListener(Vec pos, Vec front, Vec up);

@@ -196,7 +196,7 @@ static void CreateIndex(Gachan3DObject* root, char* code)
     obj = root->child;
     while (obj) {
         
-        obj->model->material->flag |= Gachan3DMaterial::FLG_DOUBLESIDE;
+        obj->model->material->flag |= GachanMaterial::FLG_DOUBLESIDE;
         obj->model->material->shader = Gachan3DShader::SHADER_DEFAULTNL;
         obj->model->material->diffuse.Set(1.0f, 1.0f, 1.0f, 1.0f);
         

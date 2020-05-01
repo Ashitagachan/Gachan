@@ -20,16 +20,18 @@ static NSBundle* MetalShaderBundle   = NULL;
 
 Gachan3DShader::Table Gachan3DShader::ShaderList[Gachan3DShader::SHADER_NUM] = {
     { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_default",   (const unsigned int*) "ps_default"      },
+    { Gachan3DVertex::TYPE_VNUV, (const unsigned int*) "vs_texa",      (const unsigned int*) "ps_texa"         },
     { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_defaultNL", (const unsigned int*) "ps_defaultNL"    },
 };
 
 Gachan3DShader::Table Gachan3DShader::ShaderListShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM] = {
     //for shadow map creation
-    { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_shadow_vn",  (const unsigned int*) NULL },
+    { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_shadow_vn",    (const unsigned int*) NULL },
+    { Gachan3DVertex::TYPE_VNUV, (const unsigned int*) "vs_shadow_vnuv",  (const unsigned int*) NULL },
 };
 
 
-id <MTLSamplerState>      SamplerStateWRAP[Gachan3DMaterialTex::WRAP_NUM][Gachan3DMaterialTex::WRAP_NUM];//wrapu x wrapv
+id <MTLSamplerState>      SamplerStateWRAP[GachanMaterialTex::WRAP_NUM][GachanMaterialTex::WRAP_NUM];//wrapu x wrapv
 id <MTLSamplerState>      SamplerState[DX3DTEX_NUM];
 id <MTLTexture>           Texture     [DX3DTEX_NUM];
 
@@ -103,7 +105,7 @@ static void VertexDescVertType(Int verttype, MTLVertexDescriptor* vertexdesc)
          vertexdesc.attributes[index].bufferIndex = 0;
          offset += 12;
          index++;
-#if 0
+
         switch (verttype) {
           case Gachan3DVertex::TYPE_VNUV:
               vertexdesc.attributes[index].format      = MTLVertexFormatFloat2;//UV
@@ -112,7 +114,7 @@ static void VertexDescVertType(Int verttype, MTLVertexDescriptor* vertexdesc)
               offset += 8;
               break;
         }
-#endif
+
         vertexdesc.layouts[0].stride = offset;
         vertexdesc.layouts[0].stepRate = 1;
         vertexdesc.layouts[0].stepFunction = MTLVertexStepFunctionPerVertex;
@@ -262,9 +264,9 @@ bool Gachan3DShader::Create()
             samplerDesc.minFilter = MTLSamplerMinMagFilterLinear;
             samplerDesc.mipFilter = MTLSamplerMipFilterLinear;
             
-            for (int wrapu = 0; wrapu < Gachan3DMaterialTex::WRAP_NUM; wrapu++) {
-                for (int wrapv = 0; wrapv < Gachan3DMaterialTex::WRAP_NUM; wrapv++) {
-                    MTLSamplerAddressMode wrap[Gachan3DMaterialTex::WRAP_NUM] = {
+            for (int wrapu = 0; wrapu < GachanMaterialTex::WRAP_NUM; wrapu++) {
+                for (int wrapv = 0; wrapv < GachanMaterialTex::WRAP_NUM; wrapv++) {
+                    MTLSamplerAddressMode wrap[GachanMaterialTex::WRAP_NUM] = {
                         MTLSamplerAddressModeRepeat,//GL_REPEAT,
                         MTLSamplerAddressModeMirrorRepeat,//GL_MIRRORED_REPEAT,
                         MTLSamplerAddressModeClampToEdge,//GL_CLAMP_TO_EDGE,
@@ -280,7 +282,7 @@ bool Gachan3DShader::Create()
             }
 
             //DRAW_WITH_SHADOWMAP SAMPLER
-            int clamp_to_edge = Gachan3DMaterialTex::wrapToIndex(Gachan3DMaterialTex::WRAP_CLAMP_TO_EDGE);
+            int clamp_to_edge = GachanMaterialTex::wrapToIndex(GachanMaterialTex::WRAP_CLAMP_TO_EDGE);
             SamplerState[DX3DTEX7_DYNAMICSHADOW] = SamplerStateWRAP[clamp_to_edge][clamp_to_edge];
 
     
@@ -364,9 +366,9 @@ void Gachan3DShader::SetLightAmbient(const Vec& col)
 void Gachan3DShader::SetLightDirection(const Vec& dir, const Vec& col)
 {
     Vec4 dirvec;
-    dirvec.x = -dir.x;//光からのベクトルの向きを光への向きのベクトル（逆向き）にする
-    dirvec.y = -dir.y;
-    dirvec.z = -dir.z;
+    dirvec.x = dir.x;
+    dirvec.y = dir.y;
+    dirvec.z = dir.z;
     dirvec.w = 1.0f;
     
     Vec4 colvec;
@@ -414,6 +416,22 @@ void Gachan3DShader::SetEye(const Vec& eye)
 void Gachan3DShader::SetAlpha(bool b)
 {
     AlphaBlend = (b)? 1 : 0;
+}
+
+void Gachan3DShader::SetTexture(int stage, const GachanMaterialTex* tex)
+{
+    if (tex) {
+        if (tex->tex) {//this must be 1 tex
+            if (tex->tex->tif) {
+                Texture[stage] = (__bridge id<MTLTexture>) tex->tex->tif;//(__bridge_transferを使うと解放されてしまう)
+                
+                int wrapu = GachanMaterialTex::wrapToIndex(tex->wrapu);
+                int wrapv = GachanMaterialTex::wrapToIndex(tex->wrapv);
+
+                SamplerState[stage] = SamplerStateWRAP[wrapu][wrapv];
+            }
+        }
+    }
 }
 
 void Gachan3DShader::SetDiffuse(const Vec4& col)

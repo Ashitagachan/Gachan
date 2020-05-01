@@ -39,6 +39,9 @@ namespace arm {
 namespace system00 {
 #include "GachanGameObject/GachanGameObjectSystem00.tst"
 }
+namespace car {
+#include "GachanGameObject/GachanGameObjectCar.tst"
+}
 
 
 static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
@@ -71,6 +74,8 @@ static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
     shape00 ::object_Cursor__,
     shape00 ::object_Balloon__,
     shape00 ::object_Missile__,
+    
+    car::object_KEIA__,
 
     block00 ::object_BrickA__,
     
@@ -83,7 +88,7 @@ static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
     system00::object_LineArrowCap__,
 
 };
-static Gachan3DMaterial* materialtable[GachanGameObject::OBJECT::NUM] = {
+static GachanMaterial* materialtable[GachanGameObject::OBJECT::NUM] = {
     NULL,//NONE
     NULL,
     NULL,
@@ -113,6 +118,8 @@ static Gachan3DMaterial* materialtable[GachanGameObject::OBJECT::NUM] = {
     shape00::material_mCursor,
     shape00::material_mBalloon,
     shape00::material_mMissile,
+    
+    car::material_carbodycolor,
 
     block00::material_mBrick,//A
 
@@ -132,17 +139,17 @@ void GachanGameObjectCreate()
         }
     }
     
-    system00 ::material_MateLine->flag |= Gachan3DMaterial::FLG_DOUBLESIDE;
+    system00 ::material_MateLine->flag |= GachanMaterial::FLG_DOUBLESIDE;
 
     
-    Gachan3DMaterial* gridmate;
+    GachanMaterial* gridmate;
     gridmate = materialtable[GachanGameObject::OBJECT::GRID10x10];
     if (gridmate) {
-        gridmate->flag |= Gachan3DMaterial::FLG_DOUBLESIDE;
+        gridmate->flag |= GachanMaterial::FLG_DOUBLESIDE;
     }
     gridmate = materialtable[GachanGameObject::OBJECT::GRID20x20];
     if (gridmate) {
-        gridmate->flag |= Gachan3DMaterial::FLG_DOUBLESIDE;
+        gridmate->flag |= GachanMaterial::FLG_DOUBLESIDE;
     }
 }
 void GachanGameObjectRelease()
@@ -160,7 +167,10 @@ void GachanGameObjectRelease()
 void GachanGameObject::Clear()
 {
     flag = 0;
-    
+
+    object = OBJECT::NONE;
+    dxobject = NULL;
+
     position .Clear();
     position2.Clear();
     rotation .Clear();
@@ -187,6 +197,10 @@ void GachanGameObject::SetObject(OBJECT obj)
     object = obj;
 }
 
+void GachanGameObject::SetObject(Gachan3DObject* obj)
+{
+    dxobject = obj;
+}
 
 void GachanGameObject::SetPosition(Vec pos, Vec pos2)
 {
@@ -341,7 +355,7 @@ void GachanGameObject::SetVectorParameter(Val diameter, bool capa, bool capb)
 
 void GachanGameObject::DrawSub(const char* utf8char)
 {
-    Gachan3DMaterial* mate = materialtable[object];
+    GachanMaterial* mate = materialtable[object];
     if (mate) {
         mate->diffuse.r = color.r;
         mate->diffuse.g = color.g;
@@ -449,9 +463,14 @@ void GachanGameObject::DrawSub(const char* utf8char)
         
     }
     else if (object != OBJECT::TEXT) {
-        Gachan3DObject* obj = objecttable[object];
-        if (obj) {
-            obj->Draw();
+        if (dxobject) {
+            dxobject->Draw();
+        }
+        else {
+            Gachan3DObject* obj = objecttable[object];
+            if (obj) {
+                obj->Draw();
+            }
         }
     }
     MatStack::Pop();

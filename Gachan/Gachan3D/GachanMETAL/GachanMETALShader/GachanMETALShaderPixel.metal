@@ -51,6 +51,33 @@ fragment PS_OUTPUT ps_default(VS_OUTPUT in [[stage_in]],
     return Out;
 }
 
+
+
+
+fragment PS_OUTPUT  ps_texa(VS_OUTPUT in [[stage_in]],
+                            constant UniformPixel & uniforms [[buffer(0)]],
+                            Texture(Tex0, DX3DTEX0_OBJECT),//ColorMap
+                            TextureDepth(TexShadowMap, DX3DTEX7_DYNAMICSHADOW)
+                            )
+{
+    PS_OUTPUT Out;
+    
+    Out.col = tex2D(Tex0, in.tex) * in.col;
+    if (Out.col.a < 0.01) {
+        discard;
+    }
+    
+    if (Sub_IsInsideShadow(in.shadowtex, TexShadowMap)) {
+        Out.col.rgb -= SHADOW_COLOR;
+    }
+    return Out;
+}
+
+
+
+
+
+
 fragment PS_OUTPUT ps_defaultNL(VS_OUTPUT in [[stage_in]],
                                 TextureDepth(TexShadowMap, DX3DTEX7_DYNAMICSHADOW)
                                 )

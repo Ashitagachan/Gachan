@@ -23,11 +23,13 @@
 
 #include "GachanD3D12Shader_vs_default.h"
 #include "GachanD3D12Shader_ps_default.h"
+#include "GachanD3D12Shader_vs_texa.h"
+#include "GachanD3D12Shader_ps_texa.h"
 #include "GachanD3D12Shader_vs_defaultNL.h"
 #include "GachanD3D12Shader_ps_defaultNL.h"
 
 #include "GachanD3D12Shader_vs_shadow_vn.h"
-
+#include "GachanD3D12Shader_vs_shadow_vnuv.h"
 
 
 #define ptsz(name)   name, sizeof(name)
@@ -36,12 +38,14 @@
 	//DirectX12ではこっちを使う。
 	Gachan3DShader::Table Gachan3DShader::ShaderList[Gachan3DShader::SHADER_NUM] = {
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_default),      (const unsigned int*)ptsz(ps_default)	},
+		{ Gachan3DVertex::TYPE_VNUV,	(const unsigned int*)ptsz(vs_texa),         (const unsigned int*)ptsz(ps_texa)	},
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_defaultNL),    (const unsigned int*)ptsz(ps_defaultNL)	},
 	};
 
 	Gachan3DShader::Table Gachan3DShader::ShaderListShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM] = {
 		//for shadow map creation
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_shadow_vn),	(const unsigned int*)ptszNULL	},
+		{ Gachan3DVertex::TYPE_VNUV,	(const unsigned int*)ptsz(vs_shadow_vnuv),	(const unsigned int*)ptszNULL	},
 	};
 	
 
@@ -457,7 +461,7 @@
 			SamplerState[i] = GachanD3D12Shader_GetSamplerGPUHandle(0, 0);
 		}
 		//DRAW_WITH_SHADOWMAP SAMPLER
-		int clamp_to_edge = Gachan3DMaterialTex::wrapToIndex(Gachan3DMaterialTex::WRAP_CLAMP_TO_EDGE);
+		int clamp_to_edge = GachanMaterialTex::wrapToIndex(GachanMaterialTex::WRAP_CLAMP_TO_EDGE);
 		SamplerState[DX3DTEX7_DYNAMICSHADOW] = GachanD3D12Shader_GetSamplerGPUHandle(clamp_to_edge, clamp_to_edge);
 
 
@@ -597,9 +601,9 @@
 	void Gachan3DShader::SetLightDirection(const Vec& dir, const Vec& col)
 	{
 		Vec4 dirvec;
-		dirvec.x = -dir.x;//光からのベクトルの向きを光への向きのベクトル（逆向き）にする
-		dirvec.y = -dir.y;
-		dirvec.z = -dir.z;
+		dirvec.x = dir.x;
+		dirvec.y = dir.y;
+		dirvec.z = dir.z;
 		dirvec.w = 1.0f;
 
 		Vec4 colvec;
@@ -641,6 +645,30 @@
     {
 		AlphaBlending = (b)? 1 : 0;
     }
+
+	void Gachan3DShader::SetTexture(int stage, const GachanMaterialTex* tex)
+	{
+		//if (ShaderPP::isPreProcess) {
+		//	return;
+		//}
+
+		if (tex) {
+			if (tex->tex) {//this must be 1 tex
+				if (tex->tex->tif) {
+					//Texture[stage] = (__bridge id<MTLTexture>) tex->tex->tif;//(__bridge_transferを使うと解放されてしまう)
+					Texture[stage] = GachanD3D12Shader_GetTextureGPUHandle((int)(tex->tex->tif));//(__bridge_transferを使うと解放されてしまう)
+
+					int wrapu = GachanMaterialTex::wrapToIndex(tex->wrapu);
+					int wrapv = GachanMaterialTex::wrapToIndex(tex->wrapv);
+
+					//SamplerState[stage] = SamplerStateWRAP[wrapu][wrapv];
+					SamplerState[stage] = GachanD3D12Shader_GetSamplerGPUHandle(wrapu, wrapv);
+				}
+			}
+		}
+	}
+
+
     
 	void Gachan3DShader::SetDiffuse(const Vec4& col)
 	{

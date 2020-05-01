@@ -15,6 +15,7 @@
 #include <xaudio2fx.h>
 #include <x3daudio.h>
 
+#include "Gachan.h"
 
 
 
@@ -300,13 +301,18 @@ HRESULT LoadWAVAudioFromFile(
 	HRESULT hr = LoadAudioFromFile(szFileName, wavData, &bytesRead);
 	if (FAILED(hr))
 	{
+		SysLog("WAV:READ ERROR\n");
+		DEBUGSTOP;
 		return hr;
 	}
 
 	bool dpds, seek;
 	hr = WaveFindFormatAndData(wavData.get(), bytesRead, wfx, startAudio, audioBytes, dpds, seek);
-	if (FAILED(hr))
+	if (FAILED(hr)) {
+		SysLog("WAV:READ ERROR\n");
+		DEBUGSTOP;
 		return hr;
+	}
 
 	return (dpds || seek) ? E_FAIL : S_OK;
 }
@@ -330,7 +336,7 @@ HRESULT LoadWAVAudioFromFile(
 	const float DX3DToX3DAudio = 0.1f;
 
 
-	const char* AudioPath = NULL;
+	//const char* AudioPath = NULL;
 
 
 	class GachanAudioBufferData
@@ -342,10 +348,18 @@ HRESULT LoadWAVAudioFromFile(
 	};
 
 
+	bool GetSystemPath(char* path, int len, const char* fullpath);
+
 	static void* LoadWAV(const char* filename, bool use3D)
 	{
-		const static int pathlen = 512;
-		char path[pathlen];
+		char path[1024];
+
+#if 1
+		GetSystemPath(path, 1024, filename);
+
+		SysLog("WAV:%s\n", path);
+
+#else
 
 		if (AudioPath) {
 			strcpy_s(path, AudioPath);
@@ -360,7 +374,6 @@ HRESULT LoadWAVAudioFromFile(
 			if (ptr) {
 				*ptr = 0;
 				strcpy_s(path, pathnow);
-				strcat_s(path, "Gachan\\GachanGame\\GachanGameAudio\\");
 				strcat_s(path, filename);
 			}
 			else {
@@ -371,7 +384,7 @@ HRESULT LoadWAVAudioFromFile(
 		if (strlen(path) >= pathlen) {
 			while (1) {}
 		}
-
+#endif
 
 		GachanAudioBufferData* data = new GachanAudioBufferData;
 
@@ -718,10 +731,8 @@ HRESULT LoadWAVAudioFromFile(
 
 
 
-	void GachanAudio::Create(const char* bundleID)
+	void GachanAudio::Create()
 	{
-		AudioPath = bundleID;
-
 		GachanAudioEngine* engine = GachanAudioEngine::GetEngine();
 
 		engine->Create();

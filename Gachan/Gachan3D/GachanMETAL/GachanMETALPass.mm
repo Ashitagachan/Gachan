@@ -160,7 +160,9 @@ void GachanMetalPass::EndShadowMap()
 
     void GachanMetalPass::Start()
     {
-        Gachan3DPass::Start(Gachan3DPass::DRAW_WITH_SHADOWMAP);
+        int pass = (GachanInitialize::IsEnabled(GachanInitialize::FLG_SHADOWMAP))?
+            Gachan3DPass::DRAW_WITH_SHADOWMAP : Gachan3DPass::DRAW;
+        Gachan3DPass::Start(pass);
 
         CAMetalLayer* metalLayer = [[GachanMetalBase sharedInstance] getLayer];
         Drawable = [metalLayer nextDrawable];
