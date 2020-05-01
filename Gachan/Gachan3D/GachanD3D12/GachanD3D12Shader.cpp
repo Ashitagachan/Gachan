@@ -655,8 +655,12 @@
 		if (tex) {
 			if (tex->tex) {//this must be 1 tex
 				if (tex->tex->tif) {
+#pragma warning(push)
+#pragma warning(disable: 4311)
+#pragma warning(disable: 4302)
 					//Texture[stage] = (__bridge id<MTLTexture>) tex->tex->tif;//(__bridge_transferを使うと解放されてしまう)
 					Texture[stage] = GachanD3D12Shader_GetTextureGPUHandle((int)(tex->tex->tif));//(__bridge_transferを使うと解放されてしまう)
+#pragma warning(pop)
 
 					int wrapu = GachanMaterialTex::wrapToIndex(tex->wrapu);
 					int wrapv = GachanMaterialTex::wrapToIndex(tex->wrapv);

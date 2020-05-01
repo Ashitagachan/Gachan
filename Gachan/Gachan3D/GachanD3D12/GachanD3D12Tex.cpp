@@ -163,7 +163,10 @@ bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
 	}
 	if (dds) {
 		texidx = createtextureDDS(path);
+#pragma warning(push)
+#pragma warning(disable: 4312)
 		*ptif = (void*)texidx;
+#pragma warning(pop)
 		if (*ptif) {
 			return true;
 		}
@@ -176,7 +179,11 @@ bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
 
 bool Gachan3DTexture::Release(void* ptif)
 {
+#pragma warning(push)
+#pragma warning(disable: 4311)
+#pragma warning(disable: 4302)
 	int texidx = (int)ptif;
+#pragma warning(pop)
 	GachanD3D12Shader_ReleaseTexture(texidx);
 	//NULLクリアは呼び出し元で行っている。
 	return true;
