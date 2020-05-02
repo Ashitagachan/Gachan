@@ -29,13 +29,13 @@
 //------------------------------------------------
 //#define NAMESPACE     MemoryAndTask
 //#define NAMESPACE     Collision
-#define NAMESPACE     Texture
+//#define NAMESPACE     Texture
 
 //------------------------------------------------
 //STAGE 2-3 Beginners 3D Programming
 //------------------------------------------------
 //#define NAMESPACE     VectorDraw
-//#define NAMESPACE     VectorCalculation
+#define NAMESPACE     VectorCalculation
 //#define NAMESPACE     Transform2D
 //#define NAMESPACE     Transform3D
 

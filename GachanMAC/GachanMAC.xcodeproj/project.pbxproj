@@ -568,7 +568,6 @@
 				99B7D04523E6AFFF00C6BD0B /* VectorCalculation.cpp */,
 				99CC8E442331C5FA00C06E07 /* Transform2D.cpp */,
 				99CC8E462333192500C06E07 /* Transform3D.cpp */,
-				993A032022CC7E3200DC67FF /* SampleController.cpp */,
 			);
 			name = "STAGE2-3_Beginners3DProgramming";
 			sourceTree = "<group>";
@@ -580,6 +579,7 @@
 				996A81F82243659900176B0B /* Sample001.cpp */,
 				996A82002244B61D00176B0B /* Sample002.cpp */,
 				996A820822460A2500176B0B /* Sample003.cpp */,
+				993A032022CC7E3200DC67FF /* SampleController.cpp */,
 				9948692A22C444DB00607AA1 /* SampleAudio.cpp */,
 				99A2440922B4D9A600A410C6 /* SampleText.cpp */,
 			);
