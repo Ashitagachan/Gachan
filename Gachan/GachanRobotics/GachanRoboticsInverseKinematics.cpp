@@ -13,10 +13,10 @@
 
 Vec2 GachanRoboticsIK_RA1_2D2DOF::GetPosition(Val tE, Val pEangle, Val tS, Val pSangle)
 {
-    Val cS = GachanMath::Cos(pSangle);
-    Val sS = GachanMath::Sin(pSangle);
-    Val cE = GachanMath::Cos(pEangle);
-    Val sE = GachanMath::Sin(pEangle);
+    Val cS = Cos(pSangle);
+    Val sS = Sin(pSangle);
+    Val cE = Cos(pEangle);
+    Val sE = Sin(pEangle);
     
     Vec2 ret;
     ret.x =  tE*cE*cS+tS*cS-tE*sE*sS;
@@ -26,10 +26,10 @@ Vec2 GachanRoboticsIK_RA1_2D2DOF::GetPosition(Val tE, Val pEangle, Val tS, Val p
 
 GachanRoboticsIK_RA1_Return GachanRoboticsIK_RA1_2D2DOF::SolveIK(Val tE, Val pEangle, Val tS, Val pSangle, Vec2 diff)
 {
-    Val cS = GachanMath::Cos(pSangle);
-    Val sS = GachanMath::Sin(pSangle);
-    Val cE = GachanMath::Cos(pEangle);
-    Val sE = GachanMath::Sin(pEangle);
+    Val cS = Cos(pSangle);
+    Val sS = Sin(pSangle);
+    Val cE = Cos(pEangle);
+    Val sE = Sin(pEangle);
 
     Val a = -tE*cE*sS-tS*sS-tE*sE*cS;
     Val b = -tE*sE*cS      -tE*cE*sS;
@@ -52,12 +52,12 @@ GachanRoboticsIK_RA1_Return GachanRoboticsIK_RA1_2D2DOF::SolveIK(Val tE, Val pEa
 
 Vec3 GachanRoboticsIK_RA1_3D3DOF::GetPosition(Val tE, Val pEangle, Val tS, Val pSangle, Val pSxangle)
 {
-    Val cSx = GachanMath::Cos(pSxangle);
-    Val sSx = GachanMath::Sin(pSxangle);
-    Val cS  = GachanMath::Cos(pSangle);
-    Val sS  = GachanMath::Sin(pSangle);
-    Val cE  = GachanMath::Cos(pEangle);
-    Val sE  = GachanMath::Sin(pEangle);
+    Val cSx = Cos(pSxangle);
+    Val sSx = Sin(pSxangle);
+    Val cS  = Cos(pSangle);
+    Val sS  = Sin(pSangle);
+    Val cE  = Cos(pEangle);
+    Val sE  = Sin(pEangle);
 
     Vec3 ret;
     ret.x = tE*cE*cS+tS*cS-tE*sE*sS;
@@ -68,12 +68,12 @@ Vec3 GachanRoboticsIK_RA1_3D3DOF::GetPosition(Val tE, Val pEangle, Val tS, Val p
     
 GachanRoboticsIK_RA1_Return GachanRoboticsIK_RA1_3D3DOF::SolveIK(    Val tE, Val pEangle, Val tS, Val pSangle, Val pSxangle, Vec3 diff)
 {
-    Val cSx = GachanMath::Cos(pSxangle);
-    Val sSx = GachanMath::Sin(pSxangle);
-    Val cS  = GachanMath::Cos(pSangle);
-    Val sS  = GachanMath::Sin(pSangle);
-    Val cE  = GachanMath::Cos(pEangle);
-    Val sE  = GachanMath::Sin(pEangle);
+    Val cSx = Cos(pSxangle);
+    Val sSx = Sin(pSxangle);
+    Val cS  = Cos(pSangle);
+    Val sS  = Sin(pSangle);
+    Val cE  = Cos(pEangle);
+    Val sE  = Sin(pEangle);
 
     Mat33 J;
     

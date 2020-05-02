@@ -90,8 +90,8 @@ namespace Sample001
         //ボールの位置を戻す Initialize ball position.
         gachan->ball.SetPosition(0, 0, -4);
         //速度の方向をランダムで生成する Generate random velocity.
-        gachan->ballspeed.x = GachanMath::RandomVal(-0.5, 0.5);
-        gachan->ballspeed.z = GachanMath::RandomVal(0.5, 1);
+        gachan->ballspeed.x = RandomVal(-0.5, 0.5);
+        gachan->ballspeed.z = RandomVal(0.5, 1);
         //速度の大きさを揃える Align the size of the speed.
         gachan->ballspeed.SetLength(0.1);
     }

@@ -11,15 +11,17 @@
 #include <math.h>
 #include <float.h>
 
+//GachanMathのショートバージョンのつもり
+//Short version of GachanMath
+namespace Math
+{
 
-typedef float                 GachanMathValue32;
-typedef GachanMathValue32     Val;//ショートバージョン Short Version
-typedef GachanMathValue32     Val32;
+typedef float                 Val;
+typedef float                 Val32;
 #define                       ValMAX  (FLT_MAX)
 #define                       ValMIN  (FLT_MIN)
 
-typedef double                GachanMathValue64;
-typedef GachanMathValue64     Val64;//ショートバージョン Short Version
+typedef double                Val64;
 
 typedef char                  Char;
 typedef short                 Short;
@@ -117,7 +119,19 @@ typedef ROTATIONORDER RO;
 
 
 
+//aからbの間でランダムValを生成する Generate random Val between a and b.
+Val RandomVal(Val a, Val b);
 
+//aからbの間でランダムintを生成する Generate random int between a and b.
+Int RandomInt(Int a, Int b);
+
+
+Val Sin(Val rad);//テーブル参照sin Table reference sin
+Val Cos(Val rad);//テーブル参照cos Table reference cos
+
+
+}
+using namespace Math;
 
 class GachanMath
 {
@@ -125,19 +139,9 @@ public:
     static void Create();
     static void Release();
     
-    //aからbの間でランダムValを生成する Generate random Val between a and b.
-    static Val RandomVal(Val a, Val b);
-    
-    //aからbの間でランダムintを生成する Generate random int between a and b.
-    static Int RandomInt(Int a, Int b);
-
-    
-    static Val Sin(Val rad);//テーブル参照sin Table reference sin
-    static Val Cos(Val rad);//テーブル参照cos Table reference cos
-    
     static void Test();
 };
-typedef GachanMath Math;//short version
+//typedef GachanMath Math;//short version
 
 
 

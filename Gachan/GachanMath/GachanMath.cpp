@@ -8,10 +8,12 @@
 #include "GachanMath.h"
 #include <stdlib.h>
 
+namespace Math
+{
 //-----------------------
 //Random
 //-----------------------
-Val GachanMath::RandomVal(Val a, Val b)
+Val RandomVal(Val a, Val b)
 {
     Val r = (Val)(rand() % 10000) / 10000.0f;//r = 0->1.0
     Val w = b - a;
@@ -19,7 +21,7 @@ Val GachanMath::RandomVal(Val a, Val b)
     return r;
 }
 
-Int GachanMath::RandomInt(Int  a, Int b)
+Int RandomInt(Int  a, Int b)
 {
     int r = rand();
     int w = b - a + 1;
@@ -58,7 +60,7 @@ static void SinCosDifferenceTest()
     
     for (Val rad = start; rad <= end; rad += step) {
         Val s  = (Val)sin(rad);
-        Val st = GachanMath::Sin(rad);
+        Val st = Sin(rad);
         //printf("%f %f %f %f\n", rad, s, st, st - s);
         
         if (fabs(st - s) > maxdiff) {
@@ -67,7 +69,7 @@ static void SinCosDifferenceTest()
         }
     }
 }
-Val GachanMath::Sin(Val x)
+Val Sin(Val x)
 {
     Val sign = 1.0f;
     if (x < 0.0f) {
@@ -122,14 +124,14 @@ Val GachanMath::Sin(Val x)
     return sign * LI;
 }
 
-Val GachanMath::Cos(Val x)
+Val Cos(Val x)
 {
     return Sin(x + PI*0.5f);
 }
 
 
 
-
+}
 
 
 

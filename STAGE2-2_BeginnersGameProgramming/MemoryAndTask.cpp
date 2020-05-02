@@ -134,7 +134,7 @@ namespace MemoryAndTask
                     child->Clear();
                     child->text.SetPosition(pos);
                     child->speed    = pos / 100.0f;
-                    child->killtime = Math::RandomInt(1*60, 5*60);
+                    child->killtime = RandomInt(1*60, 5*60);
                     child->AddToManager(1);
                 }
             }

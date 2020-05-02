@@ -124,7 +124,7 @@ void GachanGameMemory::Test()
     
     for (int test = 0; test < maxtest; test++) {
         
-        int index = Math::RandomInt(0, tablenum-1);
+        int index = RandomInt(0, tablenum-1);
 
         bool change = false;
         if (table[index].addr) {
@@ -135,7 +135,7 @@ void GachanGameMemory::Test()
             change = true;
         }
         else {
-            int size = Math::RandomInt(1, maxsize);
+            int size = RandomInt(1, maxsize);
             table[index].addr = testmemory.Alloc(size);
             if (table[index].addr) {
                 table[index].size = size;

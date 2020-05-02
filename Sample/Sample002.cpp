@@ -88,16 +88,16 @@ namespace Sample002
     {
         obj->Clear();
         GachanGameObject::OBJECT object = (GachanGameObject::OBJECT)
-        GachanMath::RandomInt(GachanGameObject::OBJECT::GRID10x10,
+        RandomInt(GachanGameObject::OBJECT::GRID10x10,
                               GachanGameObject::OBJECT::BRICKA);
         obj->SetObject(object);
         Vec randompos;
-        randompos.x = GachanMath::RandomVal(-10, 10);
-        randompos.y = GachanMath::RandomVal(-10, 10);
-        randompos.z = GachanMath::RandomVal(20, 80);
+        randompos.x = RandomVal(-10, 10);
+        randompos.y = RandomVal(-10, 10);
+        randompos.z = RandomVal(20, 80);
         obj->SetPosition(randompos);
         GachanGame::COLOR color = (GachanGame::COLOR)
-        GachanMath::RandomInt(GachanGame::COLOR::WHITE,
+        RandomInt(GachanGame::COLOR::WHITE,
                               GachanGame::COLOR::MAGENTA);
         obj->SetColor(color);
     }

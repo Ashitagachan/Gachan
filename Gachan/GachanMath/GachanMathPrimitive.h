@@ -10,10 +10,13 @@
 
 #include "GachanMathVector.h"
 
+//GachanMathのショートバージョンのつもり
+//Short version of GachanMath
+namespace Math
+{
 
 #define MT_DETERMINANT_LIMIT  (0.0001f)
 
-//注意　全てGachanMath***のショートバージョン...のつもり
     
 //----------------------------------
 //Functions 2D
@@ -461,7 +464,11 @@ inline bool TriangleGrid(const Vec& t0, const Vec& t1, const Vec& t2, const Vec&
     return false;
 }
 
-    
+
+
+
+
+}
 
 #endif
 

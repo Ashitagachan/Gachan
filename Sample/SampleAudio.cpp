@@ -26,13 +26,13 @@ namespace SampleAudio
         void Clear()
         {
             Vec startpos;
-            startpos.x = GachanMath::RandomVal(-20, 20);
-            startpos.y = GachanMath::RandomVal(-20, 20);
-            startpos.z = GachanMath::RandomVal(-30, 10);
+            startpos.x = RandomVal(-20, 20);
+            startpos.y = RandomVal(-20, 20);
+            startpos.z = RandomVal(-30, 10);
             
-            velocity.x = GachanMath::RandomVal(-0.1, 0.1);
-            velocity.y = GachanMath::RandomVal(-0.1, 0.1);
-            velocity.z = GachanMath::RandomVal(-0.1, 0.1);
+            velocity.x = RandomVal(-0.1, 0.1);
+            velocity.y = RandomVal(-0.1, 0.1);
+            velocity.z = RandomVal(-0.1, 0.1);
 
             object.Clear();
             object.SetObject(GachanGameObject::OBJECT::STARCHAN);

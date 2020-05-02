@@ -202,8 +202,8 @@ void Mat44::RotateX(Val rx)
     Val c, s;
     Val _yx, _yy, _yz;
     
-    c = (Val) Math::Cos(rx);//cos(rx);
-    s = (Val) Math::Sin(rx);//sin(rx);
+    c = (Val) Cos(rx);//cos(rx);
+    s = (Val) Sin(rx);//sin(rx);
     
     _yx = c*yx+s*zx;
     _yy = c*yy+s*zy;
@@ -229,8 +229,8 @@ void Mat44::RotateY(Val ry)
     Val c, s;
     Val _xx, _xy, _xz;
     
-    c = (Val) Math::Cos(ry);//cos(ry);
-    s = (Val) Math::Sin(ry);//sin(ry);
+    c = (Val) Cos(ry);//cos(ry);
+    s = (Val) Sin(ry);//sin(ry);
     
     _xx = c*xx-s*zx;
     _xy = c*xy-s*zy;
@@ -256,8 +256,8 @@ void Mat44::RotateZ(Val rz)
     Val c, s;
     Val _xx, _xy, _xz;
     
-    c = (Val) Math::Cos(rz);//cos(rz);
-    s = (Val) Math::Sin(rz);//sin(rz);
+    c = (Val) Cos(rz);//cos(rz);
+    s = (Val) Sin(rz);//sin(rz);
     
     _xx = c*xx+s*yx;
     _xy = c*xy+s*yy;
@@ -346,8 +346,8 @@ void Mat44::Rotate(ROTATIONORDER rotorder, Val rx, Val ry, Val rz)
 Mat44 Mat44::GetRotateX(Val rx)
 {
     Val c, s;
-    c = (Val) Math::Cos(rx);//cos(rx);
-    s = (Val) Math::Sin(rx);//sin(rx);
+    c = (Val) Cos(rx);//cos(rx);
+    s = (Val) Sin(rx);//sin(rx);
 
     Mat44 rot;
     rot.Clear();
@@ -366,8 +366,8 @@ Mat44 Mat44::GetRotateX(Val rx)
 Mat44 Mat44::GetRotateY(Val ry)
 {
     Val c, s;
-    c = (Val) Math::Cos(ry);//cos(ry);
-    s = (Val) Math::Sin(ry);//sin(ry);
+    c = (Val) Cos(ry);//cos(ry);
+    s = (Val) Sin(ry);//sin(ry);
     
     Mat44 rot;
     rot.Clear();
@@ -386,8 +386,8 @@ Mat44 Mat44::GetRotateY(Val ry)
 Mat44 Mat44::GetRotateZ(Val rz)
 {
     Val c, s;
-    c = (Val) Math::Cos(rz);//cos(rz);
-    s = (Val) Math::Sin(rz);//sin(rz);
+    c = (Val) Cos(rz);//cos(rz);
+    s = (Val) Sin(rz);//sin(rz);
     
     Mat44 rot;
     rot.Clear();
