@@ -10,9 +10,7 @@
 
 #include "GachanMathVector.h"
 
-//GachanMathのショートバージョンのつもり
-//Short version of GachanMath
-namespace Math
+namespace GachanMath
 {
 
 #define MT_DETERMINANT_LIMIT  (0.0001f)

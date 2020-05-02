@@ -8,7 +8,7 @@
 #include "GachanMath.h"
 #include <stdlib.h>
 
-namespace Math
+namespace GachanMath
 {
 //-----------------------
 //Random

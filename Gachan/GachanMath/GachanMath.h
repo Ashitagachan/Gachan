@@ -11,9 +11,7 @@
 #include <math.h>
 #include <float.h>
 
-//GachanMathのショートバージョンのつもり
-//Short version of GachanMath
-namespace Math
+namespace GachanMath
 {
 
 typedef float                 Val;
@@ -130,18 +128,16 @@ Val Sin(Val rad);//テーブル参照sin Table reference sin
 Val Cos(Val rad);//テーブル参照cos Table reference cos
 
 
-}
-using namespace Math;
-
-class GachanMath
-{
-public:
-    static void Create();
-    static void Release();
+void Create();
+void Release();
     
-    static void Test();
-};
-//typedef GachanMath Math;//short version
+void Test();
+
+
+
+}
+using namespace GachanMath;
+
 
 
 
