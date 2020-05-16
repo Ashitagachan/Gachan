@@ -111,6 +111,14 @@ static void keydown(WPARAM wParam)
 	case 'w':
 		GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::W);
 		break;
+	case 'R':
+	case 'r':
+		GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::R);
+		break;
+	case 'F':
+	case 'f':
+		GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::F);
+		break;
 	}
 }
 

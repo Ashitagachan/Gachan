@@ -34,6 +34,14 @@ class UniformPixel
 public:
 	float4 PSGeneral;
 	float4 PSGeneral2;
+	float4 LightAmbPS;//metalでは"LightAmb" d3d9/12ではLightAmbPS
+
+	//for NORMALMAP 2020/3/10
+	float4 LightDirPS[2];
+	float4 LightDColPS[2];
+	float4 EyePS;
+	float4 DiffusePS;
+	float4 SpecularPS;
 };
 
 #else
@@ -56,6 +64,14 @@ cbuffer UniformPixel : register(b1)
 {
 	float4 PSGeneral         : packoffset(c0);
 	float4 PSGeneral2        : packoffset(c1);
+	float4 LightAmbPS        : packoffset(c2);//metalでは"LightAmb" d3d9/12ではLightAmbPS
+
+	//for NORMALMAP 2020/3/10
+	float4 LightDirPS[2]      : packoffset(c3);
+	float4 LightDColPS[2]     : packoffset(c5);
+	float4 EyePS              : packoffset(c7);
+	float4 DiffusePS          : packoffset(c8);
+	float4 SpecularPS         : packoffset(c9);
 };
 
 
@@ -65,14 +81,6 @@ struct VS_INPUT_VN
     float3 _inNormal  : NORMAL;
 };
 
-struct VS_INPUT_VNW
-{
-    float3 _inPos          : POSITION;
-    float3 _inNormal       : NORMAL;
-    float4 _inBlendWeights : BLENDWEIGHT;
-    int4   _inBlendIndices : BLENDINDICES;//metalではchar4
-};
-
 struct VS_INPUT_VNUV
 {
     float3 _inPos    : POSITION;
@@ -80,17 +88,20 @@ struct VS_INPUT_VNUV
     float2 _inTex    : TEXCOORD;
 };
 
-struct VS_INPUT_VNUVW
+struct VS_INPUT_VNBTUV
 {
-    float3 _inPos          : POSITION;
-    float3 _inNormal       : NORMAL;
-    float2 _inTex          : TEXCOORD;
-    float4 _inBlendWeights : BLENDWEIGHT;
-    int4   _inBlendIndices : BLENDINDICES;//metalではchar4
+	float3 _inPos      : POSITION;
+	float3 _inNormal   : NORMAL;
+	float3 _inBinormal : BINORMAL;
+	float3 _inTangent  : TANGENT;
+	float2 _inTex      : TEXCOORD;
 };
+
 
 #define inPos          float4(input._inPos, 1)
 #define inNormal       input._inNormal
+#define inBinormal     input._inBinormal
+#define inTangent      input._inTangent
 #define inTex          input._inTex
 #define inBlendWeights input._inBlendWeights
 #define inBlendIndices input._inBlendIndices
@@ -103,7 +114,25 @@ struct VS_OUTPUT
 {
     float4 pos         : SV_POSITION;   // vertex position
     float4 col         : VTX_COLOR;     // vertex diffuse color (note that COLOR0 is clamped from 0..1)
+
+	float3 diff        : VTX_COLOR1;//added for ps_texa
+	float3 spec        : VTX_COLOR2;//added for ps_texa
+
 	float2 tex         : TEXCOORD0;
+	float4 shadowtex   : TEXCOORD3;
+};
+
+struct VS_OUTPUT_NM
+{
+	float4 pos         : SV_POSITION;   // vertex position
+	float2 tex         : TEXCOORD0;
+
+	//for NORMAL MAP
+	float3 vpos        : POSITION;
+	float3 normal      : NORMAL;          // NormalMap Tangent Space Coord
+	float3 binormal    : BINORMAL;        // NormalMap Tangent Space Coord
+	float3 tangent     : TANGENT;         // NormalMap Tangent Space Coord
+
 	float4 shadowtex   : TEXCOORD3;
 };
 
@@ -141,6 +170,9 @@ SamplerState    TexShadowMapsmp : register(s7);
 #define vec3 float3
 #define vec4 float4
 //#define discard discard_fragment()
+
+#define ROUGHNESSPOW(roughness)  (1.005f * 1.02f * 0.96f * -128.0f * (roughness) + 128.0f)
+#define ROUGHNESSLIMIT           (0.001f)
 
 #endif
 #endif

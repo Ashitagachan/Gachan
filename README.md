@@ -58,15 +58,17 @@ https://m.youtube.com/channel/UCYnWUmMlicaSMeK-jynAwMw
 
         STAGE 4 SDK API
 
-        STAGE 5 フォーマット
+        STAGE 5 他のゲームエンジン
 
-        STAGE 6 他のゲームエンジン
+        STAGE 6 フォーマット
 
-        STAGE 7 具体的な機能・表現をつくる！ 
+        STAGE 7 ツール
 
-        STAGE 8 ゲームをつくる！ 
+        STAGE 8 具体的な機能・表現をつくる！ 
 
-        STAGE 9 ゲームをリリースする！
+        STAGE 9 ゲームをつくる！ 
+
+        STAGE 10 ゲームをリリースする！
  
 
 
@@ -106,6 +108,8 @@ Gachanの環境は随時更新されていきます。現状はまだまだ未�
     * 3Dオブジェクトの階層構造（対応済）
     * ユーザーゲームオブジェクト
     * テクスチャ（対応済）
+    * シャドウマップ（対応済）
+    * ノーマルマップ（対応済）
     * ゲームパッド（対応済）
     * テキストの表示（対応済）
     * Frame Per Secondの表示
@@ -189,15 +193,17 @@ Like Super Mario STAGE 1-1.
 
         STAGE 4 SDK API
 
-        STAGE 5 Format
+        STAGE 5 Other Game Engines
 
-        STAGE 6 Other Game Engines
+        STAGE 6 Format
 
-        STAGE 7 Create Specific Functions and Expressions!
+        STAGE 7 Tools
 
-        STAGE 8 Create Games!
+        STAGE 8 Create Specific Functions and Expressions!
 
-        STAGE 9 Release Games!
+        STAGE 9 Create Games!
+
+        STAGE 10 Release Games!
 
 
     ART
@@ -235,6 +241,8 @@ Future specific plan list (Just a plan, Schedule is undecided) is here.
     * Hierarchical structure of 3D objects (Done)
     * User Game Object
     * Texture (Done)
+    * Shadow Map (Done)
+    * Normal Map (Done)
     * Game pad (Done)
     * Displaying Text (Done)
     * Displaying  Frame Per Second

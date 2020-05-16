@@ -29,7 +29,6 @@
 //------------------------------------------------
 //#define NAMESPACE     MemoryAndTask
 //#define NAMESPACE     Collision
-#define NAMESPACE     Texture
 
 //------------------------------------------------
 //STAGE 2-3 Beginners 3D Programming
@@ -38,6 +37,8 @@
 //#define NAMESPACE     VectorCalculation
 //#define NAMESPACE     Transform2D
 //#define NAMESPACE     Transform3D
+//#define NAMESPACE     Texture
+#define NAMESPACE     Lighting
 
 //------------------------------------------------
 //STAGE 3-2 Game Programming

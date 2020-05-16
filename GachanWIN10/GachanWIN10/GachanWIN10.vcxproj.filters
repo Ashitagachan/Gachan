@@ -68,11 +68,20 @@
     <Filter Include="STAGE2-2_BeginnersGameProgramming\Collision">
       <UniqueIdentifier>{9e954f0d-675c-4d2b-a445-ee87f8e2da1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="STAGE2-2_BeginnersGameProgramming\Texture">
-      <UniqueIdentifier>{e12703eb-7293-4876-a503-6744391b97d0}</UniqueIdentifier>
+    <Filter Include="Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles">
+      <UniqueIdentifier>{fafe96b5-27fe-45e7-a2fe-0797a3e94d1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles">
-      <UniqueIdentifier>{b810be3a-335b-40d7-ac67-ee7ef7adcb91}</UniqueIdentifier>
+    <Filter Include="STAGE2-3_Beginners3DProgramming\Texture">
+      <UniqueIdentifier>{574b9732-69a2-4828-bc7f-9e3122c3f345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-3_Beginners3DProgramming\Lighting">
+      <UniqueIdentifier>{6f0f42e1-bc91-4dee-95ef-73a231537b5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles">
+      <UniqueIdentifier>{3255b9f1-824d-4ff1-842a-576e5b3e69da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STAGE2-3_Beginners3DProgramming\Texture\TextureFiles">
+      <UniqueIdentifier>{1d6da6ed-536b-4b0c-8bc3-848d7fa3a4bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -421,9 +430,6 @@
     <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.cpp">
       <Filter>STAGE2-2_BeginnersGameProgramming\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\Texture.cpp">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Gachan\Gachan3D\Gachan3DTex.cpp">
       <Filter>Gachan\Gachan3D</Filter>
     </ClCompile>
@@ -432,6 +438,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12TexDDS.cpp">
       <Filter>Gachan\Gachan3D\GachanD3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\Texture.cpp">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\Lighting.cpp">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -446,20 +458,38 @@
     <Image Include="GachanWIN10.ico">
       <Filter>GachanWIN10\リソース ファイル</Filter>
     </Image>
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba_nomip.DDS">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    <Image Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\normal.dds">
+      <Filter>Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles</Filter>
     </Image>
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt1.DDS">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    <Image Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\specular.dds">
+      <Filter>Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles</Filter>
     </Image>
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt3.DDS">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    <Image Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\diffuse.dds">
+      <Filter>Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles</Filter>
     </Image>
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt5.DDS">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkrgba_nomip.DDS">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture\TextureFiles</Filter>
     </Image>
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba.DDS">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkdxt1.DDS">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkdxt3.DDS">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkdxt5.DDS">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkrgba.DDS">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture\TextureFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\specular.dds">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\checkrgba.DDS">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles</Filter>
+    </Image>
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\normal.dds">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -553,8 +583,20 @@
     <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.tst">
       <Filter>STAGE2-2_BeginnersGameProgramming\Collision</Filter>
     </None>
-    <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\Texture.tst">
-      <Filter>STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles</Filter>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\GachanGameObjectAncientCube.tst">
+      <Filter>Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles</Filter>
+    </None>
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\Texture.tst">
+      <Filter>STAGE2-3_Beginners3DProgramming\Texture\TextureFiles</Filter>
+    </None>
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\LightingTest1.tst">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles</Filter>
+    </None>
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\LightingTest2.tst">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles</Filter>
+    </None>
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\LightingTest3.tst">
+      <Filter>STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

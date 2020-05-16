@@ -576,7 +576,7 @@ bool DDS::SetBuffer(UChar* buf, UInt bufsize)
     height    = header->height;
     bits      = GetBitsPerPixel(dxgiformat);
     arraysize = 1;
-    mipcount  = header->mipMapCount;
+    mipcount  = (header->mipMapCount == 0)? 1 : header->mipMapCount;
     GetBytes  = GetGetBytes(dxgiformat);
     if (GetBytes == NULL) {
         return false;

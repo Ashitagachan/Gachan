@@ -71,6 +71,8 @@ public:
         
         BRICKA,   //レンガA
         
+        ANCIENTCUBE,//古代キューブ
+
         ARM_UPPER_R,
         ARM_LOWER_R,
         ARM_HAND_R,
@@ -101,6 +103,8 @@ public:
     //オブジェクトのセット
     void SetObject(OBJECT object);
     
+    static Material* GetMaterial(OBJECT object);
+
     //オブジェクトのセット
     void SetObject(Gachan3DObject* obj);
 

@@ -21,6 +21,14 @@ struct VertexVNUV {
     Vec2    uv;
 };
 
+struct VertexVNBTUV {
+    Vec        v;
+    Vec        n;
+    Vec        b;        //binormal
+    Vec        t;        //tangent normal
+    Vec2    uv;
+};
+
 
 
 

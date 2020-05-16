@@ -19,8 +19,10 @@ class Gachan3DShader
 public:
     enum {
         SHADER_DEFAULT,
-        SHADER_TEXA,
-        SHADER_DEFAULTNL,
+        SHADER_TEXA,//DIFFUSE
+        SHADER_TEXN,//DIFFUSE NORMAL
+        SHADER_TEXSN,//DIFFUSE SPECULAR NORMAL
+        SHADER_DEFAULTNL,//NO LIGHT
         SHADER_NUM,
         
         SHADER_SHADOWMAP_NUM = Gachan3DVertex::TYPES_NUM,

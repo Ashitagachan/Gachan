@@ -154,7 +154,7 @@ bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
 
 	GetSystemPath(path, 1024, fname);
 
-	SysLog("Texture:%s\n", path);
+	SysLog("TEX:%s\n", path);
 
 	int texidx = 0;
 	char* dds = strstr(path, ".dds");
@@ -172,7 +172,7 @@ bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
 		}
 	}
 
-	SysLog("Texture:READ ERROR\n");
+	SysLog("TEX:READ ERROR\n");
 
 	return false;
 }

@@ -35,7 +35,7 @@ public:
         NUM8,
         NUM9,
         
-        A,S,D,W,        
+        A,S,D,W,R,F
     };
     
     static void ResetSystemKey();

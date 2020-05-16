@@ -95,6 +95,12 @@ void Finalize();
         case 13://w
             GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::W);
             break;
+        case 15:
+            GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::R);
+            break;
+        case 3:
+            GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::F);
+            break;
     }
     //NSLog(@"key %d", event.keyCode);
 }

@@ -34,7 +34,14 @@ typedef struct
 
 typedef struct
 {
-    float4 Spacer;
+    float4 PSGeneral;//        : register(c0);
+    float4 PSGeneral2;//       : register(c1);
+    float4 LightAmb;//         : register(c2);
+    float4 LightDir[2];//      : register(c3);
+    float4 LightDCol[2];//     : register(c5);
+    float4 Eye;//              : register(c7);
+    float4 Diffuse;//          : register(c8);
+    float4 Specular;//         : register(c9);
 } UniformPixel;
 
 
@@ -57,14 +64,6 @@ struct VS_INPUT_VN
     float3 inNormal  [[attribute(1)]];
 };
 
-struct VS_INPUT_VNW
-{
-    float3 inPos            [[attribute(0)]];
-    float3 inNormal         [[attribute(1)]];
-    float4 inBlendWeights   [[attribute(2)]];
-    char4  inBlendIndices   [[attribute(3)]];
-};
-
 struct VS_INPUT_VNUV
 {
     float3 inPos     [[attribute(0)]];
@@ -72,17 +71,19 @@ struct VS_INPUT_VNUV
     float2 inTex     [[attribute(2)]];
 };
 
-struct VS_INPUT_VNUVW
+struct VS_INPUT_VNBTUV
 {
-    float3 inPos          [[attribute(0)]];
-    float3 inNormal       [[attribute(1)]];
-    float2 inTex          [[attribute(2)]];
-    float4 inBlendWeights [[attribute(3)]];
-    char4  inBlendIndices [[attribute(4)]];
+    float3 inPos      [[attribute(0)]];
+    float3 inNormal   [[attribute(1)]];
+    float3 inBinormal [[attribute(2)]];
+    float3 inTangent  [[attribute(3)]];
+    float2 inTex      [[attribute(4)]];
 };
 
 #define inPos          float4(in.inPos, 1)
 #define inNormal       in.inNormal
+#define inBinormal     in.inBinormal
+#define inTangent      in.inTangent
 #define inTex          in.inTex
 #define inBlendWeights in.inBlendWeights
 #define inBlendIndices in.inBlendIndices
@@ -92,7 +93,23 @@ struct VS_OUTPUT
 {
     float4 pos [[position]];
     float4 col;
+    float3 diff;//added for ps_texa
+    float3 spec;//added for ps_texa
     float2 tex;
+    float4 shadowtex;
+};
+
+struct VS_OUTPUT_NM
+{
+    float4 pos [[position]];
+    float2 tex;
+    
+    //for NORMAL MAP
+    float3 vpos;
+    float3 normal;
+    float3 binormal;
+    float3 tangent;
+    
     float4 shadowtex;
 };
 
@@ -113,6 +130,8 @@ struct PS_OUTPUT
 #define vec4 float4
 #define discard discard_fragment()
 
+#define ROUGHNESSPOW(roughness)  (1.005f * 1.02f * 0.96f * -128.0f * (roughness) + 128.0f)
+#define ROUGHNESSLIMIT           (0.001f)
 
 #endif
 #endif

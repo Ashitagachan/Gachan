@@ -14,6 +14,7 @@
 unsigned int Gachan3DVertex::Stride[TYPES_NUM] = {
     sizeof(VertexVN),
     sizeof(VertexVNUV),
+    sizeof(VertexVNBTUV),
 };
 
 

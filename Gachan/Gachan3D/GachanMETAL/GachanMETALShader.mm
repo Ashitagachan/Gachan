@@ -19,15 +19,18 @@
 static NSBundle* MetalShaderBundle   = NULL;
 
 Gachan3DShader::Table Gachan3DShader::ShaderList[Gachan3DShader::SHADER_NUM] = {
-    { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_default",   (const unsigned int*) "ps_default"      },
-    { Gachan3DVertex::TYPE_VNUV, (const unsigned int*) "vs_texa",      (const unsigned int*) "ps_texa"         },
-    { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_defaultNL", (const unsigned int*) "ps_defaultNL"    },
+    { Gachan3DVertex::TYPE_VN,     (const unsigned int*) "vs_default",   (const unsigned int*) "ps_default"   },
+    { Gachan3DVertex::TYPE_VNUV,   (const unsigned int*) "vs_texa",      (const unsigned int*) "ps_texa"      },
+    { Gachan3DVertex::TYPE_VNBTUV, (const unsigned int*) "vs_texn",      (const unsigned int*) "ps_texn"      },
+    { Gachan3DVertex::TYPE_VNBTUV, (const unsigned int*) "vs_texsn",     (const unsigned int*) "ps_texsn"     },
+    { Gachan3DVertex::TYPE_VN,     (const unsigned int*) "vs_defaultNL", (const unsigned int*) "ps_defaultNL" },
 };
 
 Gachan3DShader::Table Gachan3DShader::ShaderListShadowMap[Gachan3DShader::SHADER_SHADOWMAP_NUM] = {
     //for shadow map creation
-    { Gachan3DVertex::TYPE_VN,   (const unsigned int*) "vs_shadow_vn",    (const unsigned int*) NULL },
-    { Gachan3DVertex::TYPE_VNUV, (const unsigned int*) "vs_shadow_vnuv",  (const unsigned int*) NULL },
+    { Gachan3DVertex::TYPE_VN,    (const unsigned int*) "vs_shadow_vn",    (const unsigned int*) NULL },
+    { Gachan3DVertex::TYPE_VNUV,  (const unsigned int*) "vs_shadow_vnuv",  (const unsigned int*) NULL },
+    { Gachan3DVertex::TYPE_VNBTUV,(const unsigned int*) "vs_shadow_vnbtuv",(const unsigned int*) NULL },
 };
 
 
@@ -83,6 +86,7 @@ id <MTLBuffer> UniformBufferVertex;
 #endif
 
 UniformVertex* UniformBufferVertexPtr;
+UniformPixel*  UniformBufferPixelPtr;
 
 
 
@@ -107,12 +111,28 @@ static void VertexDescVertType(Int verttype, MTLVertexDescriptor* vertexdesc)
          index++;
 
         switch (verttype) {
-          case Gachan3DVertex::TYPE_VNUV:
-              vertexdesc.attributes[index].format      = MTLVertexFormatFloat2;//UV
-              vertexdesc.attributes[index].offset      = offset;
-              vertexdesc.attributes[index].bufferIndex = 0;
-              offset += 8;
-              break;
+            case Gachan3DVertex::TYPE_VNUV:
+                vertexdesc.attributes[index].format      = MTLVertexFormatFloat2;//UV
+                vertexdesc.attributes[index].offset      = offset;
+                vertexdesc.attributes[index].bufferIndex = 0;
+                offset += 8;
+                break;
+            case Vertex::TYPE_VNBTUV:
+                vertexdesc.attributes[index].format      = MTLVertexFormatFloat3;//B
+                vertexdesc.attributes[index].offset      = offset;
+                vertexdesc.attributes[index].bufferIndex = 0;
+                offset += 12;
+                index++;
+                vertexdesc.attributes[index].format      = MTLVertexFormatFloat3;//T
+                vertexdesc.attributes[index].offset      = offset;
+                vertexdesc.attributes[index].bufferIndex = 0;
+                offset += 12;
+                index++;
+                vertexdesc.attributes[index].format      = MTLVertexFormatFloat2;//UV
+                vertexdesc.attributes[index].offset      = offset;
+                vertexdesc.attributes[index].bufferIndex = 0;
+                offset += 8;
+                break;
         }
 
         vertexdesc.layouts[0].stride = offset;
@@ -231,6 +251,7 @@ bool Gachan3DShader::Create()
     for (int i = 0; i < MergeSemaphoreNum; i++) {
         for (int j = 0; j < MergeDrawMax; j++) {
             UniformBufferVertex[i][j] = [device newBufferWithLength:sizeof(UniformVertex) options:MTLResourceStorageModeShared];
+            UniformBufferPixel [i][j] = [device newBufferWithLength:sizeof(UniformPixel)  options:MTLResourceStorageModeShared];
         }
     }
     MergeSemaphore = dispatch_semaphore_create(MergeSemaphoreNum);
@@ -360,6 +381,7 @@ void Gachan3DShader::SetLightAmbient(const Vec& col)
     colvec.a = 1.0f;
 
     UniformBufferVertexPtr->LightAmb = colvec;
+    UniformBufferPixelPtr->LightAmb  = colvec;
 }
 
 
@@ -379,7 +401,10 @@ void Gachan3DShader::SetLightDirection(const Vec& dir, const Vec& col)
 
     UniformBufferVertexPtr->LightDir[0]  = dirvec;
     UniformBufferVertexPtr->LightDCol[0] = colvec;
-    
+
+    UniformBufferPixelPtr->LightDir[0]  = dirvec;
+    UniformBufferPixelPtr->LightDCol[0] = colvec;
+
     if (Gachan3DPass::GetPass() == Gachan3DPass::DRAW_SHADOWMAP) {
         Gachan3DCamera::SetLightCamera();
     }
@@ -407,6 +432,7 @@ void Gachan3DShader::SetEye(const Vec& eye)
     eyevec4.w = 1.0f;
 
     UniformBufferVertexPtr->Eye = eyevec4;
+    UniformBufferPixelPtr->Eye = eyevec4;
 }
 
 
@@ -437,11 +463,13 @@ void Gachan3DShader::SetTexture(int stage, const GachanMaterialTex* tex)
 void Gachan3DShader::SetDiffuse(const Vec4& col)
 {
     UniformBufferVertexPtr->Diffuse = col;
+    UniformBufferPixelPtr->Diffuse = col;
 }
 
 void Gachan3DShader::SetSpecular(const Vec4& col)
 {
     UniformBufferVertexPtr->Specular = col;
+    UniformBufferPixelPtr->Specular = col;
 }
 
 void Gachan3DShader::SetShader(int shader)
@@ -494,12 +522,17 @@ void MergeDrawInit()
 {
     MergeIdx = 0;
     UniformBufferVertexPtr = (UniformVertex*) UniformBufferVertex[MergeIdx][0].contents;
+    UniformBufferPixelPtr  = (UniformPixel*)  UniformBufferPixel [MergeIdx][0].contents;
 }
 void MergeDrawCopyUniform(int mergeidx, int drawidx)
 {
     UniformVertex* vsc = UniformBufferVertexPtr;
     UniformBufferVertexPtr = (UniformVertex*) UniformBufferVertex[mergeidx][drawidx].contents;
     memcpy(UniformBufferVertexPtr, vsc, sizeof(UniformVertex));
+
+    UniformPixel* psc = UniformBufferPixelPtr;
+    UniformBufferPixelPtr = (UniformPixel*) UniformBufferPixel[mergeidx][drawidx].contents;
+    memcpy(UniformBufferPixelPtr, psc, sizeof(UniformPixel));
 }
 void MergeDrawStart(bool firstdraw)
 {
@@ -571,7 +604,7 @@ void Gachan3DShader::DrawIndex(const void* vbuff, int vnum, const void* ibuff, i
     [MergeRenderEncoder setVertexBuffer:vb                                offset:0 atIndex:0];
     [MergeRenderEncoder setVertexBuffer:UniformBufferVertex[MergeIdx][MergeDrawCount] offset:0 atIndex:1];
     
-    //[MergeRenderEncoder setFragmentBuffer:UniformBufferPixel[ConstantIdx][MergeDrawCount] offset:0 atIndex:0];
+    [MergeRenderEncoder setFragmentBuffer:UniformBufferPixel[MergeIdx][MergeDrawCount] offset:0 atIndex:0];
 
     for (int i = 0; i < DX3DTEX_NUM; i++) {
         if (Texture[i]) {

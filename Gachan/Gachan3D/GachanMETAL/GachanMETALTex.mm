@@ -144,7 +144,7 @@ bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
     char filename[512];
     strcpy(filename, p);
     
-    SysLog("Texture:%s\n", filename);
+    SysLog("TEX:%s\n", filename);
 
     char fullpath[1024];
 
@@ -215,7 +215,7 @@ bool Gachan3DTexture::CreateFromFile(void** ptif, Char* fname)
         }
     }
 
-    SysLog("Texture:READ ERROR\n");
+    SysLog("TEX:READ ERROR\n");
     
     *ptif = NULL;
 #pragma clang diagnostic pop

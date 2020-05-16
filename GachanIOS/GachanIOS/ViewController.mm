@@ -108,6 +108,14 @@ namespace NAMESPACE
 {
     GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::W);
 }
+-(void) numRKeyPress
+{
+    GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::R);
+}
+-(void) numFKeyPress
+{
+    GachanGameKeyboard::SetSystemKey(GachanGameKeyboard::KEY::F);
+}
 - (NSArray *)keyCommands {
     return @[
              [UIKeyCommand keyCommandWithInput:UIKeyInputUpArrow    modifierFlags:0 action:@selector(upKeyPress)   ],
@@ -130,6 +138,8 @@ namespace NAMESPACE
              [UIKeyCommand keyCommandWithInput:@"S"                 modifierFlags:0 action:@selector(numSKeyPress) ],
              [UIKeyCommand keyCommandWithInput:@"D"                 modifierFlags:0 action:@selector(numDKeyPress) ],
              [UIKeyCommand keyCommandWithInput:@"W"                 modifierFlags:0 action:@selector(numWKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"R"                 modifierFlags:0 action:@selector(numRKeyPress) ],
+             [UIKeyCommand keyCommandWithInput:@"F"                 modifierFlags:0 action:@selector(numFKeyPress) ],
              ];
 }
 

@@ -52,6 +52,8 @@ struct VS_POSCOL
 {
     float4 pos;
     float4 col;
+    float3 diff;//added for ps_texa
+    float3 spec;//added for ps_texa
     float2 texr;
     float3 texc;
     float2 depth;
@@ -59,70 +61,73 @@ struct VS_POSCOL
 
 VS_POSCOL Sub_GetPosCol(float4 wpos, float3 wnorm, constant UniformVertex &uniforms)
 {
-#if 1
-    //diffuse lighting
-    float lightAmt = saturate( dot( LightDir[0].xyz, wnorm ) );
-    float4 lightColor = lightAmt*LightDCol[0] + LightAmb;
+        float4 specular = Specular;
+        float roughnesspow = ROUGHNESSPOW(Specular.a);//-128 * (Specular.a - 1.1);
+        specular.a = 1;
         
-    // Calculate specular power
-    float3 viewDir = normalize( Eye.xyz - wpos.xyz );
-    float3 halfAngle = normalize( viewDir + LightDir[0].xyz );
-    float4 spec = pow( saturate(dot( halfAngle, wnorm )), 64 );
+        //===================================================
+        //Lighting Model
+        //I = ka*Ia + kd*dot(N,L)*Id + ks*pow(dot(E,L),K)*Is
+        //===================================================
+        VS_POSCOL vsout;
+
+        //===================================
+        //ambient ka*Ia
+        //===================================
+        float3 amb = LightAmb.rgb * Diffuse.rgb;
         
-    // Return combined lighting
-    VS_POSCOL vsout;
-    vsout.col = lightColor * Diffuse + spec * Specular * Diffuse.a;
+        
+        //===================================
+        //diffuse kd*dot(N,L)*Id
+        //===================================
+        float dotnl = max(0.0, dot(wnorm, LightDir[0].xyz));
+        float3 diff = LightDCol[0].rgb * dotnl * Diffuse.rgb;
+
+        vsout.diff = LightDCol[0].rgb * dotnl;// for ps_texa
+
+        //===================================
+        //specular ks*pow(dot(E,L),K)*Is
+        //===================================
+        float3 eyevec, eyervec;
+        eyevec = normalize(Eye.xyz - wpos.xyz);
+        eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
+        
+        //float dotes = max(ROUGHNESSLIMIT, dot(eyervec, LightDir[0].xyz));
+        float dotes = dot(eyervec, LightDir[0].xyz);
+        float3 spec = float3(0,0,0);
+        if (dotes > ROUGHNESSLIMIT) {
+            spec = LightDCol[0].rgb * saturate(pow(dotes, roughnesspow)) * specular.rgb;
+        }
+        vsout.spec = spec;// for ps_texa
+
+        //===================================
+        //I = ambient + diffuse + specular
+        //===================================
+        vsout.col.rgb = amb + diff + spec;
+        vsout.col.rgb = min(float3(1.0, 1.0, 1.0), vsout.col.rgb);
+        vsout.col.a = Diffuse.a;
 
     
+        vsout.pos = mul(wpos, VPMatrix);
+        vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
+        vsout.texc = eyervec;
+        vsout.depth.xy = vsout.pos.ww;//w buffer float depth
+
+    return vsout;
+}
+
+//for NORMAL MAP
+struct VS_POSCOL_NM
+{
+    float4 pos;
+    float2 depth;
+};
+
+VS_POSCOL_NM Sub_GetPosCol_NM(float4 wpos, float3 wnorm, constant UniformVertex &uniforms)
+{
+    VS_POSCOL_NM vsout;
     vsout.pos = mul(wpos, VPMatrix);
     vsout.depth.xy = vsout.pos.ww;//w buffer float depth
-    
-    //texr/texcとりあえず仮 Gachanに持ってくとき整理する
-    float3 eyevec, eyervec;
-    eyevec = viewDir;//normalize(Eye.xyz - wpos.xyz);
-    eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
-    vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
-    vsout.texc = eyervec;
-#else
-    //===================================================
-    //Lighting Model
-    //I = ka*Ia + kd*dot(N,L)*Id + ks*pow(dot(E,L),K)*Is
-    //===================================================
-    
-    //===================================
-    //ambient ka*Ia
-    //===================================
-    float3 amb = LightAmb.rgb * Diffuse.rgb;
-    
-    //===================================
-    //diffuse kd*dot(N,L)*Id
-    //===================================
-    float dotnl = max(0.0, dot(wnorm, LightDir[0].xyz));
-    float3 diff = LightDCol[0].rgb * dotnl * Diffuse.rgb;
-    
-    //===================================
-    //specular ks*pow(dot(E,L),K)*Is
-    //===================================
-    float3 eyevec, eyervec;
-    eyevec = normalize(Eye.xyz - wpos.xyz);
-    eyervec = 2.0 * dot(eyevec, wnorm) * wnorm - eyevec;
-    
-    float dotes = max(0.0, dot(eyervec, LightDir[0].xyz));
-    float3 spec = LightDCol[0].rgb * (dotes * dotes) * Specular.rgb;
-    
-    VS_POSCOL vsout;
-    //===================================
-    //I = ambient + diffuse + specular
-    //===================================
-    vsout.col.rgb = amb + diff + spec;
-    vsout.col.rgb = min(float3(1.0, 1.0, 1.0), vsout.col.rgb);
-    vsout.col.a = Diffuse.a;
-    
-    vsout.pos = mul(wpos, VPMatrix);
-    vsout.texr = (-eyervec.zy + 1.0) * 0.5;//テクスチャの右側が手前の環境
-    vsout.texc = eyervec;
-    vsout.depth.xy = vsout.pos.ww;//w buffer float depth
-#endif
     return vsout;
 }
 
@@ -173,6 +178,12 @@ vertex float4 vs_shadow_vnuv(VS_INPUT_VNUV in[[stage_in]], constant UniformVerte
     wpos = mul(wpos, VPMatrix);
     return wpos;
 }
+vertex float4 vs_shadow_vnbtuv(VS_INPUT_VNBTUV in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
+{
+    float4 wpos  = mul(inPos, WMatrix);
+    wpos = mul(wpos, VPMatrix);
+    return wpos;
+}
 
 
 //ピクセルシェーダps_shadowは存在しない。
@@ -213,9 +224,78 @@ vertex VS_OUTPUT vs_texa(VS_INPUT_VNUV in[[stage_in]], constant UniformVertex & 
     VS_OUTPUT Out;
     Out.pos = PosCol.pos;
     Out.col = PosCol.col;
+    Out.diff = PosCol.diff;
+    Out.spec = PosCol.spec;
     Out.tex = inTex;
     Out.shadowtex = Sub_GetShadowMapTexcoord(wpos, uniforms);
 
+    return Out;
+}
+
+
+
+
+//DIFFUSE NORMALMAP  (vs_texsn/vs_texsn_bと全く同じ)
+vertex VS_OUTPUT_NM vs_texn(VS_INPUT_VNBTUV in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
+{
+    float4 wpos  = mul(inPos, WMatrix);
+    float3 wnorm = normalize(mul(inNormal, WMatrix));
+    
+    //NORMAL MAP
+    //軸の順番はCOORD.mb/tst, normalsphere.png参照
+    //float3 wnormal = normalize(mul(inNormal,   WMatrix));
+    float3 wbinormal = normalize(mul(inBinormal, WMatrix));
+    float3 wtangent  = normalize(mul(inTangent,  WMatrix));
+
+    VS_POSCOL_NM PosCol;
+    PosCol = Sub_GetPosCol_NM(wpos, wnorm, uniforms);
+    
+    
+    VS_OUTPUT_NM Out;
+    
+    Out.vpos     = wpos.xyz;
+    Out.normal   = wnorm;
+    Out.binormal = wbinormal;
+    Out.tangent  = wtangent;
+
+    Out.pos      = PosCol.pos;
+    Out.tex      = inTex;
+    
+    Out.shadowtex = Sub_GetShadowMapTexcoord(wpos, uniforms);
+    
+    return Out;
+}
+
+
+
+
+//DIFFUSE SPECULAR NORMALMAP (vs_texn/vs_texn_bと全く同じ)
+vertex VS_OUTPUT_NM vs_texsn(VS_INPUT_VNBTUV in[[stage_in]], constant UniformVertex & uniforms [[buffer(1)]])
+{
+    float4 wpos  = mul(inPos, WMatrix);
+    float3 wnorm = normalize(mul(inNormal, WMatrix));
+
+    //NORMAL MAP
+    //軸の順番はCOORD.mb/tst, normalsphere.png参照
+    //float3 wnormal = normalize(mul(inNormal,   WMatrix));
+    float3 wbinormal = normalize(mul(inBinormal, WMatrix));
+    float3 wtangent  = normalize(mul(inTangent,  WMatrix));
+
+    VS_POSCOL_NM PosCol;
+    PosCol = Sub_GetPosCol_NM(wpos, wnorm, uniforms);
+
+    VS_OUTPUT_NM Out;
+
+    Out.vpos     = wpos.xyz;
+    Out.normal   = wnorm;
+    Out.binormal = wbinormal;
+    Out.tangent  = wtangent;
+
+    Out.pos      = PosCol.pos;
+    Out.tex      = inTex;
+    
+    Out.shadowtex = Sub_GetShadowMapTexcoord(wpos, uniforms);
+    
     return Out;
 }
 

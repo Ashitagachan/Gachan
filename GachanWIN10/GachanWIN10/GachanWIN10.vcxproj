@@ -272,7 +272,8 @@
     <ClCompile Include="..\..\Sample\SampleText.cpp" />
     <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.cpp" />
     <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\MemoryAndTask.cpp" />
-    <ClCompile Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\Texture.cpp" />
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\Lighting.cpp" />
+    <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\Texture.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform2D.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\Transform3D.cpp" />
     <ClCompile Include="..\..\STAGE2-3_Beginners3DProgramming\VectorCalculation.cpp" />
@@ -294,11 +295,17 @@
     <ResourceCompile Include="GachanWIN10.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt1.DDS" />
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt3.DDS" />
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkdxt5.DDS" />
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba.DDS" />
-    <Image Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\checkrgba_nomip.DDS" />
+    <Image Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\diffuse.dds" />
+    <Image Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\normal.dds" />
+    <Image Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\specular.dds" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\checkrgba.DDS" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\normal.dds" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\specular.dds" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkdxt1.DDS" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkdxt3.DDS" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkdxt5.DDS" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkrgba.DDS" />
+    <Image Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\checkrgba_nomip.DDS" />
     <Image Include="GachanWIN10.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
@@ -329,6 +336,7 @@
     <None Include="..\..\Gachan\Gachan3D\GachanD3D12\GachanD3D12Shader\GachanD3D12ShaderVertex.hlsl">
       <FileType>Document</FileType>
     </None>
+    <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectAncientCubeFiles\GachanGameObjectAncientCube.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectArm.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBasic00.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectBlock00.tst" />
@@ -337,7 +345,10 @@
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectGrid.tst" />
     <None Include="..\..\Gachan\GachanGame\GachanGameObject\GachanGameObjectShape00.tst" />
     <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Collision\Collision.tst" />
-    <None Include="..\..\STAGE2-2_BeginnersGameProgramming\Texture\TextureFiles\Texture.tst" />
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\LightingTest1.tst" />
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\LightingTest2.tst" />
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Lighting\LightingFiles\LightingTest3.tst" />
+    <None Include="..\..\STAGE2-3_Beginners3DProgramming\Texture\TextureFiles\Texture.tst" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\LICENSE.txt" />

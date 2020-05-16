@@ -25,11 +25,16 @@
 #include "GachanD3D12Shader_ps_default.h"
 #include "GachanD3D12Shader_vs_texa.h"
 #include "GachanD3D12Shader_ps_texa.h"
+#include "GachanD3D12Shader_vs_texn.h"
+#include "GachanD3D12Shader_ps_texn.h"
+#include "GachanD3D12Shader_vs_texsn.h"
+#include "GachanD3D12Shader_ps_texsn.h"
 #include "GachanD3D12Shader_vs_defaultNL.h"
 #include "GachanD3D12Shader_ps_defaultNL.h"
 
 #include "GachanD3D12Shader_vs_shadow_vn.h"
 #include "GachanD3D12Shader_vs_shadow_vnuv.h"
+#include "GachanD3D12Shader_vs_shadow_vnbtuv.h"
 
 
 #define ptsz(name)   name, sizeof(name)
@@ -39,6 +44,8 @@
 	Gachan3DShader::Table Gachan3DShader::ShaderList[Gachan3DShader::SHADER_NUM] = {
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_default),      (const unsigned int*)ptsz(ps_default)	},
 		{ Gachan3DVertex::TYPE_VNUV,	(const unsigned int*)ptsz(vs_texa),         (const unsigned int*)ptsz(ps_texa)	},
+		{ Gachan3DVertex::TYPE_VNBTUV,	(const unsigned int*)ptsz(vs_texn),         (const unsigned int*)ptsz(ps_texn)	},
+		{ Gachan3DVertex::TYPE_VNBTUV,	(const unsigned int*)ptsz(vs_texsn),        (const unsigned int*)ptsz(ps_texsn)	},
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_defaultNL),    (const unsigned int*)ptsz(ps_defaultNL)	},
 	};
 
@@ -46,6 +53,7 @@
 		//for shadow map creation
 		{ Gachan3DVertex::TYPE_VN,		(const unsigned int*)ptsz(vs_shadow_vn),	(const unsigned int*)ptszNULL	},
 		{ Gachan3DVertex::TYPE_VNUV,	(const unsigned int*)ptsz(vs_shadow_vnuv),	(const unsigned int*)ptszNULL	},
+		{ Gachan3DVertex::TYPE_VNBTUV,	(const unsigned int*)ptsz(vs_shadow_vnbtuv),(const unsigned int*)ptszNULL	},
 	};
 	
 
@@ -595,6 +603,7 @@
 		colvec.a = 1.0f;
 
 		UniformBufferVertexPtr->LightAmb = colvec;
+		UniformBufferPixelPtr->LightAmbPS = colvec;
 	}
     
     
@@ -614,6 +623,9 @@
 
 		UniformBufferVertexPtr->LightDir[0] = dirvec;
 		UniformBufferVertexPtr->LightDCol[0] = colvec;
+
+		UniformBufferPixelPtr->LightDirPS[0] = dirvec;
+		UniformBufferPixelPtr->LightDColPS[0] = colvec;
 	}
 
 	Vec Gachan3DShader::GetLightDirection()
@@ -636,6 +648,7 @@
 		eyevec4.w = 1.0f;
 
 		UniformBufferVertexPtr->Eye = eyevec4;
+		UniformBufferPixelPtr->EyePS = eyevec4;
 	}
 
     //===============================================
@@ -677,11 +690,13 @@
 	void Gachan3DShader::SetDiffuse(const Vec4& col)
 	{
 		UniformBufferVertexPtr->Diffuse = col;
+		UniformBufferPixelPtr->DiffusePS = col;
 	}
 
 	void Gachan3DShader::SetSpecular(const Vec4& col)
 	{
 		UniformBufferVertexPtr->Specular = col;
+		UniformBufferPixelPtr->SpecularPS = col;
 	}
 
 	void Gachan3DShader::SetShader(int shader)

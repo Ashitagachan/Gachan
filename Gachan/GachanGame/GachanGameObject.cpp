@@ -42,6 +42,10 @@ namespace system00 {
 namespace car {
 #include "GachanGameObject/GachanGameObjectCar.tst"
 }
+namespace ancientcube {
+#include "GachanGameObject/GachanGameObjectAncientCubeFiles/GachanGameObjectAncientCube.tst"
+}
+
 
 
 static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
@@ -78,6 +82,8 @@ static Gachan3DObject* objecttable[GachanGameObject::OBJECT::NUM] = {
     car::object_KEIA__,
 
     block00 ::object_BrickA__,
+    
+    ancientcube::object_AncientCube__,
     
     arm::object_ArmUpper_R___,
     arm::object_ArmLower_R___,
@@ -122,6 +128,8 @@ static GachanMaterial* materialtable[GachanGameObject::OBJECT::NUM] = {
     car::material_carbodycolor,
 
     block00::material_mBrick,//A
+
+    ancientcube::material_texsn_ancientcube,
 
     arm::material_mArm,
     arm::material_mArm,
@@ -195,6 +203,11 @@ void GachanGameObject::Clear()
 void GachanGameObject::SetObject(OBJECT obj)
 {
     object = obj;
+}
+
+Material* GachanGameObject::GetMaterial(OBJECT obj)
+{
+    return materialtable[obj];
 }
 
 void GachanGameObject::SetObject(Gachan3DObject* obj)

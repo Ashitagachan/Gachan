@@ -18,6 +18,7 @@ public:
         //ここを増やしたら、Stride[TYPES_NUM]にも追加せよ
         TYPE_VN,
         TYPE_VNUV,
+        TYPE_VNBTUV,
         TYPES_NUM,
     };
     static unsigned int Stride[TYPES_NUM];
