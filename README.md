@@ -1,3 +1,7 @@
+
+
+![ancientcube](https://user-images.githubusercontent.com/48670081/82114276-b5d8e300-9796-11ea-94c9-a36ee5197353.png)
+
 # がちゃん（Gachan）
 
 
